@@ -1,0 +1,128 @@
+JFDML JFormDesigner: "5.1.2.0.134" Java: "1.7.0_55" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "0:1.0"
+			"$rowSpecs": "0:1.0"
+			"$hGap": 10
+			"$vGap": 10
+			"$alignLeft": true
+			"$alignTop": true
+		} ) {
+			name: "this"
+			"$sizePolicy": 0
+			"minimumSize": new java.awt.Dimension( 1200, 800 )
+			"background": new java.awt.Color( 51, 51, 51, 255 )
+			"title": "Scout Informer"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "0, 0, 0, 0:1.0"
+				"$rowSpecs": "0, 0:1.0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 51, 51, 51, 255 )
+				add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+					name: "menuBar1"
+					"background": new java.awt.Color( 195, 169, 117, 255 )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnNewScout"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/scout/images/new_scout.png" )
+						"horizontalTextPosition": 0
+						"verticalTextPosition": 3
+						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"opaque": false
+						"background": new java.awt.Color( 60, 63, 65, 0 )
+						"toolTipText": "New"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridwidth": 4
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					"preferredSize": new java.awt.Dimension( 200, 600 )
+					"minimumSize": new java.awt.Dimension( 200, 600 )
+					add( new FormComponent( "javax.swing.JList" ) {
+						name: "listScouts"
+						"minimumSize": new java.awt.Dimension( 20, 300 )
+						"maximumSize": new java.awt.Dimension( 20, 300 )
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+					"insets": new java.awt.Insets( 22, 10, 10, 10 )
+					"gridwidth": 3
+				} )
+				add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+					name: "tbpDetails"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+						"$columnSpecs": "0, 0, 0, 0, 0, 0:1.0"
+						"$rowSpecs": "0, 0, 0, 0, 0, 0:1.0"
+						"$hGap": 5
+						"$vGap": 5
+						"$alignLeft": true
+						"$alignTop": true
+					} ) {
+						name: "pnlGeneral"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "lblCurrenctBadge"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/scout/images/badge_new_scout128.png" )
+							"border": new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"insets": new java.awt.Insets( 10, 10, 10, 10 )
+							"gridheight": 3
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "lblName"
+							"text": "Name:"
+							"font": new java.awt.Font( "Tahoma", 0, 16 )
+							"horizontalAlignment": 4
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"gridx": 1
+							"insets": new java.awt.Insets( 10, 0, 0, 0 )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "lblNameValue"
+							"text": "Thomas Gates"
+							"font": &Font0 new java.awt.Font( "Tahoma", 0, 16 )
+							"horizontalAlignment": 2
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"gridx": 2
+							"insets": new java.awt.Insets( 10, 0, 0, 0 )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "lblAge"
+							"text": "Age:"
+							"font": #Font0
+							"horizontalAlignment": 4
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"gridx": 1
+							"gridy": 1
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "lblAgeValue"
+							"text": "12"
+							"font": #Font0
+							"horizontalAlignment": 2
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"gridx": 2
+							"gridy": 1
+						} )
+					}, new FormLayoutConstraints( null ) {
+						"title": "General"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+					"gridy": 1
+					"insets": new java.awt.Insets( 0, 0, 10, 10 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1105, 800 )
+		} )
+	}
+}
