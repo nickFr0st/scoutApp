@@ -19,7 +19,7 @@ public class PnlMain extends JFrame {
 
     private void init() {
         // load scout list info from the database
-        
+
     }
 
     private void initComponents() {
