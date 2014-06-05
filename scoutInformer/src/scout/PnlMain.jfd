@@ -31,7 +31,7 @@ new FormModel {
 					"background": new java.awt.Color( 195, 169, 117, 255 )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "btnNewScout"
-						"icon": new com.jformdesigner.model.SwingIcon( 0, "/scout/images/new_scout.png" )
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/../../../images/new_scout.png" )
 						"horizontalTextPosition": 0
 						"verticalTextPosition": 3
 						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -41,6 +41,8 @@ new FormModel {
 					} )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridwidth": 4
+					"vAlign": 5
+					"hAlign": 5
 				} )
 				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 					name: "scrollPane1"
@@ -69,7 +71,7 @@ new FormModel {
 						name: "pnlGeneral"
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "lblCurrenctBadge"
-							"icon": new com.jformdesigner.model.SwingIcon( 0, "/scout/images/badge_new_scout128.png" )
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/../../../images/badge_new_scout.png" )
 							"border": new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 							"insets": new java.awt.Insets( 10, 10, 10, 10 )

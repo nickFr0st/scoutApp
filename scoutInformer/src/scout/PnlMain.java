@@ -65,7 +65,7 @@ public class PnlMain extends JFrame {
                 menuBar1.setName("menuBar1");
 
                 //---- btnNewScout ----
-                btnNewScout.setIcon(new ImageIcon(getClass().getResource("/scout/images/new_scout.png")));
+                btnNewScout.setIcon(new ImageIcon(getClass().getResource("/../../../images/new_scout.png")));
                 btnNewScout.setHorizontalTextPosition(SwingConstants.CENTER);
                 btnNewScout.setVerticalTextPosition(SwingConstants.BOTTOM);
                 btnNewScout.setBorder(null);
@@ -109,7 +109,7 @@ public class PnlMain extends JFrame {
                     ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
                     //---- lblCurrenctBadge ----
-                    lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource("/scout/images/badge_new_scout128.png")));
+                    lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource("/../../../images/badge_new_scout.png")));
                     lblCurrenctBadge.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
                     lblCurrenctBadge.setName("lblCurrenctBadge");
                     pnlGeneral.add(lblCurrenctBadge, new GridBagConstraints(0, 0, 1, 3, 0.0, 0.0,
