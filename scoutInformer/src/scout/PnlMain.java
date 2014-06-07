@@ -8,7 +8,11 @@ import constants.RankConst;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
@@ -28,6 +32,16 @@ public class PnlMain extends JFrame {
 
     private void init() {
         listScouts.setListData(getScoutList().toArray());
+        enableControls(false);
+    }
+
+    private void enableControls(boolean enable) {
+        txtAge.setEnabled(enable);
+        txtName.setEnabled(enable);
+        cboRank.setEnabled(enable);
+        if (!enable) {
+            lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(RankConst.NEW_SCOUT.getImgPath())));
+        }
     }
 
     private List<String> getScoutList() {
@@ -53,6 +67,7 @@ public class PnlMain extends JFrame {
 
     private void listScoutsMouseClicked(MouseEvent e) {
         if (e.getClickCount() == 2 && listScouts.getSelectedValue() != null) {
+            enableControls(true);
             String scoutName = listScouts.getSelectedValue().toString();
             String[] split = scoutName.split(", ");
 
@@ -61,8 +76,8 @@ public class PnlMain extends JFrame {
 
             txtName.setText(scout.getName());
             txtAge.setText(Integer.toString(scout.getAge()));
-            lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
-            cboRank.setSelectedItem(RankConst.getConstNameById(rank.getRankId()));
+            lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
+            cboRank.setSelectedItem(RankConst.getConstById(rank.getRankId()).getName());
         }
     }
     private Rank getRankInfo(int scoutId) {
@@ -115,6 +130,11 @@ public class PnlMain extends JFrame {
         return scout;
     }
 
+    private void cboRankItemStateChanged() {
+        String rankName = cboRank.getSelectedItem().toString();
+        lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(RankConst.getConstByName(rankName).getImgPath())));
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -124,13 +144,15 @@ public class PnlMain extends JFrame {
         listScouts = new JList();
         tbpDetails = new JTabbedPane();
         pnlGeneral = new JPanel();
-        lblCurrenctBadge = new JLabel();
+        lblCurrentBadge = new JLabel();
         lblName = new JLabel();
         txtName = new JTextField();
         lblAge = new JLabel();
         txtAge = new JTextField();
         lblRank = new JLabel();
         cboRank = new JComboBox(RankConst.getConstList());
+        panel2 = new JPanel();
+        pnlRequirements = new JPanel();
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
@@ -198,14 +220,17 @@ public class PnlMain extends JFrame {
                 {
                     pnlGeneral.setLayout(new GridBagLayout());
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWidths = new int[] {0, 0, 59, 256, 0, 0, 0};
-                    ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
+                    ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
-                    ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+                    ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
-                    //---- lblCurrenctBadge ----
-                    lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
-                    lblCurrenctBadge.setBorder(new BevelBorder(BevelBorder.LOWERED));
-                    pnlGeneral.add(lblCurrenctBadge, new GridBagConstraints(0, 0, 1, 4, 0.0, 0.0,
+                    //---- lblCurrentBadge ----
+                    lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
+                    lblCurrentBadge.setBorder(new BevelBorder(BevelBorder.LOWERED));
+                    lblCurrentBadge.setMinimumSize(new Dimension(132, 143));
+                    lblCurrentBadge.setMaximumSize(new Dimension(132, 143));
+                    lblCurrentBadge.setPreferredSize(new Dimension(132, 143));
+                    pnlGeneral.add(lblCurrentBadge, new GridBagConstraints(0, 0, 1, 4, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 10, 15, 15), 0, 0));
 
@@ -246,9 +271,53 @@ public class PnlMain extends JFrame {
                     pnlGeneral.add(lblRank, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
+
+                    //---- cboRank ----
+                    cboRank.addItemListener(new ItemListener() {
+                        @Override
+                        public void itemStateChanged(ItemEvent e) {
+                            cboRankItemStateChanged();
+                        }
+                    });
                     pnlGeneral.add(cboRank, new GridBagConstraints(2, 2, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
+
+                    //======== panel2 ========
+                    {
+                        panel2.setBorder(new TitledBorder(new EtchedBorder(), "Requirements for Next Rank", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                            new Font("Tahoma", Font.PLAIN, 16), Color.blue));
+                        panel2.setLayout(new GridBagLayout());
+                        ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
+                        ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
+                        ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+                        ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+
+                        //======== pnlRequirements ========
+                        {
+                            pnlRequirements.setLayout(null);
+
+                            { // compute preferred size
+                                Dimension preferredSize = new Dimension();
+                                for(int i = 0; i < pnlRequirements.getComponentCount(); i++) {
+                                    Rectangle bounds = pnlRequirements.getComponent(i).getBounds();
+                                    preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                                    preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                                }
+                                Insets insets = pnlRequirements.getInsets();
+                                preferredSize.width += insets.right;
+                                preferredSize.height += insets.bottom;
+                                pnlRequirements.setMinimumSize(preferredSize);
+                                pnlRequirements.setPreferredSize(preferredSize);
+                            }
+                        }
+                        panel2.add(pnlRequirements, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                            new Insets(10, 10, 10, 10), 0, 0));
+                    }
+                    pnlGeneral.add(panel2, new GridBagConstraints(0, 4, 6, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 0, 0), 0, 0));
                 }
                 tbpDetails.addTab("General", pnlGeneral);
             }
@@ -272,12 +341,14 @@ public class PnlMain extends JFrame {
     private JList listScouts;
     private JTabbedPane tbpDetails;
     private JPanel pnlGeneral;
-    private JLabel lblCurrenctBadge;
+    private JLabel lblCurrentBadge;
     private JLabel lblName;
     private JTextField txtName;
     private JLabel lblAge;
     private JTextField txtAge;
     private JLabel lblRank;
     private JComboBox cboRank;
+    private JPanel panel2;
+    private JPanel pnlRequirements;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
