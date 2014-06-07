@@ -2,37 +2,39 @@ package scout;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
 
 /**
- * Created by nmalloch on 6/5/2014.
+ * Created by nmalloch on 6/5/2014
  */
 public class DBConnector {
-    public void connectToDB() {
+    public static Connection connection;
+
+    public static void connectToDB() {
         try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            String url = "jdbc:odbc:test2";
-            Connection connection = DriverManager.getConnection(url);
+            String url = "jdbc:mysql://localhost:3306/";
+            String dbName = "si";
+            String driver = "com.mysql.jdbc.Driver";
+            String userName = "admin";
+            String password = "admin";
 
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery("Select * FROM scout");
+            Class.forName(driver).newInstance();
 
-            Scout scout = new Scout();
-
-            while(rs.next()) {
-                scout.setFirstName(rs.getString(Scout.FIRST_NAME));
-                scout.setLastName(rs.getString(Scout.LAST_NAME));
-                scout.setSuffix(rs.getString(Scout.SUFFIX));
-                scout.setAge(rs.getInt(Scout.AGE));
-            }
-
-            connection.close();
+            connection = DriverManager.getConnection(url + dbName, userName, password);
 
             System.out.println("Success");
         } catch (Exception e) {
             System.err.println("not good");
             System.err.println(e.getMessage());
+        }
+    }
+
+    public static void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("connection close failed.");
+            System.out.println(e.getMessage());
         }
     }
 }
