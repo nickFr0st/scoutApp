@@ -4,8 +4,10 @@
 
 package scout;
 
+import constants.RankConst;
+
 import javax.swing.*;
-import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author unknown
+ * @author nmalloch
  */
 public class PnlMain extends JFrame {
     public PnlMain() {
@@ -57,25 +59,26 @@ public class PnlMain extends JFrame {
             Scout scout = getScoutInfo(split);
             Rank rank = getRankInfo(scout.getId());
 
-            lblNameValue.setText(scout.getName());
-            lblAgeValue.setText(Integer.toString(scout.getAge()));
+            txtName.setText(scout.getName());
+            txtAge.setText(Integer.toString(scout.getAge()));
             lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
+            cboRank.setSelectedItem(RankConst.getConstNameById(rank.getRankId()));
         }
     }
-
     private Rank getRankInfo(int scoutId) {
         Rank rank = new Rank();
 
         try {
             DBConnector.connectToDB();
             Statement statement = DBConnector.connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM scout WHERE scoutId = '" + scoutId + "'");
+            ResultSet rs = statement.executeQuery("SELECT * FROM rank WHERE scoutId = " + scoutId);
 
             while (rs.next()) {
                 rank.setId(rs.getInt(Rank.ID));
                 rank.setName(rs.getString(Rank.NAME));
                 rank.setImgPath(rs.getString(Rank.IMG_PATH));
                 rank.setScoutId(rs.getInt(Rank.SCOUT_ID));
+                rank.setRankId(rs.getInt(Rank.RANK_ID));
             }
 
             DBConnector.closeConnection();
@@ -123,9 +126,11 @@ public class PnlMain extends JFrame {
         pnlGeneral = new JPanel();
         lblCurrenctBadge = new JLabel();
         lblName = new JLabel();
-        lblNameValue = new JLabel();
+        txtName = new JTextField();
         lblAge = new JLabel();
-        lblAgeValue = new JLabel();
+        txtAge = new JTextField();
+        lblRank = new JLabel();
+        cboRank = new JComboBox(RankConst.getConstList());
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
@@ -192,15 +197,15 @@ public class PnlMain extends JFrame {
                 //======== pnlGeneral ========
                 {
                     pnlGeneral.setLayout(new GridBagLayout());
-                    ((GridBagLayout)pnlGeneral.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0};
+                    ((GridBagLayout)pnlGeneral.getLayout()).columnWidths = new int[] {0, 0, 59, 256, 0, 0, 0};
                     ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
                     ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
                     //---- lblCurrenctBadge ----
                     lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
-                    lblCurrenctBadge.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
-                    pnlGeneral.add(lblCurrenctBadge, new GridBagConstraints(0, 0, 1, 3, 0.0, 0.0,
+                    lblCurrenctBadge.setBorder(new BevelBorder(BevelBorder.LOWERED));
+                    pnlGeneral.add(lblCurrenctBadge, new GridBagConstraints(0, 0, 1, 4, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 10, 15, 15), 0, 0));
 
@@ -212,11 +217,10 @@ public class PnlMain extends JFrame {
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
 
-                    //---- lblNameValue ----
-                    lblNameValue.setText("Thomas Gates");
-                    lblNameValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
-                    lblNameValue.setHorizontalAlignment(SwingConstants.LEFT);
-                    pnlGeneral.add(lblNameValue, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
+                    //---- txtName ----
+                    txtName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                    txtName.setHorizontalAlignment(SwingConstants.LEFT);
+                    pnlGeneral.add(txtName, new GridBagConstraints(2, 0, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
 
@@ -228,11 +232,21 @@ public class PnlMain extends JFrame {
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
 
-                    //---- lblAgeValue ----
-                    lblAgeValue.setText("12");
-                    lblAgeValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
-                    lblAgeValue.setHorizontalAlignment(SwingConstants.LEFT);
-                    pnlGeneral.add(lblAgeValue, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+                    //---- txtAge ----
+                    txtAge.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                    txtAge.setHorizontalAlignment(SwingConstants.LEFT);
+                    pnlGeneral.add(txtAge, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 5, 5), 0, 0));
+
+                    //---- lblRank ----
+                    lblRank.setText("Rank:");
+                    lblRank.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                    lblRank.setHorizontalAlignment(SwingConstants.RIGHT);
+                    pnlGeneral.add(lblRank, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 5, 5), 0, 0));
+                    pnlGeneral.add(cboRank, new GridBagConstraints(2, 2, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
                 }
@@ -260,8 +274,10 @@ public class PnlMain extends JFrame {
     private JPanel pnlGeneral;
     private JLabel lblCurrenctBadge;
     private JLabel lblName;
-    private JLabel lblNameValue;
+    private JTextField txtName;
     private JLabel lblAge;
-    private JLabel lblAgeValue;
+    private JTextField txtAge;
+    private JLabel lblRank;
+    private JComboBox cboRank;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

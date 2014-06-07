@@ -8,11 +8,13 @@ public class Rank {
     public static final String NAME = "name";
     public static final String IMG_PATH = "imgPath";
     public static final String SCOUT_ID = "scoutId";
+    public static final String RANK_ID = "rankId"; // this refers to the RankConst
 
     private int id;
     private String name;
     private String imgPath;
     private int scoutId;
+    private int rankId;
 
     public int getId() {
         return id;
@@ -44,5 +46,13 @@ public class Rank {
 
     public void setScoutId(int scoutId) {
         this.scoutId = scoutId;
+    }
+
+    public int getRankId() {
+        return rankId;
+    }
+
+    public void setRankId(int rankId) {
+        this.rankId = rankId;
     }
 }
