@@ -7,6 +7,13 @@ package scout;
 import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author unknown
@@ -14,11 +21,95 @@ import java.awt.*;
 public class PnlMain extends JFrame {
     public PnlMain() {
         initComponents();
+        init();
     }
 
     private void init() {
-        // load scout list info from the database
+        listScouts.setListData(getScoutList().toArray());
+    }
 
+    private List<String> getScoutList() {
+        List<String> scoutList = new ArrayList<String>();
+
+        try {
+            DBConnector.connectToDB();
+            Statement statement = DBConnector.connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT firstName, lastName FROM scout");
+
+            while (rs.next()) {
+                scoutList.add(rs.getString(Scout.LAST_NAME) + ", " + rs.getString(Scout.FIRST_NAME));
+            }
+
+            DBConnector.closeConnection();
+        } catch (SQLException sqle) {
+            System.err.print("Invalid Sql Exception: ");
+            System.err.println(sqle.getMessage());
+        }
+
+        return scoutList;
+    }
+
+    private void listScoutsMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 2 && listScouts.getSelectedValue() != null) {
+            String scoutName = listScouts.getSelectedValue().toString();
+            String[] split = scoutName.split(", ");
+
+            Scout scout = getScoutInfo(split);
+            Rank rank = getRankInfo(scout.getId());
+
+            lblNameValue.setText(scout.getName());
+            lblAgeValue.setText(Integer.toString(scout.getAge()));
+            lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
+        }
+    }
+
+    private Rank getRankInfo(int scoutId) {
+        Rank rank = new Rank();
+
+        try {
+            DBConnector.connectToDB();
+            Statement statement = DBConnector.connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM scout WHERE scoutId = '" + scoutId + "'");
+
+            while (rs.next()) {
+                rank.setId(rs.getInt(Rank.ID));
+                rank.setName(rs.getString(Rank.NAME));
+                rank.setImgPath(rs.getString(Rank.IMG_PATH));
+                rank.setScoutId(rs.getInt(Rank.SCOUT_ID));
+            }
+
+            DBConnector.closeConnection();
+        } catch (SQLException sqle) {
+            System.err.print("Invalid Sql Exception: ");
+            System.err.println(sqle.getMessage());
+        }
+
+        return rank;
+    }
+
+    private Scout getScoutInfo(String[] split) {
+        Scout scout = new Scout();
+
+        try {
+            DBConnector.connectToDB();
+            Statement statement = DBConnector.connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT id, age, suffix FROM scout WHERE firstName = '" + split[1] + "' AND lastName = '" + split[0] + "'");
+
+            while (rs.next()) {
+                scout.setId(rs.getInt(Scout.ID));
+                scout.setAge(rs.getInt(Scout.AGE));
+                scout.setFirstName(split[1]);
+                scout.setLastName(split[0]);
+                scout.setSuffix(rs.getString(Scout.SUFFIX));
+            }
+
+            DBConnector.closeConnection();
+        } catch (SQLException sqle) {
+            System.err.print("Invalid Sql Exception: ");
+            System.err.println(sqle.getMessage());
+        }
+
+        return scout;
     }
 
     private void initComponents() {
@@ -61,7 +152,7 @@ public class PnlMain extends JFrame {
                 menuBar1.setBackground(new Color(195, 169, 117));
 
                 //---- btnNewScout ----
-                btnNewScout.setIcon(new ImageIcon(getClass().getResource("/../../../images/new_scout.png")));
+                btnNewScout.setIcon(new ImageIcon(getClass().getResource("/images/new_scout.png")));
                 btnNewScout.setHorizontalTextPosition(SwingConstants.CENTER);
                 btnNewScout.setVerticalTextPosition(SwingConstants.BOTTOM);
                 btnNewScout.setBorder(null);
@@ -82,6 +173,13 @@ public class PnlMain extends JFrame {
                 //---- listScouts ----
                 listScouts.setMinimumSize(new Dimension(20, 300));
                 listScouts.setMaximumSize(new Dimension(20, 300));
+                listScouts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                listScouts.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        listScoutsMouseClicked(e);
+                    }
+                });
                 scrollPane1.setViewportView(listScouts);
             }
             panel1.add(scrollPane1, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
@@ -100,7 +198,7 @@ public class PnlMain extends JFrame {
                     ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
                     //---- lblCurrenctBadge ----
-                    lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource("/../../../images/badge_new_scout.png")));
+                    lblCurrenctBadge.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
                     lblCurrenctBadge.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
                     pnlGeneral.add(lblCurrenctBadge, new GridBagConstraints(0, 0, 1, 3, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,

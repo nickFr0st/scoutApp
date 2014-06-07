@@ -22,9 +22,11 @@ public class DBConnector {
 
             connection = DriverManager.getConnection(url + dbName, userName, password);
 
-            System.out.println("Success");
+        } catch (SQLException sqle) {
+            // todo: change this to pop mesages
+            System.err.print("Invalid Sql Exception: ");
+            System.err.println(sqle.getMessage());
         } catch (Exception e) {
-            System.err.println("not good");
             System.err.println(e.getMessage());
         }
     }
