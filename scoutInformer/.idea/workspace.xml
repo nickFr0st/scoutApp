@@ -4,12 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="216" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="made it look good">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scout/Requirement.java" />
-      <change type="DELETED" beforePath="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\src\constants\TenderfootReqConst.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/PnlMain.java" afterPath="$PROJECT_DIR$/src/scout/PnlMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/Rank.java" afterPath="$PROJECT_DIR$/src/scout/Rank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/Scout.java" afterPath="$PROJECT_DIR$/src/scout/Scout.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="cleaned up a number of things">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -153,7 +148,7 @@
       <file leaf-file-name="PnlMain.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="0" selection-start="4656" selection-end="4656" vertical-scroll-proportion="0.2957447" vertical-offset="1932" max-vertical-offset="7939">
+            <state line="126" column="50" selection-start="4391" selection-end="4391" vertical-scroll-proportion="0.13297872" vertical-offset="1932" max-vertical-offset="7939">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
@@ -708,7 +703,7 @@
       <workItem from="1402027600968" duration="413000" />
       <workItem from="1402028586602" duration="4880000" />
       <workItem from="1402169480064" duration="24435000" />
-      <workItem from="1402196277071" duration="5634000" />
+      <workItem from="1402196277071" duration="5718000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -750,11 +745,15 @@
       <created>1402193959465</created>
       <updated>1402193959465</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="cleaned up a number of things">
+      <created>1402202295033</created>
+      <updated>1402202295033</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62096000" />
+    <option name="totallyTimeSpent" value="62180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -813,7 +812,8 @@
     <MESSAGE value="more stuff" />
     <MESSAGE value="added requirements" />
     <MESSAGE value="made it look good" />
-    <option name="LAST_COMMIT_MESSAGE" value="made it look good" />
+    <MESSAGE value="cleaned up a number of things" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up a number of things" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1426,7 +1426,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="4656" selection-end="4656" vertical-scroll-proportion="0.2957447" vertical-offset="1932" max-vertical-offset="7939">
+        <state line="126" column="50" selection-start="4391" selection-end="4391" vertical-scroll-proportion="0.13297872" vertical-offset="1932" max-vertical-offset="7939">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
