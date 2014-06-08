@@ -97,8 +97,16 @@ public class PnlMain extends JFrame {
     }
 
     private void populateTenderfootRequirements(List<String> completedRequirements) {
-        for (TenderfootReqConst regConst : TenderfootReqConst.values()) {
-            // todo: add componants to the scroll pane
+        int grid = 0;
+        for (TenderfootReqConst reqConst : TenderfootReqConst.values()) {
+            PnlRequirement pnlRequirement = new PnlRequirement("Requirement " + reqConst.getName() + ":", reqConst.getDescription());
+            if (completedRequirements.contains(reqConst.getName())) {
+                pnlRequirement.getChkReq().setSelected(true);
+            }
+
+            panel2.add(pnlRequirement, new GridBagConstraints(0, grid++, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(5, 0, 0, 0), 0, 0));
         }
     }
 
@@ -179,6 +187,7 @@ public class PnlMain extends JFrame {
         lblNextRankValue = new JLabel();
         pnlRequirements = new JPanel();
         scrollPane2 = new JScrollPane();
+        panel2 = new JPanel();
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
@@ -339,6 +348,20 @@ public class PnlMain extends JFrame {
                             ((GridBagLayout)pnlRequirements.getLayout()).rowHeights = new int[] {0, 0};
                             ((GridBagLayout)pnlRequirements.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
                             ((GridBagLayout)pnlRequirements.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+
+                            //======== scrollPane2 ========
+                            {
+
+                                //======== panel2 ========
+                                {
+                                    panel2.setLayout(new GridBagLayout());
+                                    ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
+                                    ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
+                                    ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+                                    ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+                                }
+                                scrollPane2.setViewportView(panel2);
+                            }
                             pnlRequirements.add(scrollPane2, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                                 new Insets(0, 0, 0, 0), 0, 0));
@@ -385,5 +408,6 @@ public class PnlMain extends JFrame {
     private JLabel lblNextRankValue;
     private JPanel pnlRequirements;
     private JScrollPane scrollPane2;
+    private JPanel panel2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
