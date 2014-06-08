@@ -5,7 +5,6 @@
 package scout;
 
 import constants.RankConst;
-import constants.TenderfootReqConst;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -42,7 +41,7 @@ public class PnlMain extends JFrame {
         txtName.setEnabled(enable);
         cboRank.setEnabled(enable);
         if (!enable) {
-            lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(RankConst.NEW_SCOUT.getImgPath())));
+            lblCurrentBadge.setIcon(null);
         }
     }
 
@@ -52,10 +51,10 @@ public class PnlMain extends JFrame {
         try {
             DBConnector.connectToDB();
             Statement statement = DBConnector.connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT firstName, lastName FROM scout");
+            ResultSet rs = statement.executeQuery("SELECT name FROM scout");
 
             while (rs.next()) {
-                scoutList.add(rs.getString(Scout.LAST_NAME) + ", " + rs.getString(Scout.FIRST_NAME));
+                scoutList.add(rs.getString(Scout.NAME));
             }
 
             DBConnector.closeConnection();
@@ -70,22 +69,22 @@ public class PnlMain extends JFrame {
     private void listScoutsMouseClicked(MouseEvent e) {
         if (e.getClickCount() == 2 && listScouts.getSelectedValue() != null) {
             enableControls(true);
-            String scoutName = listScouts.getSelectedValue().toString();
-            String[] split = scoutName.split(", ");
 
-            Scout scout = getScoutInfo(split);
-            Rank rank = getRankInfo(scout.getId());
+            String scoutName = listScouts.getSelectedValue().toString();
+
+            Scout scout = getScoutInfo(scoutName);
+            Rank rank = getRankInfo(scout.getCurrentRankId());
 
             // main general area
             txtName.setText(scout.getName());
             txtAge.setText(Integer.toString(scout.getAge()));
             lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
-            cboRank.setSelectedItem(RankConst.getConstById(rank.getRankId()).getName());
+            cboRank.setSelectedItem(rank.getName());
 
             // populate next rank requirements
             panel2.removeAll();
 
-            int rankId = rank.getRankId();
+            int rankId = scout.getCurrentRankId();
             if (rankId >= RankConst.EAGLE.getId()) {
                 lblNextRankValue.setText("  You have reached Eagle");
 
@@ -97,23 +96,56 @@ public class PnlMain extends JFrame {
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
             } else {
-                lblNextRankValue.setText("  " + RankConst.getConstById(rankId + 1).getName());
+                Rank nextRank = getRankInfo(rank.getId() + 1);
 
-                if (rank.getCompletedRequirements() != null) {
-                    List<String> reqList = new ArrayList<String>();
-                    reqList.addAll(Arrays.asList(rank.getCompletedRequirements().split(",")));
+                lblNextRankValue.setText("  " + nextRank.getName());
+
+                if (scout.getCompletedRequirements() != null) {
 
                     if (rankId == RankConst.NEW_SCOUT.getId()) {
-                        populateTenderfootRequirements(reqList);
+                        populateTenderfootRequirements(scout.getCompletedRequirements(), nextRank.getId());
                     }
                 }
             }
         }
     }
 
-    private void populateTenderfootRequirements(List<String> completedRequirements) {
+    private List<Requirement> getRequirementList(int parentId) {
+        List<Requirement> requirementList = new ArrayList<Requirement>();
+
+        try {
+            DBConnector.connectToDB();
+            Statement statement = DBConnector.connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId);
+
+            while (rs.next()) {
+                Requirement requirement = new Requirement();
+                requirement.setId(rs.getInt(Requirement.ID));
+                requirement.setName(rs.getString(Requirement.NAME));
+                requirement.setDescription(rs.getString(Requirement.DESCRIPTION));
+                requirement.setType(rs.getInt(Requirement.TYPE));
+                requirement.setParentId(parentId);
+                requirementList.add(requirement);
+            }
+
+            DBConnector.closeConnection();
+        } catch (SQLException sqle) {
+            System.err.print("Invalid Sql Exception: ");
+            System.err.println(sqle.getMessage());
+        }
+
+        return requirementList;
+    }
+
+    private void populateTenderfootRequirements(List<String> completedRequirements, int rankId) {
         int grid = 0;
-        for (TenderfootReqConst reqConst : TenderfootReqConst.values()) {
+
+        List<Requirement> requirementList = getRequirementList(rankId);
+        if (requirementList == null) {
+            return;
+        }
+
+        for (Requirement reqConst : requirementList) {
             PnlRequirement pnlRequirement = new PnlRequirement("Requirement " + reqConst.getName() + ":", reqConst.getDescription());
             if (completedRequirements.contains(reqConst.getName())) {
                 pnlRequirement.getChkReq().setSelected(true);
@@ -125,21 +157,18 @@ public class PnlMain extends JFrame {
         }
     }
 
-    private Rank getRankInfo(int scoutId) {
+    private Rank getRankInfo(int rankId) {
         Rank rank = new Rank();
 
         try {
             DBConnector.connectToDB();
             Statement statement = DBConnector.connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM rank WHERE scoutId = " + scoutId);
+            ResultSet rs = statement.executeQuery("SELECT * FROM rank WHERE id = " + rankId);
 
             while (rs.next()) {
                 rank.setId(rs.getInt(Rank.ID));
                 rank.setName(rs.getString(Rank.NAME));
                 rank.setImgPath(rs.getString(Rank.IMG_PATH));
-                rank.setScoutId(rs.getInt(Rank.SCOUT_ID));
-                rank.setRankId(rs.getInt(Rank.RANK_ID));
-                rank.setCompletedRequirements(rs.getString(Rank.COMPLETED_RANK_REQUIREMENTS));
             }
 
             DBConnector.closeConnection();
@@ -151,20 +180,26 @@ public class PnlMain extends JFrame {
         return rank;
     }
 
-    private Scout getScoutInfo(String[] split) {
+    private Scout getScoutInfo(String scoutName) {
         Scout scout = new Scout();
 
         try {
             DBConnector.connectToDB();
             Statement statement = DBConnector.connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT id, age, suffix FROM scout WHERE firstName = '" + split[1] + "' AND lastName = '" + split[0] + "'");
+            ResultSet rs = statement.executeQuery("SELECT id, age, completedRequirements, currentRankId FROM scout WHERE name = '" + scoutName + "'");
 
             while (rs.next()) {
                 scout.setId(rs.getInt(Scout.ID));
                 scout.setAge(rs.getInt(Scout.AGE));
-                scout.setFirstName(split[1]);
-                scout.setLastName(split[0]);
-                scout.setSuffix(rs.getString(Scout.SUFFIX));
+                scout.setName(scoutName);
+                scout.setCurrentRankId(rs.getInt(Scout.CURRENT_RANK_ID));
+
+                String req = rs.getString(Scout.COMPLETED_REQUIREMENTS);
+                if (req != null) {
+                    List<String> reqList = new ArrayList<String>();
+                    reqList.addAll(Arrays.asList(req.split(",")));
+                    scout.setCompletedRequirements(reqList);
+                }
             }
 
             DBConnector.closeConnection();
