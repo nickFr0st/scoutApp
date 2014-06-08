@@ -76,6 +76,10 @@ public class PnlMain extends JFrame {
             Scout scout = getScoutInfo(scoutName);
             Rank rank = getRankInfo(scout.getCurrentRankId());
 
+            if (rank.getImgPath() == null) {
+                rank = new EmptyRank();
+            }
+
             // main general area
             txtName.setText(scout.getName());
             txtAge.setText(Integer.toString(scout.getAge()));
@@ -103,10 +107,7 @@ public class PnlMain extends JFrame {
                 lblNextRankValue.setText("  " + nextRank.getName());
 
                 if (scout.getCompletedRequirements() != null) {
-
-                    if (rankId == RankConst.NEW_SCOUT.getId()) {
-                        populateTenderfootRequirements(scout.getCompletedRequirements(), nextRank.getId());
-                    }
+                    populateRequirements(scout.getCompletedRequirements(), nextRank.getId());
                 }
             }
         }
@@ -139,7 +140,7 @@ public class PnlMain extends JFrame {
         return requirementList;
     }
 
-    private void populateTenderfootRequirements(List<String> completedRequirements, int rankId) {
+    private void populateRequirements(List<String> completedRequirements, int rankId) {
         int grid = 0;
 
         List<Requirement> requirementList = getRequirementList(rankId);

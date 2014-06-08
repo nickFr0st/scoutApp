@@ -12,6 +12,15 @@ public class Rank {
     private String name;
     private String imgPath;
 
+    public Rank() {
+    }
+
+    public Rank(int id, String name, String imgPath) {
+        this.id = id;
+        this.name = name;
+        this.imgPath = imgPath;
+    }
+
     public int getId() {
         return id;
     }
