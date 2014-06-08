@@ -142,6 +142,7 @@ new FormModel {
 							"$rowSpecs": "0, 0:1.0"
 							"$alignLeft": true
 							"$alignTop": true
+							"$hGap": 5
 						} ) {
 							name: "pnlNewRankRequirements"
 							"border": new javax.swing.border.TitledBorder( new javax.swing.border.EtchedBorder( 1, null, null ), "Requirements for Next Rank", 4, 0, new java.awt.Font( "Tahoma", 0, 16 ), sfield java.awt.Color blue )
@@ -169,6 +170,7 @@ new FormModel {
 								name: "pnlRequirements"
 								add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 									name: "scrollPane2"
+									"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 										"$columnSpecs": "0:1.0"
 										"$rowSpecs": "0:1.0"

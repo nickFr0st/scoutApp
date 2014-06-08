@@ -83,16 +83,31 @@ public class PnlMain extends JFrame {
             cboRank.setSelectedItem(RankConst.getConstById(rank.getRankId()).getName());
 
             // populate next rank requirements
-            if (rank.getCompletedRequirements() != null) {
-                List<String> reqList = new ArrayList<String>();
-                reqList.addAll(Arrays.asList(rank.getCompletedRequirements().split(",")));
-                int rankId = rank.getRankId();
+            panel2.removeAll();
 
-                if (rankId == RankConst.TENDERFOOT.getId()) {
-                    populateTenderfootRequirements(reqList);
+            int rankId = rank.getRankId();
+            if (rankId >= RankConst.EAGLE.getId()) {
+                lblNextRankValue.setText("You have reached Eagle");
+
+                JLabel lblComplete = new JLabel();
+                lblComplete.setText("You have no more rank advancement requirements");
+                lblComplete.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                lblComplete.setHorizontalAlignment(SwingConstants.RIGHT);
+                panel2.add(lblComplete, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(10, 0, 5, 5), 0, 0));
+            } else {
+                lblNextRankValue.setText(RankConst.getConstById(rankId + 1).getName());
+
+                if (rank.getCompletedRequirements() != null) {
+                    List<String> reqList = new ArrayList<String>();
+                    reqList.addAll(Arrays.asList(rank.getCompletedRequirements().split(",")));
+
+                    if (rankId == RankConst.NEW_SCOUT.getId()) {
+                        populateTenderfootRequirements(reqList);
+                    }
                 }
             }
-
         }
     }
 
@@ -323,7 +338,7 @@ public class PnlMain extends JFrame {
                         pnlNewRankRequirements.setBorder(new TitledBorder(new EtchedBorder(), "Requirements for Next Rank", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
                             new Font("Tahoma", Font.PLAIN, 16), Color.blue));
                         pnlNewRankRequirements.setLayout(new GridBagLayout());
-                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWidths = new int[] {76, 0, 0};
+                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWidths = new int[] {81, 0, 0};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowHeights = new int[] {0, 0, 0};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWeights = new double[] {0.0, 1.0, 1.0E-4};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
@@ -333,7 +348,7 @@ public class PnlMain extends JFrame {
                         lblNextRank.setFont(new Font("Tahoma", Font.PLAIN, 16));
                         pnlNewRankRequirements.add(lblNextRank, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                            new Insets(0, 5, 0, 0), 0, 0));
+                            new Insets(0, 5, 0, 5), 0, 0));
 
                         //---- lblNextRankValue ----
                         lblNextRankValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -351,6 +366,7 @@ public class PnlMain extends JFrame {
 
                             //======== scrollPane2 ========
                             {
+                                scrollPane2.setBorder(null);
 
                                 //======== panel2 ========
                                 {
