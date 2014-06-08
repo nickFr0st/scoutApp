@@ -40,6 +40,7 @@ public class PnlMain extends JFrame {
         txtAge.setEnabled(enable);
         txtName.setEnabled(enable);
         cboRank.setEnabled(enable);
+        txtPosition.setEnabled(enable);
         if (!enable) {
             lblCurrentBadge.setIcon(null);
         }
@@ -80,6 +81,7 @@ public class PnlMain extends JFrame {
             txtAge.setText(Integer.toString(scout.getAge()));
             lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
             cboRank.setSelectedItem(rank.getName());
+            txtPosition.setText(scout.getPosition());
 
             // populate next rank requirements
             panel2.removeAll();
@@ -186,13 +188,14 @@ public class PnlMain extends JFrame {
         try {
             DBConnector.connectToDB();
             Statement statement = DBConnector.connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT id, age, completedRequirements, currentRankId FROM scout WHERE name = '" + scoutName + "'");
+            ResultSet rs = statement.executeQuery("SELECT * FROM scout WHERE name = '" + scoutName + "'");
 
             while (rs.next()) {
                 scout.setId(rs.getInt(Scout.ID));
                 scout.setAge(rs.getInt(Scout.AGE));
                 scout.setName(scoutName);
                 scout.setCurrentRankId(rs.getInt(Scout.CURRENT_RANK_ID));
+                scout.setPosition(rs.getString(Scout.POSITION));
 
                 String req = rs.getString(Scout.COMPLETED_REQUIREMENTS);
                 if (req != null) {
@@ -232,6 +235,8 @@ public class PnlMain extends JFrame {
         txtAge = new JTextField();
         lblRank = new JLabel();
         cboRank = new JComboBox(RankConst.getConstList());
+        lblPosition = new JLabel();
+        txtPosition = new JTextField();
         pnlNewRankRequirements = new JPanel();
         lblNextRank = new JLabel();
         lblNextRankValue = new JLabel();
@@ -306,9 +311,9 @@ public class PnlMain extends JFrame {
                     pnlGeneral.setBackground(Color.white);
                     pnlGeneral.setLayout(new GridBagLayout());
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWidths = new int[] {0, 0, 59, 256, 0, 0, 0};
-                    ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
+                    ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
-                    ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+                    ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
                     //---- lblCurrentBadge ----
                     lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
@@ -316,7 +321,7 @@ public class PnlMain extends JFrame {
                     lblCurrentBadge.setMinimumSize(new Dimension(132, 143));
                     lblCurrentBadge.setMaximumSize(new Dimension(132, 143));
                     lblCurrentBadge.setPreferredSize(new Dimension(132, 143));
-                    pnlGeneral.add(lblCurrentBadge, new GridBagConstraints(0, 0, 1, 4, 0.0, 0.0,
+                    pnlGeneral.add(lblCurrentBadge, new GridBagConstraints(0, 0, 1, 5, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 10, 15, 15), 0, 0));
 
@@ -369,6 +374,22 @@ public class PnlMain extends JFrame {
                         }
                     });
                     pnlGeneral.add(cboRank, new GridBagConstraints(2, 2, 2, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 5, 5), 0, 0));
+
+                    //---- lblPosition ----
+                    lblPosition.setText("Position:");
+                    lblPosition.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                    lblPosition.setHorizontalAlignment(SwingConstants.RIGHT);
+                    pnlGeneral.add(lblPosition, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 5, 5), 0, 0));
+
+                    //---- txtPosition ----
+                    txtPosition.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                    txtPosition.setHorizontalAlignment(SwingConstants.LEFT);
+                    txtPosition.setBackground(Color.white);
+                    pnlGeneral.add(txtPosition, new GridBagConstraints(2, 3, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
 
@@ -431,7 +452,7 @@ public class PnlMain extends JFrame {
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                             new Insets(5, 5, 5, 5), 0, 0));
                     }
-                    pnlGeneral.add(pnlNewRankRequirements, new GridBagConstraints(0, 4, 6, 1, 0.0, 0.0,
+                    pnlGeneral.add(pnlNewRankRequirements, new GridBagConstraints(0, 5, 6, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 0, 0), 0, 0));
                 }
@@ -464,6 +485,8 @@ public class PnlMain extends JFrame {
     private JTextField txtAge;
     private JLabel lblRank;
     private JComboBox cboRank;
+    private JLabel lblPosition;
+    private JTextField txtPosition;
     private JPanel pnlNewRankRequirements;
     private JLabel lblNextRank;
     private JLabel lblNextRankValue;

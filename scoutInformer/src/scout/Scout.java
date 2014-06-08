@@ -11,12 +11,14 @@ public class Scout {
     public static final String AGE = "age";
     public static final String COMPLETED_REQUIREMENTS = "completedRequirements";
     public static final String CURRENT_RANK_ID = "currentRankId";
+    public static final String POSITION = "position";
 
     private int id;
     private String name;
     private int age;
     private List<String> completedRequirements;
     private int currentRankId;
+    private String position;
 
     public int getId() {
         return id;
@@ -56,5 +58,13 @@ public class Scout {
 
     public void setCurrentRankId(int currentRankId) {
         this.currentRankId = currentRankId;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }
