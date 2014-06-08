@@ -9,12 +9,14 @@ public class Rank {
     public static final String IMG_PATH = "imgPath";
     public static final String SCOUT_ID = "scoutId";
     public static final String RANK_ID = "rankId"; // this refers to the RankConst
+    public static final String COMPLETED_RANK_REQUIREMENTS = "completedRequirements";  // will be a string of ids delimited by ',' use rankId to determine which ReqConst to use.
 
     private int id;
     private String name;
     private String imgPath;
     private int scoutId;
     private int rankId;
+    private String completedRequirements;
 
     public int getId() {
         return id;
@@ -54,5 +56,13 @@ public class Rank {
 
     public void setRankId(int rankId) {
         this.rankId = rankId;
+    }
+
+    public String getCompletedRequirements() {
+        return completedRequirements;
+    }
+
+    public void setCompletedRequirements(String completedRequirements) {
+        this.completedRequirements = completedRequirements;
     }
 }

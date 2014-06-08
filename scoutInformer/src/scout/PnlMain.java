@@ -5,6 +5,7 @@
 package scout;
 
 import constants.RankConst;
+import constants.TenderfootReqConst;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -19,6 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -81,6 +83,22 @@ public class PnlMain extends JFrame {
             cboRank.setSelectedItem(RankConst.getConstById(rank.getRankId()).getName());
 
             // populate next rank requirements
+            if (rank.getCompletedRequirements() != null) {
+                List<String> reqList = new ArrayList<String>();
+                reqList.addAll(Arrays.asList(rank.getCompletedRequirements().split(",")));
+                int rankId = rank.getRankId();
+
+                if (rankId == RankConst.TENDERFOOT.getId()) {
+                    populateTenderfootRequirements(reqList);
+                }
+            }
+
+        }
+    }
+
+    private void populateTenderfootRequirements(List<String> completedRequirements) {
+        for (TenderfootReqConst regConst : TenderfootReqConst.values()) {
+            // todo: add componants to the scroll pane
         }
     }
 
@@ -98,6 +116,7 @@ public class PnlMain extends JFrame {
                 rank.setImgPath(rs.getString(Rank.IMG_PATH));
                 rank.setScoutId(rs.getInt(Rank.SCOUT_ID));
                 rank.setRankId(rs.getInt(Rank.RANK_ID));
+                rank.setCompletedRequirements(rs.getString(Rank.COMPLETED_RANK_REQUIREMENTS));
             }
 
             DBConnector.closeConnection();
