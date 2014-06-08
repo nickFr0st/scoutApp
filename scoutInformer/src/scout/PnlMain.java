@@ -103,12 +103,8 @@ public class PnlMain extends JFrame {
                         new Insets(10, 0, 5, 5), 0, 0));
             } else {
                 Rank nextRank = getRankInfo(rank.getId() + 1);
-
                 lblNextRankValue.setText("  " + nextRank.getName());
-
-                if (scout.getCompletedRequirements() != null) {
-                    populateRequirements(scout.getCompletedRequirements(), nextRank.getId());
-                }
+                populateRequirements(scout.getCompletedRequirements(), nextRank.getId());
             }
         }
     }
@@ -150,7 +146,7 @@ public class PnlMain extends JFrame {
 
         for (Requirement reqConst : requirementList) {
             PnlRequirement pnlRequirement = new PnlRequirement("Requirement " + reqConst.getName() + ":", reqConst.getDescription());
-            if (completedRequirements.contains(reqConst.getName())) {
+            if (completedRequirements != null && completedRequirements.contains(reqConst.getName())) {
                 pnlRequirement.getChkReq().setSelected(true);
             }
 
