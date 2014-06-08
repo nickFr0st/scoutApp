@@ -4,6 +4,7 @@ package constants;
  * Created by nmalloch on 6/7/14
  */
 public enum RankConst {
+    NO_RANK(0, "No Rank", ""),
     NEW_SCOUT(1, "New Scout", "/images/badge_new_scout.png"),
     TENDERFOOT(2, "Tenderfoot", "/images/badge_tenderfoot.png"),
     SECOND_CLASS(3, "Second Class", "/images/badge_second_class.png"),
@@ -12,6 +13,7 @@ public enum RankConst {
     LIFE(6, "Life", "/images/badge_life.png"),
     EAGLE(7, "Eagle", "/images/badge_eagle.png");
 
+    private static final String NO_RANK_NAME = "No Rank";
     private static final String NEW_SCOUT_NAME = "New Scout";
     private static final String TENDERFOOT_NAME = "Tenderfoot";
     private static final String SECOND_CLASS_NAME = "Second Class";
@@ -43,11 +45,13 @@ public enum RankConst {
     }
 
     public static String[] getConstList() {
-        return new String[] {NEW_SCOUT.getName(), TENDERFOOT.getName(), SECOND_CLASS.getName(), FIRST_CLASS.getName(), STAR.getName(), LIFE.getName(), EAGLE.getName()};
+        return new String[] {NO_RANK_NAME, NEW_SCOUT_NAME, TENDERFOOT_NAME, SECOND_CLASS_NAME, FIRST_CLASS_NAME, STAR_NAME, LIFE_NAME, EAGLE_NAME};
     }
 
     public static RankConst getConstById(int id) {
         switch (id) {
+            case 0:
+                return NO_RANK;
             case 1:
                 return NEW_SCOUT;
             case 2:
@@ -83,7 +87,7 @@ public enum RankConst {
         } else if (rankName.equals(EAGLE_NAME)) {
             return EAGLE;
         } else {
-            return NEW_SCOUT;
+            return NO_RANK;
         }
     }
 }
