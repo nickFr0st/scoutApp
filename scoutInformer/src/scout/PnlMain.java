@@ -74,12 +74,16 @@ public class PnlMain extends JFrame {
             Scout scout = getScoutInfo(split);
             Rank rank = getRankInfo(scout.getId());
 
+            // main general area
             txtName.setText(scout.getName());
             txtAge.setText(Integer.toString(scout.getAge()));
             lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource(rank.getImgPath())));
             cboRank.setSelectedItem(RankConst.getConstById(rank.getRankId()).getName());
+
+            // populate next rank requirements
         }
     }
+
     private Rank getRankInfo(int scoutId) {
         Rank rank = new Rank();
 
@@ -151,8 +155,11 @@ public class PnlMain extends JFrame {
         txtAge = new JTextField();
         lblRank = new JLabel();
         cboRank = new JComboBox(RankConst.getConstList());
-        panel2 = new JPanel();
+        pnlNewRankRequirements = new JPanel();
+        lblNextRank = new JLabel();
+        lblNextRankValue = new JLabel();
         pnlRequirements = new JPanel();
+        scrollPane2 = new JScrollPane();
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
@@ -283,39 +290,45 @@ public class PnlMain extends JFrame {
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
 
-                    //======== panel2 ========
+                    //======== pnlNewRankRequirements ========
                     {
-                        panel2.setBorder(new TitledBorder(new EtchedBorder(), "Requirements for Next Rank", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                        pnlNewRankRequirements.setBorder(new TitledBorder(new EtchedBorder(), "Requirements for Next Rank", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
                             new Font("Tahoma", Font.PLAIN, 16), Color.blue));
-                        panel2.setLayout(new GridBagLayout());
-                        ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
-                        ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
-                        ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-                        ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+                        pnlNewRankRequirements.setLayout(new GridBagLayout());
+                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWidths = new int[] {76, 0, 0};
+                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowHeights = new int[] {0, 0, 0};
+                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWeights = new double[] {0.0, 1.0, 1.0E-4};
+                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
+
+                        //---- lblNextRank ----
+                        lblNextRank.setText("Next Rank:");
+                        lblNextRank.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                        pnlNewRankRequirements.add(lblNextRank, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                            new Insets(0, 5, 0, 0), 0, 0));
+
+                        //---- lblNextRankValue ----
+                        lblNextRankValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                        pnlNewRankRequirements.add(lblNextRankValue, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+                            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                            new Insets(0, 0, 0, 0), 0, 0));
 
                         //======== pnlRequirements ========
                         {
-                            pnlRequirements.setLayout(null);
-
-                            { // compute preferred size
-                                Dimension preferredSize = new Dimension();
-                                for(int i = 0; i < pnlRequirements.getComponentCount(); i++) {
-                                    Rectangle bounds = pnlRequirements.getComponent(i).getBounds();
-                                    preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                                    preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                                }
-                                Insets insets = pnlRequirements.getInsets();
-                                preferredSize.width += insets.right;
-                                preferredSize.height += insets.bottom;
-                                pnlRequirements.setMinimumSize(preferredSize);
-                                pnlRequirements.setPreferredSize(preferredSize);
-                            }
+                            pnlRequirements.setLayout(new GridBagLayout());
+                            ((GridBagLayout)pnlRequirements.getLayout()).columnWidths = new int[] {0, 0};
+                            ((GridBagLayout)pnlRequirements.getLayout()).rowHeights = new int[] {0, 0};
+                            ((GridBagLayout)pnlRequirements.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+                            ((GridBagLayout)pnlRequirements.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+                            pnlRequirements.add(scrollPane2, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                                new Insets(0, 0, 0, 0), 0, 0));
                         }
-                        panel2.add(pnlRequirements, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                        pnlNewRankRequirements.add(pnlRequirements, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                            new Insets(10, 10, 10, 10), 0, 0));
+                            new Insets(5, 5, 5, 5), 0, 0));
                     }
-                    pnlGeneral.add(panel2, new GridBagConstraints(0, 4, 6, 1, 0.0, 0.0,
+                    pnlGeneral.add(pnlNewRankRequirements, new GridBagConstraints(0, 4, 6, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 0, 0), 0, 0));
                 }
@@ -348,7 +361,10 @@ public class PnlMain extends JFrame {
     private JTextField txtAge;
     private JLabel lblRank;
     private JComboBox cboRank;
-    private JPanel panel2;
+    private JPanel pnlNewRankRequirements;
+    private JLabel lblNextRank;
+    private JLabel lblNextRankValue;
     private JPanel pnlRequirements;
+    private JScrollPane scrollPane2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

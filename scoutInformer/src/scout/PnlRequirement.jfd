@@ -1,0 +1,37 @@
+JFDML JFormDesigner: "5.1.3.0.158" Java: "1.7.0_45" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "20, 0:1.0"
+			"$rowSpecs": "0, 0:1.0"
+			"$hGap": 5
+			"$vGap": 5
+			"$alignLeft": true
+			"$alignTop": true
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkReq1"
+				"text": "Requirement 1:"
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblRequirement1Discription"
+				"font": new java.awt.Font( "Tahoma", 0, 13 )
+				auxiliary() {
+					"JavaCodeGenerator.customCreateCode": "new JLabel(\"<html>Present yourself to your leader, properly dressed, <BR>before going on an overnight camping trip. Show the camping gear you will use. <BR>Show the right way to pack and carry it.</html>\");"
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+				"gridx": 1
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 450, 70 )
+		} )
+	}
+}
