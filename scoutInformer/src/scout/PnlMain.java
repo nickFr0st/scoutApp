@@ -218,9 +218,9 @@ public class PnlMain extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        panel1 = new JPanel();
         menuBar1 = new JMenuBar();
         btnNewScout = new JButton();
+        pnlScoutModule = new JPanel();
         scrollPane1 = new JScrollPane();
         listScouts = new JList();
         tbpDetails = new JTabbedPane();
@@ -252,32 +252,30 @@ public class PnlMain extends JFrame {
         ((GridBagLayout)contentPane.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
         ((GridBagLayout)contentPane.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
 
-        //======== panel1 ========
+        //======== menuBar1 ========
         {
-            panel1.setBackground(new Color(51, 51, 51));
-            panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
-            ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
+            menuBar1.setBackground(new Color(195, 169, 117));
 
-            //======== menuBar1 ========
-            {
-                menuBar1.setBackground(new Color(195, 169, 117));
+            //---- btnNewScout ----
+            btnNewScout.setIcon(new ImageIcon(getClass().getResource("/images/new_scout.png")));
+            btnNewScout.setHorizontalTextPosition(SwingConstants.CENTER);
+            btnNewScout.setVerticalTextPosition(SwingConstants.BOTTOM);
+            btnNewScout.setBorder(null);
+            btnNewScout.setOpaque(false);
+            btnNewScout.setBackground(new Color(60, 63, 65, 0));
+            btnNewScout.setToolTipText("New");
+            menuBar1.add(btnNewScout);
+        }
+        setJMenuBar(menuBar1);
 
-                //---- btnNewScout ----
-                btnNewScout.setIcon(new ImageIcon(getClass().getResource("/images/new_scout.png")));
-                btnNewScout.setHorizontalTextPosition(SwingConstants.CENTER);
-                btnNewScout.setVerticalTextPosition(SwingConstants.BOTTOM);
-                btnNewScout.setBorder(null);
-                btnNewScout.setOpaque(false);
-                btnNewScout.setBackground(new Color(60, 63, 65, 0));
-                btnNewScout.setToolTipText("New");
-                menuBar1.add(btnNewScout);
-            }
-            panel1.add(menuBar1, new GridBagConstraints(0, 0, 4, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 0), 0, 0));
+        //======== pnlScoutModule ========
+        {
+            pnlScoutModule.setBackground(new Color(51, 51, 51));
+            pnlScoutModule.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlScoutModule.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlScoutModule.getLayout()).rowHeights = new int[] {0, 0, 0};
+            ((GridBagLayout)pnlScoutModule.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlScoutModule.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
 
             //======== scrollPane1 ========
             {
@@ -296,7 +294,7 @@ public class PnlMain extends JFrame {
                 });
                 scrollPane1.setViewportView(listScouts);
             }
-            panel1.add(scrollPane1, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
+            pnlScoutModule.add(scrollPane1, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(22, 10, 10, 15), 0, 0));
 
@@ -455,11 +453,11 @@ public class PnlMain extends JFrame {
                 }
                 tbpDetails.addTab("General", pnlGeneral);
             }
-            panel1.add(tbpDetails, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+            pnlScoutModule.add(tbpDetails, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 10, 10), 0, 0));
         }
-        contentPane.add(panel1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+        contentPane.add(pnlScoutModule, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
         pack();
@@ -468,9 +466,9 @@ public class PnlMain extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JPanel panel1;
     private JMenuBar menuBar1;
     private JButton btnNewScout;
+    private JPanel pnlScoutModule;
     private JScrollPane scrollPane1;
     private JList listScouts;
     private JTabbedPane tbpDetails;

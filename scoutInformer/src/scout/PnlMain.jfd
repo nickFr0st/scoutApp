@@ -24,26 +24,8 @@ new FormModel {
 				"$alignLeft": true
 				"$alignTop": true
 			} ) {
-				name: "panel1"
+				name: "pnlScoutModule"
 				"background": new java.awt.Color( 51, 51, 51, 255 )
-				add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
-					name: "menuBar1"
-					"background": new java.awt.Color( 195, 169, 117, 255 )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "btnNewScout"
-						"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/new_scout.png" )
-						"horizontalTextPosition": 0
-						"verticalTextPosition": 3
-						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
-						"opaque": false
-						"background": new java.awt.Color( 60, 63, 65, 0 )
-						"toolTipText": "New"
-					} )
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridwidth": 4
-					"vAlign": 5
-					"hAlign": 5
-				} )
 				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 					name: "scrollPane1"
 					"preferredSize": new java.awt.Dimension( 200, 600 )
@@ -226,6 +208,20 @@ new FormModel {
 					"insets": new java.awt.Insets( 0, 0, 10, 10 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				"background": new java.awt.Color( 195, 169, 117, 255 )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnNewScout"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/new_scout.png" )
+					"horizontalTextPosition": 0
+					"verticalTextPosition": 3
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"opaque": false
+					"background": new java.awt.Color( 60, 63, 65, 0 )
+					"toolTipText": "New"
+				} )
+			}
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
 			"size": new java.awt.Dimension( 1105, 800 )

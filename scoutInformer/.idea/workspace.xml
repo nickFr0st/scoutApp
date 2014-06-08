@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="220" mnemonic="1" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added a new rank">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scout/EmptyRank.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="more cleanup">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/PnlMain.java" afterPath="$PROJECT_DIR$/src/scout/PnlMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/Rank.java" afterPath="$PROJECT_DIR$/src/scout/Rank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/PnlMain.jfd" afterPath="$PROJECT_DIR$/src/scout/PnlMain.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -64,7 +60,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="152" class="scout.PnlMain" package="scout">
+      <breakpoint url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="148" class="scout.PnlMain" package="scout">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -79,22 +75,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="85" class="scout.PnlMain" package="scout">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="78" class="scout.PnlMain" package="scout">
+      <breakpoint url="file://$PROJECT_DIR$/src/scout/PnlMain.java" line="93" class="scout.PnlMain" package="scout">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -119,26 +100,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PnlMain.jfd" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PnlMain.jfd" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
-            <state />
+            <state propertiesWidth="333" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlMain.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlMain.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="72" selection-start="3026" selection-end="3026" vertical-scroll-proportion="0.3591772" vertical-offset="1354" max-vertical-offset="3893">
+            <state line="5" column="0" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3876">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-                <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-                <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-                <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-                <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-                <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#11065#11267#0" expanded="true" />
+                <element signature="e#11248#11249#0" expanded="true" />
+                <element signature="e#15408#15633#0" expanded="true" />
+                <element signature="e#15610#15611#0" expanded="true" />
+                <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+                <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+                <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+                <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+                <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -165,7 +149,7 @@
       <file leaf-file-name="RankConst.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/constants/RankConst.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1581">
+            <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
               <folding />
             </state>
           </provider>
@@ -204,11 +188,11 @@
         <option value="$PROJECT_DIR$/src/constants/TenderfootReqConst.java" />
         <option value="$PROJECT_DIR$/src/scout/Requirement.java" />
         <option value="$PROJECT_DIR$/src/scout/ProgramDriver.java" />
-        <option value="$PROJECT_DIR$/src/scout/PnlMain.jfd" />
         <option value="$PROJECT_DIR$/src/scout/Scout.java" />
         <option value="$PROJECT_DIR$/src/constants/RankConst.java" />
         <option value="$PROJECT_DIR$/src/scout/Rank.java" />
         <option value="$PROJECT_DIR$/src/scout/EmptyRank.java" />
+        <option value="$PROJECT_DIR$/src/scout/PnlMain.jfd" />
         <option value="$PROJECT_DIR$/src/scout/PnlMain.java" />
       </list>
     </option>
@@ -640,7 +624,7 @@
       <workItem from="1402028586602" duration="4880000" />
       <workItem from="1402169480064" duration="24435000" />
       <workItem from="1402196277071" duration="6446000" />
-      <workItem from="1402257565246" duration="1733000" />
+      <workItem from="1402257565246" duration="4580000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -706,11 +690,19 @@
       <created>1402257892454</created>
       <updated>1402257892454</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added db stuff">
+      <created>1402259320932</created>
+      <updated>1402259320932</updated>
+    </task>
+    <task id="LOCAL-00018" summary="more cleanup">
+      <created>1402260655938</created>
+      <updated>1402260655938</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64641000" />
+    <option name="totallyTimeSpent" value="67488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -735,8 +727,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14922908" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32731137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14922908" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32731137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -773,7 +765,9 @@
     <MESSAGE value="more clean up" />
     <MESSAGE value="added scout position" />
     <MESSAGE value="added a new rank" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a new rank" />
+    <MESSAGE value="added db stuff" />
+    <MESSAGE value="more cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="more cleanup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -803,13 +797,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -845,13 +842,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3213">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -887,13 +887,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -929,13 +932,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -971,13 +977,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -999,13 +1008,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1027,13 +1039,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1055,13 +1070,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1172,11 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/Scout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="19" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="952">
@@ -1191,13 +1204,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/RankConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1581">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/EmptyRank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="21" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
@@ -1205,20 +1211,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/RankConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1581">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="72" selection-start="3026" selection-end="3026" vertical-scroll-proportion="0.3591772" vertical-offset="1354" max-vertical-offset="3893">
+        <state line="5" column="0" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3876">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PnlMain#0;class#PnlMain#0" expanded="false" />
-            <marker date="1402258828005" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
-            <marker date="1402258828005" expanded="true" signature="4001:4044" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402258828005" expanded="true" signature="5863:5893" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402258828005" expanded="true" signature="6614:6666" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402258828005" expanded="false" signature="7834:22071" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402258828005" expanded="false" signature="22083:22953" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11065#11267#0" expanded="true" />
+            <element signature="e#11248#11249#0" expanded="true" />
+            <element signature="e#15408#15633#0" expanded="true" />
+            <element signature="e#15610#15611#0" expanded="true" />
+            <marker date="1402262157601" expanded="true" signature="1394:1416" placeholder="SELECT name ..scout..." />
+            <marker date="1402262157601" expanded="true" signature="3913:3956" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402262157601" expanded="true" signature="5808:5838" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402262157601" expanded="true" signature="6559:6611" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402262157601" expanded="false" signature="7779:21889" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402262157601" expanded="false" signature="21901:22779" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state propertiesWidth="333" />
       </provider>
     </entry>
   </component>
