@@ -71,6 +71,7 @@ new FormModel {
 						"$alignTop": true
 					} ) {
 						name: "pnlGeneral"
+						"background": new java.awt.Color( 255, 255, 255, 255 )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "lblCurrentBadge"
 							"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_new_scout.png" )
@@ -95,6 +96,7 @@ new FormModel {
 							name: "txtName"
 							"font": &Font0 new java.awt.Font( "Tahoma", 0, 16 )
 							"horizontalAlignment": 2
+							"background": new java.awt.Color( 255, 255, 255, 255 )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 							"gridx": 2
 							"insets": new java.awt.Insets( 10, 0, 0, 0 )
@@ -113,6 +115,7 @@ new FormModel {
 							name: "txtAge"
 							"font": #Font0
 							"horizontalAlignment": 2
+							"background": new java.awt.Color( 255, 255, 255, 255 )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 							"gridx": 2
 							"gridy": 1
@@ -128,6 +131,7 @@ new FormModel {
 						} )
 						add( new FormComponent( "javax.swing.JComboBox" ) {
 							name: "cboRank"
+							"background": new java.awt.Color( 255, 255, 255, 255 )
 							auxiliary() {
 								"JavaCodeGenerator.customCreateCode": "new JComboBox(RankConst.getConstList());"
 							}
@@ -142,20 +146,22 @@ new FormModel {
 							"$rowSpecs": "0, 0:1.0"
 							"$alignLeft": true
 							"$alignTop": true
-							"$hGap": 5
 						} ) {
 							name: "pnlNewRankRequirements"
 							"border": new javax.swing.border.TitledBorder( new javax.swing.border.EtchedBorder( 1, null, null ), "Requirements for Next Rank", 4, 0, new java.awt.Font( "Tahoma", 0, 16 ), sfield java.awt.Color blue )
+							"background": new java.awt.Color( 255, 255, 255, 255 )
 							add( new FormComponent( "javax.swing.JLabel" ) {
 								name: "lblNextRank"
-								"text": "Next Rank:"
+								"text": "   Next Rank:"
 								"font": new java.awt.Font( "Tahoma", 0, 16 )
-							}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-								"insets": new java.awt.Insets( 0, 5, 0, 0 )
-							} )
+								"opaque": true
+								"background": new java.awt.Color( 153, 204, 255, 255 )
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 							add( new FormComponent( "javax.swing.JLabel" ) {
 								name: "lblNextRankValue"
 								"font": new java.awt.Font( "Tahoma", 0, 16 )
+								"opaque": true
+								"background": new java.awt.Color( 153, 204, 255, 255 )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 								"gridx": 1
 							} )
@@ -180,6 +186,7 @@ new FormModel {
 										"$alignTop": true
 									} ) {
 										name: "panel2"
+										"background": new java.awt.Color( 255, 255, 255, 255 )
 									} )
 								}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {

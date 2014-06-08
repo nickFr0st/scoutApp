@@ -29,6 +29,7 @@ public class PnlRequirement extends JPanel {
         lblReqDiscription = new JLabel();
 
         //======== this ========
+        setBackground(Color.white);
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {25, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0};
@@ -38,12 +39,14 @@ public class PnlRequirement extends JPanel {
         //---- chkReq ----
         chkReq.setText("Requirement 1:");
         chkReq.setFont(new Font("Tahoma", Font.BOLD, 14));
+        chkReq.setBackground(Color.white);
         add(chkReq, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
 
         //---- lblReqDiscription ----
         lblReqDiscription.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        lblReqDiscription.setBackground(Color.white);
         add(lblReqDiscription, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));

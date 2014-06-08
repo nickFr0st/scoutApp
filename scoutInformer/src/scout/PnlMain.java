@@ -87,7 +87,7 @@ public class PnlMain extends JFrame {
 
             int rankId = rank.getRankId();
             if (rankId >= RankConst.EAGLE.getId()) {
-                lblNextRankValue.setText("You have reached Eagle");
+                lblNextRankValue.setText("  You have reached Eagle");
 
                 JLabel lblComplete = new JLabel();
                 lblComplete.setText("You have no more rank advancement requirements");
@@ -97,7 +97,7 @@ public class PnlMain extends JFrame {
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
             } else {
-                lblNextRankValue.setText(RankConst.getConstById(rankId + 1).getName());
+                lblNextRankValue.setText("  " + RankConst.getConstById(rankId + 1).getName());
 
                 if (rank.getCompletedRequirements() != null) {
                     List<String> reqList = new ArrayList<String>();
@@ -268,6 +268,7 @@ public class PnlMain extends JFrame {
 
                 //======== pnlGeneral ========
                 {
+                    pnlGeneral.setBackground(Color.white);
                     pnlGeneral.setLayout(new GridBagLayout());
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWidths = new int[] {0, 0, 59, 256, 0, 0, 0};
                     ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
@@ -295,6 +296,7 @@ public class PnlMain extends JFrame {
                     //---- txtName ----
                     txtName.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     txtName.setHorizontalAlignment(SwingConstants.LEFT);
+                    txtName.setBackground(Color.white);
                     pnlGeneral.add(txtName, new GridBagConstraints(2, 0, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
@@ -310,6 +312,7 @@ public class PnlMain extends JFrame {
                     //---- txtAge ----
                     txtAge.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     txtAge.setHorizontalAlignment(SwingConstants.LEFT);
+                    txtAge.setBackground(Color.white);
                     pnlGeneral.add(txtAge, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
@@ -323,6 +326,7 @@ public class PnlMain extends JFrame {
                         new Insets(0, 0, 5, 5), 0, 0));
 
                     //---- cboRank ----
+                    cboRank.setBackground(Color.white);
                     cboRank.addItemListener(new ItemListener() {
                         @Override
                         public void itemStateChanged(ItemEvent e) {
@@ -337,21 +341,26 @@ public class PnlMain extends JFrame {
                     {
                         pnlNewRankRequirements.setBorder(new TitledBorder(new EtchedBorder(), "Requirements for Next Rank", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
                             new Font("Tahoma", Font.PLAIN, 16), Color.blue));
+                        pnlNewRankRequirements.setBackground(Color.white);
                         pnlNewRankRequirements.setLayout(new GridBagLayout());
-                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWidths = new int[] {81, 0, 0};
+                        ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWidths = new int[] {76, 0, 0};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowHeights = new int[] {0, 0, 0};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWeights = new double[] {0.0, 1.0, 1.0E-4};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
 
                         //---- lblNextRank ----
-                        lblNextRank.setText("Next Rank:");
+                        lblNextRank.setText("   Next Rank:");
                         lblNextRank.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                        lblNextRank.setOpaque(true);
+                        lblNextRank.setBackground(new Color(153, 204, 255));
                         pnlNewRankRequirements.add(lblNextRank, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                            new Insets(0, 5, 0, 5), 0, 0));
+                            new Insets(0, 0, 0, 0), 0, 0));
 
                         //---- lblNextRankValue ----
                         lblNextRankValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
+                        lblNextRankValue.setOpaque(true);
+                        lblNextRankValue.setBackground(new Color(153, 204, 255));
                         pnlNewRankRequirements.add(lblNextRankValue, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                             new Insets(0, 0, 0, 0), 0, 0));
@@ -370,6 +379,7 @@ public class PnlMain extends JFrame {
 
                                 //======== panel2 ========
                                 {
+                                    panel2.setBackground(Color.white);
                                     panel2.setLayout(new GridBagLayout());
                                     ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
                                     ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};

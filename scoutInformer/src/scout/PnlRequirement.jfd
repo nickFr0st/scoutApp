@@ -11,10 +11,12 @@ new FormModel {
 			"$alignTop": true
 		} ) {
 			name: "this"
+			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "chkReq"
 				"text": "Requirement 1:"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"background": new java.awt.Color( 255, 255, 255, 255 )
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -24,6 +26,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblReqDiscription"
 				"font": new java.awt.Font( "Tahoma", 0, 13 )
+				"background": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"gridx": 1
