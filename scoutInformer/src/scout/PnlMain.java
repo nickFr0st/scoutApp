@@ -5,6 +5,7 @@
 package scout;
 
 import constants.RankConst;
+import util.DBConnector;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;

@@ -1,0 +1,54 @@
+JFDML JFormDesigner: "5.1.3.0.158" Java: "1.7.0_45" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "0, 0"
+			"$rowSpecs": "0, 0, 0, 0, 0"
+			"$hGap": 5
+			"$vGap": 5
+			"$alignLeft": true
+			"$alignTop": true
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "find a database you want to connect to."
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnSearch"
+				"text": "search"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "or create a new one"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 3
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 4
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnCreate"
+				"text": "create"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 4
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 70, 30 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
