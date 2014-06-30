@@ -31,7 +31,7 @@ public class DBConnector {
             String userName = properties.getProperty(KeyConst.DB_USER_NAME.getName());
             String password = properties.getProperty(KeyConst.DB_PASSWORD.getName());
 
-            if (url == null || dbName == null || userName == null || password == null) {
+            if (Util.isEmpty(url) || Util.isEmpty(dbName) || userName == null || password == null) {
                 throw new Exception("must select a valid database and server credentials.");
             }
 
