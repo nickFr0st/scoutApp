@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="starting to setup a db selector/creator">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/flurDeLis.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/flurDeLis16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/signInTitlebar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/timelessValues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scout/SignIn.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scout/SignIn.jfd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/Util.java" />
-      <change type="DELETED" beforePath="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\databases\scouts.accdb" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\src\util\OpeningScene.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\src\util\OpeningScene.jfd" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/ProgramDriver.java" afterPath="$PROJECT_DIR$/src/scout/ProgramDriver.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added a real startup screen">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Malloch.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/properties/users.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" afterPath="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" afterPath="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/SignIn.java" afterPath="$PROJECT_DIR$/src/scout/SignIn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/SignIn.jfd" afterPath="$PROJECT_DIR$/src/scout/SignIn.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -132,7 +124,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/scout/ProgramDriver.java" line="19" class="scout.ProgramDriver" package="scout">
+      <breakpoint url="file://$PROJECT_DIR$/src/scout/ProgramDriver.java" line="17" class="scout.ProgramDriver" package="scout">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -147,7 +139,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/scout/ProgramDriver.java" line="15" class="scout.ProgramDriver" package="scout">
+      <breakpoint url="file://$PROJECT_DIR$/src/scout/ProgramDriver.java" line="13" class="scout.ProgramDriver" package="scout">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -216,37 +208,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPasswordFieldDefaultText.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
+      <file leaf-file-name="SignIn.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="27" selection-start="2235" selection-end="2235" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1836">
+            <state line="24" column="35" selection-start="531" selection-end="531" vertical-scroll-proportion="0.28936172" vertical-offset="0" max-vertical-offset="940">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1390#1391#0" expanded="true" />
-                <element signature="e#1425#1426#0" expanded="true" />
-                <element signature="e#1620#1621#0" expanded="true" />
-                <element signature="e#1668#1669#0" expanded="true" />
-                <element signature="e#1811#1812#0" expanded="true" />
-                <element signature="e#1845#1846#0" expanded="true" />
-                <element signature="e#2013#2014#0" expanded="true" />
-                <element signature="e#2059#2060#0" expanded="true" />
-                <element signature="e#2206#2207#0" expanded="true" />
-                <element signature="e#2240#2241#0" expanded="true" />
-                <element signature="e#2430#2431#0" expanded="true" />
-                <element signature="e#2476#2477#0" expanded="true" />
+                <element signature="e#7781#7982#0" expanded="true" />
+                <element signature="e#7963#7964#0" expanded="true" />
+                <marker date="1404102047912" expanded="false" signature="1357:8738" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1404102047912" expanded="false" signature="8750:9243" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignIn.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
+      <file leaf-file-name="JPasswordFieldDefaultText.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="25" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2686">
+            <state line="102" column="0" selection-start="2479" selection-end="2577" vertical-scroll-proportion="0.0" vertical-offset="692" max-vertical-offset="1700">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1404101098121" expanded="true" signature="478:7337" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1404101098121" expanded="false" signature="7349:7838" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -255,118 +236,18 @@
       <file leaf-file-name="JTextFieldDefaultText.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="7" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.0" vertical-offset="97" max-vertical-offset="1734">
+            <state line="16" column="0" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1273#1274#0" expanded="true" />
-                <element signature="e#1308#1309#0" expanded="true" />
-                <element signature="e#1503#1504#0" expanded="true" />
-                <element signature="e#1551#1552#0" expanded="true" />
-                <element signature="e#1694#1695#0" expanded="true" />
-                <element signature="e#1728#1729#0" expanded="true" />
-                <element signature="e#1896#1897#0" expanded="true" />
-                <element signature="e#1942#1943#0" expanded="true" />
-                <element signature="e#2089#2090#0" expanded="true" />
-                <element signature="e#2123#2124#0" expanded="true" />
-                <element signature="e#2313#2314#0" expanded="true" />
-                <element signature="e#2359#2360#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlMain.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
+      <file leaf-file-name="users.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/properties/users.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="83" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="3604">
-              <folding>
-                <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-                <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-                <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-                <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-                <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="0" selection-start="1952" selection-end="1952" vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="1598">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Util.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/Util.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyConst.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="459">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.properties" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/properties/database.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="16" selection-start="78" selection-end="78" vertical-scroll-proportion="0.08056872" vertical-offset="0" max-vertical-offset="633">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rank.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/Rank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="54" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="901">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmptyRank.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/EmptyRank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="21" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RankConst.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/RankConst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="1683">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scout.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/Scout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="19" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1292">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgramDriver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/ProgramDriver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+            <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
@@ -409,10 +290,11 @@
         <option value="$PROJECT_DIR$/src/scout/ProgramDriver.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/JtextFieldPasswordText.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldPasswordText.java" />
-        <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
-        <option value="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
-        <option value="$PROJECT_DIR$/src/scout/SignIn.java" />
+        <option value="$PROJECT_DIR$/src/properties/users.properties" />
         <option value="$PROJECT_DIR$/src/scout/SignIn.jfd" />
+        <option value="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
+        <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
+        <option value="$PROJECT_DIR$/src/scout/SignIn.java" />
       </list>
     </option>
   </component>
@@ -888,7 +770,7 @@
       <workItem from="1402459218160" duration="70000" />
       <workItem from="1403648166192" duration="1911000" />
       <workItem from="1403674253670" duration="89000" />
-      <workItem from="1404080902527" duration="14626000" />
+      <workItem from="1404080902527" duration="15443000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -970,11 +852,15 @@
       <created>1402375760226</created>
       <updated>1402375760227</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added a real startup screen">
+      <created>1404101275061</created>
+      <updated>1404101275061</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89437000" />
+    <option name="totallyTimeSpent" value="90254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1000,7 +886,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1041,7 +927,8 @@
     <MESSAGE value="more cleanup" />
     <MESSAGE value="change gui structure a bit" />
     <MESSAGE value="starting to setup a db selector/creator" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting to setup a db selector/creator" />
+    <MESSAGE value="added a real startup screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a real startup screen" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1054,11 +941,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/scout/ProgramDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state paletteWidth="0" propertiesWidth="0" />
@@ -1068,12 +950,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-            <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT name ..scout..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1104,12 +986,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-            <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT name ..scout..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1128,12 +1010,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-            <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT name ..scout..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1152,12 +1034,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-            <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT name ..scout..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1176,12 +1058,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-            <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT name ..scout..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1334,48 +1216,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="7" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.0" vertical-offset="97" max-vertical-offset="1734">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
-            <element signature="e#1694#1695#0" expanded="true" />
-            <element signature="e#1728#1729#0" expanded="true" />
-            <element signature="e#1896#1897#0" expanded="true" />
-            <element signature="e#1942#1943#0" expanded="true" />
-            <element signature="e#2089#2090#0" expanded="true" />
-            <element signature="e#2123#2124#0" expanded="true" />
-            <element signature="e#2313#2314#0" expanded="true" />
-            <element signature="e#2359#2360#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="27" selection-start="2235" selection-end="2235" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1836">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1425#1426#0" expanded="true" />
-            <element signature="e#1620#1621#0" expanded="true" />
-            <element signature="e#1668#1669#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
-            <element signature="e#1845#1846#0" expanded="true" />
-            <element signature="e#2013#2014#0" expanded="true" />
-            <element signature="e#2059#2060#0" expanded="true" />
-            <element signature="e#2206#2207#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="e#2476#2477#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="654" column="16" selection-start="22958" selection-end="22958" vertical-scroll-proportion="0.0" vertical-offset="10125" max-vertical-offset="15402">
@@ -1385,7 +1225,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/ProgramDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="7" column="0" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
@@ -1394,12 +1234,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="86" column="83" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="3604">
           <folding>
-            <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
-            <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1402371455294" expanded="true" signature="5833:5863" placeholder="SELECT * FRO..rank..." />
-            <marker date="1402371455294" expanded="true" signature="6584:6636" placeholder="SELECT * FRO..scout..." />
-            <marker date="1402371455294" expanded="false" signature="7804:21914" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1402371455294" expanded="false" signature="21926:22804" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT name ..scout..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..rank..." />
+            <marker date="1402371455294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..scout..." />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1402371455294" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1409,13 +1249,34 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="25" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2669">
+        <state line="102" column="0" selection-start="2479" selection-end="2577" vertical-scroll-proportion="0.0" vertical-offset="692" max-vertical-offset="1700">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1404101098121" expanded="true" signature="478:7337" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1404101098121" expanded="false" signature="7349:7838" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/properties/users.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/properties/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="16" selection-start="78" selection-end="78" vertical-scroll-proportion="0.054255318" vertical-offset="0" max-vertical-offset="940">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1425,10 +1286,15 @@
         <state propertiesWidth="273" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/properties/database.properties">
+    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="16" selection-start="78" selection-end="78" vertical-scroll-proportion="0.08056872" vertical-offset="0" max-vertical-offset="633">
-          <folding />
+        <state line="24" column="35" selection-start="531" selection-end="531" vertical-scroll-proportion="0.28936172" vertical-offset="0" max-vertical-offset="940">
+          <folding>
+            <element signature="e#7781#7982#0" expanded="true" />
+            <element signature="e#7963#7964#0" expanded="true" />
+            <marker date="1404102047912" expanded="false" signature="1357:8738" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1404102047912" expanded="false" signature="8750:9243" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
         </state>
       </provider>
     </entry>

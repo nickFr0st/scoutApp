@@ -93,4 +93,8 @@ public class JTextFieldDefaultText extends JTextField {
     public void setDefaultText(String defaultText) {
         this.defaultText = defaultText;
     }
+
+    public boolean isMessageDefault() {
+        return getForeground().equals(defaultColor);
+    }
 }

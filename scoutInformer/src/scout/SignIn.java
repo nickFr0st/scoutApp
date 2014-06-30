@@ -6,9 +6,12 @@ package scout;
 
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
+import util.Util;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * @author User #2
@@ -23,6 +26,30 @@ public class SignIn extends JFrame {
         txtUsername.requestFocus();
     }
 
+    private void btnSignInMouseClicked() {
+        if (Util.isEmpty(txtUsername.getText()) || txtUsername.isMessageDefault()) {
+            // tell user they can't leave this field blank
+            return;
+        }
+
+        if (Util.isEmpty(txtPassword.getText()) || txtPassword.isMessageDefault()) {
+            // tell user they can't leave this field blank
+            return;
+        }
+
+        // validate userName, if does not exist, say so
+
+        // if password is wrong, say so
+
+        // if all is good check to see if there is a valid database setup
+        // if yes then load info and start the program
+        // if no go to database setup screen.
+    }
+
+    private void btnNewUserMouseClicked() {
+        // take user to user setup screen
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -30,7 +57,7 @@ public class SignIn extends JFrame {
         lblBanner = new JLabel();
         panel2 = new JPanel();
         txtUsername = new JTextFieldDefaultText();
-        txtPass = new JPasswordFieldDefaultText();
+        txtPassword = new JPasswordFieldDefaultText();
         chkRememberUser = new JCheckBox();
         btnSignIn = new JButton();
         label1 = new JLabel();
@@ -87,12 +114,12 @@ public class SignIn extends JFrame {
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
-                //---- txtPass ----
-                txtPass.setPreferredSize(new Dimension(400, 40));
-                txtPass.setMinimumSize(new Dimension(400, 40));
-                txtPass.setDefaultText("Password");
-                txtPass.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                panel2.add(txtPass, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+                //---- txtPassword ----
+                txtPassword.setPreferredSize(new Dimension(400, 40));
+                txtPassword.setMinimumSize(new Dimension(400, 40));
+                txtPassword.setDefaultText("Password");
+                txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                panel2.add(txtPassword, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -113,6 +140,12 @@ public class SignIn extends JFrame {
                 btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 btnSignIn.setBackground(new Color(51, 102, 153));
                 btnSignIn.setForeground(Color.white);
+                btnSignIn.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        btnSignInMouseClicked();
+                    }
+                });
                 panel2.add(btnSignIn, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(20, 0, 8, 8), 0, 0));
@@ -135,6 +168,12 @@ public class SignIn extends JFrame {
                 btnNewUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 btnNewUser.setBackground(new Color(51, 102, 153));
                 btnNewUser.setForeground(Color.white);
+                btnNewUser.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        btnNewUserMouseClicked();
+                    }
+                });
                 panel2.add(btnNewUser, new GridBagConstraints(0, 6, 2, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(20, 0, 0, 8), 0, 0));
@@ -157,7 +196,7 @@ public class SignIn extends JFrame {
     private JLabel lblBanner;
     private JPanel panel2;
     private JTextFieldDefaultText txtUsername;
-    private JPasswordFieldDefaultText txtPass;
+    private JPasswordFieldDefaultText txtPassword;
     private JCheckBox chkRememberUser;
     private JButton btnSignIn;
     private JLabel label1;
