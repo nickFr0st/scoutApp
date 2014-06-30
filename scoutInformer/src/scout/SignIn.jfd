@@ -67,6 +67,7 @@ new FormModel {
 						"visible": false
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 2
+						"gridwidth": 2
 					} )
 					add( new FormComponent( "guiUtil.JPasswordFieldDefaultText" ) {
 						name: "txtPassword"
@@ -82,10 +83,11 @@ new FormModel {
 						name: "lblPasswordErrorMessage"
 						"text": "*Error Message"
 						"foreground": new java.awt.Color( 255, 0, 0, 255 )
-						"visible": false
 						"font": new java.awt.Font( "Tahoma", 2, 11 )
+						"visible": false
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 4
+						"gridwidth": 2
 					} )
 					add( new FormComponent( "javax.swing.JCheckBox" ) {
 						name: "chkRememberUser"

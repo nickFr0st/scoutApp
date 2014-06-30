@@ -172,7 +172,7 @@ public class SignIn extends JFrame {
                 lblUserNameErrorMessage.setForeground(Color.red);
                 lblUserNameErrorMessage.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblUserNameErrorMessage.setVisible(false);
-                panel2.add(lblUserNameErrorMessage, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+                panel2.add(lblUserNameErrorMessage, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -188,9 +188,9 @@ public class SignIn extends JFrame {
                 //---- lblPasswordErrorMessage ----
                 lblPasswordErrorMessage.setText("*Error Message");
                 lblPasswordErrorMessage.setForeground(Color.red);
-                lblPasswordErrorMessage.setVisible(false);
                 lblPasswordErrorMessage.setFont(new Font("Tahoma", Font.ITALIC, 11));
-                panel2.add(lblPasswordErrorMessage, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
+                lblPasswordErrorMessage.setVisible(false);
+                panel2.add(lblPasswordErrorMessage, new GridBagConstraints(0, 4, 2, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
