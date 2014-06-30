@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added validation for logging in.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/SignIn.java" afterPath="$PROJECT_DIR$/src/scout/SignIn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/SignIn.jfd" afterPath="$PROJECT_DIR$/src/scout/SignIn.jfd" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed spacing on error messages">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" afterPath="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" afterPath="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -170,7 +170,7 @@
       <file leaf-file-name="PnlMain.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="83" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3604">
+            <state line="86" column="83" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="3927">
               <folding>
                 <marker date="1402371455294" expanded="true" signature="1419:1441" placeholder="SELECT name ..scout..." />
                 <marker date="1402371455294" expanded="true" signature="3938:3981" placeholder="SELECT * FRO..requirement..." />
@@ -186,7 +186,7 @@
       <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="48" selection-start="2271" selection-end="2271" vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="1598">
+            <state line="68" column="48" selection-start="2271" selection-end="2271" vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="1768">
               <folding />
             </state>
           </provider>
@@ -195,17 +195,15 @@
       <file leaf-file-name="SignIn.jfd" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
-            <state propertiesWidth="273" />
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignIn.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SignIn.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="53" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.32553193" vertical-offset="510" max-vertical-offset="1768">
+            <state line="59" column="53" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.0" vertical-offset="805" max-vertical-offset="1768">
               <folding>
-                <element signature="e#10537#10738#0" expanded="true" />
-                <element signature="e#10719#10720#0" expanded="true" />
                 <marker date="1404104254317" expanded="false" signature="2897:11494" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1404104254317" expanded="false" signature="11506:12087" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
@@ -213,14 +211,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPasswordFieldDefaultText.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JPasswordFieldDefaultText.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="0" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0" vertical-offset="1168" max-vertical-offset="1734">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2476#2477#0" expanded="true" />
-              </folding>
+            <state line="20" column="25" selection-start="452" selection-end="452" vertical-scroll-proportion="0.2712766" vertical-offset="0" max-vertical-offset="1666">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -228,10 +223,8 @@
       <file leaf-file-name="JTextFieldDefaultText.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="94" column="27" selection-start="2382" selection-end="2382" vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1564">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -274,10 +267,10 @@
         <option value="$PROJECT_DIR$/src/guiUtil/JtextFieldPasswordText.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldPasswordText.java" />
         <option value="$PROJECT_DIR$/src/properties/users.properties" />
-        <option value="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
-        <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
         <option value="$PROJECT_DIR$/src/scout/SignIn.java" />
         <option value="$PROJECT_DIR$/src/scout/SignIn.jfd" />
+        <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
+        <option value="$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java" />
       </list>
     </option>
   </component>
@@ -753,7 +746,8 @@
       <workItem from="1402459218160" duration="70000" />
       <workItem from="1403648166192" duration="1911000" />
       <workItem from="1403674253670" duration="89000" />
-      <workItem from="1404080902527" duration="17667000" />
+      <workItem from="1404080902527" duration="17686000" />
+      <workItem from="1404171140365" duration="102000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -847,11 +841,15 @@
       <created>1404103717981</created>
       <updated>1404103717981</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed spacing on error messages">
+      <created>1404104316878</created>
+      <updated>1404104316878</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92478000" />
+    <option name="totallyTimeSpent" value="92599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -878,11 +876,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943678" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -921,7 +919,8 @@
     <MESSAGE value="added a real startup screen" />
     <MESSAGE value="added some btn events" />
     <MESSAGE value="added validation for logging in." />
-    <option name="LAST_COMMIT_MESSAGE" value="added validation for logging in." />
+    <MESSAGE value="fixed spacing on error messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed spacing on error messages" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -955,9 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/Scout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
@@ -1133,37 +1130,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <folding />
-        </state>
+        <state line="12" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/Scout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="19" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="952">
-          <folding />
-        </state>
+        <state line="63" column="19" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="952" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/RankConst.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1581">
-          <folding />
-        </state>
+        <state line="52" column="19" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1581" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/EmptyRank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="8" column="21" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/Rank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="54" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <folding />
-        </state>
+        <state line="17" column="54" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/Float.java">
@@ -1173,19 +1160,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <folding />
-        </state>
+        <state line="5" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/Deprecated.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="18" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding>
-            <element signature="e#0#814#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
+        <state line="42" column="18" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/text/JTextComponent.java">
@@ -1197,9 +1177,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JPasswordField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="13" selection-start="2307" selection-end="2307" vertical-scroll-proportion="0.0" vertical-offset="8000" max-vertical-offset="10778">
-          <folding />
-        </state>
+        <state line="76" column="13" selection-start="2307" selection-end="2307" vertical-scroll-proportion="0.0" vertical-offset="8000" max-vertical-offset="10778" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JFrame.java">
@@ -1218,24 +1196,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/properties/database.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="16" selection-start="78" selection-end="78" vertical-scroll-proportion="0.054255318" vertical-offset="0" max-vertical-offset="940">
-          <folding />
-        </state>
+        <state line="3" column="16" selection-start="78" selection-end="78" vertical-scroll-proportion="0.054255318" vertical-offset="0" max-vertical-offset="940" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0" vertical-offset="1168" max-vertical-offset="1734">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2476#2477#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/PnlMain.java">
@@ -1261,34 +1227,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/properties/users.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940">
-          <folding />
+        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="53" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.0" vertical-offset="805" max-vertical-offset="1768">
+          <folding>
+            <marker date="1404104254317" expanded="false" signature="2897:11494" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1404104254317" expanded="false" signature="11506:12087" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="94" column="27" selection-start="2382" selection-end="2382" vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1564">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
-        <state propertiesWidth="273" />
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/JPasswordFieldDefaultText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="53" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.32553193" vertical-offset="510" max-vertical-offset="1768">
-          <folding>
-            <element signature="e#10537#10738#0" expanded="true" />
-            <element signature="e#10719#10720#0" expanded="true" />
-            <marker date="1404104254317" expanded="false" signature="2897:11494" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1404104254317" expanded="false" signature="11506:12087" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
+        <state line="20" column="25" selection-start="452" selection-end="452" vertical-scroll-proportion="0.2712766" vertical-offset="0" max-vertical-offset="1666">
+          <folding />
         </state>
       </provider>
     </entry>

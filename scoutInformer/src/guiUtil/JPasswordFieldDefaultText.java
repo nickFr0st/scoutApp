@@ -18,7 +18,7 @@ public class JPasswordFieldDefaultText extends JPasswordField {
     {
         defaultColor = Color.GRAY;
         activeColor = Color.BLACK;
-        defaultText = "Password";
+        defaultText = "";
     }
 
     public JPasswordFieldDefaultText() {
@@ -98,6 +98,7 @@ public class JPasswordFieldDefaultText extends JPasswordField {
      */
     public void setDefaultText(String defaultText) {
         this.defaultText = defaultText;
+        setText(defaultText);
     }
 
     public boolean isMessageDefault() {

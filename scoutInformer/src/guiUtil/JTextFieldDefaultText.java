@@ -92,6 +92,7 @@ public class JTextFieldDefaultText extends JTextField {
      */
     public void setDefaultText(String defaultText) {
         this.defaultText = defaultText;
+        setText(defaultText);
     }
 
     public boolean isMessageDefault() {
