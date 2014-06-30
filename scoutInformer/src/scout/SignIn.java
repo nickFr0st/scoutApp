@@ -12,6 +12,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Properties;
 
 /**
  * @author User #2
@@ -27,23 +29,72 @@ public class SignIn extends JFrame {
     }
 
     private void btnSignInMouseClicked() {
+        clearErrors();
+        boolean hasErrors = false;
+
         if (Util.isEmpty(txtUsername.getText()) || txtUsername.isMessageDefault()) {
-            // tell user they can't leave this field blank
-            return;
+            setUserError("Username cannot be left blank.");
+            hasErrors = true;
         }
 
         if (Util.isEmpty(txtPassword.getText()) || txtPassword.isMessageDefault()) {
-            // tell user they can't leave this field blank
+            setPasswordError("Password cannot be left blank.");
+            hasErrors = true;
+        }
+
+        if (hasErrors) {
             return;
         }
 
-        // validate userName, if does not exist, say so
-
-        // if password is wrong, say so
+        if (!validateUsernameAndPassword()) {
+            return;
+        }
 
         // if all is good check to see if there is a valid database setup
         // if yes then load info and start the program
         // if no go to database setup screen.
+    }
+
+    private boolean validateUsernameAndPassword() {
+        try {
+            Properties properties = new Properties();
+            properties.load(getClass().getResourceAsStream("/properties/users.properties"));
+
+            String password = properties.getProperty(txtUsername.getText());
+
+            if (password == null) {
+                setUserError("User does not exists.");
+                return false;
+            }
+
+            if (!password.equals(txtPassword.getText())) {
+                setPasswordError("Password does not match.");
+                return false;
+            }
+
+        } catch (IOException ioe) {
+            setUserError("User does not exists.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void setPasswordError(String errorMessage) {
+        lblPasswordErrorMessage.setText("* " + errorMessage);
+        lblPasswordErrorMessage.setVisible(true);
+    }
+
+    private void setUserError(String errorMessage) {
+        lblUserNameErrorMessage.setText("* " + errorMessage);
+        lblUserNameErrorMessage.setVisible(true);
+    }
+
+    private void clearErrors() {
+        lblUserNameErrorMessage.setVisible(false);
+        lblUserNameErrorMessage.setText("");
+        lblPasswordErrorMessage.setVisible(false);
+        lblPasswordErrorMessage.setText("");
     }
 
     private void btnNewUserMouseClicked() {
@@ -57,7 +108,9 @@ public class SignIn extends JFrame {
         lblBanner = new JLabel();
         panel2 = new JPanel();
         txtUsername = new JTextFieldDefaultText();
+        lblUserNameErrorMessage = new JLabel();
         txtPassword = new JPasswordFieldDefaultText();
+        lblPasswordErrorMessage = new JLabel();
         chkRememberUser = new JCheckBox();
         btnSignIn = new JButton();
         label1 = new JLabel();
@@ -101,9 +154,9 @@ public class SignIn extends JFrame {
                 panel2.setOpaque(false);
                 panel2.setLayout(new GridBagLayout());
                 ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 0, 52, 0};
-                ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {90, 0, 0, 0, 0, 0, 0, 0};
+                ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {90, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                 ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
-                ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+                ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
                 //---- txtUsername ----
                 txtUsername.setMinimumSize(new Dimension(400, 40));
@@ -114,12 +167,30 @@ public class SignIn extends JFrame {
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
+                //---- lblUserNameErrorMessage ----
+                lblUserNameErrorMessage.setText("*Error Message");
+                lblUserNameErrorMessage.setForeground(Color.red);
+                lblUserNameErrorMessage.setFont(new Font("Tahoma", Font.ITALIC, 11));
+                lblUserNameErrorMessage.setVisible(false);
+                panel2.add(lblUserNameErrorMessage, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 8, 8), 0, 0));
+
                 //---- txtPassword ----
                 txtPassword.setPreferredSize(new Dimension(400, 40));
                 txtPassword.setMinimumSize(new Dimension(400, 40));
                 txtPassword.setDefaultText("Password");
                 txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                panel2.add(txtPassword, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+                panel2.add(txtPassword, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 8, 8), 0, 0));
+
+                //---- lblPasswordErrorMessage ----
+                lblPasswordErrorMessage.setText("*Error Message");
+                lblPasswordErrorMessage.setForeground(Color.red);
+                lblPasswordErrorMessage.setVisible(false);
+                lblPasswordErrorMessage.setFont(new Font("Tahoma", Font.ITALIC, 11));
+                panel2.add(lblPasswordErrorMessage, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -128,7 +199,7 @@ public class SignIn extends JFrame {
                 chkRememberUser.setOpaque(false);
                 chkRememberUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 chkRememberUser.setBorder(null);
-                panel2.add(chkRememberUser, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+                panel2.add(chkRememberUser, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -146,7 +217,7 @@ public class SignIn extends JFrame {
                         btnSignInMouseClicked();
                     }
                 });
-                panel2.add(btnSignIn, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
+                panel2.add(btnSignIn, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(20, 0, 8, 8), 0, 0));
 
@@ -156,7 +227,7 @@ public class SignIn extends JFrame {
                 label1.setPreferredSize(new Dimension(400, 2));
                 label1.setMinimumSize(new Dimension(400, 2));
                 label1.setMaximumSize(new Dimension(400, 10));
-                panel2.add(label1, new GridBagConstraints(0, 5, 4, 1, 0.0, 0.0,
+                panel2.add(label1, new GridBagConstraints(0, 7, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(30, 0, 8, 0), 0, 0));
 
@@ -174,7 +245,7 @@ public class SignIn extends JFrame {
                         btnNewUserMouseClicked();
                     }
                 });
-                panel2.add(btnNewUser, new GridBagConstraints(0, 6, 2, 1, 0.0, 0.0,
+                panel2.add(btnNewUser, new GridBagConstraints(0, 8, 2, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(20, 0, 0, 8), 0, 0));
             }
@@ -196,7 +267,9 @@ public class SignIn extends JFrame {
     private JLabel lblBanner;
     private JPanel panel2;
     private JTextFieldDefaultText txtUsername;
+    private JLabel lblUserNameErrorMessage;
     private JPasswordFieldDefaultText txtPassword;
+    private JLabel lblPasswordErrorMessage;
     private JCheckBox chkRememberUser;
     private JButton btnSignIn;
     private JLabel label1;
