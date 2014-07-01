@@ -24,7 +24,7 @@ public class SignIn extends JFrame implements GuiManager {
         stepSignIn = new PnlSignIn(this);
         stepHome = new PnlHome(this);
 
-        this.add(stepSignIn);
+        this.getContentPane().add(stepSignIn);
 
 //        DBConnector connector = new DBConnector();
 //        if (!connector.checkForDBConnection()) {
@@ -36,20 +36,24 @@ public class SignIn extends JFrame implements GuiManager {
     public void nextStep() {
         switch (stepCount) {
             case 0:
-                this.remove(stepSignIn);
-                this.add(stepHome);
+                this.getContentPane().remove(stepSignIn);
+                this.getContentPane().add(stepHome);
                 stepCount++;
         }
+
+        this.getContentPane().repaint();
     }
 
     @Override
     public void previousStep() {
         switch (stepCount) {
             case 1:
-                this.remove(stepHome);
-                this.add(stepSignIn);
+                this.getContentPane().remove(stepHome);
+                this.getContentPane().add(stepSignIn);
                 stepCount--;
         }
+
+        this.getContentPane().repaint();
     }
 
     private void initComponents() {

@@ -25,15 +25,31 @@ new FormModel {
 			} ) {
 				name: "panel1"
 				"opaque": false
-				add( new FormComponent( "javax.swing.JButton" ) {
+				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
 					name: "btnSettings"
 					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
 					"focusPainted": false
 					"background": new java.awt.Color( 255, 255, 255, 255 )
-					"selectedIcon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings_filled100.png" )
-					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "btnSettingsMouseExited", false ) )
-					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "btnSettingsMouseEntered", false ) )
+					"borderPainted": false
+					"opaque": false
+					"defaultImage": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
+					"selectedImage": new com.jformdesigner.model.SwingIcon( 0, "/images/settings_selected90.png" )
+					"toolTipText": "User Settings"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
+					name: "btnSignOut"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/sign_out90.png" )
+					"borderPainted": false
+					"focusPainted": false
+					"opaque": false
+					"defaultImage": new com.jformdesigner.model.SwingIcon( 0, "/images/sign_out90.png" )
+					"selectedImage": new com.jformdesigner.model.SwingIcon( 0, "/images/sign_out_selected90.png" )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"toolTipText": "Sign out"
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSignOutMouseClicked", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridheight": 3
 			} )
