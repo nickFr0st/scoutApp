@@ -4,6 +4,7 @@
 
 package scout;
 
+import scout.clientPnls.PnlHome;
 import scout.clientPnls.PnlSignIn;
 
 import javax.swing.*;
@@ -12,17 +13,43 @@ import java.awt.*;
 /**
  * @author User #2
  */
-public class SignIn extends JFrame {
+public class SignIn extends JFrame implements GuiManager {
+    private PnlSignIn stepSignIn;
+    private PnlHome stepHome;
+    private int stepCount;
 
     public SignIn() {
         initComponents();
-        PnlSignIn stepSignIn = new PnlSignIn();
+
+        stepSignIn = new PnlSignIn(this);
+        stepHome = new PnlHome(this);
+
         this.add(stepSignIn);
 
 //        DBConnector connector = new DBConnector();
 //        if (!connector.checkForDBConnection()) {
 //            // todo: get a connection.
 //        }
+    }
+
+    @Override
+    public void nextStep() {
+        switch (stepCount) {
+            case 0:
+                this.remove(stepSignIn);
+                this.add(stepHome);
+                stepCount++;
+        }
+    }
+
+    @Override
+    public void previousStep() {
+        switch (stepCount) {
+            case 1:
+                this.remove(stepHome);
+                this.add(stepSignIn);
+                stepCount--;
+        }
     }
 
     private void initComponents() {

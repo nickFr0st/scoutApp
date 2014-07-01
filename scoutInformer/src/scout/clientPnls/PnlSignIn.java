@@ -7,6 +7,8 @@ package scout.clientPnls;
 import constants.KeyConst;
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
+import scout.GuiManager;
+import scout.SignIn;
 import util.Util;
 
 import javax.swing.*;
@@ -19,10 +21,11 @@ import java.util.Properties;
 /**
  * @author User #2
  */
-public class PnlSignIn extends JPanel {
+public class PnlSignIn extends JPanel implements GuiManager {
     private Properties properties;
     private String propertyFileName;
     private boolean createIsShowing;
+    private SignIn parentFrame;
 
     {
         propertyFileName = "/properties/users.properties";
@@ -50,6 +53,11 @@ public class PnlSignIn extends JPanel {
         }
 
         showCreateUser(false);
+    }
+
+    public PnlSignIn(SignIn parentFrame) {
+        this();
+        this.parentFrame = parentFrame;
     }
 
     private void showCreateUser(boolean show) {
@@ -117,6 +125,7 @@ public class PnlSignIn extends JPanel {
             Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
         }
 
+        nextStep();
         // look for database if it exists than start program with loaded data
         // else load without data
     }
@@ -191,6 +200,7 @@ public class PnlSignIn extends JPanel {
         properties.setProperty(txtNewUserName.getText(), txtNewUserPassword.getText());
         Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
 
+        nextStep();
         // start program without looking for database
     }
 
@@ -213,6 +223,16 @@ public class PnlSignIn extends JPanel {
     private void setError(JLabel lblNewUserError, String errorMessage) {
         lblNewUserError.setText("* " + errorMessage);
         lblNewUserError.setVisible(true);
+    }
+
+    @Override
+    public void nextStep() {
+        parentFrame.nextStep();
+    }
+
+    @Override
+    public void previousStep() {
+        parentFrame.previousStep();
     }
 
     private void initComponents() {

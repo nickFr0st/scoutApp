@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 0"
-			"$rowSpecs": "0, 0, 0"
+			"$columnSpecs": "100, 0"
+			"$rowSpecs": "0, 0, 0:1.0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -15,6 +15,28 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 1200, 800 )
 			"preferredSize": new java.awt.Dimension( 1200, 800 )
 			"background": new java.awt.Color( 255, 255, 255, 255 )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "0"
+				"$rowSpecs": "0, 0, 0, 0, 0:1.0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "panel1"
+				"opaque": false
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSettings"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
+					"focusPainted": false
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"selectedIcon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings_filled100.png" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "btnSettingsMouseExited", false ) )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "btnSettingsMouseEntered", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridheight": 3
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
 			"size": new java.awt.Dimension( 1200, 800 )
