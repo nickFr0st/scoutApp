@@ -15,7 +15,7 @@ public class Util {
 
     public static void saveProperties(Properties properties, String propertyFileName) {
         try {
-            File f = new File(propertyFileName.substring(propertyFileName.indexOf("C")));
+            File f = new File(propertyFileName.substring(propertyFileName.indexOf("/") + 1));
             OutputStream out = new FileOutputStream(f);
             properties.store(out, "");
         } catch (Exception e) {

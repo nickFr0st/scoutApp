@@ -106,7 +106,6 @@ public class JPasswordFieldDefaultText extends JPasswordField {
     }
 
     public void setDefault() {
-        setForeground(defaultColor);
-        setText(defaultText);
+        setDefaultValues();
     }
 }
