@@ -104,4 +104,9 @@ public class JPasswordFieldDefaultText extends JPasswordField {
     public boolean isMessageDefault() {
         return getForeground().equals(defaultColor);
     }
+
+    public void setDefault() {
+        setForeground(defaultColor);
+        setText(defaultText);
+    }
 }

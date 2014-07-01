@@ -40,8 +40,8 @@ new FormModel {
 					"insets": new java.awt.Insets( 90, 100, 106, 50 )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-					"$columnSpecs": "0, 0, 0, 52"
-					"$rowSpecs": "82, 0, 0, 0, 0, 0, 0, 0, 0"
+					"$columnSpecs": "0, 0, 61, 0, 52"
+					"$rowSpecs": "59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
 					"$hGap": 8
 					"$vGap": 8
 					"$alignLeft": true
@@ -57,7 +57,7 @@ new FormModel {
 						"defaultText": "Username"
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 1
-						"gridwidth": 3
+						"gridwidth": 4
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "lblUserNameErrorMessage"
@@ -77,7 +77,7 @@ new FormModel {
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 3
-						"gridwidth": 3
+						"gridwidth": 4
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "lblPasswordErrorMessage"
@@ -95,9 +95,10 @@ new FormModel {
 						"opaque": false
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"focusPainted": false
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 5
-						"gridwidth": 3
+						"gridwidth": 4
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "btnSignIn"
@@ -108,10 +109,11 @@ new FormModel {
 						"font": &Font0 new java.awt.Font( "Tahoma", 0, 14 )
 						"background": &Color0 new java.awt.Color( 51, 102, 153, 255 )
 						"foreground": &Color1 new java.awt.Color( 255, 255, 255, 255 )
+						"focusPainted": false
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSignInMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 6
-						"insets": &Insets1 new java.awt.Insets( 20, 0, 0, 0 )
+						"insets": new java.awt.Insets( 10, 0, 0, 0 )
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label1"
@@ -122,8 +124,8 @@ new FormModel {
 						"maximumSize": new java.awt.Dimension( 400, 10 )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 7
-						"gridwidth": 4
-						"insets": new java.awt.Insets( 30, 0, 0, 0 )
+						"gridwidth": 5
+						"insets": new java.awt.Insets( 10, 0, 0, 0 )
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "btnNewUser"
@@ -134,11 +136,66 @@ new FormModel {
 						"font": #Font0
 						"background": #Color0
 						"foreground": #Color1
+						"focusPainted": false
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewUserMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 8
-						"insets": #Insets1
+						"insets": new java.awt.Insets( 10, 0, 10, 0 )
 						"gridwidth": 2
+					} )
+					add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+						name: "txtNewUserName"
+						"preferredSize": new java.awt.Dimension( 14, 40 )
+						"minimumSize": new java.awt.Dimension( 14, 40 )
+						"defaultText": "Username"
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 9
+						"gridwidth": 4
+					} )
+					add( new FormComponent( "guiUtil.JPasswordFieldDefaultText" ) {
+						name: "txtNewUserPassword"
+						"minimumSize": new java.awt.Dimension( 14, 40 )
+						"preferredSize": new java.awt.Dimension( 14, 40 )
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+						"defaultText": "Password"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 10
+						"gridwidth": 4
+					} )
+					add( new FormComponent( "guiUtil.JPasswordFieldDefaultText" ) {
+						name: "txtNewUserPasswordVerify"
+						"preferredSize": new java.awt.Dimension( 14, 40 )
+						"minimumSize": new java.awt.Dimension( 14, 40 )
+						"defaultText": "Re-enter password"
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 11
+						"gridwidth": 4
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnSubmit"
+						"text": "Submit"
+						"background": new java.awt.Color( 51, 102, 153, 255 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+						"focusPainted": false
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 12
+						"insets": new java.awt.Insets( 10, 0, 0, 0 )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnCancel"
+						"text": "Cancel"
+						"background": new java.awt.Color( 51, 102, 153, 255 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+						"focusPainted": false
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnCancelMouseClicked", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 12
+						"insets": new java.awt.Insets( 10, 0, 0, 0 )
 					} )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1

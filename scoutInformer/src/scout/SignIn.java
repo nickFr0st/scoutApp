@@ -22,9 +22,11 @@ import java.util.Properties;
 public class SignIn extends JFrame {
     private Properties properties;
     private String propertyFileName;
+    private boolean createIsShowing;
 
     {
         propertyFileName = "/properties/users.properties";
+        createIsShowing = true;  // do this so init works
     }
 
     public SignIn() {
@@ -38,22 +40,53 @@ public class SignIn extends JFrame {
             return;
         }
 
-        btnSignIn.setFocusPainted(false);
-        btnNewUser.setFocusPainted(false);
-        chkRememberUser.setFocusPainted(false);
-
         String savedUser = properties.getProperty(KeyConst.SAVED_USER.getName());
-
         txtUsername.requestFocus();
         if (!Util.isEmpty(savedUser)) {
             txtUsername.setTextColorToActive();
             txtUsername.setText(savedUser);
             chkRememberUser.setSelected(true);
         }
+
+        showCreateUser(false);
+    }
+
+    private void showCreateUser(boolean show) {
+        if (show == createIsShowing) {
+            return;
+        }
+
+        createIsShowing = show;
+        txtNewUserName.setVisible(show);
+        txtNewUserPassword.setVisible(show);
+        txtNewUserPasswordVerify.setVisible(show);
+        btnSubmit.setVisible(show);
+        btnCancel.setVisible(show);
+
+        if (!show) {
+            txtNewUserName.setDefault();
+            txtNewUserPassword.setDefault();
+            txtNewUserPasswordVerify.setDefault();
+            clearCreateErrors();
+            enableSignInInfo(true);
+        } else {
+            enableSignInInfo(false);
+        }
+    }
+
+    private void enableSignInInfo(boolean enable) {
+        txtUsername.setEnabled(enable);
+        txtPassword.setEnabled(enable);
+        chkRememberUser.setEnabled(enable);
+        btnSignIn.setEnabled(enable);
     }
 
     private void btnSignInMouseClicked() {
-        clearErrors();
+        if (!btnSignIn.isEnabled()) {
+            return;
+        }
+
+        clearSignInErrors();
         boolean hasErrors = false;
 
         if (Util.isEmpty(txtUsername.getText()) || txtUsername.isMessageDefault()) {
@@ -110,7 +143,11 @@ public class SignIn extends JFrame {
         lblUserNameErrorMessage.setVisible(true);
     }
 
-    private void clearErrors() {
+    private void clearCreateErrors() {
+
+    }
+
+    private void clearSignInErrors() {
         lblUserNameErrorMessage.setVisible(false);
         lblUserNameErrorMessage.setText("");
         lblPasswordErrorMessage.setVisible(false);
@@ -118,7 +155,11 @@ public class SignIn extends JFrame {
     }
 
     private void btnNewUserMouseClicked() {
-        // take user to user setup screen
+        showCreateUser(true);
+    }
+
+    private void btnCancelMouseClicked() {
+        showCreateUser(false);
     }
 
     private void initComponents() {
@@ -135,6 +176,11 @@ public class SignIn extends JFrame {
         btnSignIn = new JButton();
         label1 = new JLabel();
         btnNewUser = new JButton();
+        txtNewUserName = new JTextFieldDefaultText();
+        txtNewUserPassword = new JPasswordFieldDefaultText();
+        txtNewUserPasswordVerify = new JPasswordFieldDefaultText();
+        btnSubmit = new JButton();
+        btnCancel = new JButton();
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
@@ -173,17 +219,17 @@ public class SignIn extends JFrame {
             {
                 panel2.setOpaque(false);
                 panel2.setLayout(new GridBagLayout());
-                ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 0, 52, 0};
-                ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {90, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-                ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
-                ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+                ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 69, 0, 52, 0};
+                ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+                ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
                 //---- txtUsername ----
                 txtUsername.setMinimumSize(new Dimension(400, 40));
                 txtUsername.setPreferredSize(new Dimension(400, 40));
                 txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtUsername.setDefaultText("Username");
-                panel2.add(txtUsername, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
+                panel2.add(txtUsername, new GridBagConstraints(0, 1, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -201,7 +247,7 @@ public class SignIn extends JFrame {
                 txtPassword.setMinimumSize(new Dimension(400, 40));
                 txtPassword.setDefaultText("Password");
                 txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                panel2.add(txtPassword, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+                panel2.add(txtPassword, new GridBagConstraints(0, 3, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -219,7 +265,8 @@ public class SignIn extends JFrame {
                 chkRememberUser.setOpaque(false);
                 chkRememberUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 chkRememberUser.setBorder(null);
-                panel2.add(chkRememberUser, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
+                chkRememberUser.setFocusPainted(false);
+                panel2.add(chkRememberUser, new GridBagConstraints(0, 5, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -231,6 +278,7 @@ public class SignIn extends JFrame {
                 btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 btnSignIn.setBackground(new Color(51, 102, 153));
                 btnSignIn.setForeground(Color.white);
+                btnSignIn.setFocusPainted(false);
                 btnSignIn.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -239,7 +287,7 @@ public class SignIn extends JFrame {
                 });
                 panel2.add(btnSignIn, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(20, 0, 8, 8), 0, 0));
+                    new Insets(10, 0, 8, 8), 0, 0));
 
                 //---- label1 ----
                 label1.setBackground(new Color(51, 102, 153));
@@ -247,9 +295,9 @@ public class SignIn extends JFrame {
                 label1.setPreferredSize(new Dimension(400, 2));
                 label1.setMinimumSize(new Dimension(400, 2));
                 label1.setMaximumSize(new Dimension(400, 10));
-                panel2.add(label1, new GridBagConstraints(0, 7, 4, 1, 0.0, 0.0,
+                panel2.add(label1, new GridBagConstraints(0, 7, 5, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(30, 0, 8, 0), 0, 0));
+                    new Insets(10, 0, 8, 0), 0, 0));
 
                 //---- btnNewUser ----
                 btnNewUser.setText("or Create a New User");
@@ -259,6 +307,7 @@ public class SignIn extends JFrame {
                 btnNewUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 btnNewUser.setBackground(new Color(51, 102, 153));
                 btnNewUser.setForeground(Color.white);
+                btnNewUser.setFocusPainted(false);
                 btnNewUser.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -267,7 +316,60 @@ public class SignIn extends JFrame {
                 });
                 panel2.add(btnNewUser, new GridBagConstraints(0, 8, 2, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(20, 0, 0, 8), 0, 0));
+                    new Insets(10, 0, 18, 8), 0, 0));
+
+                //---- txtNewUserName ----
+                txtNewUserName.setPreferredSize(new Dimension(14, 40));
+                txtNewUserName.setMinimumSize(new Dimension(14, 40));
+                txtNewUserName.setDefaultText("Username");
+                txtNewUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                panel2.add(txtNewUserName, new GridBagConstraints(0, 9, 4, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 8, 8), 0, 0));
+
+                //---- txtNewUserPassword ----
+                txtNewUserPassword.setMinimumSize(new Dimension(14, 40));
+                txtNewUserPassword.setPreferredSize(new Dimension(14, 40));
+                txtNewUserPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                txtNewUserPassword.setDefaultText("Password");
+                panel2.add(txtNewUserPassword, new GridBagConstraints(0, 10, 4, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 8, 8), 0, 0));
+
+                //---- txtNewUserPasswordVerify ----
+                txtNewUserPasswordVerify.setPreferredSize(new Dimension(14, 40));
+                txtNewUserPasswordVerify.setMinimumSize(new Dimension(14, 40));
+                txtNewUserPasswordVerify.setDefaultText("Re-enter password");
+                txtNewUserPasswordVerify.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                panel2.add(txtNewUserPasswordVerify, new GridBagConstraints(0, 11, 4, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 8, 8), 0, 0));
+
+                //---- btnSubmit ----
+                btnSubmit.setText("Submit");
+                btnSubmit.setBackground(new Color(51, 102, 153));
+                btnSubmit.setForeground(Color.white);
+                btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                btnSubmit.setFocusPainted(false);
+                panel2.add(btnSubmit, new GridBagConstraints(0, 12, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(10, 0, 0, 8), 0, 0));
+
+                //---- btnCancel ----
+                btnCancel.setText("Cancel");
+                btnCancel.setBackground(new Color(51, 102, 153));
+                btnCancel.setForeground(Color.white);
+                btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                btnCancel.setFocusPainted(false);
+                btnCancel.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        btnCancelMouseClicked();
+                    }
+                });
+                panel2.add(btnCancel, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(10, 0, 0, 8), 0, 0));
             }
             panel1.add(panel2, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -294,5 +396,10 @@ public class SignIn extends JFrame {
     private JButton btnSignIn;
     private JLabel label1;
     private JButton btnNewUser;
+    private JTextFieldDefaultText txtNewUserName;
+    private JPasswordFieldDefaultText txtNewUserPassword;
+    private JPasswordFieldDefaultText txtNewUserPasswordVerify;
+    private JButton btnSubmit;
+    private JButton btnCancel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
