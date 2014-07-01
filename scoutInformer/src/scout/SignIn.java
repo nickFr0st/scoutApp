@@ -25,11 +25,6 @@ public class SignIn extends JFrame implements GuiManager {
         stepHome = new PnlHome(this);
 
         this.getContentPane().add(stepSignIn);
-
-//        DBConnector connector = new DBConnector();
-//        if (!connector.checkForDBConnection()) {
-//            // todo: get a connection.
-//        }
     }
 
     @Override
