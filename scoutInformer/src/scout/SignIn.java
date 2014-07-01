@@ -117,9 +117,8 @@ public class SignIn extends JFrame {
             Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
         }
 
-        // if all is good check to see if there is a valid database setup
-        // if yes then load info and start the program
-        // if no go to database setup screen.
+        // look for database if it exists than start program with loaded data
+        // else load without data
     }
 
     private boolean validateUsernameAndPassword() {
@@ -192,9 +191,7 @@ public class SignIn extends JFrame {
         properties.setProperty(txtNewUserName.getText(), txtNewUserPassword.getText());
         Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
 
-        // if all is good check to see if there is a valid database setup
-        // if yes then load info and start the program
-        // if no go to database setup screen.
+        // start program without looking for database
     }
 
     private boolean validateNewUserCredentials() {
