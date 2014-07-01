@@ -1,8 +1,8 @@
 /*
- * Created by JFormDesigner on Sun Jun 29 18:20:11 MDT 2014
+ * Created by JFormDesigner on Mon Jun 30 21:28:35 MDT 2014
  */
 
-package scout;
+package scout.signIn;
 
 import constants.KeyConst;
 import guiUtil.JPasswordFieldDefaultText;
@@ -19,8 +19,7 @@ import java.util.Properties;
 /**
  * @author User #2
  */
-@SuppressWarnings("ALL")
-public class SignIn extends JFrame {
+public class PnlSignIn extends JPanel {
     private Properties properties;
     private String propertyFileName;
     private boolean createIsShowing;
@@ -30,8 +29,9 @@ public class SignIn extends JFrame {
         createIsShowing = true;  // do this so init works
     }
 
-    public SignIn() {
+    public PnlSignIn() {
         initComponents();
+
         properties = new Properties();
 
         try {
@@ -217,10 +217,10 @@ public class SignIn extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        panel1 = new JPanel();
+        pnlSignIn = new JPanel();
         lblHeader = new JLabel();
         lblBanner = new JLabel();
-        panel2 = new JPanel();
+        pnlSignInInfo = new JPanel();
         txtUsername = new JTextFieldDefaultText();
         lblUserNameError = new JLabel();
         txtPassword = new JPasswordFieldDefaultText();
@@ -240,52 +240,49 @@ public class SignIn extends JFrame {
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
-        setResizable(false);
-        setIconImage(new ImageIcon(getClass().getResource("/images/flurDeLis16.png")).getImage());
-        setTitle("BSA Database");
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new GridBagLayout());
-        ((GridBagLayout)contentPane.getLayout()).columnWidths = new int[] {0, 0};
-        ((GridBagLayout)contentPane.getLayout()).rowHeights = new int[] {0, 0};
-        ((GridBagLayout)contentPane.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-        ((GridBagLayout)contentPane.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+        setPreferredSize(new Dimension(1200, 800));
+        setLayout(new GridBagLayout());
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
-        //======== panel1 ========
+        //======== pnlSignIn ========
         {
-            panel1.setBackground(Color.white);
-            panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
-            ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0E-4};
+            pnlSignIn.setBackground(Color.white);
+            pnlSignIn.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlSignIn.getLayout()).columnWidths = new int[] {0, 0, 0};
+            ((GridBagLayout)pnlSignIn.getLayout()).rowHeights = new int[] {0, 0, 0};
+            ((GridBagLayout)pnlSignIn.getLayout()).columnWeights = new double[] {1.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlSignIn.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
 
             //---- lblHeader ----
             lblHeader.setIcon(new ImageIcon(getClass().getResource("/images/signInTitlebar.png")));
-            panel1.add(lblHeader, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
+            pnlSignIn.add(lblHeader, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
             //---- lblBanner ----
             lblBanner.setIcon(new ImageIcon(getClass().getResource("/images/timelessValues.png")));
-            panel1.add(lblBanner, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            pnlSignIn.add(lblBanner, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(90, 100, 106, 55), 0, 0));
 
-            //======== panel2 ========
+            //======== pnlSignInInfo ========
             {
-                panel2.setOpaque(false);
-                panel2.setLayout(new GridBagLayout());
-                ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 69, 0, 52, 0};
-                ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-                ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-                ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+                pnlSignInInfo.setOpaque(false);
+                pnlSignInInfo.setLayout(new GridBagLayout());
+                ((GridBagLayout)pnlSignInInfo.getLayout()).columnWidths = new int[] {0, 0, 69, 0, 52, 0};
+                ((GridBagLayout)pnlSignInInfo.getLayout()).rowHeights = new int[] {67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                ((GridBagLayout)pnlSignInInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+                ((GridBagLayout)pnlSignInInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
                 //---- txtUsername ----
                 txtUsername.setMinimumSize(new Dimension(400, 40));
                 txtUsername.setPreferredSize(new Dimension(400, 40));
                 txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtUsername.setDefaultText("Username");
-                panel2.add(txtUsername, new GridBagConstraints(0, 1, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(txtUsername, new GridBagConstraints(0, 1, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -294,7 +291,7 @@ public class SignIn extends JFrame {
                 lblUserNameError.setForeground(Color.red);
                 lblUserNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblUserNameError.setVisible(false);
-                panel2.add(lblUserNameError, new GridBagConstraints(0, 2, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(lblUserNameError, new GridBagConstraints(0, 2, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -303,7 +300,7 @@ public class SignIn extends JFrame {
                 txtPassword.setMinimumSize(new Dimension(400, 40));
                 txtPassword.setDefaultText("Password");
                 txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                panel2.add(txtPassword, new GridBagConstraints(0, 3, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(txtPassword, new GridBagConstraints(0, 3, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -312,7 +309,7 @@ public class SignIn extends JFrame {
                 lblPasswordError.setForeground(Color.red);
                 lblPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblPasswordError.setVisible(false);
-                panel2.add(lblPasswordError, new GridBagConstraints(0, 4, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(lblPasswordError, new GridBagConstraints(0, 4, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -322,7 +319,7 @@ public class SignIn extends JFrame {
                 chkRememberUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 chkRememberUser.setBorder(null);
                 chkRememberUser.setFocusPainted(false);
-                panel2.add(chkRememberUser, new GridBagConstraints(0, 5, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(chkRememberUser, new GridBagConstraints(0, 5, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -341,7 +338,7 @@ public class SignIn extends JFrame {
                         btnSignInMouseClicked();
                     }
                 });
-                panel2.add(btnSignIn, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0,
+                pnlSignInInfo.add(btnSignIn, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(10, 0, 8, 8), 0, 0));
 
@@ -351,7 +348,7 @@ public class SignIn extends JFrame {
                 label1.setPreferredSize(new Dimension(400, 2));
                 label1.setMinimumSize(new Dimension(400, 2));
                 label1.setMaximumSize(new Dimension(400, 10));
-                panel2.add(label1, new GridBagConstraints(0, 7, 5, 1, 0.0, 0.0,
+                pnlSignInInfo.add(label1, new GridBagConstraints(0, 7, 5, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(10, 0, 8, 0), 0, 0));
 
@@ -370,7 +367,7 @@ public class SignIn extends JFrame {
                         btnNewUserMouseClicked();
                     }
                 });
-                panel2.add(btnNewUser, new GridBagConstraints(0, 8, 2, 1, 0.0, 0.0,
+                pnlSignInInfo.add(btnNewUser, new GridBagConstraints(0, 8, 2, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(10, 0, 18, 8), 0, 0));
 
@@ -379,7 +376,7 @@ public class SignIn extends JFrame {
                 txtNewUserName.setMinimumSize(new Dimension(14, 40));
                 txtNewUserName.setDefaultText("Username");
                 txtNewUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                panel2.add(txtNewUserName, new GridBagConstraints(0, 9, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(txtNewUserName, new GridBagConstraints(0, 9, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -388,7 +385,7 @@ public class SignIn extends JFrame {
                 lblNewUserError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblNewUserError.setForeground(Color.red);
                 lblNewUserError.setVisible(false);
-                panel2.add(lblNewUserError, new GridBagConstraints(0, 10, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(lblNewUserError, new GridBagConstraints(0, 10, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -397,7 +394,7 @@ public class SignIn extends JFrame {
                 txtNewUserPassword.setPreferredSize(new Dimension(14, 40));
                 txtNewUserPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtNewUserPassword.setDefaultText("Password");
-                panel2.add(txtNewUserPassword, new GridBagConstraints(0, 11, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(txtNewUserPassword, new GridBagConstraints(0, 11, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -406,7 +403,7 @@ public class SignIn extends JFrame {
                 lblNewPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblNewPasswordError.setForeground(Color.red);
                 lblNewPasswordError.setVisible(false);
-                panel2.add(lblNewPasswordError, new GridBagConstraints(0, 12, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(lblNewPasswordError, new GridBagConstraints(0, 12, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -415,7 +412,7 @@ public class SignIn extends JFrame {
                 txtNewUserPasswordVerify.setMinimumSize(new Dimension(14, 40));
                 txtNewUserPasswordVerify.setDefaultText("Re-enter password");
                 txtNewUserPasswordVerify.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                panel2.add(txtNewUserPasswordVerify, new GridBagConstraints(0, 13, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(txtNewUserPasswordVerify, new GridBagConstraints(0, 13, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -424,7 +421,7 @@ public class SignIn extends JFrame {
                 lblNewPasswordVerifyError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblNewPasswordVerifyError.setForeground(Color.red);
                 lblNewPasswordVerifyError.setVisible(false);
-                panel2.add(lblNewPasswordVerifyError, new GridBagConstraints(0, 14, 4, 1, 0.0, 0.0,
+                pnlSignInInfo.add(lblNewPasswordVerifyError, new GridBagConstraints(0, 14, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
 
@@ -440,7 +437,7 @@ public class SignIn extends JFrame {
                         btnSubmitMouseClicked();
                     }
                 });
-                panel2.add(btnSubmit, new GridBagConstraints(0, 15, 1, 1, 0.0, 0.0,
+                pnlSignInInfo.add(btnSubmit, new GridBagConstraints(0, 15, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(10, 0, 0, 8), 0, 0));
 
@@ -456,27 +453,25 @@ public class SignIn extends JFrame {
                         btnCancelMouseClicked();
                     }
                 });
-                panel2.add(btnCancel, new GridBagConstraints(1, 15, 1, 1, 0.0, 0.0,
+                pnlSignInInfo.add(btnCancel, new GridBagConstraints(1, 15, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(10, 0, 0, 8), 0, 0));
             }
-            panel1.add(panel2, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+            pnlSignIn.add(pnlSignInInfo, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        contentPane.add(panel1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+        add(pnlSignIn, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
-        pack();
-        setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JPanel panel1;
+    private JPanel pnlSignIn;
     private JLabel lblHeader;
     private JLabel lblBanner;
-    private JPanel panel2;
+    private JPanel pnlSignInInfo;
     private JTextFieldDefaultText txtUsername;
     private JLabel lblUserNameError;
     private JPasswordFieldDefaultText txtPassword;
