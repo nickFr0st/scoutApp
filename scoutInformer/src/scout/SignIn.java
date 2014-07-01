@@ -4,6 +4,7 @@
 
 package scout;
 
+import constants.KeyConst;
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
 import util.Util;
@@ -19,13 +20,36 @@ import java.util.Properties;
  * @author User #2
  */
 public class SignIn extends JFrame {
+    private Properties properties;
+    private String propertyFileName;
+
+    {
+        propertyFileName = "/properties/users.properties";
+    }
+
     public SignIn() {
         initComponents();
+        properties = new Properties();
+
+        try {
+            properties.load(getClass().getResourceAsStream(propertyFileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
         btnSignIn.setFocusPainted(false);
         btnNewUser.setFocusPainted(false);
         chkRememberUser.setFocusPainted(false);
 
+        String savedUser = properties.getProperty(KeyConst.SAVED_USER.getName());
+
         txtUsername.requestFocus();
+        if (!Util.isEmpty(savedUser)) {
+            txtUsername.setTextColorToActive();
+            txtUsername.setText(savedUser);
+            chkRememberUser.setSelected(true);
+        }
     }
 
     private void btnSignInMouseClicked() {
@@ -50,30 +74,26 @@ public class SignIn extends JFrame {
             return;
         }
 
+        if (chkRememberUser.isSelected()) {
+            properties.setProperty(KeyConst.SAVED_USER.getName(), txtUsername.getText());
+            Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
+        }
+
         // if all is good check to see if there is a valid database setup
         // if yes then load info and start the program
         // if no go to database setup screen.
     }
 
     private boolean validateUsernameAndPassword() {
-        try {
-            Properties properties = new Properties();
-            properties.load(getClass().getResourceAsStream("/properties/users.properties"));
+        String password = properties.getProperty(txtUsername.getText());
 
-            String password = properties.getProperty(txtUsername.getText());
-
-            if (password == null) {
-                setUserError("User does not exists.");
-                return false;
-            }
-
-            if (!password.equals(txtPassword.getText())) {
-                setPasswordError("Password does not match.");
-                return false;
-            }
-
-        } catch (IOException ioe) {
+        if (password == null) {
             setUserError("User does not exists.");
+            return false;
+        }
+
+        if (!password.equals(txtPassword.getText())) {
+            setPasswordError("Password does not match.");
             return false;
         }
 
