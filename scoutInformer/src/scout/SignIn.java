@@ -12,9 +12,9 @@ import java.awt.*;
 /**
  * @author User #2
  */
-public class MainProgram extends JFrame {
+public class SignIn extends JFrame {
 
-    public MainProgram() {
+    public SignIn() {
         initComponents();
         PnlSignIn stepSignIn = new PnlSignIn();
         this.add(stepSignIn);

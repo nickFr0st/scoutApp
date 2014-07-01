@@ -251,9 +251,9 @@ public class PnlSignIn extends JPanel {
         {
             pnlSignIn.setBackground(Color.white);
             pnlSignIn.setLayout(new GridBagLayout());
-            ((GridBagLayout)pnlSignIn.getLayout()).columnWidths = new int[] {0, 0, 0};
+            ((GridBagLayout)pnlSignIn.getLayout()).columnWidths = new int[] {692, 0, 0};
             ((GridBagLayout)pnlSignIn.getLayout()).rowHeights = new int[] {0, 0, 0};
-            ((GridBagLayout)pnlSignIn.getLayout()).columnWeights = new double[] {1.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlSignIn.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
             ((GridBagLayout)pnlSignIn.getLayout()).rowWeights = new double[] {0.0, 1.0, 1.0E-4};
 
             //---- lblHeader ----

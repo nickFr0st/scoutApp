@@ -15,7 +15,7 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 1200, 800 )
 			"preferredSize": new java.awt.Dimension( 1200, 800 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "0:1.0, 0"
+				"$columnSpecs": "687, 0"
 				"$rowSpecs": "0, 0:1.0"
 				"$hGap": 5
 				"$vGap": 5
