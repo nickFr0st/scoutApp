@@ -5,6 +5,11 @@
 package scout;
 
 import constants.RankConst;
+import guiUtil.PnlRequirement;
+import scout.dbObjects.Requirement;
+import scout.dbObjects.Scout;
+import scout.rank.EmptyRank;
+import scout.rank.Rank;
 import util.DBConnector;
 
 import javax.swing.*;

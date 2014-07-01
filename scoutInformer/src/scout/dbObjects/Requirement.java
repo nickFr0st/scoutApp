@@ -1,4 +1,4 @@
-package scout;
+package scout.dbObjects;
 
 /**
  * Created by Malloch on 6/7/14

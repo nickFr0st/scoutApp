@@ -1,4 +1,4 @@
-package scout;
+package scout.rank;
 
 import constants.RankConst;
 

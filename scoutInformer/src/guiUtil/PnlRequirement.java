@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Sat Jun 07 18:04:30 MDT 2014
  */
 
-package scout;
+package guiUtil;
 
 import javax.swing.*;
 import java.awt.*;

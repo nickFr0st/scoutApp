@@ -1,4 +1,4 @@
-package scout;
+package scout.dbObjects;
 
 import java.util.List;
 

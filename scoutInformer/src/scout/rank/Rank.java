@@ -1,4 +1,4 @@
-package scout;
+package scout.rank;
 
 /**
  * Created by Malloch on 6/7/14
