@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Mon Jun 30 21:28:35 MDT 2014
  */
 
-package scout.signIn;
+package scout.clientPnls;
 
 import constants.KeyConst;
 import guiUtil.JPasswordFieldDefaultText;

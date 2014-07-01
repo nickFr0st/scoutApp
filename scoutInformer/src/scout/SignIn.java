@@ -4,7 +4,7 @@
 
 package scout;
 
-import scout.signIn.PnlSignIn;
+import scout.clientPnls.PnlSignIn;
 
 import javax.swing.*;
 import java.awt.*;
