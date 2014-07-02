@@ -28,11 +28,12 @@ new FormModel {
 					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
 					"focusPainted": false
 					"background": new java.awt.Color( 255, 255, 255, 255 )
-					"borderPainted": false
-					"opaque": false
 					"defaultImage": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
 					"selectedImage": new com.jformdesigner.model.SwingIcon( 0, "/images/settings_selected90.png" )
 					"toolTipText": "User Settings"
+					"opaque": false
+					"borderPainted": false
+					"contentAreaFilled": false
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSettingsMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 				add( new FormComponent( "guiUtil.JButtonImageChange" ) {

@@ -16,7 +16,7 @@ public class PnlSettings extends JPanel {
     public PnlSettings() {
         initComponents();
 
-        ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
+        ((SelectionBorder)getBorder()).cutSelectedArea(5, 100);
     }
 
     private void initComponents() {

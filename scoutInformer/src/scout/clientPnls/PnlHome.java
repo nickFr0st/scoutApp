@@ -57,10 +57,18 @@ public class PnlHome extends JPanel implements GuiManager {
     private void cleanup() {
         btnSettings.setDefault();
         btnSignOut.setDefault();
+        clearSelected();
+        changePanel(defaultSplash);
     }
 
     private void btnSettingsMouseClicked() {
+        clearSelected();
         changePanel(pnlSettings);
+        btnSettings.setOpaque(true);
+    }
+
+    private void clearSelected() {
+        btnSettings.setOpaque(false);
     }
 
     private void changePanel(JPanel newPanel) {
@@ -72,6 +80,7 @@ public class PnlHome extends JPanel implements GuiManager {
         currentPnl = newPanel;
         pnlBase.add(currentPnl);
         pnlBase.revalidate();
+        pnlBase.repaint();
     }
 
     private void initComponents() {
@@ -104,11 +113,12 @@ public class PnlHome extends JPanel implements GuiManager {
             btnSettings.setIcon(new ImageIcon(getClass().getResource("/images/settings90.png")));
             btnSettings.setFocusPainted(false);
             btnSettings.setBackground(Color.white);
-            btnSettings.setBorderPainted(false);
-            btnSettings.setOpaque(false);
             btnSettings.setDefaultImage(new ImageIcon(getClass().getResource("/images/settings90.png")));
             btnSettings.setSelectedImage(new ImageIcon(getClass().getResource("/images/settings_selected90.png")));
             btnSettings.setToolTipText("User Settings");
+            btnSettings.setOpaque(false);
+            btnSettings.setBorderPainted(false);
+            btnSettings.setContentAreaFilled(false);
             btnSettings.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
