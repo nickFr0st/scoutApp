@@ -28,7 +28,6 @@ public class SelectionBorder extends AbstractBorder {
             // Bottom Border
             g2d.fill(new Rectangle2D.Double(x, height - 8, width, 5));
             // Left Border
-            // Left Border
             if (gapTop > 5) {
                 g2d.fill(new Rectangle2D.Double(x, y, 5, gapTop));
             }
