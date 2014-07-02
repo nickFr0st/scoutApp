@@ -17,11 +17,14 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlHome extends JPanel implements GuiManager {
+    private JPanel currentPnl;
     private SignIn parentFrame;
     private PnlDefaultSplash defaultSplash;
+    private PnlSettings pnlSettings;
 
     {
         defaultSplash = new PnlDefaultSplash();
+        pnlSettings = new PnlSettings();
     }
 
     public PnlHome() {
@@ -32,7 +35,8 @@ public class PnlHome extends JPanel implements GuiManager {
         this();
         this.parentFrame = parentFrame;
 
-        pnlBase.add(defaultSplash);
+        currentPnl = defaultSplash;
+        pnlBase.add(currentPnl);
     }
 
     @Override
@@ -53,6 +57,21 @@ public class PnlHome extends JPanel implements GuiManager {
     private void cleanup() {
         btnSettings.setDefault();
         btnSignOut.setDefault();
+    }
+
+    private void btnSettingsMouseClicked() {
+        changePanel(pnlSettings);
+    }
+
+    private void changePanel(JPanel newPanel) {
+        if (currentPnl.equals(newPanel)) {
+            return;
+        }
+
+        pnlBase.remove(currentPnl);
+        currentPnl = newPanel;
+        pnlBase.add(currentPnl);
+        pnlBase.revalidate();
     }
 
     private void initComponents() {
@@ -90,6 +109,12 @@ public class PnlHome extends JPanel implements GuiManager {
             btnSettings.setDefaultImage(new ImageIcon(getClass().getResource("/images/settings90.png")));
             btnSettings.setSelectedImage(new ImageIcon(getClass().getResource("/images/settings_selected90.png")));
             btnSettings.setToolTipText("User Settings");
+            btnSettings.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnSettingsMouseClicked();
+                }
+            });
             pnlOptionsMenu.add(btnSettings, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
