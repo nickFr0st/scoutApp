@@ -18,6 +18,11 @@ import java.awt.event.MouseEvent;
  */
 public class PnlHome extends JPanel implements GuiManager {
     private SignIn parentFrame;
+    private PnlDefaultSplash defaultSplash;
+
+    {
+        defaultSplash = new PnlDefaultSplash();
+    }
 
     public PnlHome() {
         initComponents();
@@ -26,6 +31,8 @@ public class PnlHome extends JPanel implements GuiManager {
     public PnlHome(SignIn parentFrame) {
         this();
         this.parentFrame = parentFrame;
+
+        pnlBase.add(defaultSplash);
     }
 
     @Override
@@ -50,28 +57,29 @@ public class PnlHome extends JPanel implements GuiManager {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        panel1 = new JPanel();
+        pnlOptionsMenu = new JPanel();
         btnSettings = new JButtonImageChange();
         btnSignOut = new JButtonImageChange();
+        pnlBase = new JPanel();
 
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
         setPreferredSize(new Dimension(1200, 800));
         setBackground(Color.white);
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {105, 0, 0};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {100, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 1.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
 
-        //======== panel1 ========
+        //======== pnlOptionsMenu ========
         {
-            panel1.setOpaque(false);
-            panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0};
-            ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
-            ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            pnlOptionsMenu.setBackground(new Color(190, 174, 150));
+            pnlOptionsMenu.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWidths = new int[] {100, 0};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
             //---- btnSettings ----
             btnSettings.setIcon(new ImageIcon(getClass().getResource("/images/settings90.png")));
@@ -82,7 +90,7 @@ public class PnlHome extends JPanel implements GuiManager {
             btnSettings.setDefaultImage(new ImageIcon(getClass().getResource("/images/settings90.png")));
             btnSettings.setSelectedImage(new ImageIcon(getClass().getResource("/images/settings_selected90.png")));
             btnSettings.setToolTipText("User Settings");
-            panel1.add(btnSettings, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+            pnlOptionsMenu.add(btnSettings, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
@@ -101,19 +109,33 @@ public class PnlHome extends JPanel implements GuiManager {
                     btnSignOutMouseClicked();
                 }
             });
-            panel1.add(btnSignOut, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            pnlOptionsMenu.add(btnSignOut, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
         }
-        add(panel1, new GridBagConstraints(0, 0, 1, 3, 0.0, 0.0,
+        add(pnlOptionsMenu, new GridBagConstraints(0, 0, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 0, 5), 0, 0));
+            new Insets(0, 0, 0, 0), 0, 0));
+
+        //======== pnlBase ========
+        {
+            pnlBase.setBackground(Color.white);
+            pnlBase.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlBase.getLayout()).columnWidths = new int[] {0, 0};
+            ((GridBagLayout)pnlBase.getLayout()).rowHeights = new int[] {0, 0};
+            ((GridBagLayout)pnlBase.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+            ((GridBagLayout)pnlBase.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+        }
+        add(pnlBase, new GridBagConstraints(1, 0, 1, 3, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 0, 0), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JPanel panel1;
+    private JPanel pnlOptionsMenu;
     private JButtonImageChange btnSettings;
     private JButtonImageChange btnSignOut;
+    private JPanel pnlBase;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

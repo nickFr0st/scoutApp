@@ -4,9 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "100, 0"
+			"$columnSpecs": "100, 0:1.0"
 			"$rowSpecs": "0, 0, 0:1.0"
-			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
 			"$alignTop": true
@@ -16,15 +15,14 @@ new FormModel {
 			"preferredSize": new java.awt.Dimension( 1200, 800 )
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "0"
+				"$columnSpecs": "100"
 				"$rowSpecs": "0, 0, 0, 0, 0:1.0"
-				"$hGap": 5
 				"$vGap": 5
 				"$alignLeft": true
 				"$alignTop": true
 			} ) {
-				name: "panel1"
-				"opaque": false
+				name: "pnlOptionsMenu"
+				"background": new java.awt.Color( 190, 174, 150, 255 )
 				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
 					name: "btnSettings"
 					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
@@ -51,6 +49,20 @@ new FormModel {
 					"gridy": 1
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridheight": 3
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "0:1.0"
+				"$rowSpecs": "0:1.0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "pnlBase"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
 				"gridheight": 3
 			} )
 		}, new FormLayoutConstraints( null ) {
