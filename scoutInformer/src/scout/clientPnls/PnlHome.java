@@ -4,6 +4,7 @@
 
 package scout.clientPnls;
 
+import guiUtil.ButtonSideMenu;
 import guiUtil.JButtonImageChange;
 import scout.GuiManager;
 import scout.SignIn;
@@ -62,13 +63,11 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnSettingsMouseClicked() {
-        clearSelected();
         changePanel(pnlSettings);
-        btnSettings.setOpaque(true);
     }
 
     private void clearSelected() {
-        btnSettings.setOpaque(false);
+        btnSettings.setDefault();
     }
 
     private void changePanel(JPanel newPanel) {
@@ -86,7 +85,7 @@ public class PnlHome extends JPanel implements GuiManager {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         pnlOptionsMenu = new JPanel();
-        btnSettings = new JButtonImageChange();
+        btnSettings = new ButtonSideMenu();
         btnSignOut = new JButtonImageChange();
         pnlBase = new JPanel();
 
@@ -110,15 +109,10 @@ public class PnlHome extends JPanel implements GuiManager {
             ((GridBagLayout)pnlOptionsMenu.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
             //---- btnSettings ----
-            btnSettings.setIcon(new ImageIcon(getClass().getResource("/images/settings90.png")));
-            btnSettings.setFocusPainted(false);
-            btnSettings.setBackground(Color.white);
             btnSettings.setDefaultImage(new ImageIcon(getClass().getResource("/images/settings90.png")));
             btnSettings.setSelectedImage(new ImageIcon(getClass().getResource("/images/settings_selected90.png")));
-            btnSettings.setToolTipText("User Settings");
-            btnSettings.setOpaque(false);
-            btnSettings.setBorderPainted(false);
-            btnSettings.setContentAreaFilled(false);
+            btnSettings.setToolTipText("Settings");
+            btnSettings.setBackground(Color.white);
             btnSettings.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -169,7 +163,7 @@ public class PnlHome extends JPanel implements GuiManager {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel pnlOptionsMenu;
-    private JButtonImageChange btnSettings;
+    private ButtonSideMenu btnSettings;
     private JButtonImageChange btnSignOut;
     private JPanel pnlBase;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

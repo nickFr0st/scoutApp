@@ -23,17 +23,12 @@ new FormModel {
 			} ) {
 				name: "pnlOptionsMenu"
 				"background": new java.awt.Color( 190, 174, 150, 255 )
-				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
+				add( new FormComponent( "guiUtil.ButtonSideMenu" ) {
 					name: "btnSettings"
-					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
-					"focusPainted": false
-					"background": new java.awt.Color( 255, 255, 255, 255 )
 					"defaultImage": new com.jformdesigner.model.SwingIcon( 0, "/images/settings90.png" )
 					"selectedImage": new com.jformdesigner.model.SwingIcon( 0, "/images/settings_selected90.png" )
-					"toolTipText": "User Settings"
-					"opaque": false
-					"borderPainted": false
-					"contentAreaFilled": false
+					"toolTipText": "Settings"
+					"background": new java.awt.Color( 255, 255, 255, 255 )
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSettingsMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
