@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed duplcate entry issue">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/constants/ErrorConst.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="created better error messages">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -94,7 +92,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="51" class="util.DBConnector" package="util">
+      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="50" class="util.DBConnector" package="util">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -124,7 +122,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="132" class="util.DBConnector" package="util">
+      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="131" class="util.DBConnector" package="util">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -152,10 +150,9 @@
       <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="0" selection-start="4579" selection-end="4579" vertical-scroll-proportion="-39.615383" vertical-offset="1333" max-vertical-offset="3842">
+            <state line="142" column="0" selection-start="4550" selection-end="4550" vertical-scroll-proportion="-39.615383" vertical-offset="1316" max-vertical-offset="3825">
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1404508851969" expanded="true" signature="5766:5780" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1404508863440" expanded="true" signature="5737:5751" placeholder="SELECT * FRO..missingValue..." />
               </folding>
             </state>
           </provider>
@@ -171,10 +168,10 @@
       <file leaf-file-name="PnlSetupWizard.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="117" selection-start="3416" selection-end="3416" vertical-scroll-proportion="0.8798587" vertical-offset="1236" max-vertical-offset="2057">
+            <state line="116" column="43" selection-start="3647" selection-end="3647" vertical-scroll-proportion="0.38388625" vertical-offset="1525" max-vertical-offset="2261">
               <folding>
-                <marker date="1404508851963" expanded="false" signature="3590:18092" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1404508851963" expanded="false" signature="18104:19090" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1404509419600" expanded="false" signature="4391:18893" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1404509419600" expanded="false" signature="18905:19891" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -277,8 +274,8 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd" />
         <option value="$PROJECT_DIR$/src/constants/ErrorConst.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
         <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
       </list>
     </option>
   </component>
@@ -720,7 +717,7 @@
       <workItem from="1404477734221" duration="899000" />
       <workItem from="1404483227050" duration="16328000" />
       <workItem from="1404504935067" duration="458000" />
-      <workItem from="1404506891245" duration="1959000" />
+      <workItem from="1404506891245" duration="2591000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -950,11 +947,15 @@
       <created>1404505255194</created>
       <updated>1404505255194</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="created better error messages">
+      <created>1404508863626</created>
+      <updated>1404508863627</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160268000" />
+    <option name="totallyTimeSpent" value="160900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -967,7 +968,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39744952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39744952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -980,7 +981,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1034,7 +1035,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fixed alignment issue" />
     <MESSAGE value="structured some classes" />
     <MESSAGE value="more clean up" />
     <MESSAGE value="added start of new page" />
@@ -1059,7 +1059,8 @@
     <MESSAGE value="creating and connecting to a database now update the db properties&#10;" />
     <MESSAGE value="can now save to the database" />
     <MESSAGE value="fixed duplcate entry issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed duplcate entry issue" />
+    <MESSAGE value="created better error messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="created better error messages" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1315,11 +1316,6 @@
         <state line="23" column="9" selection-start="670" selection-end="670" vertical-scroll-proportion="0.51026857" vertical-offset="0" max-vertical-offset="633" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="4" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
@@ -1329,10 +1325,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="0" selection-start="4579" selection-end="4579" vertical-scroll-proportion="-39.615383" vertical-offset="1333" max-vertical-offset="3842">
+        <state line="142" column="0" selection-start="4550" selection-end="4550" vertical-scroll-proportion="-39.615383" vertical-offset="1316" max-vertical-offset="3825">
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1404508851969" expanded="true" signature="5766:5780" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1404508863440" expanded="true" signature="5737:5751" placeholder="SELECT * FRO..missingValue..." />
           </folding>
         </state>
       </provider>
@@ -1349,12 +1344,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="117" selection-start="3416" selection-end="3416" vertical-scroll-proportion="0.8798587" vertical-offset="1236" max-vertical-offset="2057">
+        <state line="116" column="43" selection-start="3647" selection-end="3647" vertical-scroll-proportion="0.38388625" vertical-offset="1525" max-vertical-offset="2261">
           <folding>
-            <marker date="1404508851963" expanded="false" signature="3590:18092" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1404508851963" expanded="false" signature="18104:19090" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1404509419600" expanded="false" signature="4391:18893" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1404509419600" expanded="false" signature="18905:19891" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>

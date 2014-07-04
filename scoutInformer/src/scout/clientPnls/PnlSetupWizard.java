@@ -4,6 +4,7 @@
 
 package scout.clientPnls;
 
+import constants.ErrorConst;
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
@@ -50,10 +51,16 @@ public class PnlSetupWizard extends JPanel {
     }
 
     private void btnCreateMouseClicked() {
+        clearErrors();
         if (validateDBFields()) return;
 
-        DBConnector connector = new DBConnector();
-        if (connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText()) == 0) {
+        int responseCode = connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText());
+
+        if (responseCode == ErrorConst.INVALID_SERVER_CREDENTIALS.getId()) {
+            Util.setError(lblServerPasswordError, ErrorConst.INVALID_SERVER_CREDENTIALS.getMessage());
+        } else if (responseCode == ErrorConst.DATABASE_NAME_ALREADY_EXISTS.getId()) {
+            Util.setError(lblDBNameError, ErrorConst.DATABASE_NAME_ALREADY_EXISTS.getMessage());
+        } else if (responseCode == 0) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
             enableStep2(true);
@@ -111,7 +118,13 @@ public class PnlSetupWizard extends JPanel {
         clearErrors();
         if (validateDBFields()) return;
 
-        if (connector.connectToDB(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText()) == 0) {
+        int responseCode = connector.connectToDB(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText());
+
+        if (responseCode == ErrorConst.INVALID_SERVER_CREDENTIALS.getId()) {
+            Util.setError(lblServerPasswordError, ErrorConst.INVALID_SERVER_CREDENTIALS.getMessage());
+        } else if (responseCode == ErrorConst.UNKNOWN_DATABASE.getId()) {
+            Util.setError(lblDBNameError, ErrorConst.UNKNOWN_DATABASE.getMessage());
+        } else if (responseCode == 0) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
             enableStep2(true);
