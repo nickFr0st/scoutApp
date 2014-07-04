@@ -241,4 +241,34 @@ public class DBConnector {
         }
         return null;
     }
+
+    public void updateById(int id, String tableName, String[] tableColumnNames, String[] columnValues) {
+        if (tableColumnNames == null || tableColumnNames.length < 1) {
+            return;
+        }
+
+        try {
+            Statement statement = setupConnection(userName, dbName, password);
+            StringBuilder query = new StringBuilder();
+
+            query.append("UPDATE ").append(tableName);
+            query.append(" SET ");
+
+            boolean first = true;
+            for (int i = 0; i < tableColumnNames.length; ++i) {
+                if (first) {
+                    query.append(tableColumnNames[i]).append("=").append("'").append(columnValues[i]).append("'");
+                    first = false;
+                } else {
+                    query.append(",").append(tableColumnNames[i]).append("=").append("'").append(columnValues[i]).append("'");
+                }
+            }
+
+            query.append(" WHERE id = ").append(id);
+
+            statement.executeUpdate(query.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

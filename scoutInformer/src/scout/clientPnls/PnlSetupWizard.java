@@ -23,6 +23,7 @@ import java.awt.event.MouseEvent;
 public class PnlSetupWizard extends JPanel {
     private Icon completeIcon;
     private DBConnector connector;
+    private int userExists;
 
     {
         completeIcon = new ImageIcon(getClass().getResource("/images/complete.png"));
@@ -110,7 +111,11 @@ public class PnlSetupWizard extends JPanel {
             return;
         }
 
-        connector.insert("user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+        if (userExists > 0) {
+            connector.updateById(userExists, "user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+        } else {
+            connector.insert("user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+        }
 
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
@@ -137,6 +142,7 @@ public class PnlSetupWizard extends JPanel {
     private void populateStep2() {
         User user = connector.getUser();
         if (user != null) {
+            userExists = user.getId();
             txtLeaderName.setText(user.getTroopLeader());
             txtTroopNumber.setText(user.getTroopNumber());
             txtScoutCouncil.setText(user.getCouncil());
