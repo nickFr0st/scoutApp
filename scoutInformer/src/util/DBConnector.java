@@ -182,7 +182,7 @@ public class DBConnector {
     }
 
     private int getNextId(String tableName) {
-        int id = 1;
+        int id = 0;
         try {
             Statement statement = setupConnection(userName, password);
             ResultSet rs = statement.executeQuery("SELECT * FROM " + tableName);
@@ -204,7 +204,7 @@ public class DBConnector {
             e.printStackTrace();
         }
 
-        return id;
+        return id + 1;
     }
 
     public void insert(String tableName, String[] tableColumnNames, String[] columnValues) {
