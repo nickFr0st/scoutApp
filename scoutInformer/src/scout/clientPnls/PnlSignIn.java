@@ -108,12 +108,12 @@ public class PnlSignIn extends JPanel implements GuiManager {
         boolean hasErrors = false;
 
         if (Util.isEmpty(txtUsername.getText()) || txtUsername.isMessageDefault()) {
-            setError(lblUserNameError, "Username cannot be left blank.");
+            Util.setError(lblUserNameError, "Username cannot be left blank.");
             hasErrors = true;
         }
 
         if (Util.isEmpty(txtPassword.getText()) || txtPassword.isMessageDefault()) {
-            setError(lblPasswordError, "Password cannot be left blank.");
+            Util.setError(lblPasswordError, "Password cannot be left blank.");
             hasErrors = true;
         }
 
@@ -138,12 +138,12 @@ public class PnlSignIn extends JPanel implements GuiManager {
         String password = properties.getProperty(txtUsername.getText());
 
         if (password == null) {
-            setError(lblUserNameError, "User does not exists.");
+            Util.setError(lblUserNameError, "User does not exists.");
             return false;
         }
 
         if (!password.equals(txtPassword.getText())) {
-            setError(lblPasswordError, "Password does not match.");
+            Util.setError(lblPasswordError, "Password does not match.");
             return false;
         }
 
@@ -179,17 +179,17 @@ public class PnlSignIn extends JPanel implements GuiManager {
         boolean hasErrors = false;
 
         if (Util.isEmpty(txtNewUserName.getText()) || txtNewUserName.isMessageDefault()) {
-            setError(lblNewUserError, "Username cannot be left blank.");
+            Util.setError(lblNewUserError, "Username cannot be left blank.");
             hasErrors = true;
         }
 
         if (Util.isEmpty(txtNewUserPassword.getText()) || txtNewUserPassword.isMessageDefault()) {
-            setError(lblNewPasswordError, "Password cannot be left blank.");
+            Util.setError(lblNewPasswordError, "Password cannot be left blank.");
             hasErrors = true;
         }
 
         if (Util.isEmpty(txtNewUserPasswordVerify.getText()) || txtNewUserPasswordVerify.isMessageDefault()) {
-            setError(lblNewPasswordVerifyError, "Password cannot be left blank.");
+            Util.setError(lblNewPasswordVerifyError, "Password cannot be left blank.");
             hasErrors = true;
         }
 
@@ -212,21 +212,16 @@ public class PnlSignIn extends JPanel implements GuiManager {
         String password = properties.getProperty(txtNewUserName.getText());
 
         if (password != null) {
-            setError(lblNewUserError, "Username already exists.");
+            Util.setError(lblNewUserError, "Username already exists.");
             return false;
         }
 
         if (!txtNewUserPassword.getText().equals(txtNewUserPasswordVerify.getText())) {
-            setError(lblNewPasswordVerifyError, "Passwords do not match.");
+            Util.setError(lblNewPasswordVerifyError, "Passwords do not match.");
             return false;
         }
 
         return true;
-    }
-
-    private void setError(JLabel lblNewUserError, String errorMessage) {
-        lblNewUserError.setText("* " + errorMessage);
-        lblNewUserError.setVisible(true);
     }
 
     private void clearFields() {

@@ -7,6 +7,7 @@ package scout.clientPnls;
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
+import util.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,15 +41,70 @@ public class PnlSetupWizard extends JPanel {
     }
 
     private void btnCreateMouseClicked() {
+        clearCreateErrors();
+        boolean hasErrors = false;
+
+        if (Util.isEmpty(txtNewDatabasePath.getText()) || txtNewDatabasePath.isMessageDefault()) {
+            Util.setError(lblNewDBPathError, "Database location cannot be left blank.");
+            hasErrors = true;
+        }
+
+        if (Util.isEmpty(txtNewDatabaseName.getText()) || txtNewDatabaseName.isMessageDefault()) {
+            Util.setError(lblNewDBNameError, "Database name cannot be left blank.");
+            hasErrors = true;
+        }
+
+        if (Util.isEmpty(txtNewDBUsername.getText()) || txtNewDBUsername.isMessageDefault()) {
+            Util.setError(lblNewDBUsernameError, "Server username cannot be left blank.");
+            hasErrors = true;
+        }
+
+        if (Util.isEmpty(txtNewDBPassword.getText()) || txtNewDBPassword.isMessageDefault()) {
+            Util.setError(lblNewDBPasswordError, "Server password cannot be left blank.");
+            hasErrors = true;
+        }
+
+        if (hasErrors) {
+            return;
+        }
+
+
+
+        // create DBCreator Method in DBConnection
+        // call DBCreator
+
         showStep1(false);
     }
 
+    private void clearCreateErrors() {
+        lblNewDBPathError.setText("");
+        lblNewDBPathError.setVisible(false);
+
+        lblNewDBNameError.setText("");
+        lblNewDBNameError.setVisible(false);
+
+        lblNewDBUsernameError.setText("");
+        lblNewDBUsernameError.setVisible(false);
+
+        lblNewDBPasswordError.setText("");
+        lblNewDBPasswordError.setVisible(false);
+    }
+
     private void btnBrowseNewMouseClicked() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("Select a location to create your database");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            txtNewDatabasePath.setText(chooser.getSelectedFile().toString());
+        }
     }
 
     private void lblStepOneMouseEntered() {
         if (!pnlCreateDatabase.isVisible()) {
-            lblStepOne.setForeground(new Color(32,154,26));
+            lblStepOne.setForeground(new Color(32, 154, 26));
         }
     }
 
@@ -65,6 +121,18 @@ public class PnlSetupWizard extends JPanel {
         }
     }
 
+    private void btnBrowseSelectMouseClicked() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("Select an existing BSA database");
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            txtSelectedDatabasePath.setText(chooser.getSelectedFile().toString());
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         lblWelcome = new JLabel();
@@ -74,13 +142,13 @@ public class PnlSetupWizard extends JPanel {
         pnlCreateDatabase = new JPanel();
         txtNewDatabasePath = new JTextFieldDefaultText();
         btnBrowseNew = new JButton();
+        lblNewDBPathError = new JLabel();
         txtNewDatabaseName = new JTextFieldDefaultText();
+        lblNewDBNameError = new JLabel();
         txtNewDBUsername = new JTextFieldDefaultText();
         lblNewDBUsernameError = new JLabel();
         txtNewDBPassword = new JPasswordFieldDefaultText();
         lblNewDBPasswordError = new JLabel();
-        txtNewDBPasswordVerify = new JPasswordFieldDefaultText();
-        lblNEwDBPasswordVerifyError = new JLabel();
         btnCreate = new JButton();
         lblSeparator = new JLabel();
         pnlConnectDataBase = new JPanel();
@@ -196,12 +264,30 @@ public class PnlSetupWizard extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 10), 0, 0));
 
+            //---- lblNewDBPathError ----
+            lblNewDBPathError.setText("* Error Message");
+            lblNewDBPathError.setForeground(Color.red);
+            lblNewDBPathError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblNewDBPathError.setVisible(false);
+            pnlCreateDatabase.add(lblNewDBPathError, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 10), 0, 0));
+
             //---- txtNewDatabaseName ----
             txtNewDatabaseName.setMinimumSize(new Dimension(14, 40));
             txtNewDatabaseName.setPreferredSize(new Dimension(14, 40));
             txtNewDatabaseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtNewDatabaseName.setDefaultText("Database name");
-            pnlCreateDatabase.add(txtNewDatabaseName, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(txtNewDatabaseName, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 10), 0, 0));
+
+            //---- lblNewDBNameError ----
+            lblNewDBNameError.setText("* Error Message");
+            lblNewDBNameError.setForeground(Color.red);
+            lblNewDBNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblNewDBNameError.setVisible(false);
+            pnlCreateDatabase.add(lblNewDBNameError, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -209,8 +295,8 @@ public class PnlSetupWizard extends JPanel {
             txtNewDBUsername.setMinimumSize(new Dimension(14, 40));
             txtNewDBUsername.setPreferredSize(new Dimension(14, 40));
             txtNewDBUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtNewDBUsername.setDefaultText("Username");
-            pnlCreateDatabase.add(txtNewDBUsername, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+            txtNewDBUsername.setDefaultText("MySql server username");
+            pnlCreateDatabase.add(txtNewDBUsername, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -219,16 +305,16 @@ public class PnlSetupWizard extends JPanel {
             lblNewDBUsernameError.setForeground(Color.red);
             lblNewDBUsernameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblNewDBUsernameError.setVisible(false);
-            pnlCreateDatabase.add(lblNewDBUsernameError, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(lblNewDBUsernameError, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
             //---- txtNewDBPassword ----
             txtNewDBPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtNewDBPassword.setDefaultText("Password");
+            txtNewDBPassword.setDefaultText("MySql server password");
             txtNewDBPassword.setMinimumSize(new Dimension(14, 40));
             txtNewDBPassword.setPreferredSize(new Dimension(72, 40));
-            pnlCreateDatabase.add(txtNewDBPassword, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(txtNewDBPassword, new GridBagConstraints(0, 6, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -237,25 +323,7 @@ public class PnlSetupWizard extends JPanel {
             lblNewDBPasswordError.setForeground(Color.red);
             lblNewDBPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblNewDBPasswordError.setVisible(false);
-            pnlCreateDatabase.add(lblNewDBPasswordError, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 10), 0, 0));
-
-            //---- txtNewDBPasswordVerify ----
-            txtNewDBPasswordVerify.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtNewDBPasswordVerify.setDefaultText("Re-enter password");
-            txtNewDBPasswordVerify.setMinimumSize(new Dimension(14, 40));
-            txtNewDBPasswordVerify.setPreferredSize(new Dimension(72, 40));
-            pnlCreateDatabase.add(txtNewDBPasswordVerify, new GridBagConstraints(0, 6, 3, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 10), 0, 0));
-
-            //---- lblNEwDBPasswordVerifyError ----
-            lblNEwDBPasswordVerifyError.setText("* Error Message");
-            lblNEwDBPasswordVerifyError.setForeground(Color.red);
-            lblNEwDBPasswordVerifyError.setFont(new Font("Tahoma", Font.ITALIC, 11));
-            lblNEwDBPasswordVerifyError.setVisible(false);
-            pnlCreateDatabase.add(lblNEwDBPasswordVerifyError, new GridBagConstraints(0, 7, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(lblNewDBPasswordError, new GridBagConstraints(0, 7, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -321,6 +389,12 @@ public class PnlSetupWizard extends JPanel {
             btnBrowseSelect.setBackground(new Color(51, 102, 153));
             btnBrowseSelect.setForeground(Color.white);
             btnBrowseSelect.setFocusPainted(false);
+            btnBrowseSelect.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnBrowseSelectMouseClicked();
+                }
+            });
             pnlConnectDataBase.add(btnBrowseSelect, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 8, 20), 0, 0));
@@ -329,7 +403,7 @@ public class PnlSetupWizard extends JPanel {
             txtSelectDBUsername.setMinimumSize(new Dimension(14, 40));
             txtSelectDBUsername.setPreferredSize(new Dimension(14, 40));
             txtSelectDBUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtSelectDBUsername.setDefaultText("Username");
+            txtSelectDBUsername.setDefaultText("MySql server username");
             pnlConnectDataBase.add(txtSelectDBUsername, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 10, 8, 20), 0, 0));
@@ -345,7 +419,7 @@ public class PnlSetupWizard extends JPanel {
 
             //---- txtSelectDBPassword ----
             txtSelectDBPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtSelectDBPassword.setDefaultText("Password");
+            txtSelectDBPassword.setDefaultText("MySql server password");
             txtSelectDBPassword.setMinimumSize(new Dimension(14, 40));
             txtSelectDBPassword.setPreferredSize(new Dimension(72, 40));
             pnlConnectDataBase.add(txtSelectDBPassword, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
@@ -423,13 +497,13 @@ public class PnlSetupWizard extends JPanel {
     private JPanel pnlCreateDatabase;
     private JTextFieldDefaultText txtNewDatabasePath;
     private JButton btnBrowseNew;
+    private JLabel lblNewDBPathError;
     private JTextFieldDefaultText txtNewDatabaseName;
+    private JLabel lblNewDBNameError;
     private JTextFieldDefaultText txtNewDBUsername;
     private JLabel lblNewDBUsernameError;
     private JPasswordFieldDefaultText txtNewDBPassword;
     private JLabel lblNewDBPasswordError;
-    private JPasswordFieldDefaultText txtNewDBPasswordVerify;
-    private JLabel lblNEwDBPasswordVerifyError;
     private JButton btnCreate;
     private JLabel lblSeparator;
     private JPanel pnlConnectDataBase;

@@ -24,23 +24,20 @@ public class JTextFieldDefaultText extends JTextField {
     public JTextFieldDefaultText() {
         super();
 
-        setForeground(defaultColor);
-        setText(defaultText);
+        setDefault();
 
         this.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
                 if (getForeground().equals(defaultColor)) {
                     setText("");
-                    setForeground(activeColor);
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
                 if (Util.isEmpty(getText())) {
-                    setText(defaultText);
-                    setForeground(defaultColor);
+                    setDefault();
                 }
             }
         });
@@ -92,7 +89,7 @@ public class JTextFieldDefaultText extends JTextField {
      */
     public void setDefaultText(String defaultText) {
         this.defaultText = defaultText;
-        setText(defaultText);
+        setDefault();
     }
 
     public void setTextColorToActive() {
@@ -105,6 +102,12 @@ public class JTextFieldDefaultText extends JTextField {
 
     public void setDefault() {
         setForeground(defaultColor);
-        setText(defaultText);
+        super.setText(defaultText);
+    }
+
+    @Override
+    public void setText(String t) {
+        super.setText(t);
+        setForeground(activeColor);
     }
 }

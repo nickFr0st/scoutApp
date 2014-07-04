@@ -1,5 +1,6 @@
 package util;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -21,5 +22,10 @@ public class Util {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setError(JLabel lblNewUserError, String errorMessage) {
+        lblNewUserError.setText("* " + errorMessage);
+        lblNewUserError.setVisible(true);
     }
 }
