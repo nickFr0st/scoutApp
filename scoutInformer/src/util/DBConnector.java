@@ -18,6 +18,7 @@ public class DBConnector {
     private static String url;
     private static String userName;
     private static String password;
+    String dataBase = "jdbc:mysql://localhost:3306/";
 
     static {
         driver = "com.mysql.jdbc.Driver";
@@ -77,6 +78,27 @@ public class DBConnector {
         }
     }
 
+    public boolean connectToDB(String name, String rootUser, String rootPassword) {
+        try {
+            Class.forName(driver).newInstance();
+            connection = DriverManager.getConnection(dataBase + name, rootUser, rootPassword);
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        DBConnector.url = dataBase;
+        DBConnector.dbName = name;
+        DBConnector.userName = rootUser;
+        DBConnector.password = rootPassword;
+
+        return true;
+    }
+
     public static void closeConnection() {
         try {
             connection.close();
@@ -97,15 +119,12 @@ public class DBConnector {
     public boolean createDatabase(String name, String rootUser, String rootPassword) {
         try {
             Class.forName(driver).newInstance();
-            String dataBase = "jdbc:mysql://localhost:3306/";
-
             connection = DriverManager.getConnection(dataBase, rootUser, rootPassword);
             Statement statement = connection.createStatement();
 
             statement.executeUpdate("CREATE DATABASE " + name);
             connection = DriverManager.getConnection(dataBase + name, rootUser, rootPassword);
             buildDataBase();
-
 
         } catch (SQLException sqle) {
             if (sqle.getErrorCode() == 1045) {
@@ -117,6 +136,11 @@ public class DBConnector {
             e.printStackTrace();
             return false;
         }
+
+        DBConnector.url = dataBase;
+        DBConnector.dbName = name;
+        DBConnector.userName = rootUser;
+        DBConnector.password = rootPassword;
 
         return true;
     }

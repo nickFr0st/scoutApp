@@ -48,7 +48,18 @@ public class PnlSetupWizard extends JPanel {
     }
 
     private void btnCreateMouseClicked() {
-        clearCreateErrors();
+        if (validateDBFields()) return;
+
+        DBConnector connector = new DBConnector();
+        if (connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText())) {
+            enableStep1(false);
+            lblStepOne.setIcon(completeIcon);
+            enableStep2(true);
+        }
+    }
+
+    private boolean validateDBFields() {
+        clearErrors();
         boolean hasErrors = false;
 
         if (Util.isEmpty(txtDBName.getText()) || txtDBName.isMessageDefault()) {
@@ -67,18 +78,12 @@ public class PnlSetupWizard extends JPanel {
         }
 
         if (hasErrors) {
-            return;
+            return true;
         }
-
-        DBConnector connector = new DBConnector();
-        if (connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText())) {
-            enableStep1(false);
-            lblStepOne.setIcon(completeIcon);
-            enableStep2(true);
-        }
+        return false;
     }
 
-    private void clearCreateErrors() {
+    private void clearErrors() {
         lblDBNameError.setText("");
         lblDBNameError.setVisible(false);
 
@@ -99,9 +104,15 @@ public class PnlSetupWizard extends JPanel {
     }
 
     private void btnConnectMouseClicked() {
-        enableStep1(false);
-        lblStepOne.setIcon(completeIcon);
-        enableStep2(true);
+        clearErrors();
+        if (validateDBFields()) return;
+
+        DBConnector connector = new DBConnector();
+        if (connector.connectToDB(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText())) {
+            enableStep1(false);
+            lblStepOne.setIcon(completeIcon);
+            enableStep2(true);
+        }
     }
 
     private void initComponents() {
