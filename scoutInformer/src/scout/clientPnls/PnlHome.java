@@ -22,13 +22,11 @@ public class PnlHome extends JPanel implements GuiManager {
     private JPanel currentPnl;
     private SignIn parentFrame;
     private PnlDefaultSplash defaultSplash;
-    private PnlSettings pnlSettings;
     private PnlSetupWizard setupWizard;
     private DBConnector dbConnector;
 
     {
         defaultSplash = new PnlDefaultSplash();
-        pnlSettings = new PnlSettings();
         setupWizard = new PnlSetupWizard();
         dbConnector = new DBConnector();
     }
