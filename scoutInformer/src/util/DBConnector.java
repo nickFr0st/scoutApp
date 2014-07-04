@@ -2,6 +2,7 @@ package util;
 
 import constants.KeyConst;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,7 +19,17 @@ public class DBConnector {
     private static String url;
     private static String userName;
     private static String password;
-    String dataBase = "jdbc:mysql://localhost:3306/";
+    private String dataBase = "jdbc:mysql://localhost:3306/";
+    private Properties properties;
+
+    public DBConnector() {
+        try {
+            properties = new Properties();
+            properties.load(getClass().getResourceAsStream("/properties/database.properties"));
+        } catch (IOException ioe) {
+            // do nothing for now
+        }
+    }
 
     static {
         driver = "com.mysql.jdbc.Driver";
@@ -28,9 +39,6 @@ public class DBConnector {
         boolean connectionIsGood = true;
 
         try {
-            Properties properties = new Properties();
-            properties.load(getClass().getResourceAsStream("/properties/database.properties"));
-
             String url = properties.getProperty(KeyConst.DB_URL.getName());
             String dbName = properties.getProperty(KeyConst.DB_NAME.getName());
             String userName = properties.getProperty(KeyConst.DB_USER_NAME.getName());
@@ -91,12 +99,23 @@ public class DBConnector {
             return false;
         }
 
-        DBConnector.url = dataBase;
-        DBConnector.dbName = name;
-        DBConnector.userName = rootUser;
-        DBConnector.password = rootPassword;
+        resetProperties(name, rootUser, rootPassword);
 
         return true;
+    }
+
+    private void resetProperties(String name, String rootUser, String rootPassword) {
+        url = dataBase;
+        dbName = name;
+        userName = rootUser;
+        password = rootPassword;
+
+        properties.setProperty(KeyConst.DB_URL.getName(), dataBase);
+        properties.setProperty(KeyConst.DB_NAME.getName(), name);
+        properties.setProperty(KeyConst.DB_USER_NAME.getName(), rootUser);
+        properties.setProperty(KeyConst.DB_PASSWORD.getName(), rootPassword);
+
+        Util.saveProperties(properties, getClass().getResource("/properties/database.properties").toString());
     }
 
     public static void closeConnection() {
@@ -137,10 +156,7 @@ public class DBConnector {
             return false;
         }
 
-        DBConnector.url = dataBase;
-        DBConnector.dbName = name;
-        DBConnector.userName = rootUser;
-        DBConnector.password = rootPassword;
+        resetProperties(name, rootUser, rootPassword);
 
         return true;
     }
