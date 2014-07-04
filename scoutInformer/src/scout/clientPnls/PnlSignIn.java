@@ -44,15 +44,20 @@ public class PnlSignIn extends JPanel implements GuiManager {
             return;
         }
 
+        loadSavedUser();
+        showCreateUser(false);
+    }
+
+    private void loadSavedUser() {
         String savedUser = properties.getProperty(KeyConst.SAVED_USER.getName());
         txtUsername.requestFocus();
         if (!Util.isEmpty(savedUser)) {
             txtUsername.setTextColorToActive();
             txtUsername.setText(savedUser);
             chkRememberUser.setSelected(true);
+        } else {
+            txtUsername.setDefault();
         }
-
-        showCreateUser(false);
     }
 
     public PnlSignIn(SignIn parentFrame) {
@@ -125,9 +130,8 @@ public class PnlSignIn extends JPanel implements GuiManager {
             Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
         }
 
+        clearFields();
         nextStep();
-        // look for database if it exists than start program with loaded data
-        // else load without data
     }
 
     private boolean validateUsernameAndPassword() {
@@ -200,8 +204,8 @@ public class PnlSignIn extends JPanel implements GuiManager {
         properties.setProperty(txtNewUserName.getText(), txtNewUserPassword.getText());
         Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
 
+        clearFields();
         nextStep();
-        // start program without looking for database
     }
 
     private boolean validateNewUserCredentials() {
@@ -223,6 +227,12 @@ public class PnlSignIn extends JPanel implements GuiManager {
     private void setError(JLabel lblNewUserError, String errorMessage) {
         lblNewUserError.setText("* " + errorMessage);
         lblNewUserError.setVisible(true);
+    }
+
+    private void clearFields() {
+        showCreateUser(false);
+        txtPassword.setDefault();
+        loadSavedUser();
     }
 
     @Override
