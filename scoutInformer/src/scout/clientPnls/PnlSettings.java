@@ -32,26 +32,12 @@ public class PnlSettings extends JPanel {
         initComponents();
         showStep1(false);
         lblSuccess.setVisible(false);
+        connector.checkForDBConnection();
+
+        lblConnectedDBName.setText(connector.getDBName());
+        populateStep2();
 
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
-    }
-
-    private void enableStep1(boolean enable) {
-        txtDBName.setEnabled(enable);
-        txtServerUsername.setEnabled(enable);
-        txtServerPassword.setEnabled(enable);
-        btnConnect.setEnabled(enable);
-        btnCreate.setEnabled(enable);
-    }
-
-    private void enableStep2(boolean enable) {
-        txtLeaderName.setEnabled(enable);
-        txtTroopNumber.setEnabled(enable);
-        txtScoutCouncil.setEnabled(enable);
-    }
-
-    private void showStep2(boolean show) {
-        pnlTroopInfo.setVisible(show);
     }
 
     private void showStep1(boolean show) {
@@ -74,7 +60,7 @@ public class PnlSettings extends JPanel {
         } else if (responseCode == ErrorConst.DATABASE_NAME_ALREADY_EXISTS.getId()) {
             Util.setError(lblDBNameError, ErrorConst.DATABASE_NAME_ALREADY_EXISTS.getMessage());
         } else if (responseCode == 0) {
-            lblConnectedDBNAme.setText(txtDBName.getText());
+            lblConnectedDBName.setText(txtDBName.getText());
             showStep1(false);
         }
     }
@@ -139,7 +125,7 @@ public class PnlSettings extends JPanel {
             Util.setError(lblDBNameError, ErrorConst.UNKNOWN_DATABASE.getMessage());
         } else if (responseCode == 0) {
             populateStep2();
-            lblConnectedDBNAme.setText(txtDBName.getText());
+            lblConnectedDBName.setText(txtDBName.getText());
             showStep1(false);
         }
     }
@@ -155,7 +141,13 @@ public class PnlSettings extends JPanel {
     }
 
     private void btnEditConnectionMouseClicked() {
-        showStep1(true);
+        if (pnlCreateDatabase.isVisible()) {
+            showStep1(false);
+            btnEditConnection.setText("Edit Connection");
+        } else {
+            btnEditConnection.setText("Cancel");
+            showStep1(true);
+        }
     }
 
     private void initComponents() {
@@ -163,7 +155,7 @@ public class PnlSettings extends JPanel {
         lblWelcome = new JLabel();
         label4 = new JLabel();
         lblStepOne = new JLabel();
-        lblConnectedDBNAme = new JLabel();
+        lblConnectedDBName = new JLabel();
         btnEditConnection = new JButton();
         pnlCreateDatabase = new JPanel();
         txtDBName = new JTextFieldDefaultText();
@@ -226,11 +218,11 @@ public class PnlSettings extends JPanel {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));
 
-        //---- lblConnectedDBNAme ----
-        lblConnectedDBNAme.setText("dbName");
-        lblConnectedDBNAme.setForeground(new Color(32, 154, 26));
-        lblConnectedDBNAme.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        add(lblConnectedDBNAme, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+        //---- lblConnectedDBName ----
+        lblConnectedDBName.setText("dbName");
+        lblConnectedDBName.setForeground(new Color(32, 154, 26));
+        lblConnectedDBName.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        add(lblConnectedDBName, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 0, 5, 5), 0, 0));
 
@@ -495,7 +487,7 @@ public class PnlSettings extends JPanel {
     private JLabel lblWelcome;
     private JLabel label4;
     private JLabel lblStepOne;
-    private JLabel lblConnectedDBNAme;
+    private JLabel lblConnectedDBName;
     private JButton btnEditConnection;
     private JPanel pnlCreateDatabase;
     private JTextFieldDefaultText txtDBName;

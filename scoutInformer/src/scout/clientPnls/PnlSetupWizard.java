@@ -24,6 +24,7 @@ public class PnlSetupWizard extends JPanel {
     private Icon completeIcon;
     private DBConnector connector;
     private int userExists;
+    private JPanel parent;
 
     {
         completeIcon = new ImageIcon(getClass().getResource("/images/complete.png"));
@@ -35,6 +36,11 @@ public class PnlSetupWizard extends JPanel {
         showStep2(false);
 
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
+    }
+
+    public PnlSetupWizard(JPanel parent) {
+        this();
+        this.parent = parent;
     }
 
     private void enableStep1(boolean enable) {
@@ -123,6 +129,7 @@ public class PnlSetupWizard extends JPanel {
 
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
+        ((PnlHome)parent).moveToSettingsPnl();
     }
 
     private void btnConnectMouseClicked() {
@@ -160,6 +167,7 @@ public class PnlSetupWizard extends JPanel {
 
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
+        ((PnlHome)parent).moveToSettingsPnl();
     }
 
     private void initComponents() {

@@ -21,13 +21,15 @@ import java.awt.event.MouseEvent;
 public class PnlHome extends JPanel implements GuiManager {
     private JPanel currentPnl;
     private SignIn parentFrame;
+    private PnlSettings pnlSettings;
     private PnlDefaultSplash defaultSplash;
     private PnlSetupWizard setupWizard;
     private DBConnector dbConnector;
 
     {
         defaultSplash = new PnlDefaultSplash();
-        setupWizard = new PnlSetupWizard();
+        setupWizard = new PnlSetupWizard(this);
+        pnlSettings = new PnlSettings();
         dbConnector = new DBConnector();
     }
 
@@ -66,16 +68,15 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnSettingsMouseClicked() {
-        // todo: un-comment when wizard is working
-
-//        if (!dbConnector.checkForDBConnection()) {
+        if (!dbConnector.checkForDBConnection()) {
             changePanel(setupWizard);
-//        } else {
-//            changePanel(pnlSettings);
-//            pnlSettings.activatePnl();
-//        }
+        } else {
+            changePanel(pnlSettings);
+        }
+    }
 
-
+    public void moveToSettingsPnl() {
+        changePanel(pnlSettings);
     }
 
     private void clearSelected() {

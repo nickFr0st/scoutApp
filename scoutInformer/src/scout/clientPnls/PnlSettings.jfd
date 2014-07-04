@@ -51,7 +51,7 @@ new FormModel {
 				"gridx": 1
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "lblConnectedDBNAme"
+				name: "lblConnectedDBName"
 				"text": "dbName"
 				"foreground": &Color2 new java.awt.Color( 32, 154, 26, 255 )
 				"font": #Font0

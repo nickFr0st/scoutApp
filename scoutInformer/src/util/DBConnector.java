@@ -66,11 +66,6 @@ public class DBConnector {
 
     public static void connectToDB() {
         try {
-//            String url = "jdbc:mysql://localhost:3306/";
-//            String dbName = "si";
-//            String userName = "admin";
-//            String password = "admin";
-
             Class.forName(driver).newInstance();
 
             connection = DriverManager.getConnection(url + dbName, userName, password);
@@ -122,6 +117,10 @@ public class DBConnector {
 
     public static void setDbName(String dbName) {
         DBConnector.dbName = dbName;
+    }
+
+    public String getDBName() {
+        return dbName;
     }
 
     public static void setUrl(String url) {
