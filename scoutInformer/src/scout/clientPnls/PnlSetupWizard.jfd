@@ -208,7 +208,7 @@ new FormModel {
 				"gridx": 1
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "163, 243, 0:1.0"
+				"$columnSpecs": "163, 157, 103, 0:1.0"
 				"$rowSpecs": "0, 0, 0, 0"
 				"$hGap": 5
 				"$vGap": 5
@@ -225,7 +225,7 @@ new FormModel {
 					"preferredSize": new java.awt.Dimension( 135, 40 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"insets": new java.awt.Insets( 0, 20, 0, 0 )
-					"gridwidth": 2
+					"gridwidth": 3
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
 					name: "txtTroopNumber"
@@ -236,7 +236,7 @@ new FormModel {
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 1
 					"insets": new java.awt.Insets( 0, 20, 0, 0 )
-					"gridwidth": 2
+					"gridwidth": 3
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
 					name: "txtScoutCouncil"
@@ -247,7 +247,7 @@ new FormModel {
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 2
 					"insets": new java.awt.Insets( 0, 20, 0, 0 )
-					"gridwidth": 2
+					"gridwidth": 3
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnSubmit"
@@ -263,7 +263,24 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSubmitMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 3
-					"insets": new java.awt.Insets( 15, 20, 0, 0 )
+					"insets": &Insets5 new java.awt.Insets( 15, 20, 0, 0 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSkipStep"
+					"text": "Skip Step"
+					"margin": #Insets3
+					"minimumSize": #Dimension5
+					"maximumSize": #Dimension6
+					"font": #Font4
+					"background": #Color4
+					"foreground": #Color5
+					"focusPainted": false
+					"preferredSize": #Dimension7
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSkipStepMouseClicked", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+					"insets": #Insets5
+					"gridx": 1
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1

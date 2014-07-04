@@ -8,6 +8,7 @@ import constants.ErrorConst;
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
+import scout.dbObjects.User;
 import util.DBConnector;
 import util.Util;
 
@@ -48,6 +49,7 @@ public class PnlSetupWizard extends JPanel {
         txtTroopNumber.setEnabled(enable);
         txtScoutCouncil.setEnabled(enable);
         btnSubmit.setEnabled(enable);
+        btnSkipStep.setEnabled(enable);
     }
 
     private void btnCreateMouseClicked() {
@@ -108,7 +110,7 @@ public class PnlSetupWizard extends JPanel {
             return;
         }
 
-        connector.insert("user", new String[] {"troopLeader", "troop", "council"}, new String[] {txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+        connector.insert("user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
 
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
@@ -127,8 +129,27 @@ public class PnlSetupWizard extends JPanel {
         } else if (responseCode == 0) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
+            populateStep2();
             enableStep2(true);
         }
+    }
+
+    private void populateStep2() {
+        User user = connector.getUser();
+        if (user != null) {
+            txtLeaderName.setText(user.getTroopLeader());
+            txtTroopNumber.setText(user.getTroopNumber());
+            txtScoutCouncil.setText(user.getCouncil());
+        }
+    }
+
+    private void btnSkipStepMouseClicked() {
+        if (!btnSkipStep.isEnabled()) {
+            return;
+        }
+
+        enableStep2(false);
+        lblStepTwo.setIcon(completeIcon);
     }
 
     private void initComponents() {
@@ -154,6 +175,7 @@ public class PnlSetupWizard extends JPanel {
         txtTroopNumber = new JTextFieldDefaultText();
         txtScoutCouncil = new JTextFieldDefaultText();
         btnSubmit = new JButton();
+        btnSkipStep = new JButton();
         label6 = new JLabel();
 
         //======== this ========
@@ -340,9 +362,9 @@ public class PnlSetupWizard extends JPanel {
         {
             pnlTroopInfo.setBackground(Color.white);
             pnlTroopInfo.setLayout(new GridBagLayout());
-            ((GridBagLayout)pnlTroopInfo.getLayout()).columnWidths = new int[] {168, 248, 0, 0};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).columnWidths = new int[] {168, 162, 108, 0, 0};
             ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
-            ((GridBagLayout)pnlTroopInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
             ((GridBagLayout)pnlTroopInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- txtLeaderName ----
@@ -350,7 +372,7 @@ public class PnlSetupWizard extends JPanel {
             txtLeaderName.setDefaultText("Troop leader name");
             txtLeaderName.setMinimumSize(new Dimension(14, 40));
             txtLeaderName.setPreferredSize(new Dimension(135, 40));
-            pnlTroopInfo.add(txtLeaderName, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
+            pnlTroopInfo.add(txtLeaderName, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 5), 0, 0));
 
@@ -359,7 +381,7 @@ public class PnlSetupWizard extends JPanel {
             txtTroopNumber.setDefaultText("Troop #");
             txtTroopNumber.setMinimumSize(new Dimension(14, 40));
             txtTroopNumber.setPreferredSize(new Dimension(65, 40));
-            pnlTroopInfo.add(txtTroopNumber, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0,
+            pnlTroopInfo.add(txtTroopNumber, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 5), 0, 0));
 
@@ -368,7 +390,7 @@ public class PnlSetupWizard extends JPanel {
             txtScoutCouncil.setMinimumSize(new Dimension(14, 40));
             txtScoutCouncil.setDefaultText("Scout Council");
             txtScoutCouncil.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            pnlTroopInfo.add(txtScoutCouncil, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
+            pnlTroopInfo.add(txtScoutCouncil, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 5), 0, 0));
 
@@ -389,6 +411,26 @@ public class PnlSetupWizard extends JPanel {
                 }
             });
             pnlTroopInfo.add(btnSubmit, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(15, 20, 0, 5), 0, 0));
+
+            //---- btnSkipStep ----
+            btnSkipStep.setText("Skip Step");
+            btnSkipStep.setMargin(new Insets(5, 20, 5, 20));
+            btnSkipStep.setMinimumSize(new Dimension(70, 40));
+            btnSkipStep.setMaximumSize(new Dimension(70, 30));
+            btnSkipStep.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnSkipStep.setBackground(new Color(51, 102, 153));
+            btnSkipStep.setForeground(Color.white);
+            btnSkipStep.setFocusPainted(false);
+            btnSkipStep.setPreferredSize(new Dimension(82, 40));
+            btnSkipStep.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnSkipStepMouseClicked();
+                }
+            });
+            pnlTroopInfo.add(btnSkipStep, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(15, 20, 0, 5), 0, 0));
         }
@@ -430,6 +472,7 @@ public class PnlSetupWizard extends JPanel {
     private JTextFieldDefaultText txtTroopNumber;
     private JTextFieldDefaultText txtScoutCouncil;
     private JButton btnSubmit;
+    private JButton btnSkipStep;
     private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

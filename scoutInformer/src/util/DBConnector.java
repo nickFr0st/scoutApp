@@ -1,6 +1,7 @@
 package util;
 
 import constants.KeyConst;
+import scout.dbObjects.User;
 
 import java.io.IOException;
 import java.sql.*;
@@ -219,5 +220,25 @@ public class DBConnector {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public User getUser() {
+        try {
+            Statement statement = setupConnection(userName, dbName, password);
+            ResultSet rs = statement.executeQuery("SELECT * FROM user");
+
+            User user = new User();
+            if (rs.next()) {
+                user.setId(rs.getInt(KeyConst.USER_ID.getName()));
+                user.setTroopLeader(rs.getString(KeyConst.USER_TROOP_LEADER.getName()));
+                user.setTroopNumber(rs.getString(KeyConst.USER_TROOP_NUMBER.getName()));
+                user.setCouncil(rs.getString(KeyConst.USER_COUNCIL.getName()));
+                return user;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
