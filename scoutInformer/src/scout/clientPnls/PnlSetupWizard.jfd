@@ -223,7 +223,7 @@ new FormModel {
 					"font": #Font2
 					"minimumSize": #Dimension3
 					"preferredSize": #Dimension4
-					"defaultText": "Select a valid database"
+					"defaultText": "Select an existing BSA database"
 					"editable": false
 					"focusable": false
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {

@@ -266,7 +266,7 @@ public class PnlSetupWizard extends JPanel {
             txtSelectedDatabasePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtSelectedDatabasePath.setMinimumSize(new Dimension(14, 40));
             txtSelectedDatabasePath.setPreferredSize(new Dimension(14, 40));
-            txtSelectedDatabasePath.setDefaultText("Select a valid database");
+            txtSelectedDatabasePath.setDefaultText("Select an existing BSA database");
             txtSelectedDatabasePath.setEditable(false);
             txtSelectedDatabasePath.setFocusable(false);
             pnlConnectDataBase.add(txtSelectedDatabasePath, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
