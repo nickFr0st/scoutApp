@@ -32,7 +32,7 @@ public class PnlSetupWizard extends JPanel {
 
     public PnlSetupWizard() {
         initComponents();
-        enableStep2(false);
+        showStep2(false);
 
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
     }
@@ -53,6 +53,10 @@ public class PnlSetupWizard extends JPanel {
         btnSkipStep.setEnabled(enable);
     }
 
+    private void showStep2(boolean show) {
+        pnlTroopInfo.setVisible(show);
+    }
+
     private void btnCreateMouseClicked() {
         clearErrors();
         if (validateDBFields()) return;
@@ -66,7 +70,7 @@ public class PnlSetupWizard extends JPanel {
         } else if (responseCode == 0) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
-            enableStep2(true);
+            showStep2(true);
         }
     }
 
@@ -135,7 +139,7 @@ public class PnlSetupWizard extends JPanel {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
             populateStep2();
-            enableStep2(true);
+            showStep2(true);
         }
     }
 
@@ -191,9 +195,9 @@ public class PnlSetupWizard extends JPanel {
         setBorder(new SelectionBorder());
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {15, 518, 19, 518, 10, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 11, 0, 0, 0, 0, 0, 0, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
         //---- lblWelcome ----
         lblWelcome.setText("Welcome to BSA Database");
@@ -342,9 +346,9 @@ public class PnlSetupWizard extends JPanel {
         //---- lblScoutLogo ----
         lblScoutLogo.setIcon(new ImageIcon(getClass().getResource("/images/BSA-logo400.png")));
         lblScoutLogo.setHorizontalAlignment(SwingConstants.CENTER);
-        add(lblScoutLogo, new GridBagConstraints(3, 4, 1, 4, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(lblScoutLogo, new GridBagConstraints(3, 4, 1, 6, 0.0, 0.0,
+            GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+            new Insets(20, 0, 0, 5), 0, 0));
 
         //---- label5 ----
         label5.setBackground(new Color(51, 102, 153));
@@ -452,7 +456,7 @@ public class PnlSetupWizard extends JPanel {
         label6.setPreferredSize(new Dimension(0, 2));
         add(label6, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
-            new Insets(5, 0, 0, 5), 0, 0));
+            new Insets(5, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

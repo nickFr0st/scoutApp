@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "10, 513, 14, 513, 10"
-			"$rowSpecs": "0, 0, 6, 0, 0, 0, 0, 0, 0"
+			"$rowSpecs": "0, 0, 6, 0, 0, 0, 0, 0, 0, 0:1.0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -182,7 +182,9 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
 				"gridy": 4
-				"gridheight": 4
+				"gridheight": 6
+				"vAlign": 1
+				"insets": new java.awt.Insets( 20, 0, 0, 0 )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
