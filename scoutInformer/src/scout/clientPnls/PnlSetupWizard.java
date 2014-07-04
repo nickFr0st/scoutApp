@@ -53,7 +53,7 @@ public class PnlSetupWizard extends JPanel {
         if (validateDBFields()) return;
 
         DBConnector connector = new DBConnector();
-        if (connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText())) {
+        if (connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText()) == 0) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
             enableStep2(true);
@@ -111,7 +111,7 @@ public class PnlSetupWizard extends JPanel {
         clearErrors();
         if (validateDBFields()) return;
 
-        if (connector.connectToDB(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText())) {
+        if (connector.connectToDB(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText()) == 0) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
             enableStep2(true);

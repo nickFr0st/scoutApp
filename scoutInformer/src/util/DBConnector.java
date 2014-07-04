@@ -83,22 +83,17 @@ public class DBConnector {
         }
     }
 
-    public boolean connectToDB(String name, String rootUser, String rootPassword) {
+    public int connectToDB(String name, String rootUser, String rootPassword) {
         try {
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(dataBase + name, rootUser, rootPassword);
 
         } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            return false;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+            return sqle.getErrorCode();
+        } catch (Exception ignore) {}
 
         resetProperties(name, rootUser, rootPassword);
-
-        return true;
+        return 0;
     }
 
     private void resetProperties(String name, String rootUser, String rootPassword) {
@@ -132,31 +127,23 @@ public class DBConnector {
         DBConnector.url = url;
     }
 
-    public boolean createDatabase(String name, String rootUser, String rootPassword) {
+    public int createDatabase(String name, String rootUser, String rootPassword) {
         try {
-            Statement statement = setupConnection(rootUser, rootPassword);
+            Statement statement = setupConnection(rootUser, "", rootPassword);
 
             statement.executeUpdate("CREATE DATABASE " + name);
             connection = DriverManager.getConnection(dataBase + name, rootUser, rootPassword);
             buildDataBase();
 
         } catch (SQLException sqle) {
-            if (sqle.getErrorCode() == 1045) {
-                // send message to user of bad password
-            }
-            sqle.printStackTrace();
-            return false;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+            return sqle.getErrorCode();
+        } catch (Exception ignore) {}
 
         resetProperties(name, rootUser, rootPassword);
-
-        return true;
+        return 0;
     }
 
-    private Statement setupConnection(String rootUser, String rootPassword) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+    private Statement setupConnection(String rootUser, String dbName, String rootPassword) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
         Class.forName(driver).newInstance();
         connection = DriverManager.getConnection(dataBase + dbName, rootUser, rootPassword);
         return connection.createStatement();
@@ -184,7 +171,7 @@ public class DBConnector {
     private int getNextId(String tableName) {
         int id = 0;
         try {
-            Statement statement = setupConnection(userName, password);
+            Statement statement = setupConnection(userName, dbName, password);
             ResultSet rs = statement.executeQuery("SELECT * FROM " + tableName);
 
             while(rs.next()) {
@@ -194,14 +181,9 @@ public class DBConnector {
                 }
             }
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            // table does not have id field
+            return -1;
         }
 
         return id + 1;
@@ -213,7 +195,7 @@ public class DBConnector {
         }
 
         try {
-            Statement statement = setupConnection(userName, password);
+            Statement statement = setupConnection(userName, dbName, password);
             int id = getNextId(tableName);
 
 
