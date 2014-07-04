@@ -24,20 +24,45 @@ public class PnlSetupWizard extends JPanel {
     }
 
     private void btnConnectMouseClicked() {
-        hideStep1();
+        showStep1(false);
     }
 
-    private void hideStep1() {
-        pnlCreateDatabase.setVisible(false);
-        pnlConnectDataBase.setVisible(false);
-        lblStepOne.setIcon(new ImageIcon(getClass().getResource("/images/complete.png")));
+    private void showStep1(boolean show) {
+        pnlCreateDatabase.setVisible(show);
+        pnlConnectDataBase.setVisible(show);
+        if (!show) {
+            lblStepOne.setIcon(new ImageIcon(getClass().getResource("/images/complete.png")));
+        }
+    }
+
+    private void showStep2(boolean show) {
+
     }
 
     private void btnCreateMouseClicked() {
-        hideStep1();
+        showStep1(false);
     }
 
     private void btnBrowseNewMouseClicked() {
+    }
+
+    private void lblStepOneMouseEntered() {
+        if (!pnlCreateDatabase.isVisible()) {
+            lblStepOne.setForeground(new Color(32,154,26));
+        }
+    }
+
+    private void lblStepOneMouseExited() {
+        if (!pnlCreateDatabase.isVisible()) {
+            lblStepOne.setForeground(new Color(51,102,153));
+        }
+    }
+
+    private void lblStepOneMouseClicked() {
+        if (!pnlCreateDatabase.isVisible()) {
+            lblStepOne.setForeground(new Color(51,102,153));
+            showStep1(true);
+        }
     }
 
     private void initComponents() {
@@ -113,6 +138,20 @@ public class PnlSetupWizard extends JPanel {
         lblStepOne.setText("Step 1: Create or Connect to a database");
         lblStepOne.setForeground(new Color(51, 102, 153));
         lblStepOne.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblStepOne.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                lblStepOneMouseClicked();
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblStepOneMouseEntered();
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblStepOneMouseExited();
+            }
+        });
         add(lblStepOne, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));

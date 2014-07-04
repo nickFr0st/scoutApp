@@ -56,6 +56,9 @@ new FormModel {
 				"text": "Step 1: Create or Connect to a database"
 				"foreground": &Color2 new java.awt.Color( 51, 102, 153, 255 )
 				"font": &Font1 new java.awt.Font( "Vijaya", 0, 24 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "lblStepOneMouseEntered", false ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "lblStepOneMouseExited", false ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "lblStepOneMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 3
 				"insets": &Insets0 new java.awt.Insets( 6, 10, 0, 0 )
