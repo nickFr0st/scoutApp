@@ -7,6 +7,7 @@ package scout.clientPnls;
 import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
+import util.DBConnector;
 import util.Util;
 
 import javax.swing.*;
@@ -68,12 +69,11 @@ public class PnlSetupWizard extends JPanel {
             return;
         }
 
-
-
-        // create DBCreator Method in DBConnection
-        // call DBCreator
-
-        showStep1(false);
+        DBConnector connector = new DBConnector();
+        if (connector.createDatabase(txtNewDatabaseName.getText(), txtNewDBUsername.getText(), txtNewDBPassword.getText())) {
+            showStep1(false);
+            showStep2(true);
+        }
     }
 
     private void clearCreateErrors() {

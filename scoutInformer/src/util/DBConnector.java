@@ -5,6 +5,7 @@ import constants.KeyConst;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 /**
@@ -12,11 +13,15 @@ import java.util.Properties;
  */
 public class DBConnector {
     public static Connection connection;
-    private static String driver = "com.mysql.jdbc.Driver";
+    private static String driver;
     private static String dbName;
     private static String url;
     private static String userName;
     private static String password;
+
+    static {
+        driver = "com.mysql.jdbc.Driver";
+    }
 
     public boolean checkForDBConnection() {
         boolean connectionIsGood = true;
@@ -87,5 +92,51 @@ public class DBConnector {
 
     public static void setUrl(String url) {
         DBConnector.url = url;
+    }
+
+    public boolean createDatabase(String name, String rootUser, String rootPassword) {
+        try {
+            Class.forName(driver).newInstance();
+            String dataBase = "jdbc:mysql://localhost:3306/";
+
+            connection = DriverManager.getConnection(dataBase, rootUser, rootPassword);
+            Statement statement = connection.createStatement();
+
+            statement.executeUpdate("CREATE DATABASE " + name);
+            connection = DriverManager.getConnection(dataBase + name, rootUser, rootPassword);
+            buildDataBase();
+
+
+        } catch (SQLException sqle) {
+            if (sqle.getErrorCode() == 1045) {
+                // send message to user of bad password
+            }
+            sqle.printStackTrace();
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    private void buildDataBase() throws SQLException {
+        Statement statement = connection.createStatement();
+        StringBuilder query = new StringBuilder();
+
+        // Create Tables
+        query.append("CREATE TABLE user " +
+                "(id INT NOT NULL," +
+                " troop VARCHAR(45) NULL," +
+                " council VARCHAR(255) NULL," +
+                " troopLeader VARCHAR(255)," +
+                " PRIMARY KEY (id)) ");
+
+        // Insert Advancements
+
+        // Insert Requirements
+
+        statement.executeUpdate(query.toString());
     }
 }
