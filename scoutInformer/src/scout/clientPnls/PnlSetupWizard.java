@@ -45,11 +45,6 @@ public class PnlSetupWizard extends JPanel {
         clearCreateErrors();
         boolean hasErrors = false;
 
-        if (Util.isEmpty(txtNewDatabasePath.getText()) || txtNewDatabasePath.isMessageDefault()) {
-            Util.setError(lblNewDBPathError, "Database location cannot be left blank.");
-            hasErrors = true;
-        }
-
         if (Util.isEmpty(txtNewDatabaseName.getText()) || txtNewDatabaseName.isMessageDefault()) {
             Util.setError(lblNewDBNameError, "Database name cannot be left blank.");
             hasErrors = true;
@@ -77,9 +72,6 @@ public class PnlSetupWizard extends JPanel {
     }
 
     private void clearCreateErrors() {
-        lblNewDBPathError.setText("");
-        lblNewDBPathError.setVisible(false);
-
         lblNewDBNameError.setText("");
         lblNewDBNameError.setVisible(false);
 
@@ -88,18 +80,6 @@ public class PnlSetupWizard extends JPanel {
 
         lblNewDBPasswordError.setText("");
         lblNewDBPasswordError.setVisible(false);
-    }
-
-    private void btnBrowseNewMouseClicked() {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle("Select a location to create your database");
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.setAcceptAllFileFilterUsed(false);
-
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            txtNewDatabasePath.setText(chooser.getSelectedFile().toString());
-        }
     }
 
     private void lblStepOneMouseEntered() {
@@ -121,18 +101,6 @@ public class PnlSetupWizard extends JPanel {
         }
     }
 
-    private void btnBrowseSelectMouseClicked() {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle("Select an existing BSA database");
-        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        chooser.setAcceptAllFileFilterUsed(false);
-
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            txtSelectedDatabasePath.setText(chooser.getSelectedFile().toString());
-        }
-    }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         lblWelcome = new JLabel();
@@ -140,9 +108,6 @@ public class PnlSetupWizard extends JPanel {
         label4 = new JLabel();
         lblStepOne = new JLabel();
         pnlCreateDatabase = new JPanel();
-        txtNewDatabasePath = new JTextFieldDefaultText();
-        btnBrowseNew = new JButton();
-        lblNewDBPathError = new JLabel();
         txtNewDatabaseName = new JTextFieldDefaultText();
         lblNewDBNameError = new JLabel();
         txtNewDBUsername = new JTextFieldDefaultText();
@@ -152,8 +117,6 @@ public class PnlSetupWizard extends JPanel {
         btnCreate = new JButton();
         lblSeparator = new JLabel();
         pnlConnectDataBase = new JPanel();
-        txtSelectedDatabasePath = new JTextFieldDefaultText();
-        btnBrowseSelect = new JButton();
         txtSelectDBUsername = new JTextFieldDefaultText();
         lblSelectDBUsernameError = new JLabel();
         txtSelectDBPassword = new JPasswordFieldDefaultText();
@@ -230,55 +193,16 @@ public class PnlSetupWizard extends JPanel {
             pnlCreateDatabase.setBackground(Color.white);
             pnlCreateDatabase.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlCreateDatabase.getLayout()).columnWidths = new int[] {163, 193, 0, 0};
-            ((GridBagLayout)pnlCreateDatabase.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlCreateDatabase.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlCreateDatabase.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
-            ((GridBagLayout)pnlCreateDatabase.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-
-            //---- txtNewDatabasePath ----
-            txtNewDatabasePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtNewDatabasePath.setMinimumSize(new Dimension(14, 40));
-            txtNewDatabasePath.setPreferredSize(new Dimension(14, 40));
-            txtNewDatabasePath.setDefaultText("Select a location to create your database");
-            txtNewDatabasePath.setEditable(false);
-            txtNewDatabasePath.setFocusable(false);
-            pnlCreateDatabase.add(txtNewDatabasePath, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 5), 0, 0));
-
-            //---- btnBrowseNew ----
-            btnBrowseNew.setText("Browse");
-            btnBrowseNew.setMargin(new Insets(5, 20, 5, 20));
-            btnBrowseNew.setMinimumSize(new Dimension(70, 30));
-            btnBrowseNew.setMaximumSize(new Dimension(70, 30));
-            btnBrowseNew.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            btnBrowseNew.setBackground(new Color(51, 102, 153));
-            btnBrowseNew.setForeground(Color.white);
-            btnBrowseNew.setFocusPainted(false);
-            btnBrowseNew.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    btnBrowseNewMouseClicked();
-                }
-            });
-            pnlCreateDatabase.add(btnBrowseNew, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 10), 0, 0));
-
-            //---- lblNewDBPathError ----
-            lblNewDBPathError.setText("* Error Message");
-            lblNewDBPathError.setForeground(Color.red);
-            lblNewDBPathError.setFont(new Font("Tahoma", Font.ITALIC, 11));
-            lblNewDBPathError.setVisible(false);
-            pnlCreateDatabase.add(lblNewDBPathError, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 10), 0, 0));
+            ((GridBagLayout)pnlCreateDatabase.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- txtNewDatabaseName ----
             txtNewDatabaseName.setMinimumSize(new Dimension(14, 40));
             txtNewDatabaseName.setPreferredSize(new Dimension(14, 40));
             txtNewDatabaseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtNewDatabaseName.setDefaultText("Database name");
-            pnlCreateDatabase.add(txtNewDatabaseName, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(txtNewDatabaseName, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -287,7 +211,7 @@ public class PnlSetupWizard extends JPanel {
             lblNewDBNameError.setForeground(Color.red);
             lblNewDBNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblNewDBNameError.setVisible(false);
-            pnlCreateDatabase.add(lblNewDBNameError, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(lblNewDBNameError, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -296,7 +220,7 @@ public class PnlSetupWizard extends JPanel {
             txtNewDBUsername.setPreferredSize(new Dimension(14, 40));
             txtNewDBUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtNewDBUsername.setDefaultText("MySql server username");
-            pnlCreateDatabase.add(txtNewDBUsername, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(txtNewDBUsername, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -305,7 +229,7 @@ public class PnlSetupWizard extends JPanel {
             lblNewDBUsernameError.setForeground(Color.red);
             lblNewDBUsernameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblNewDBUsernameError.setVisible(false);
-            pnlCreateDatabase.add(lblNewDBUsernameError, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(lblNewDBUsernameError, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -314,7 +238,7 @@ public class PnlSetupWizard extends JPanel {
             txtNewDBPassword.setDefaultText("MySql server password");
             txtNewDBPassword.setMinimumSize(new Dimension(14, 40));
             txtNewDBPassword.setPreferredSize(new Dimension(72, 40));
-            pnlCreateDatabase.add(txtNewDBPassword, new GridBagConstraints(0, 6, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(txtNewDBPassword, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -323,7 +247,7 @@ public class PnlSetupWizard extends JPanel {
             lblNewDBPasswordError.setForeground(Color.red);
             lblNewDBPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblNewDBPasswordError.setVisible(false);
-            pnlCreateDatabase.add(lblNewDBPasswordError, new GridBagConstraints(0, 7, 3, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(lblNewDBPasswordError, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
@@ -343,7 +267,7 @@ public class PnlSetupWizard extends JPanel {
                     btnCreateMouseClicked();
                 }
             });
-            pnlCreateDatabase.add(btnCreate, new GridBagConstraints(0, 8, 1, 1, 0.0, 0.0,
+            pnlCreateDatabase.add(btnCreate, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(10, 20, 0, 5), 0, 0));
         }
@@ -365,46 +289,16 @@ public class PnlSetupWizard extends JPanel {
             pnlConnectDataBase.setBackground(Color.white);
             pnlConnectDataBase.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlConnectDataBase.getLayout()).columnWidths = new int[] {156, 196, 66, 0};
-            ((GridBagLayout)pnlConnectDataBase.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlConnectDataBase.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlConnectDataBase.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
-            ((GridBagLayout)pnlConnectDataBase.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-
-            //---- txtSelectedDatabasePath ----
-            txtSelectedDatabasePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtSelectedDatabasePath.setMinimumSize(new Dimension(14, 40));
-            txtSelectedDatabasePath.setPreferredSize(new Dimension(14, 40));
-            txtSelectedDatabasePath.setDefaultText("Select an existing BSA database");
-            txtSelectedDatabasePath.setEditable(false);
-            txtSelectedDatabasePath.setFocusable(false);
-            pnlConnectDataBase.add(txtSelectedDatabasePath, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 10, 8, 8), 0, 0));
-
-            //---- btnBrowseSelect ----
-            btnBrowseSelect.setText("Browse");
-            btnBrowseSelect.setMargin(new Insets(5, 20, 5, 20));
-            btnBrowseSelect.setMinimumSize(new Dimension(70, 30));
-            btnBrowseSelect.setMaximumSize(new Dimension(70, 30));
-            btnBrowseSelect.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            btnBrowseSelect.setBackground(new Color(51, 102, 153));
-            btnBrowseSelect.setForeground(Color.white);
-            btnBrowseSelect.setFocusPainted(false);
-            btnBrowseSelect.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    btnBrowseSelectMouseClicked();
-                }
-            });
-            pnlConnectDataBase.add(btnBrowseSelect, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 8, 20), 0, 0));
+            ((GridBagLayout)pnlConnectDataBase.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- txtSelectDBUsername ----
             txtSelectDBUsername.setMinimumSize(new Dimension(14, 40));
             txtSelectDBUsername.setPreferredSize(new Dimension(14, 40));
             txtSelectDBUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtSelectDBUsername.setDefaultText("MySql server username");
-            pnlConnectDataBase.add(txtSelectDBUsername, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
+            pnlConnectDataBase.add(txtSelectDBUsername, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 10, 8, 20), 0, 0));
 
@@ -413,7 +307,7 @@ public class PnlSetupWizard extends JPanel {
             lblSelectDBUsernameError.setForeground(Color.red);
             lblSelectDBUsernameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblSelectDBUsernameError.setVisible(false);
-            pnlConnectDataBase.add(lblSelectDBUsernameError, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+            pnlConnectDataBase.add(lblSelectDBUsernameError, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 10, 8, 20), 0, 0));
 
@@ -422,7 +316,7 @@ public class PnlSetupWizard extends JPanel {
             txtSelectDBPassword.setDefaultText("MySql server password");
             txtSelectDBPassword.setMinimumSize(new Dimension(14, 40));
             txtSelectDBPassword.setPreferredSize(new Dimension(72, 40));
-            pnlConnectDataBase.add(txtSelectDBPassword, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+            pnlConnectDataBase.add(txtSelectDBPassword, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 10, 8, 20), 0, 0));
 
@@ -431,7 +325,7 @@ public class PnlSetupWizard extends JPanel {
             lblDBSelectPasswordError.setForeground(Color.red);
             lblDBSelectPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblDBSelectPasswordError.setVisible(false);
-            pnlConnectDataBase.add(lblDBSelectPasswordError, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0,
+            pnlConnectDataBase.add(lblDBSelectPasswordError, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 10, 8, 20), 0, 0));
 
@@ -451,7 +345,7 @@ public class PnlSetupWizard extends JPanel {
                     btnConnectMouseClicked();
                 }
             });
-            pnlConnectDataBase.add(btnConnect, new GridBagConstraints(0, 5, 1, 1, 0.0, 0.0,
+            pnlConnectDataBase.add(btnConnect, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(10, 10, 0, 8), 0, 0));
         }
@@ -495,9 +389,6 @@ public class PnlSetupWizard extends JPanel {
     private JLabel label4;
     private JLabel lblStepOne;
     private JPanel pnlCreateDatabase;
-    private JTextFieldDefaultText txtNewDatabasePath;
-    private JButton btnBrowseNew;
-    private JLabel lblNewDBPathError;
     private JTextFieldDefaultText txtNewDatabaseName;
     private JLabel lblNewDBNameError;
     private JTextFieldDefaultText txtNewDBUsername;
@@ -507,8 +398,6 @@ public class PnlSetupWizard extends JPanel {
     private JButton btnCreate;
     private JLabel lblSeparator;
     private JPanel pnlConnectDataBase;
-    private JTextFieldDefaultText txtSelectedDatabasePath;
-    private JButton btnBrowseSelect;
     private JTextFieldDefaultText txtSelectDBUsername;
     private JLabel lblSelectDBUsernameError;
     private JPasswordFieldDefaultText txtSelectDBPassword;
