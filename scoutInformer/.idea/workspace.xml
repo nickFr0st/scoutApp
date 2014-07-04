@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="removed unecessary stuff">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="clean up">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/BSA-logo400.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -181,16 +182,16 @@
       <file leaf-file-name="PnlSetupWizard.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="63" selection-start="704" selection-end="704" vertical-scroll-proportion="-0.9936809" vertical-offset="969" max-vertical-offset="1666">
+            <state line="44" column="42" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.48829788" vertical-offset="102" max-vertical-offset="1819">
               <folding>
-                <element signature="e#10938#11118#0" expanded="true" />
-                <element signature="e#11103#11104#0" expanded="true" />
-                <element signature="e#15373#15554#0" expanded="true" />
-                <element signature="e#15539#15540#0" expanded="true" />
-                <element signature="e#19630#19810#0" expanded="true" />
-                <element signature="e#19795#19796#0" expanded="true" />
-                <marker date="1404493402712" expanded="false" signature="2693:20742" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1404493402712" expanded="false" signature="20754:22012" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#10912#11092#0" expanded="true" />
+                <element signature="e#11077#11078#0" expanded="true" />
+                <element signature="e#11899#12080#0" expanded="true" />
+                <element signature="e#12065#12066#0" expanded="true" />
+                <element signature="e#16405#16585#0" expanded="true" />
+                <element signature="e#16570#16571#0" expanded="true" />
+                <marker date="1404495597345" expanded="false" signature="3015:17517" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1404495597345" expanded="false" signature="17529:18515" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -775,7 +776,7 @@
       <workItem from="1404436113087" duration="13273000" />
       <workItem from="1404450266400" duration="112000" />
       <workItem from="1404477734221" duration="899000" />
-      <workItem from="1404483227050" duration="10228000" />
+      <workItem from="1404483227050" duration="12582000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -981,11 +982,15 @@
       <created>1404491623339</created>
       <updated>1404491623339</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="clean up">
+      <created>1404493469832</created>
+      <updated>1404493469833</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151751000" />
+    <option name="totallyTimeSpent" value="154105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1011,7 +1016,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1047,7 +1052,6 @@
     <MESSAGE value="created a custom btn class" />
     <MESSAGE value="added defaultPage" />
     <MESSAGE value="created a custom border" />
-    <MESSAGE value="clean up" />
     <MESSAGE value="starting to get buttons working" />
     <MESSAGE value="created a new menuBtn" />
     <MESSAGE value="ya! got my tab btn to work" />
@@ -1059,7 +1063,8 @@
     <MESSAGE value="added some logic to create" />
     <MESSAGE value="added the start of creating a new database" />
     <MESSAGE value="removed unecessary stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unecessary stuff" />
+    <MESSAGE value="clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1369,16 +1374,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="63" selection-start="704" selection-end="704" vertical-scroll-proportion="-0.9936809" vertical-offset="969" max-vertical-offset="1666">
+        <state line="44" column="42" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.48829788" vertical-offset="102" max-vertical-offset="1819">
           <folding>
-            <element signature="e#10938#11118#0" expanded="true" />
-            <element signature="e#11103#11104#0" expanded="true" />
-            <element signature="e#15373#15554#0" expanded="true" />
-            <element signature="e#15539#15540#0" expanded="true" />
-            <element signature="e#19630#19810#0" expanded="true" />
-            <element signature="e#19795#19796#0" expanded="true" />
-            <marker date="1404493402712" expanded="false" signature="2693:20742" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1404493402712" expanded="false" signature="20754:22012" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#10912#11092#0" expanded="true" />
+            <element signature="e#11077#11078#0" expanded="true" />
+            <element signature="e#11899#12080#0" expanded="true" />
+            <element signature="e#12065#12066#0" expanded="true" />
+            <element signature="e#16405#16585#0" expanded="true" />
+            <element signature="e#16570#16571#0" expanded="true" />
+            <marker date="1404495597345" expanded="false" signature="3015:17517" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1404495597345" expanded="false" signature="17529:18515" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
