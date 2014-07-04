@@ -19,26 +19,34 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlSetupWizard extends JPanel {
+    Icon completeIcon;
+
+    {
+        completeIcon = new ImageIcon(getClass().getResource("/images/complete.png"));
+    }
+
     public PnlSetupWizard() {
         initComponents();
+        showStep2(false);
 
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
     }
 
     private void btnConnectMouseClicked() {
         showStep1(false);
+        showStep2(true);
     }
 
     private void showStep1(boolean show) {
         pnlCreateDatabase.setVisible(show);
         pnlConnectDataBase.setVisible(show);
         if (!show) {
-            lblStepOne.setIcon(new ImageIcon(getClass().getResource("/images/complete.png")));
+            lblStepOne.setIcon(completeIcon);
         }
     }
 
     private void showStep2(boolean show) {
-
+        pnlTroopInfo.setVisible(show);
     }
 
     private void btnCreateMouseClicked() {
@@ -82,23 +90,9 @@ public class PnlSetupWizard extends JPanel {
         lblNewDBPasswordError.setVisible(false);
     }
 
-    private void lblStepOneMouseEntered() {
-        if (!pnlCreateDatabase.isVisible()) {
-            lblStepOne.setForeground(new Color(32, 154, 26));
-        }
-    }
-
-    private void lblStepOneMouseExited() {
-        if (!pnlCreateDatabase.isVisible()) {
-            lblStepOne.setForeground(new Color(51,102,153));
-        }
-    }
-
-    private void lblStepOneMouseClicked() {
-        if (!pnlCreateDatabase.isVisible()) {
-            lblStepOne.setForeground(new Color(51,102,153));
-            showStep1(true);
-        }
+    private void btnSubmitMouseClicked() {
+        showStep2(false);
+        lblStepTwo.setIcon(completeIcon);
     }
 
     private void initComponents() {
@@ -123,7 +117,12 @@ public class PnlSetupWizard extends JPanel {
         lblDBSelectPasswordError = new JLabel();
         btnConnect = new JButton();
         label5 = new JLabel();
-        lblStepOne2 = new JLabel();
+        lblStepTwo = new JLabel();
+        pnlTroopInfo = new JPanel();
+        textFieldDefaultText3 = new JTextFieldDefaultText();
+        textFieldDefaultText1 = new JTextFieldDefaultText();
+        textFieldDefaultText2 = new JTextFieldDefaultText();
+        btnSubmit = new JButton();
         label6 = new JLabel();
 
         //======== this ========
@@ -169,20 +168,6 @@ public class PnlSetupWizard extends JPanel {
         lblStepOne.setText("Step 1: Create or Connect to a database");
         lblStepOne.setForeground(new Color(51, 102, 153));
         lblStepOne.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        lblStepOne.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                lblStepOneMouseClicked();
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                lblStepOneMouseEntered();
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                lblStepOneMouseExited();
-            }
-        });
         add(lblStepOne, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));
@@ -363,13 +348,73 @@ public class PnlSetupWizard extends JPanel {
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(5, 0, 5, 5), 0, 0));
 
-        //---- lblStepOne2 ----
-        lblStepOne2.setText("Step 2: Setup Troop Information");
-        lblStepOne2.setForeground(new Color(51, 102, 153));
-        lblStepOne2.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        add(lblStepOne2, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0,
+        //---- lblStepTwo ----
+        lblStepTwo.setText("Step 2: Setup Troop Information");
+        lblStepTwo.setForeground(new Color(51, 102, 153));
+        lblStepTwo.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        add(lblStepTwo, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));
+
+        //======== pnlTroopInfo ========
+        {
+            pnlTroopInfo.setBackground(Color.white);
+            pnlTroopInfo.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlTroopInfo.getLayout()).columnWidths = new int[] {168, 248, 0, 0};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+
+            //---- textFieldDefaultText3 ----
+            textFieldDefaultText3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            textFieldDefaultText3.setDefaultText("Troop leader name");
+            textFieldDefaultText3.setMinimumSize(new Dimension(14, 40));
+            textFieldDefaultText3.setPreferredSize(new Dimension(135, 40));
+            pnlTroopInfo.add(textFieldDefaultText3, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 5), 0, 0));
+
+            //---- textFieldDefaultText1 ----
+            textFieldDefaultText1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            textFieldDefaultText1.setDefaultText("Troop #");
+            textFieldDefaultText1.setMinimumSize(new Dimension(14, 40));
+            textFieldDefaultText1.setPreferredSize(new Dimension(65, 40));
+            pnlTroopInfo.add(textFieldDefaultText1, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 5), 0, 0));
+
+            //---- textFieldDefaultText2 ----
+            textFieldDefaultText2.setPreferredSize(new Dimension(14, 40));
+            textFieldDefaultText2.setMinimumSize(new Dimension(14, 40));
+            textFieldDefaultText2.setDefaultText("Scout Council");
+            textFieldDefaultText2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            pnlTroopInfo.add(textFieldDefaultText2, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 5), 0, 0));
+
+            //---- btnSubmit ----
+            btnSubmit.setText("Submit");
+            btnSubmit.setMargin(new Insets(5, 20, 5, 20));
+            btnSubmit.setMinimumSize(new Dimension(70, 40));
+            btnSubmit.setMaximumSize(new Dimension(70, 30));
+            btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnSubmit.setBackground(new Color(51, 102, 153));
+            btnSubmit.setForeground(Color.white);
+            btnSubmit.setFocusPainted(false);
+            btnSubmit.setPreferredSize(new Dimension(82, 40));
+            btnSubmit.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnSubmitMouseClicked();
+                }
+            });
+            pnlTroopInfo.add(btnSubmit, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(10, 20, 0, 5), 0, 0));
+        }
+        add(pnlTroopInfo, new GridBagConstraints(1, 7, 3, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label6 ----
         label6.setBackground(new Color(51, 102, 153));
@@ -377,7 +422,7 @@ public class PnlSetupWizard extends JPanel {
         label6.setMaximumSize(new Dimension(600, 2));
         label6.setMinimumSize(new Dimension(0, 2));
         label6.setPreferredSize(new Dimension(0, 2));
-        add(label6, new GridBagConstraints(1, 7, 3, 1, 0.0, 0.0,
+        add(label6, new GridBagConstraints(1, 8, 3, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(5, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -404,7 +449,12 @@ public class PnlSetupWizard extends JPanel {
     private JLabel lblDBSelectPasswordError;
     private JButton btnConnect;
     private JLabel label5;
-    private JLabel lblStepOne2;
+    private JLabel lblStepTwo;
+    private JPanel pnlTroopInfo;
+    private JTextFieldDefaultText textFieldDefaultText3;
+    private JTextFieldDefaultText textFieldDefaultText1;
+    private JTextFieldDefaultText textFieldDefaultText2;
+    private JButton btnSubmit;
     private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -56,9 +56,6 @@ new FormModel {
 				"text": "Step 1: Create or Connect to a database"
 				"foreground": &Color2 new java.awt.Color( 51, 102, 153, 255 )
 				"font": &Font1 new java.awt.Font( "Vijaya", 0, 24 )
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "lblStepOneMouseEntered", false ) )
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "lblStepOneMouseExited", false ) )
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "lblStepOneMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 3
 				"insets": &Insets0 new java.awt.Insets( 6, 10, 0, 0 )
@@ -155,7 +152,7 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnCreateMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 6
-					"insets": new java.awt.Insets( 10, 20, 0, 0 )
+					"insets": &Insets4 new java.awt.Insets( 10, 20, 0, 0 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
@@ -256,11 +253,11 @@ new FormModel {
 				"gridy": 5
 				"vAlign": 1
 				"gridwidth": 3
-				"insets": &Insets4 new java.awt.Insets( 5, 0, 0, 0 )
+				"insets": &Insets5 new java.awt.Insets( 5, 0, 0, 0 )
 				"gridx": 1
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "lblStepOne2"
+				name: "lblStepTwo"
 				"text": "Step 2: Setup Troop Information"
 				"foreground": #Color2
 				"font": #Font1
@@ -268,6 +265,69 @@ new FormModel {
 				"gridy": 6
 				"insets": #Insets0
 				"gridx": 1
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "163, 243, 0:1.0"
+				"$rowSpecs": "0, 0, 0, 0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "pnlTroopInfo"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "textFieldDefaultText3"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"defaultText": "Troop leader name"
+					"minimumSize": new java.awt.Dimension( 14, 40 )
+					"preferredSize": new java.awt.Dimension( 135, 40 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": new java.awt.Insets( 0, 20, 0, 0 )
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "textFieldDefaultText1"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"defaultText": "Troop #"
+					"minimumSize": new java.awt.Dimension( 14, 40 )
+					"preferredSize": new java.awt.Dimension( 65, 40 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+					"insets": new java.awt.Insets( 0, 20, 0, 0 )
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "textFieldDefaultText2"
+					"preferredSize": new java.awt.Dimension( 14, 40 )
+					"minimumSize": new java.awt.Dimension( 14, 40 )
+					"defaultText": "Scout Council"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 2
+					"insets": new java.awt.Insets( 0, 20, 0, 0 )
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSubmit"
+					"text": "Submit"
+					"margin": #Insets3
+					"minimumSize": #Dimension7
+					"maximumSize": #Dimension8
+					"font": #Font5
+					"background": #Color4
+					"foreground": #Color5
+					"focusPainted": false
+					"preferredSize": #Dimension9
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSubmitMouseClicked", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+					"insets": #Insets4
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 7
+				"gridwidth": 3
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
@@ -277,9 +337,9 @@ new FormModel {
 				"minimumSize": #Dimension1
 				"preferredSize": #Dimension2
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 7
+				"gridy": 8
 				"vAlign": 1
-				"insets": #Insets4
+				"insets": #Insets5
 				"gridwidth": 3
 				"gridx": 1
 			} )
