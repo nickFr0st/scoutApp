@@ -9,6 +9,8 @@ import scout.clientPnls.PnlSignIn;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author User #2
@@ -20,6 +22,14 @@ public class SignIn extends JFrame implements GuiManager {
 
     public SignIn() {
         initComponents();
+
+        addWindowListener(
+            new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    System.exit(0);
+                }
+            }
+        );
 
         stepSignIn = new PnlSignIn(this);
         stepHome = new PnlHome(this);

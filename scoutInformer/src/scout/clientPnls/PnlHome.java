@@ -8,6 +8,7 @@ import guiUtil.ButtonSideMenu;
 import guiUtil.JButtonImageChange;
 import scout.GuiManager;
 import scout.SignIn;
+import util.DBConnector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +23,14 @@ public class PnlHome extends JPanel implements GuiManager {
     private SignIn parentFrame;
     private PnlDefaultSplash defaultSplash;
     private PnlSettings pnlSettings;
+    private PnlSetupWizard setupWizard;
+    private DBConnector dbConnector;
 
     {
         defaultSplash = new PnlDefaultSplash();
         pnlSettings = new PnlSettings();
+        setupWizard = new PnlSetupWizard();
+        dbConnector = new DBConnector();
     }
 
     public PnlHome() {
@@ -63,7 +68,16 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnSettingsMouseClicked() {
-        changePanel(pnlSettings);
+        // todo: un-comment when wizard is working
+
+//        if (!dbConnector.checkForDBConnection()) {
+            changePanel(setupWizard);
+//        } else {
+//            changePanel(pnlSettings);
+//            pnlSettings.activatePnl();
+//        }
+
+
     }
 
     private void clearSelected() {

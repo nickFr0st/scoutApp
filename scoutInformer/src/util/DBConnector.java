@@ -2,7 +2,6 @@ package util;
 
 import constants.KeyConst;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -32,7 +31,7 @@ public class DBConnector {
             String password = properties.getProperty(KeyConst.DB_PASSWORD.getName());
 
             if (Util.isEmpty(url) || Util.isEmpty(dbName) || userName == null || password == null) {
-                throw new Exception("must select a valid database and server credentials.");
+                return false;
             }
 
             Class.forName(driver).newInstance();
@@ -45,12 +44,6 @@ public class DBConnector {
             DBConnector.userName = userName;
             DBConnector.password = password;
 
-        } catch (IOException ioe) {
-            connectionIsGood = false;
-            ioe.printStackTrace();
-        } catch (SQLException sqle) {
-            connectionIsGood = false;
-            sqle.printStackTrace();
         } catch (Exception e) {
             connectionIsGood = false;
             e.printStackTrace();
