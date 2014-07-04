@@ -19,10 +19,12 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlSetupWizard extends JPanel {
-    Icon completeIcon;
+    private Icon completeIcon;
+    private DBConnector connector;
 
     {
         completeIcon = new ImageIcon(getClass().getResource("/images/complete.png"));
+        connector = new DBConnector();
     }
 
     public PnlSetupWizard() {
@@ -99,6 +101,8 @@ public class PnlSetupWizard extends JPanel {
             return;
         }
 
+        connector.insert("user", new String[] {"troopLeader", "troop", "council"}, new String[] {txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
     }
@@ -107,7 +111,6 @@ public class PnlSetupWizard extends JPanel {
         clearErrors();
         if (validateDBFields()) return;
 
-        DBConnector connector = new DBConnector();
         if (connector.connectToDB(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText())) {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);

@@ -3,10 +3,7 @@ package util;
 import constants.KeyConst;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 /**
@@ -137,9 +134,7 @@ public class DBConnector {
 
     public boolean createDatabase(String name, String rootUser, String rootPassword) {
         try {
-            Class.forName(driver).newInstance();
-            connection = DriverManager.getConnection(dataBase, rootUser, rootPassword);
-            Statement statement = connection.createStatement();
+            Statement statement = setupConnection(rootUser, rootPassword);
 
             statement.executeUpdate("CREATE DATABASE " + name);
             connection = DriverManager.getConnection(dataBase + name, rootUser, rootPassword);
@@ -161,6 +156,12 @@ public class DBConnector {
         return true;
     }
 
+    private Statement setupConnection(String rootUser, String rootPassword) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+        Class.forName(driver).newInstance();
+        connection = DriverManager.getConnection(dataBase + dbName, rootUser, rootPassword);
+        return connection.createStatement();
+    }
+
     private void buildDataBase() throws SQLException {
         Statement statement = connection.createStatement();
         StringBuilder query = new StringBuilder();
@@ -178,5 +179,63 @@ public class DBConnector {
         // Insert Requirements
 
         statement.executeUpdate(query.toString());
+    }
+
+    private int getNextId(String tableName) {
+        int id = 1;
+        try {
+            Statement statement = setupConnection(userName, password);
+            ResultSet rs = statement.executeQuery("SELECT * FROM " + tableName);
+
+            while(rs.next()) {
+                int tempId = rs.getInt("id");
+                if (tempId > id) {
+                    id = tempId;
+                }
+            }
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return id;
+    }
+
+    public void insert(String tableName, String[] tableColumnNames, String[] columnValues) {
+        if (tableColumnNames == null || tableColumnNames.length < 1) {
+            return;
+        }
+
+        try {
+            Statement statement = setupConnection(userName, password);
+            int id = getNextId(tableName);
+
+
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO " + tableName).append(" (");
+
+            query.append("id");
+            for (String s : tableColumnNames) {
+                query.append(",").append(s);
+            }
+            query.append(") VALUES (");
+
+            query.append("'").append(id).append("'");
+            for (String s : columnValues) {
+                query.append(",").append("'").append(s).append("'");
+            }
+            query.append(");");
+
+            statement.executeUpdate(query.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
