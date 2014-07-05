@@ -61,6 +61,8 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void cleanup() {
+        pnlSettings.resetPanel();
+
         btnSettings.setDefault();
         btnSignOut.setDefault();
         clearSelected();

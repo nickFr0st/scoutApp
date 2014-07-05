@@ -31,13 +31,17 @@ public class PnlSettings extends JPanel {
     public PnlSettings() {
         initComponents();
         showStep1(false);
-        lblSuccess.setVisible(false);
         connector.checkForDBConnection();
 
         lblConnectedDBName.setText(connector.getDBName());
         populateStep2();
 
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
+    }
+
+    public void resetPanel() {
+        showStep1(false);
+        btnEditConnection.setText("Edit Connection");
     }
 
     private void showStep1(boolean show) {
@@ -109,8 +113,6 @@ public class PnlSettings extends JPanel {
         } else {
             connector.insert("user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
         }
-
-        lblSuccess.setVisible(true);
     }
 
     private void btnConnectMouseClicked() {
@@ -169,7 +171,6 @@ public class PnlSettings extends JPanel {
         lblScoutLogo = new JLabel();
         label5 = new JLabel();
         lblStepTwo = new JLabel();
-        lblSuccess = new JLabel();
         pnlTroopInfo = new JPanel();
         lblTroopLeader = new JLabel();
         txtLeaderName = new JTextFieldDefaultText();
@@ -192,7 +193,7 @@ public class PnlSettings extends JPanel {
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
 
         //---- lblWelcome ----
-        lblWelcome.setText("Settings");
+        lblWelcome.setText("Settings and General Information");
         lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
         lblWelcome.setFont(new Font("Vijaya", Font.PLAIN, 28));
         lblWelcome.setForeground(new Color(51, 102, 153));
@@ -379,14 +380,6 @@ public class PnlSettings extends JPanel {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));
 
-        //---- lblSuccess ----
-        lblSuccess.setText("Save Successful");
-        lblSuccess.setForeground(new Color(32, 154, 26));
-        lblSuccess.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        add(lblSuccess, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(6, 0, 5, 5), 0, 0));
-
         //======== pnlTroopInfo ========
         {
             pnlTroopInfo.setBackground(Color.white);
@@ -501,7 +494,6 @@ public class PnlSettings extends JPanel {
     private JLabel lblScoutLogo;
     private JLabel label5;
     private JLabel lblStepTwo;
-    private JLabel lblSuccess;
     private JPanel pnlTroopInfo;
     private JLabel lblTroopLeader;
     private JTextFieldDefaultText txtLeaderName;
