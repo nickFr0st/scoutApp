@@ -71,8 +71,7 @@ public class DBConnector {
             connection = DriverManager.getConnection(url + dbName, userName, password);
 
         } catch (SQLException sqle) {
-            // todo: change this to pop mesages
-            System.err.print("Invalid Sql Exception: ");
+            System.err.print("Exception in connectToDB(): ");
             System.err.println(sqle.getMessage());
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -92,7 +91,7 @@ public class DBConnector {
         return 0;
     }
 
-    private void resetProperties(String name, String rootUser, String rootPassword) {
+    public void resetProperties(String name, String rootUser, String rootPassword) {
         url = dataBase;
         dbName = name;
         userName = rootUser;
@@ -113,10 +112,6 @@ public class DBConnector {
             System.out.println("connection close failed.");
             System.out.println(e.getMessage());
         }
-    }
-
-    public static void setDbName(String dbName) {
-        DBConnector.dbName = dbName;
     }
 
     public String getDBName() {
@@ -154,18 +149,35 @@ public class DBConnector {
         StringBuilder query = new StringBuilder();
 
         // Create Tables
-        query.append("CREATE TABLE user " +
+        String tableUser = "CREATE TABLE user " +
                 "(id INT NOT NULL," +
                 " troop VARCHAR(45) NULL," +
                 " council VARCHAR(255) NULL," +
-                " troopLeader VARCHAR(255)," +
-                " PRIMARY KEY (id)) ");
+                " troopLeader VARCHAR(255) NULL," +
+                " troopName VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.executeUpdate(tableUser);
+
+        String tableAdvancement = "CREATE TABLE advancement " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(225) NOT NULL," +
+                " imgPath VARCHAR(255) NOT NULL," +
+                " requirementsLink VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.executeUpdate(tableAdvancement);
+
+        String tableMeritBadge = "CREATE TABLE meritBadge " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(225) NOT NULL," +
+                " imgPath VARCHAR(255) NOT NULL," +
+                " requirementsLink VARCHAR(255) NULL," +
+                " requiredForEagle TINYINT NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.executeUpdate(tableMeritBadge);
 
         // Insert Advancements
 
         // Insert Requirements
-
-        statement.executeUpdate(query.toString());
     }
 
     private int getNextId(String tableName) {
@@ -232,6 +244,7 @@ public class DBConnector {
                 user.setTroopLeader(rs.getString(KeyConst.USER_TROOP_LEADER.getName()));
                 user.setTroopNumber(rs.getString(KeyConst.USER_TROOP_NUMBER.getName()));
                 user.setCouncil(rs.getString(KeyConst.USER_COUNCIL.getName()));
+                user.setTroopName(rs.getString(KeyConst.USER_TROOP_NAME.getName()));
                 return user;
             }
 

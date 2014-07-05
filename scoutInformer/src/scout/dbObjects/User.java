@@ -8,6 +8,7 @@ public class User {
     private String troopNumber;
     private String troopLeader;
     private String council;
+    private String troopName;
 
     public int getId() {
         return id;
@@ -39,5 +40,13 @@ public class User {
 
     public void setCouncil(String council) {
         this.council = council;
+    }
+
+    public String getTroopName() {
+        return troopName;
+    }
+
+    public void setTroopName(String troopName) {
+        this.troopName = troopName;
     }
 }

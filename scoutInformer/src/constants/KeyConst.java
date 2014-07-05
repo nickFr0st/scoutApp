@@ -15,7 +15,8 @@ public enum KeyConst {
     USER_TROOP_LEADER("troopLeader"),
     USER_TROOP_NUMBER("troop"),
     USER_ID("id"),
-    USER_COUNCIL("council");
+    USER_COUNCIL("council"),
+    USER_TROOP_NAME("troopName");
 
     private String name;
 

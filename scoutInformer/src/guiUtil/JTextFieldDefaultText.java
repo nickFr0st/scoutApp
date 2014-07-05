@@ -30,7 +30,7 @@ public class JTextFieldDefaultText extends JTextField {
             @Override
             public void focusGained(FocusEvent e) {
                 if (getForeground().equals(defaultColor)) {
-                    setText("");
+                    setText2("");
                 }
             }
 
@@ -107,6 +107,15 @@ public class JTextFieldDefaultText extends JTextField {
 
     @Override
     public void setText(String t) {
+        if (Util.isEmpty(t)) {
+            setDefault();
+        } else {
+            super.setText(t);
+            setForeground(activeColor);
+        }
+    }
+
+    public void setText2(String t) {
         super.setText(t);
         setForeground(activeColor);
     }

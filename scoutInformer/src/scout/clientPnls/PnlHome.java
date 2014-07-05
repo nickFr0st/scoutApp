@@ -79,6 +79,7 @@ public class PnlHome extends JPanel implements GuiManager {
 
     public void moveToSettingsPnl() {
         changePanel(pnlSettings);
+        pnlSettings.populateStep2();
     }
 
     private void clearSelected() {

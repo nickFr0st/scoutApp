@@ -65,8 +65,17 @@ public class PnlSettings extends JPanel {
             Util.setError(lblDBNameError, ErrorConst.DATABASE_NAME_ALREADY_EXISTS.getMessage());
         } else if (responseCode == 0) {
             lblConnectedDBName.setText(txtDBName.getText());
-            showStep1(false);
+            btnEditConnectionMouseClicked();
+            clearTroopInfo();
         }
+    }
+
+    private void clearTroopInfo() {
+        clearErrors();
+        txtLeaderName.setDefault();
+        txtTroopName.setDefault();
+        txtScoutCouncil.setDefault();
+        txtTroopNumber.setDefault();
     }
 
     private boolean validateDBFields() {
@@ -109,9 +118,9 @@ public class PnlSettings extends JPanel {
         User user = connector.getUser();
 
         if (user != null) {
-            connector.updateById(user.getId(), "user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+            connector.updateById(user.getId(), "user", new String[]{"troopLeader", "troop", "council", "troopName"}, new String[]{Util.getTxtFieldString(txtLeaderName), Util.getTxtFieldString(txtTroopNumber), Util.getTxtFieldString(txtScoutCouncil), Util.getTxtFieldString(txtTroopName)});
         } else {
-            connector.insert("user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+            connector.insert("user", new String[]{"troopLeader", "troop", "council", "troopName"}, new String[]{Util.getTxtFieldString(txtLeaderName), Util.getTxtFieldString(txtTroopNumber), Util.getTxtFieldString(txtScoutCouncil), Util.getTxtFieldString(txtTroopName)});
         }
     }
 
@@ -128,16 +137,17 @@ public class PnlSettings extends JPanel {
         } else if (responseCode == 0) {
             populateStep2();
             lblConnectedDBName.setText(txtDBName.getText());
-            showStep1(false);
+            btnEditConnectionMouseClicked();
         }
     }
 
-    private void populateStep2() {
+    public void populateStep2() {
         User user = connector.getUser();
         if (user != null) {
             userExists = user.getId();
             txtLeaderName.setText(user.getTroopLeader());
             txtTroopNumber.setText(user.getTroopNumber());
+            txtTroopName.setText(user.getTroopName());
             txtScoutCouncil.setText(user.getCouncil());
         }
     }
@@ -174,10 +184,12 @@ public class PnlSettings extends JPanel {
         pnlTroopInfo = new JPanel();
         lblTroopLeader = new JLabel();
         txtLeaderName = new JTextFieldDefaultText();
-        lblTroopLeader2 = new JLabel();
+        lblTroopNumber = new JLabel();
         txtTroopNumber = new JTextFieldDefaultText();
-        lblTroopLeader3 = new JLabel();
+        lblScoutCouncil = new JLabel();
         txtScoutCouncil = new JTextFieldDefaultText();
+        lblTroopName = new JLabel();
+        txtTroopName = new JTextFieldDefaultText();
         btnSave = new JButton();
         label6 = new JLabel();
 
@@ -385,9 +397,9 @@ public class PnlSettings extends JPanel {
             pnlTroopInfo.setBackground(Color.white);
             pnlTroopInfo.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlTroopInfo.getLayout()).columnWidths = new int[] {107, 168, 84, 140, 0};
-            ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlTroopInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
-            ((GridBagLayout)pnlTroopInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- lblTroopLeader ----
             lblTroopLeader.setText("Troop Leader:");
@@ -406,11 +418,11 @@ public class PnlSettings extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
-            //---- lblTroopLeader2 ----
-            lblTroopLeader2.setText("Troop #:");
-            lblTroopLeader2.setForeground(new Color(51, 102, 153));
-            lblTroopLeader2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            pnlTroopInfo.add(lblTroopLeader2, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            //---- lblTroopNumber ----
+            lblTroopNumber.setText("Troop #:");
+            lblTroopNumber.setForeground(new Color(51, 102, 153));
+            lblTroopNumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            pnlTroopInfo.add(lblTroopNumber, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
 
@@ -423,11 +435,11 @@ public class PnlSettings extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
-            //---- lblTroopLeader3 ----
-            lblTroopLeader3.setText("Scout Council:");
-            lblTroopLeader3.setForeground(new Color(51, 102, 153));
-            lblTroopLeader3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            pnlTroopInfo.add(lblTroopLeader3, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+            //---- lblScoutCouncil ----
+            lblScoutCouncil.setText("Scout Council:");
+            lblScoutCouncil.setForeground(new Color(51, 102, 153));
+            lblScoutCouncil.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            pnlTroopInfo.add(lblScoutCouncil, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
 
@@ -439,6 +451,23 @@ public class PnlSettings extends JPanel {
             pnlTroopInfo.add(txtScoutCouncil, new GridBagConstraints(1, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
+
+            //---- lblTroopName ----
+            lblTroopName.setText("Troop Name:");
+            lblTroopName.setForeground(new Color(51, 102, 153));
+            lblTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            pnlTroopInfo.add(lblTroopName, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- txtTroopName ----
+            txtTroopName.setPreferredSize(new Dimension(14, 40));
+            txtTroopName.setMinimumSize(new Dimension(14, 40));
+            txtTroopName.setDefaultText("Troop name");
+            txtTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            pnlTroopInfo.add(txtTroopName, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 5, 0), 0, 0));
 
             //---- btnSave ----
             btnSave.setText("Save");
@@ -456,7 +485,7 @@ public class PnlSettings extends JPanel {
                     btnSaveMouseClicked();
                 }
             });
-            pnlTroopInfo.add(btnSave, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+            pnlTroopInfo.add(btnSave, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(15, 0, 0, 5), 0, 0));
         }
@@ -497,10 +526,12 @@ public class PnlSettings extends JPanel {
     private JPanel pnlTroopInfo;
     private JLabel lblTroopLeader;
     private JTextFieldDefaultText txtLeaderName;
-    private JLabel lblTroopLeader2;
+    private JLabel lblTroopNumber;
     private JTextFieldDefaultText txtTroopNumber;
-    private JLabel lblTroopLeader3;
+    private JLabel lblScoutCouncil;
     private JTextFieldDefaultText txtScoutCouncil;
+    private JLabel lblTroopName;
+    private JTextFieldDefaultText txtTroopName;
     private JButton btnSave;
     private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

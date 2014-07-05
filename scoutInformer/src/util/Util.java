@@ -1,5 +1,8 @@
 package util;
 
+import guiUtil.JPasswordFieldDefaultText;
+import guiUtil.JTextFieldDefaultText;
+
 import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,5 +30,15 @@ public class Util {
     public static void setError(JLabel lblNewUserError, String errorMessage) {
         lblNewUserError.setText("* " + errorMessage);
         lblNewUserError.setVisible(true);
+    }
+
+    public static String getTxtFieldString(JTextField textField) {
+        if (textField instanceof JTextFieldDefaultText) {
+            return ((JTextFieldDefaultText) textField).isMessageDefault() ? "" : textField.getText();
+        } else if (textField instanceof JPasswordFieldDefaultText) {
+            return ((JPasswordFieldDefaultText) textField).isMessageDefault() ? "" : textField.getText();
+        } else {
+            return textField.getText();
+        }
     }
 }

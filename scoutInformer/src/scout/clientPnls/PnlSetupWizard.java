@@ -55,6 +55,7 @@ public class PnlSetupWizard extends JPanel {
         txtLeaderName.setEnabled(enable);
         txtTroopNumber.setEnabled(enable);
         txtScoutCouncil.setEnabled(enable);
+        txtTroopName.setEnabled(enable);
         btnSubmit.setEnabled(enable);
         btnSkipStep.setEnabled(enable);
     }
@@ -122,9 +123,9 @@ public class PnlSetupWizard extends JPanel {
         }
 
         if (userExists > 0) {
-            connector.updateById(userExists, "user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+            connector.updateById(userExists, "user", new String[]{"troopLeader", "troop", "council", "troopName"}, new String[]{Util.getTxtFieldString(txtLeaderName), Util.getTxtFieldString(txtTroopNumber), Util.getTxtFieldString(txtScoutCouncil), Util.getTxtFieldString(txtTroopName)});
         } else {
-            connector.insert("user", new String[]{"troopLeader", "troop", "council"}, new String[]{txtLeaderName.getText(), txtTroopNumber.getText(), txtScoutCouncil.getText()});
+            connector.insert("user", new String[]{"troopLeader", "troop", "council", "troopName"}, new String[]{Util.getTxtFieldString(txtLeaderName), Util.getTxtFieldString(txtTroopNumber), Util.getTxtFieldString(txtScoutCouncil), Util.getTxtFieldString(txtTroopName)});
         }
 
         enableStep2(false);
@@ -156,6 +157,7 @@ public class PnlSetupWizard extends JPanel {
             userExists = user.getId();
             txtLeaderName.setText(user.getTroopLeader());
             txtTroopNumber.setText(user.getTroopNumber());
+            txtTroopName.setText(user.getTroopName());
             txtScoutCouncil.setText(user.getCouncil());
         }
     }
@@ -192,6 +194,7 @@ public class PnlSetupWizard extends JPanel {
         txtLeaderName = new JTextFieldDefaultText();
         txtTroopNumber = new JTextFieldDefaultText();
         txtScoutCouncil = new JTextFieldDefaultText();
+        txtTroopName = new JTextFieldDefaultText();
         btnSubmit = new JButton();
         btnSkipStep = new JButton();
         label6 = new JLabel();
@@ -381,9 +384,9 @@ public class PnlSetupWizard extends JPanel {
             pnlTroopInfo.setBackground(Color.white);
             pnlTroopInfo.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlTroopInfo.getLayout()).columnWidths = new int[] {168, 162, 108, 0, 0};
-            ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlTroopInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
-            ((GridBagLayout)pnlTroopInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlTroopInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- txtLeaderName ----
             txtLeaderName.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -412,6 +415,15 @@ public class PnlSetupWizard extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 5), 0, 0));
 
+            //---- txtTroopName ----
+            txtTroopName.setPreferredSize(new Dimension(14, 40));
+            txtTroopName.setMinimumSize(new Dimension(14, 40));
+            txtTroopName.setDefaultText("Troop name");
+            txtTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            pnlTroopInfo.add(txtTroopName, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 5), 0, 0));
+
             //---- btnSubmit ----
             btnSubmit.setText("Submit");
             btnSubmit.setMargin(new Insets(5, 20, 5, 20));
@@ -428,7 +440,7 @@ public class PnlSetupWizard extends JPanel {
                     btnSubmitMouseClicked();
                 }
             });
-            pnlTroopInfo.add(btnSubmit, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
+            pnlTroopInfo.add(btnSubmit, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(15, 20, 0, 5), 0, 0));
 
@@ -448,7 +460,7 @@ public class PnlSetupWizard extends JPanel {
                     btnSkipStepMouseClicked();
                 }
             });
-            pnlTroopInfo.add(btnSkipStep, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+            pnlTroopInfo.add(btnSkipStep, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(15, 20, 0, 5), 0, 0));
         }
@@ -489,6 +501,7 @@ public class PnlSetupWizard extends JPanel {
     private JTextFieldDefaultText txtLeaderName;
     private JTextFieldDefaultText txtTroopNumber;
     private JTextFieldDefaultText txtScoutCouncil;
+    private JTextFieldDefaultText txtTroopName;
     private JButton btnSubmit;
     private JButton btnSkipStep;
     private JLabel label6;
