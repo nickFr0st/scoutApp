@@ -5,13 +5,13 @@ package constants;
  */
 public enum RankConst {
     NO_RANK(0, "No Rank", ""),
-    NEW_SCOUT(1, "New Scout", "/images/badge_new_scout.png"),
-    TENDERFOOT(2, "Tenderfoot", "/images/badge_tenderfoot.png"),
-    SECOND_CLASS(3, "Second Class", "/images/badge_second_class.png"),
-    FIRST_CLASS(4, "First Class", "/images/badge_first_class.png"),
-    STAR(5, "Star", "/images/badge_star.png"),
-    LIFE(6, "Life", "/images/badge_life.png"),
-    EAGLE(7, "Eagle", "/images/badge_eagle.png");
+    NEW_SCOUT(1, "New Scout", "/images/advancements/new_scout.png"),
+    TENDERFOOT(2, "Tenderfoot", "/images/advancements/tenderfoot.png"),
+    SECOND_CLASS(3, "Second Class", "/images/advancements/second_class.png"),
+    FIRST_CLASS(4, "First Class", "/images/advancements/first_class.png"),
+    STAR(5, "Star", "/images/advancements/star.png"),
+    LIFE(6, "Life", "/images/advancements/life.png"),
+    EAGLE(7, "Eagle", "/images/advancements/eagle.png");
 
     private static final String NO_RANK_NAME = "No Rank";
     private static final String NEW_SCOUT_NAME = "New Scout";

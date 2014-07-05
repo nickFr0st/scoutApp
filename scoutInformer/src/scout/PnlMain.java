@@ -317,7 +317,7 @@ public class PnlMain extends JFrame {
                     ((GridBagLayout)pnlGeneral.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
                     //---- lblCurrentBadge ----
-                    lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
+                    lblCurrentBadge.setIcon(new ImageIcon(getClass().getResource("/images/advancements/new_scout.png")));
                     lblCurrentBadge.setBorder(new BevelBorder(BevelBorder.LOWERED));
                     lblCurrentBadge.setMinimumSize(new Dimension(132, 143));
                     lblCurrentBadge.setMaximumSize(new Dimension(132, 143));

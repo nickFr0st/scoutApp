@@ -49,43 +49,43 @@ public class PnlDefaultSplash extends JPanel {
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label1 ----
-        label1.setIcon(new ImageIcon(getClass().getResource("/images/badge_new_scout.png")));
+        label1.setIcon(new ImageIcon(getClass().getResource("/images/advancements/new_scout.png")));
         add(label1, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTHEAST, GridBagConstraints.NONE,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- label2 ----
-        label2.setIcon(new ImageIcon(getClass().getResource("/images/badge_tenderfoot.png")));
+        label2.setIcon(new ImageIcon(getClass().getResource("/images/advancements/tenderfoot.png")));
         add(label2, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- label3 ----
-        label3.setIcon(new ImageIcon(getClass().getResource("/images/badge_second_class.png")));
+        label3.setIcon(new ImageIcon(getClass().getResource("/images/advancements/second_class.png")));
         add(label3, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- label4 ----
-        label4.setIcon(new ImageIcon(getClass().getResource("/images/badge_first_class.png")));
+        label4.setIcon(new ImageIcon(getClass().getResource("/images/advancements/first_class.png")));
         add(label4, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- label5 ----
-        label5.setIcon(new ImageIcon(getClass().getResource("/images/badge_star.png")));
+        label5.setIcon(new ImageIcon(getClass().getResource("/images/advancements/star.png")));
         add(label5, new GridBagConstraints(4, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- label7 ----
-        label7.setIcon(new ImageIcon(getClass().getResource("/images/badge_life.png")));
+        label7.setIcon(new ImageIcon(getClass().getResource("/images/advancements/life.png")));
         add(label7, new GridBagConstraints(5, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- label6 ----
-        label6.setIcon(new ImageIcon(getClass().getResource("/images/badge_eagle.png")));
+        label6.setIcon(new ImageIcon(getClass().getResource("/images/advancements/eagle.png")));
         add(label6, new GridBagConstraints(6, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 0, 0), 0, 0));
