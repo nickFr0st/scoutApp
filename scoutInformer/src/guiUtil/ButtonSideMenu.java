@@ -27,6 +27,10 @@ public class ButtonSideMenu extends JLabel {
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (!isEnabled()) {
+                    return;
+                }
+
                 setOpaque(true);
                 setBorder(BorderFactory.createCompoundBorder(border,paddingBorder));
             }

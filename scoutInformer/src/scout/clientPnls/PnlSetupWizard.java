@@ -78,6 +78,7 @@ public class PnlSetupWizard extends JPanel implements PnlGui {
             enableStep1(false);
             lblStepOne.setIcon(completeIcon);
             showStep2(true);
+            enableStep2(true);
         }
     }
 

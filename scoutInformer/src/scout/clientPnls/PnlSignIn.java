@@ -39,8 +39,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
 
         try {
             properties.load(getClass().getResourceAsStream(propertyFileName));
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignore) {
             return;
         }
 

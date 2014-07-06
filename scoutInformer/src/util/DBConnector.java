@@ -34,8 +34,6 @@ public class DBConnector {
     }
 
     public boolean checkForDBConnection() {
-        boolean connectionIsGood = true;
-
         try {
             String url = properties.getProperty(KeyConst.DB_URL.getName());
             String dbName = properties.getProperty(KeyConst.DB_NAME.getName());
@@ -57,11 +55,10 @@ public class DBConnector {
             DBConnector.password = password;
 
         } catch (Exception e) {
-            connectionIsGood = false;
-            e.printStackTrace();
+            return false;
         }
 
-        return connectionIsGood;
+        return true;
     }
 
     public static void connectToDB() {

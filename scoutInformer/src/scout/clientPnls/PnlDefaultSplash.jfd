@@ -30,7 +30,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_new_scout.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/new_scout.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"hAlign": 4
@@ -38,7 +38,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_tenderfoot.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/tenderfoot.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 1
@@ -46,7 +46,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_second_class.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/second_class.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
 				"gridy": 1
@@ -54,7 +54,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_first_class.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/first_class.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
 				"gridy": 1
@@ -62,7 +62,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_star.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/star.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 4
 				"gridy": 1
@@ -70,7 +70,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_life.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/life.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 5
 				"gridy": 1
@@ -78,7 +78,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_eagle.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/eagle.png" )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 6
 				"gridy": 1

@@ -43,6 +43,10 @@ public class PnlHome extends JPanel implements GuiManager {
         this();
         this.parentFrame = parentFrame;
 
+        if (!dbConnector.checkForDBConnection()) {
+            enableBtns(false);
+        }
+
         currentPnl = defaultSplash;
         pnlBase.add(currentPnl);
     }
@@ -58,6 +62,7 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnSignOutMouseClicked() {
+        btnSignOut.setDefault();
         changePanel(defaultSplash);
         previousStep();
     }
@@ -83,6 +88,11 @@ public class PnlHome extends JPanel implements GuiManager {
     public void moveToSettingsPnl() {
         changePanel(pnlSettings);
         pnlSettings.populateStep2();
+        enableBtns(true);
+    }
+
+    private void enableBtns(boolean enable) {
+        btnAdvancementConf.setEnabled(enable);
     }
 
     private void changePanel(JPanel newPanel) {
@@ -101,7 +111,9 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnAdvancementConfMouseClicked() {
-        changePanel(pnlBadgeConf);
+        if (btnAdvancementConf.isEnabled()) {
+            changePanel(pnlBadgeConf);
+        }
     }
 
     private void initComponents() {

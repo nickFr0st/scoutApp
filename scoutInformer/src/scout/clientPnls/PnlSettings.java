@@ -31,10 +31,11 @@ public class PnlSettings extends JPanel implements PnlGui {
     public PnlSettings() {
         initComponents();
         showStep1(false);
-        connector.checkForDBConnection();
 
-        lblConnectedDBName.setText(connector.getDBName());
-        populateStep2();
+        if (connector.checkForDBConnection()) {
+            lblConnectedDBName.setText(connector.getDBName());
+            populateStep2();
+        }
 
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
     }
