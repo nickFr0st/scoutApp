@@ -111,7 +111,7 @@ public class DBConnector {
         }
     }
 
-    public String getDBName() {
+    public static String getDBName() {
         return dbName;
     }
 
@@ -295,5 +295,9 @@ public class DBConnector {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setDBName(String dbNameText) {
+        dbName = dbNameText;
     }
 }

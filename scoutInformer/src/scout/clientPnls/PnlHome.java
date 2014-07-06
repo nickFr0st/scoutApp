@@ -87,6 +87,7 @@ public class PnlHome extends JPanel implements GuiManager {
 
     public void moveToSettingsPnl() {
         changePanel(pnlSettings);
+        pnlSettings.setupDBName();
         pnlSettings.populateStep2();
         enableBtns(true);
     }
@@ -162,6 +163,7 @@ public class PnlHome extends JPanel implements GuiManager {
             btnAdvancementConf.setDefaultImage(new ImageIcon(getClass().getResource("/images/badge_settings.png")));
             btnAdvancementConf.setSelectedImage(new ImageIcon(getClass().getResource("/images/badge_settings_selected.png")));
             btnAdvancementConf.setToolTipText("Configure advancements");
+            btnAdvancementConf.setBackground(Color.white);
             btnAdvancementConf.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {

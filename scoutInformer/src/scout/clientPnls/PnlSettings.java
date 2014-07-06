@@ -33,7 +33,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         showStep1(false);
 
         if (connector.checkForDBConnection()) {
-            lblConnectedDBName.setText(connector.getDBName());
+            lblConnectedDBName.setText(DBConnector.getDBName());
             populateStep2();
         }
 
@@ -42,9 +42,14 @@ public class PnlSettings extends JPanel implements PnlGui {
 
     @Override
     public void resetPanel() {
+        lblConnectedDBName.setText(DBConnector.getDBName());
         showStep1(false);
         btnEditConnection.setText("Edit Connection");
         populateStep2();
+    }
+
+    public void setupDBName() {
+        lblConnectedDBName.setText(DBConnector.getDBName());
     }
 
     private void showStep1(boolean show) {
