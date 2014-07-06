@@ -102,6 +102,7 @@ public class PnlHome extends JPanel implements GuiManager {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         pnlOptionsMenu = new JPanel();
         btnSettings = new ButtonSideMenu();
+        buttonSideMenu1 = new ButtonSideMenu();
         btnSignOut = new JButtonImageChange();
         pnlBase = new JPanel();
 
@@ -120,9 +121,9 @@ public class PnlHome extends JPanel implements GuiManager {
             pnlOptionsMenu.setBackground(new Color(190, 174, 150));
             pnlOptionsMenu.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWidths = new int[] {100, 0};
-            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
-            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
             //---- btnSettings ----
             btnSettings.setDefaultImage(new ImageIcon(getClass().getResource("/images/settings90.png")));
@@ -136,6 +137,13 @@ public class PnlHome extends JPanel implements GuiManager {
                 }
             });
             pnlOptionsMenu.add(btnSettings, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
+
+            //---- buttonSideMenu1 ----
+            buttonSideMenu1.setDefaultImage(new ImageIcon(getClass().getResource("/images/badge_settings.png")));
+            buttonSideMenu1.setSelectedImage(new ImageIcon(getClass().getResource("/images/badge_settings_selected.png")));
+            pnlOptionsMenu.add(buttonSideMenu1, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
@@ -154,7 +162,7 @@ public class PnlHome extends JPanel implements GuiManager {
                     btnSignOutMouseClicked();
                 }
             });
-            pnlOptionsMenu.add(btnSignOut, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            pnlOptionsMenu.add(btnSignOut, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
         }
@@ -180,6 +188,7 @@ public class PnlHome extends JPanel implements GuiManager {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel pnlOptionsMenu;
     private ButtonSideMenu btnSettings;
+    private ButtonSideMenu buttonSideMenu1;
     private JButtonImageChange btnSignOut;
     private JPanel pnlBase;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

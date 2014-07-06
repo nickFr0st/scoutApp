@@ -16,7 +16,7 @@ new FormModel {
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "100"
-				"$rowSpecs": "0, 0, 0, 0, 0:1.0"
+				"$rowSpecs": "0, 0, 0, 0, 0, 0:1.0"
 				"$vGap": 5
 				"$alignLeft": true
 				"$alignTop": true
@@ -31,6 +31,13 @@ new FormModel {
 					"background": new java.awt.Color( 255, 255, 255, 255 )
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSettingsMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+				add( new FormComponent( "guiUtil.ButtonSideMenu" ) {
+					name: "buttonSideMenu1"
+					"defaultImage": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_settings.png" )
+					"selectedImage": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_settings_selected.png" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+				} )
 				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
 					name: "btnSignOut"
 					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/sign_out90.png" )
@@ -43,7 +50,7 @@ new FormModel {
 					"toolTipText": "Sign out"
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSignOutMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 1
+					"gridy": 2
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridheight": 3

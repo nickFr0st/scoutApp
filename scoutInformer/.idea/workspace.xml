@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="reorganized images">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added advancements into the database">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/badge_settings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/badge_settings_base.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/badge_settings_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/scout.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgRes/images/settings256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imgRes/images/settings90.png" afterPath="$PROJECT_DIR$/imgRes/images/settings90.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imgRes/images/settings_selected90.png" afterPath="$PROJECT_DIR$/imgRes/images/settings_selected90.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -178,10 +185,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DBConnector.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="48" selection-start="5771" selection-end="5771" vertical-scroll-proportion="0.21246007" vertical-offset="2604" max-vertical-offset="5083">
+            <state line="170" column="48" selection-start="5771" selection-end="5771" vertical-scroll-proportion="0.0" vertical-offset="2604" max-vertical-offset="5083">
               <folding>
                 <marker date="1404602332772" expanded="true" signature="4945:5235" placeholder="CREATE TABLE..user..." />
                 <marker date="1404602332772" expanded="true" signature="5313:5573" placeholder="CREATE TABLE..advancement..." />
@@ -220,6 +227,13 @@
       </file>
       <file leaf-file-name="PnlSettings.jfd" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlHome.jfd" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
             <state />
           </provider>
@@ -295,7 +309,6 @@
         <option value="$PROJECT_DIR$/src/guiUtil/ButtonSelectionBorder.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/SideMenuSelectBorder.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/ButtonSideMenu.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlFileBrowser.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlFileBrowser.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/CustomFileChooser.java" />
@@ -313,6 +326,7 @@
         <option value="$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java" />
         <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd" />
       </list>
     </option>
   </component>
@@ -880,7 +894,7 @@
       <workItem from="1404506891245" duration="5561000" />
       <workItem from="1404513894796" duration="2984000" />
       <workItem from="1404577910473" duration="8606000" />
-      <workItem from="1404601467424" duration="2124000" />
+      <workItem from="1404601467424" duration="4388000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1154,11 +1168,15 @@
       <created>1404596909840</created>
       <updated>1404596909840</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="added advancements into the database">
+      <created>1404620106790</created>
+      <updated>1404620106790</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177584000" />
+    <option name="totallyTimeSpent" value="179848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1184,7 +1202,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31987247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31987247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1208,7 +1226,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="ya! got my tab btn to work" />
     <MESSAGE value="reset login page when going to home page" />
     <MESSAGE value="fixed a border bug" />
     <MESSAGE value="added the beginings of a setupWizard" />
@@ -1233,7 +1250,8 @@
     <MESSAGE value="border cleanup" />
     <MESSAGE value="finished the settings area" />
     <MESSAGE value="reorganized images" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganized images" />
+    <MESSAGE value="added advancements into the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="added advancements into the database" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1354,11 +1372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/SelectionBorder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="27" selection-start="721" selection-end="721" vertical-scroll-proportion="0.41595745" vertical-offset="0" max-vertical-offset="940">
@@ -1417,11 +1430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imgRes/images/complete.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1438,11 +1446,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imgRes/images/settings90.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imgRes/images/settings256.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1542,7 +1545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="48" selection-start="5771" selection-end="5771" vertical-scroll-proportion="0.21246007" vertical-offset="2604" max-vertical-offset="5083">
+        <state line="170" column="48" selection-start="5771" selection-end="5771" vertical-scroll-proportion="0.0" vertical-offset="2604" max-vertical-offset="5083">
           <folding>
             <marker date="1404602332772" expanded="true" signature="4945:5235" placeholder="CREATE TABLE..user..." />
             <marker date="1404602332772" expanded="true" signature="5313:5573" placeholder="CREATE TABLE..advancement..." />
@@ -1558,6 +1561,21 @@
             <marker date="1404602332772" expanded="true" signature="9199:9217" placeholder="SELECT * FRO..user..." />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imgRes/images/settings256.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
       </provider>
     </entry>
   </component>
