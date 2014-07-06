@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
 /**
  * @author User #2
  */
-public class PnlSettings extends JPanel {
+public class PnlSettings extends JPanel implements PnlGui {
     private DBConnector connector;
     private int userExists;
 
@@ -39,9 +39,11 @@ public class PnlSettings extends JPanel {
         ((SelectionBorder)getBorder()).cutSelectedArea(5, 105);
     }
 
+    @Override
     public void resetPanel() {
         showStep1(false);
         btnEditConnection.setText("Edit Connection");
+        populateStep2();
     }
 
     private void showStep1(boolean show) {
@@ -142,6 +144,10 @@ public class PnlSettings extends JPanel {
     }
 
     public void populateStep2() {
+        if (!connector.checkForDBConnection())  {
+            return;
+        }
+
         User user = connector.getUser();
         if (user != null) {
             userExists = user.getId();

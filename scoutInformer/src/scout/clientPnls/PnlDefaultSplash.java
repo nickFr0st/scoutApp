@@ -11,9 +11,14 @@ import java.awt.*;
 /**
  * @author User #2
  */
-public class PnlDefaultSplash extends JPanel {
+public class PnlDefaultSplash extends JPanel implements PnlGui {
     public PnlDefaultSplash() {
         initComponents();
+    }
+
+    @Override
+    public void resetPanel() {
+        // do nothing
     }
 
     private void initComponents() {

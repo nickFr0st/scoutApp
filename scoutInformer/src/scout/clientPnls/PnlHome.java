@@ -25,12 +25,14 @@ public class PnlHome extends JPanel implements GuiManager {
     private PnlDefaultSplash defaultSplash;
     private PnlSetupWizard setupWizard;
     private DBConnector dbConnector;
+    private PnlBadgeConf pnlBadgeConf;
 
     {
         defaultSplash = new PnlDefaultSplash();
         setupWizard = new PnlSetupWizard(this);
         pnlSettings = new PnlSettings();
         dbConnector = new DBConnector();
+        pnlBadgeConf = new PnlBadgeConf();
     }
 
     public PnlHome() {
@@ -56,17 +58,18 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnSignOutMouseClicked() {
-        cleanup();
+        changePanel(defaultSplash);
         previousStep();
     }
 
-    private void cleanup() {
-        pnlSettings.resetPanel();
+    private void cleanup(JPanel newPanel) {
+        if (!(newPanel instanceof PnlSettings || newPanel instanceof PnlSetupWizard)) {
+            btnSettings.setDefault();
+        }
 
-        btnSettings.setDefault();
-        btnSignOut.setDefault();
-        clearSelected();
-        changePanel(defaultSplash);
+        if (!(newPanel instanceof PnlBadgeConf)) {
+            btnAdvancementConf.setDefault();
+        }
     }
 
     private void btnSettingsMouseClicked() {
@@ -82,15 +85,14 @@ public class PnlHome extends JPanel implements GuiManager {
         pnlSettings.populateStep2();
     }
 
-    private void clearSelected() {
-        btnSettings.setDefault();
-    }
-
     private void changePanel(JPanel newPanel) {
         if (currentPnl.equals(newPanel)) {
             return;
         }
 
+        cleanup(newPanel);
+
+        ((PnlGui)currentPnl).resetPanel();
         pnlBase.remove(currentPnl);
         currentPnl = newPanel;
         pnlBase.add(currentPnl);
@@ -98,11 +100,15 @@ public class PnlHome extends JPanel implements GuiManager {
         pnlBase.repaint();
     }
 
+    private void btnAdvancementConfMouseClicked() {
+        changePanel(pnlBadgeConf);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         pnlOptionsMenu = new JPanel();
         btnSettings = new ButtonSideMenu();
-        buttonSideMenu1 = new ButtonSideMenu();
+        btnAdvancementConf = new ButtonSideMenu();
         btnSignOut = new JButtonImageChange();
         pnlBase = new JPanel();
 
@@ -140,10 +146,17 @@ public class PnlHome extends JPanel implements GuiManager {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
-            //---- buttonSideMenu1 ----
-            buttonSideMenu1.setDefaultImage(new ImageIcon(getClass().getResource("/images/badge_settings.png")));
-            buttonSideMenu1.setSelectedImage(new ImageIcon(getClass().getResource("/images/badge_settings_selected.png")));
-            pnlOptionsMenu.add(buttonSideMenu1, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            //---- btnAdvancementConf ----
+            btnAdvancementConf.setDefaultImage(new ImageIcon(getClass().getResource("/images/badge_settings.png")));
+            btnAdvancementConf.setSelectedImage(new ImageIcon(getClass().getResource("/images/badge_settings_selected.png")));
+            btnAdvancementConf.setToolTipText("Configure advancements");
+            btnAdvancementConf.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnAdvancementConfMouseClicked();
+                }
+            });
+            pnlOptionsMenu.add(btnAdvancementConf, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
@@ -188,7 +201,7 @@ public class PnlHome extends JPanel implements GuiManager {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel pnlOptionsMenu;
     private ButtonSideMenu btnSettings;
-    private ButtonSideMenu buttonSideMenu1;
+    private ButtonSideMenu btnAdvancementConf;
     private JButtonImageChange btnSignOut;
     private JPanel pnlBase;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

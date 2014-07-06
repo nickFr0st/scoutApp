@@ -32,9 +32,11 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSettingsMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 				add( new FormComponent( "guiUtil.ButtonSideMenu" ) {
-					name: "buttonSideMenu1"
+					name: "btnAdvancementConf"
 					"defaultImage": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_settings.png" )
 					"selectedImage": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_settings_selected.png" )
+					"toolTipText": "Configure advancements"
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnAdvancementConfMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 1
 				} )

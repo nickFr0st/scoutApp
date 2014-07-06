@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
 /**
  * @author User #2
  */
-public class PnlSetupWizard extends JPanel {
+public class PnlSetupWizard extends JPanel implements PnlGui {
     private Icon completeIcon;
     private DBConnector connector;
     private int userExists;
@@ -170,6 +170,15 @@ public class PnlSetupWizard extends JPanel {
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
         ((PnlHome)parent).moveToSettingsPnl();
+    }
+
+    @Override
+    public void resetPanel() {
+        clearErrors();
+        enableStep1(true);
+        enableStep2(false);
+        lblStepOne.setIcon(null);
+        lblStepTwo.setIcon(null);
     }
 
     private void initComponents() {
