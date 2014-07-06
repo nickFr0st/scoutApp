@@ -457,8 +457,8 @@ public class PnlSettings extends JPanel {
             lblTroopName.setForeground(new Color(51, 102, 153));
             lblTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             pnlTroopInfo.add(lblTroopName, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
             //---- txtTroopName ----
             txtTroopName.setPreferredSize(new Dimension(14, 40));
@@ -466,8 +466,8 @@ public class PnlSettings extends JPanel {
             txtTroopName.setDefaultText("Troop name");
             txtTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             pnlTroopInfo.add(txtTroopName, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
 
             //---- btnSave ----
             btnSave.setText("Save");

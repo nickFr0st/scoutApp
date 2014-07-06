@@ -156,7 +156,7 @@ public class DBConnector {
                 " troopLeader VARCHAR(255) NULL," +
                 " troopName VARCHAR(255) NULL," +
                 " PRIMARY KEY (id))";
-        statement.executeUpdate(tableUser);
+        statement.addBatch(tableUser);
 
         String tableAdvancement = "CREATE TABLE advancement " +
                 "(id INT NOT NULL," +
@@ -164,7 +164,7 @@ public class DBConnector {
                 " imgPath VARCHAR(255) NOT NULL," +
                 " requirementsLink VARCHAR(255) NULL," +
                 " PRIMARY KEY (id))";
-        statement.executeUpdate(tableAdvancement);
+        statement.addBatch(tableAdvancement);
 
         String tableMeritBadge = "CREATE TABLE meritBadge " +
                 "(id INT NOT NULL," +
@@ -173,11 +173,27 @@ public class DBConnector {
                 " requirementsLink VARCHAR(255) NULL," +
                 " requiredForEagle TINYINT NOT NULL," +
                 " PRIMARY KEY (id))";
-        statement.executeUpdate(tableMeritBadge);
+        statement.addBatch(tableMeritBadge);
 
         // Insert Advancements
+        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancement/new_scout.png', 'http://www.meritbadge.org/wiki/index.php/Scout_Badge')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancement/tenderfoot.png', 'http://www.meritbadge.org/wiki/index.php/Tenderfoot')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancement/second_class.png', 'http://www.meritbadge.org/wiki/index.php/Second_Class')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancement/first_class.png', 'http://www.meritbadge.org/wiki/index.php/First_Class')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancement/star.png', 'http://www.meritbadge.org/wiki/index.php/Star_Scout')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancement/life.png', 'http://www.meritbadge.org/wiki/index.php/Life_Scout')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancement/eagle.png', 'http://www.meritbadge.org/wiki/index.php/Eagle_Scout')";
+        statement.addBatch(insert);
 
         // Insert Requirements
+
+        statement.executeBatch();
     }
 
     private int getNextId(String tableName) {
