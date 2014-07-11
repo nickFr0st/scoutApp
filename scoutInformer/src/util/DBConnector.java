@@ -160,9 +160,7 @@ public class DBConnector {
         String tableAdvancement = "CREATE TABLE advancement " +
                 "(id INT NOT NULL," +
                 " name VARCHAR(225) NOT NULL," +
-                " imgPath VARCHAR(255) NOT NULL," +
-                " requirementsLink VARCHAR(255) NULL," +
-                " editable TINYINT NOT NULL," +
+                " imgPath VARCHAR(255) NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableAdvancement);
 
@@ -176,19 +174,19 @@ public class DBConnector {
         statement.addBatch(tableMeritBadge);
 
         // Insert Advancements
-        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancement/new_scout.png', 'http://www.meritbadge.org/wiki/index.php/Scout_Badge', 0)";
+        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancement/new_scout.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancement/tenderfoot.png', 'http://www.meritbadge.org/wiki/index.php/Tenderfoot', 0)";
+        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancement/tenderfoot.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancement/second_class.png', 'http://www.meritbadge.org/wiki/index.php/Second_Class', 0)";
+        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancement/second_class.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancement/first_class.png', 'http://www.meritbadge.org/wiki/index.php/First_Class', 0)";
+        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancement/first_class.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancement/star.png', 'http://www.meritbadge.org/wiki/index.php/Star_Scout', 0)";
+        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancement/star.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancement/life.png', 'http://www.meritbadge.org/wiki/index.php/Life_Scout', 0)";
+        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancement/life.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancement/eagle.png', 'http://www.meritbadge.org/wiki/index.php/Eagle_Scout', 0)";
+        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancement/eagle.png')";
         statement.addBatch(insert);
 
         // Insert Requirements

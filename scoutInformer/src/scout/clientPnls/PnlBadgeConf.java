@@ -4,6 +4,7 @@
 
 package scout.clientPnls;
 
+import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import util.DBConnector;
 
@@ -46,14 +47,25 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         button4 = new JButton();
         button5 = new JButton();
         button6 = new JButton();
-        vSpacer1 = new JPanel(null);
+        label1 = new JLabel();
+        label3 = new JLabel();
         hSpacer1 = new JPanel(null);
         scrollPane1 = new JScrollPane();
-        list1 = new JList<Object>();
+        list1 = new JList();
         hSpacer2 = new JPanel(null);
-        panel2 = new JPanel();
         scrollPane2 = new JScrollPane();
         list2 = new JList();
+        panel2 = new JPanel();
+        label6 = new JLabel();
+        vSpacer1 = new JPanel(null);
+        panel3 = new JPanel();
+        label2 = new JLabel();
+        label4 = new JLabel();
+        textFieldDefaultText1 = new JTextFieldDefaultText();
+        button7 = new JButton();
+        label5 = new JLabel();
+        textFieldDefaultText2 = new JTextFieldDefaultText();
+        checkBox1 = new JCheckBox();
 
         //======== this ========
         setMinimumSize(new Dimension(1100, 800));
@@ -61,10 +73,10 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setBorder(new SelectionBorder());
         setBackground(Color.white);
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 45, 277, 22, 199, 27, 498, 20, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 232, 301, 501, 0};
-        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 213, 59, 78, 115, 64, 498, 20, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 131, 117, 118, 36, 166, 501, 0};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
         //======== panel1 ========
         {
@@ -135,19 +147,31 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(panel1, new GridBagConstraints(1, 1, 6, 1, 0.0, 0.0,
+        add(panel1, new GridBagConstraints(1, 1, 7, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- vSpacer1 ----
-        vSpacer1.setBackground(Color.white);
-        add(vSpacer1, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+        //---- label1 ----
+        label1.setText("Advancements");
+        label1.setVerticalAlignment(SwingConstants.BOTTOM);
+        label1.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        label1.setForeground(new Color(51, 102, 153));
+        add(label1, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- label3 ----
+        label3.setText("Requirements");
+        label3.setVerticalAlignment(SwingConstants.BOTTOM);
+        label3.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        label3.setForeground(new Color(51, 102, 153));
+        add(label3, new GridBagConstraints(7, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- hSpacer1 ----
         hSpacer1.setBackground(Color.white);
-        add(hSpacer1, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
+        add(hSpacer1, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -155,10 +179,11 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         {
 
             //---- list1 ----
-            list1.setBorder(new LineBorder(new Color(51, 102, 153), 3));
+            list1.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
             scrollPane1.setViewportView(list1);
         }
-        add(scrollPane1, new GridBagConstraints(2, 3, 1, 2, 0.0, 0.0,
+        add(scrollPane1, new GridBagConstraints(2, 3, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -168,28 +193,115 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //======== panel2 ========
-        {
-            panel2.setBackground(Color.white);
-            panel2.setBorder(new LineBorder(new Color(51, 102, 153), 3));
-            panel2.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
-            ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
-            ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
-            ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
-        }
-        add(panel2, new GridBagConstraints(4, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
-
         //======== scrollPane2 ========
         {
 
             //---- list2 ----
-            list2.setBorder(new LineBorder(new Color(51, 102, 153), 3));
+            list2.setBorder(new LineBorder(new Color(51, 102, 153), 2));
             scrollPane2.setViewportView(list2);
         }
-        add(scrollPane2, new GridBagConstraints(6, 3, 1, 2, 0.0, 0.0,
+        add(scrollPane2, new GridBagConstraints(7, 3, 1, 5, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //======== panel2 ========
+        {
+            panel2.setBackground(new Color(204, 204, 204));
+            panel2.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            panel2.setLayout(new GridBagLayout());
+            ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
+            ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
+            ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+            ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+
+            //---- label6 ----
+            label6.setIcon(new ImageIcon(getClass().getResource("/images/no_image.png")));
+            panel2.add(label6, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.NONE,
+                new Insets(0, 0, 0, 0), 0, 0));
+        }
+        add(panel2, new GridBagConstraints(4, 4, 2, 2, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- vSpacer1 ----
+        vSpacer1.setBackground(Color.white);
+        add(vSpacer1, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //======== panel3 ========
+        {
+            panel3.setBackground(Color.white);
+            panel3.setLayout(new GridBagLayout());
+            ((GridBagLayout)panel3.getLayout()).columnWidths = new int[] {0, 276, 105, 0, 0};
+            ((GridBagLayout)panel3.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)panel3.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)panel3.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+
+            //---- label2 ----
+            label2.setText("General Information");
+            label2.setVerticalAlignment(SwingConstants.BOTTOM);
+            label2.setFont(new Font("Vijaya", Font.PLAIN, 24));
+            label2.setForeground(new Color(51, 102, 153));
+            panel3.add(label2, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 15, 5), 0, 0));
+
+            //---- label4 ----
+            label4.setText("Image Path:");
+            label4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            label4.setForeground(new Color(51, 102, 153));
+            panel3.add(label4, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 5, 5, 5), 0, 0));
+
+            //---- textFieldDefaultText1 ----
+            textFieldDefaultText1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            textFieldDefaultText1.setMinimumSize(new Dimension(14, 40));
+            textFieldDefaultText1.setPreferredSize(new Dimension(14, 40));
+            textFieldDefaultText1.setDefaultText("Path");
+            panel3.add(textFieldDefaultText1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- button7 ----
+            button7.setText("Browse");
+            button7.setBackground(new Color(51, 102, 153));
+            button7.setForeground(Color.white);
+            button7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            button7.setFocusPainted(false);
+            panel3.add(button7, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- label5 ----
+            label5.setText("Name:");
+            label5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            label5.setForeground(new Color(51, 102, 153));
+            panel3.add(label5, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 5, 5, 5), 0, 0));
+
+            //---- textFieldDefaultText2 ----
+            textFieldDefaultText2.setPreferredSize(new Dimension(14, 40));
+            textFieldDefaultText2.setMinimumSize(new Dimension(14, 40));
+            textFieldDefaultText2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            textFieldDefaultText2.setDefaultText("Badge Name");
+            panel3.add(textFieldDefaultText2, new GridBagConstraints(1, 2, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- checkBox1 ----
+            checkBox1.setText("Required For Eagle");
+            checkBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            checkBox1.setBackground(Color.white);
+            checkBox1.setForeground(new Color(51, 102, 153));
+            panel3.add(checkBox1, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 5), 0, 0));
+        }
+        add(panel3, new GridBagConstraints(2, 7, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -203,13 +315,24 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JButton button4;
     private JButton button5;
     private JButton button6;
-    private JPanel vSpacer1;
+    private JLabel label1;
+    private JLabel label3;
     private JPanel hSpacer1;
     private JScrollPane scrollPane1;
-    private JList<Object> list1;
+    private JList list1;
     private JPanel hSpacer2;
-    private JPanel panel2;
     private JScrollPane scrollPane2;
     private JList list2;
+    private JPanel panel2;
+    private JLabel label6;
+    private JPanel vSpacer1;
+    private JPanel panel3;
+    private JLabel label2;
+    private JLabel label4;
+    private JTextFieldDefaultText textFieldDefaultText1;
+    private JButton button7;
+    private JLabel label5;
+    private JTextFieldDefaultText textFieldDefaultText2;
+    private JCheckBox checkBox1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
