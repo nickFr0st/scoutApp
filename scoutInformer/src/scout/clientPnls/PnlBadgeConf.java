@@ -11,6 +11,8 @@ import util.DBConnector;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * @author User #2
@@ -30,12 +32,40 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     }
 
     private void init() {
-        listBadgeNames.setListData(connector.getAdvancementList().toArray());
+        enableComponents(false);
+    }
+
+    private void enableComponents(boolean enable) {
+        btnImport.setEnabled(enable);
+        btnExport.setEnabled(enable);
+        btnSave.setEnabled(enable);
+
+        txtBadgeName.setEnabled(enable);
+        txtImagePath.setEnabled(enable);
+        btnBrowseImgPath.setEnabled(enable);
+
+        listRequirements.setEnabled(enable);
+        listBadgeNames.setEnabled(enable);
+
+        if (!enable) {
+            txtBadgeName.setDefault();
+            txtImagePath.setDefault();
+
+            lblImage.setIcon(new ImageIcon(getClass().getResource("/images/no_image.png")));
+            lblListName.setText("");
+        }
     }
 
     @Override
     public void resetPanel() {
+        enableComponents(false);
+    }
 
+    private void btnAdvancementsMouseClicked() {
+        enableComponents(true);
+        lblListName.setText("Advancements");
+
+        listBadgeNames.setListData(connector.getAdvancementList().toArray());
     }
 
     private void initComponents() {
@@ -96,6 +126,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnAdvancements.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnAdvancements.setFocusPainted(false);
             btnAdvancements.setName("btnAdvancements");
+            btnAdvancements.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnAdvancementsMouseClicked();
+                }
+            });
             panel1.add(btnAdvancements, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
