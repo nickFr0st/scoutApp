@@ -30,7 +30,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     }
 
     private void init() {
-        list1.setListData(connector.getAdvancementList().toArray());
+        listBadgeNames.setListData(connector.getAdvancementList().toArray());
     }
 
     @Override
@@ -41,37 +41,38 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
-        button1 = new JButton();
-        button2 = new JButton();
-        button3 = new JButton();
-        button4 = new JButton();
-        button5 = new JButton();
-        button6 = new JButton();
-        label1 = new JLabel();
-        label3 = new JLabel();
+        btnAdvancements = new JButton();
+        btnMeritBadges = new JButton();
+        btnOther = new JButton();
+        btnImport = new JButton();
+        btnExport = new JButton();
+        btnSave = new JButton();
+        lblListName = new JLabel();
+        lblRequirements = new JLabel();
         hSpacer1 = new JPanel(null);
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        listBadgeNames = new JList();
         hSpacer2 = new JPanel(null);
         scrollPane2 = new JScrollPane();
-        list2 = new JList();
-        panel2 = new JPanel();
-        label6 = new JLabel();
+        listRequirements = new JList();
+        pnlSelectedImage = new JPanel();
+        lblImage = new JLabel();
         vSpacer1 = new JPanel(null);
-        panel3 = new JPanel();
-        label2 = new JLabel();
-        label4 = new JLabel();
-        textFieldDefaultText1 = new JTextFieldDefaultText();
-        button7 = new JButton();
-        label5 = new JLabel();
-        textFieldDefaultText2 = new JTextFieldDefaultText();
-        checkBox1 = new JCheckBox();
+        pnlGeneralInfo = new JPanel();
+        lblGeneralInfo = new JLabel();
+        lblImagePath = new JLabel();
+        txtImagePath = new JTextFieldDefaultText();
+        btnBrowseImgPath = new JButton();
+        lblBadgeName = new JLabel();
+        txtBadgeName = new JTextFieldDefaultText();
+        chkReqForEagle = new JCheckBox();
 
         //======== this ========
         setMinimumSize(new Dimension(1100, 800));
         setPreferredSize(new Dimension(1100, 800));
         setBorder(new SelectionBorder());
         setBackground(Color.white);
+        setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 213, 59, 78, 115, 64, 498, 20, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 131, 117, 118, 36, 166, 501, 0};
@@ -81,69 +82,76 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         //======== panel1 ========
         {
             panel1.setBackground(Color.white);
+            panel1.setName("panel1");
             panel1.setLayout(new GridBagLayout());
             ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {50, 0};
             ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0E-4};
             ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
-            //---- button1 ----
-            button1.setText("Advancements");
-            button1.setBackground(new Color(51, 102, 153));
-            button1.setForeground(Color.white);
-            button1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button1.setFocusPainted(false);
-            panel1.add(button1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+            //---- btnAdvancements ----
+            btnAdvancements.setText("Advancements");
+            btnAdvancements.setBackground(new Color(51, 102, 153));
+            btnAdvancements.setForeground(Color.white);
+            btnAdvancements.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnAdvancements.setFocusPainted(false);
+            btnAdvancements.setName("btnAdvancements");
+            panel1.add(btnAdvancements, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
-            //---- button2 ----
-            button2.setText("Merit Badges");
-            button2.setBackground(new Color(51, 102, 153));
-            button2.setForeground(Color.white);
-            button2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button2.setFocusPainted(false);
-            panel1.add(button2, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+            //---- btnMeritBadges ----
+            btnMeritBadges.setText("Merit Badges");
+            btnMeritBadges.setBackground(new Color(51, 102, 153));
+            btnMeritBadges.setForeground(Color.white);
+            btnMeritBadges.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnMeritBadges.setFocusPainted(false);
+            btnMeritBadges.setName("btnMeritBadges");
+            panel1.add(btnMeritBadges, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
-            //---- button3 ----
-            button3.setText("Other Awards");
-            button3.setBackground(new Color(51, 102, 153));
-            button3.setForeground(Color.white);
-            button3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button3.setFocusPainted(false);
-            panel1.add(button3, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
+            //---- btnOther ----
+            btnOther.setText("Other Awards");
+            btnOther.setBackground(new Color(51, 102, 153));
+            btnOther.setForeground(Color.white);
+            btnOther.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnOther.setFocusPainted(false);
+            btnOther.setName("btnOther");
+            panel1.add(btnOther, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
-            //---- button4 ----
-            button4.setText("Import");
-            button4.setBackground(new Color(32, 154, 26));
-            button4.setForeground(Color.white);
-            button4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button4.setFocusPainted(false);
-            panel1.add(button4, new GridBagConstraints(4, 0, 1, 1, 0.0, 0.0,
+            //---- btnImport ----
+            btnImport.setText("Import");
+            btnImport.setBackground(new Color(32, 154, 26));
+            btnImport.setForeground(Color.white);
+            btnImport.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnImport.setFocusPainted(false);
+            btnImport.setName("btnImport");
+            panel1.add(btnImport, new GridBagConstraints(4, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
-            //---- button5 ----
-            button5.setText("Export");
-            button5.setBackground(new Color(32, 154, 26));
-            button5.setForeground(Color.white);
-            button5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button5.setFocusPainted(false);
-            panel1.add(button5, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
+            //---- btnExport ----
+            btnExport.setText("Export");
+            btnExport.setBackground(new Color(32, 154, 26));
+            btnExport.setForeground(Color.white);
+            btnExport.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnExport.setFocusPainted(false);
+            btnExport.setName("btnExport");
+            panel1.add(btnExport, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
-            //---- button6 ----
-            button6.setText("Save");
-            button6.setBackground(new Color(32, 154, 26));
-            button6.setForeground(Color.white);
-            button6.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button6.setFocusPainted(false);
-            panel1.add(button6, new GridBagConstraints(6, 0, 1, 1, 0.0, 0.0,
+            //---- btnSave ----
+            btnSave.setText("Save");
+            btnSave.setBackground(new Color(32, 154, 26));
+            btnSave.setForeground(Color.white);
+            btnSave.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnSave.setFocusPainted(false);
+            btnSave.setName("btnSave");
+            panel1.add(btnSave, new GridBagConstraints(6, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
@@ -151,37 +159,42 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- label1 ----
-        label1.setText("Advancements");
-        label1.setVerticalAlignment(SwingConstants.BOTTOM);
-        label1.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        label1.setForeground(new Color(51, 102, 153));
-        add(label1, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+        //---- lblListName ----
+        lblListName.setText("Advancements");
+        lblListName.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblListName.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblListName.setForeground(new Color(51, 102, 153));
+        lblListName.setName("lblListName");
+        add(lblListName, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- label3 ----
-        label3.setText("Requirements");
-        label3.setVerticalAlignment(SwingConstants.BOTTOM);
-        label3.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        label3.setForeground(new Color(51, 102, 153));
-        add(label3, new GridBagConstraints(7, 2, 1, 1, 0.0, 0.0,
+        //---- lblRequirements ----
+        lblRequirements.setText("Requirements");
+        lblRequirements.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblRequirements.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblRequirements.setForeground(new Color(51, 102, 153));
+        lblRequirements.setName("lblRequirements");
+        add(lblRequirements, new GridBagConstraints(7, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- hSpacer1 ----
         hSpacer1.setBackground(Color.white);
+        hSpacer1.setName("hSpacer1");
         add(hSpacer1, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setName("scrollPane1");
 
-            //---- list1 ----
-            list1.setBorder(new LineBorder(new Color(51, 102, 153), 2));
-            list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            scrollPane1.setViewportView(list1);
+            //---- listBadgeNames ----
+            listBadgeNames.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            listBadgeNames.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            listBadgeNames.setName("listBadgeNames");
+            scrollPane1.setViewportView(listBadgeNames);
         }
         add(scrollPane1, new GridBagConstraints(2, 3, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -189,119 +202,133 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
         //---- hSpacer2 ----
         hSpacer2.setBackground(Color.white);
+        hSpacer2.setName("hSpacer2");
         add(hSpacer2, new GridBagConstraints(3, 3, 1, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //======== scrollPane2 ========
         {
+            scrollPane2.setName("scrollPane2");
 
-            //---- list2 ----
-            list2.setBorder(new LineBorder(new Color(51, 102, 153), 2));
-            scrollPane2.setViewportView(list2);
+            //---- listRequirements ----
+            listRequirements.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            listRequirements.setName("listRequirements");
+            scrollPane2.setViewportView(listRequirements);
         }
         add(scrollPane2, new GridBagConstraints(7, 3, 1, 5, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //======== panel2 ========
+        //======== pnlSelectedImage ========
         {
-            panel2.setBackground(new Color(204, 204, 204));
-            panel2.setBorder(new LineBorder(new Color(51, 102, 153), 2));
-            panel2.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
-            ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
-            ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-            ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+            pnlSelectedImage.setBackground(new Color(204, 204, 204));
+            pnlSelectedImage.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            pnlSelectedImage.setName("pnlSelectedImage");
+            pnlSelectedImage.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlSelectedImage.getLayout()).columnWidths = new int[] {0, 0};
+            ((GridBagLayout)pnlSelectedImage.getLayout()).rowHeights = new int[] {0, 0};
+            ((GridBagLayout)pnlSelectedImage.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+            ((GridBagLayout)pnlSelectedImage.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
 
-            //---- label6 ----
-            label6.setIcon(new ImageIcon(getClass().getResource("/images/no_image.png")));
-            panel2.add(label6, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+            //---- lblImage ----
+            lblImage.setIcon(new ImageIcon(getClass().getResource("/images/no_image.png")));
+            lblImage.setName("lblImage");
+            pnlSelectedImage.add(lblImage, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.NONE,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(panel2, new GridBagConstraints(4, 4, 2, 2, 0.0, 0.0,
+        add(pnlSelectedImage, new GridBagConstraints(4, 4, 2, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- vSpacer1 ----
         vSpacer1.setBackground(Color.white);
+        vSpacer1.setName("vSpacer1");
         add(vSpacer1, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //======== panel3 ========
+        //======== pnlGeneralInfo ========
         {
-            panel3.setBackground(Color.white);
-            panel3.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel3.getLayout()).columnWidths = new int[] {0, 276, 105, 0, 0};
-            ((GridBagLayout)panel3.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
-            ((GridBagLayout)panel3.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
-            ((GridBagLayout)panel3.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            pnlGeneralInfo.setBackground(Color.white);
+            pnlGeneralInfo.setName("pnlGeneralInfo");
+            pnlGeneralInfo.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWidths = new int[] {0, 276, 105, 0, 0};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
-            //---- label2 ----
-            label2.setText("General Information");
-            label2.setVerticalAlignment(SwingConstants.BOTTOM);
-            label2.setFont(new Font("Vijaya", Font.PLAIN, 24));
-            label2.setForeground(new Color(51, 102, 153));
-            panel3.add(label2, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
+            //---- lblGeneralInfo ----
+            lblGeneralInfo.setText("General Information");
+            lblGeneralInfo.setVerticalAlignment(SwingConstants.BOTTOM);
+            lblGeneralInfo.setFont(new Font("Vijaya", Font.PLAIN, 24));
+            lblGeneralInfo.setForeground(new Color(51, 102, 153));
+            lblGeneralInfo.setName("lblGeneralInfo");
+            pnlGeneralInfo.add(lblGeneralInfo, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 15, 5), 0, 0));
 
-            //---- label4 ----
-            label4.setText("Image Path:");
-            label4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            label4.setForeground(new Color(51, 102, 153));
-            panel3.add(label4, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            //---- lblImagePath ----
+            lblImagePath.setText("Image Path:");
+            lblImagePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblImagePath.setForeground(new Color(51, 102, 153));
+            lblImagePath.setName("lblImagePath");
+            pnlGeneralInfo.add(lblImagePath, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 5, 5, 5), 0, 0));
 
-            //---- textFieldDefaultText1 ----
-            textFieldDefaultText1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            textFieldDefaultText1.setMinimumSize(new Dimension(14, 40));
-            textFieldDefaultText1.setPreferredSize(new Dimension(14, 40));
-            textFieldDefaultText1.setDefaultText("Path");
-            panel3.add(textFieldDefaultText1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+            //---- txtImagePath ----
+            txtImagePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtImagePath.setMinimumSize(new Dimension(14, 40));
+            txtImagePath.setPreferredSize(new Dimension(14, 40));
+            txtImagePath.setDefaultText("Path");
+            txtImagePath.setName("txtImagePath");
+            pnlGeneralInfo.add(txtImagePath, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
 
-            //---- button7 ----
-            button7.setText("Browse");
-            button7.setBackground(new Color(51, 102, 153));
-            button7.setForeground(Color.white);
-            button7.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            button7.setFocusPainted(false);
-            panel3.add(button7, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+            //---- btnBrowseImgPath ----
+            btnBrowseImgPath.setText("Browse");
+            btnBrowseImgPath.setBackground(new Color(51, 102, 153));
+            btnBrowseImgPath.setForeground(Color.white);
+            btnBrowseImgPath.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnBrowseImgPath.setFocusPainted(false);
+            btnBrowseImgPath.setName("btnBrowseImgPath");
+            pnlGeneralInfo.add(btnBrowseImgPath, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
-            //---- label5 ----
-            label5.setText("Name:");
-            label5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            label5.setForeground(new Color(51, 102, 153));
-            panel3.add(label5, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+            //---- lblBadgeName ----
+            lblBadgeName.setText("Name:");
+            lblBadgeName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblBadgeName.setForeground(new Color(51, 102, 153));
+            lblBadgeName.setName("lblBadgeName");
+            pnlGeneralInfo.add(lblBadgeName, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 5, 5, 5), 0, 0));
 
-            //---- textFieldDefaultText2 ----
-            textFieldDefaultText2.setPreferredSize(new Dimension(14, 40));
-            textFieldDefaultText2.setMinimumSize(new Dimension(14, 40));
-            textFieldDefaultText2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            textFieldDefaultText2.setDefaultText("Badge Name");
-            panel3.add(textFieldDefaultText2, new GridBagConstraints(1, 2, 2, 1, 0.0, 0.0,
+            //---- txtBadgeName ----
+            txtBadgeName.setPreferredSize(new Dimension(14, 40));
+            txtBadgeName.setMinimumSize(new Dimension(14, 40));
+            txtBadgeName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtBadgeName.setDefaultText("Badge Name");
+            txtBadgeName.setName("txtBadgeName");
+            pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 2, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
 
-            //---- checkBox1 ----
-            checkBox1.setText("Required For Eagle");
-            checkBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            checkBox1.setBackground(Color.white);
-            checkBox1.setForeground(new Color(51, 102, 153));
-            panel3.add(checkBox1, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
+            //---- chkReqForEagle ----
+            chkReqForEagle.setText("Required For Eagle");
+            chkReqForEagle.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            chkReqForEagle.setBackground(Color.white);
+            chkReqForEagle.setForeground(new Color(51, 102, 153));
+            chkReqForEagle.setName("chkReqForEagle");
+            pnlGeneralInfo.add(chkReqForEagle, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
         }
-        add(panel3, new GridBagConstraints(2, 7, 5, 1, 0.0, 0.0,
+        add(pnlGeneralInfo, new GridBagConstraints(2, 7, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -309,30 +336,30 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel panel1;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton button6;
-    private JLabel label1;
-    private JLabel label3;
+    private JButton btnAdvancements;
+    private JButton btnMeritBadges;
+    private JButton btnOther;
+    private JButton btnImport;
+    private JButton btnExport;
+    private JButton btnSave;
+    private JLabel lblListName;
+    private JLabel lblRequirements;
     private JPanel hSpacer1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList listBadgeNames;
     private JPanel hSpacer2;
     private JScrollPane scrollPane2;
-    private JList list2;
-    private JPanel panel2;
-    private JLabel label6;
+    private JList listRequirements;
+    private JPanel pnlSelectedImage;
+    private JLabel lblImage;
     private JPanel vSpacer1;
-    private JPanel panel3;
-    private JLabel label2;
-    private JLabel label4;
-    private JTextFieldDefaultText textFieldDefaultText1;
-    private JButton button7;
-    private JLabel label5;
-    private JTextFieldDefaultText textFieldDefaultText2;
-    private JCheckBox checkBox1;
+    private JPanel pnlGeneralInfo;
+    private JLabel lblGeneralInfo;
+    private JLabel lblImagePath;
+    private JTextFieldDefaultText txtImagePath;
+    private JButton btnBrowseImgPath;
+    private JLabel lblBadgeName;
+    private JTextFieldDefaultText txtBadgeName;
+    private JCheckBox chkReqForEagle;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

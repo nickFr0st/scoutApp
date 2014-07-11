@@ -210,6 +210,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         setPreferredSize(new Dimension(1100, 800));
         setBackground(Color.white);
         setBorder(new SelectionBorder());
+        setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {15, 259, 202, 19, 518, 10, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -221,6 +222,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
         lblWelcome.setFont(new Font("Vijaya", Font.PLAIN, 28));
         lblWelcome.setForeground(new Color(51, 102, 153));
+        lblWelcome.setName("lblWelcome");
         add(lblWelcome, new GridBagConstraints(1, 0, 4, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(20, 0, 5, 5), 0, 0));
@@ -231,6 +233,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         label4.setMaximumSize(new Dimension(600, 2));
         label4.setMinimumSize(new Dimension(0, 2));
         label4.setPreferredSize(new Dimension(0, 2));
+        label4.setName("label4");
         add(label4, new GridBagConstraints(1, 1, 4, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(0, 0, 5, 5), 0, 0));
@@ -239,6 +242,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         lblStepOne.setText("Current database connection:");
         lblStepOne.setForeground(new Color(51, 102, 153));
         lblStepOne.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblStepOne.setName("lblStepOne");
         add(lblStepOne, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));
@@ -247,6 +251,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         lblConnectedDBName.setText("dbName");
         lblConnectedDBName.setForeground(new Color(32, 154, 26));
         lblConnectedDBName.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblConnectedDBName.setName("lblConnectedDBName");
         add(lblConnectedDBName, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 0, 5, 5), 0, 0));
@@ -261,6 +266,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         btnEditConnection.setForeground(Color.white);
         btnEditConnection.setFocusPainted(false);
         btnEditConnection.setPreferredSize(new Dimension(82, 40));
+        btnEditConnection.setName("btnEditConnection");
         btnEditConnection.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -275,6 +281,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         {
             pnlCreateDatabase.setBorder(null);
             pnlCreateDatabase.setBackground(Color.white);
+            pnlCreateDatabase.setName("pnlCreateDatabase");
             pnlCreateDatabase.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlCreateDatabase.getLayout()).columnWidths = new int[] {163, 193, 0, 0};
             ((GridBagLayout)pnlCreateDatabase.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -286,6 +293,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtDBName.setPreferredSize(new Dimension(14, 40));
             txtDBName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtDBName.setDefaultText("Database name");
+            txtDBName.setName("txtDBName");
             pnlCreateDatabase.add(txtDBName, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
@@ -295,6 +303,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblDBNameError.setForeground(Color.red);
             lblDBNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblDBNameError.setVisible(false);
+            lblDBNameError.setName("lblDBNameError");
             pnlCreateDatabase.add(lblDBNameError, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
@@ -304,6 +313,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtServerUsername.setPreferredSize(new Dimension(14, 40));
             txtServerUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtServerUsername.setDefaultText("MySql server username");
+            txtServerUsername.setName("txtServerUsername");
             pnlCreateDatabase.add(txtServerUsername, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
@@ -313,6 +323,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblServerUsernameError.setForeground(Color.red);
             lblServerUsernameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblServerUsernameError.setVisible(false);
+            lblServerUsernameError.setName("lblServerUsernameError");
             pnlCreateDatabase.add(lblServerUsernameError, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
@@ -322,6 +333,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtServerPassword.setDefaultText("MySql server password");
             txtServerPassword.setMinimumSize(new Dimension(14, 40));
             txtServerPassword.setPreferredSize(new Dimension(72, 40));
+            txtServerPassword.setName("txtServerPassword");
             pnlCreateDatabase.add(txtServerPassword, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
@@ -331,6 +343,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblServerPasswordError.setForeground(Color.red);
             lblServerPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
             lblServerPasswordError.setVisible(false);
+            lblServerPasswordError.setName("lblServerPasswordError");
             pnlCreateDatabase.add(lblServerPasswordError, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
@@ -345,6 +358,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             btnCreate.setForeground(Color.white);
             btnCreate.setFocusPainted(false);
             btnCreate.setPreferredSize(new Dimension(82, 40));
+            btnCreate.setName("btnCreate");
             btnCreate.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -365,6 +379,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             btnConnect.setForeground(Color.white);
             btnConnect.setFocusPainted(false);
             btnConnect.setPreferredSize(new Dimension(82, 40));
+            btnConnect.setName("btnConnect");
             btnConnect.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -382,6 +397,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         //---- lblScoutLogo ----
         lblScoutLogo.setIcon(new ImageIcon(getClass().getResource("/images/BSA-logo400.png")));
         lblScoutLogo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblScoutLogo.setName("lblScoutLogo");
         add(lblScoutLogo, new GridBagConstraints(4, 3, 1, 7, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(20, 0, 5, 5), 0, 0));
@@ -392,6 +408,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         label5.setMaximumSize(new Dimension(600, 2));
         label5.setMinimumSize(new Dimension(0, 2));
         label5.setPreferredSize(new Dimension(0, 2));
+        label5.setName("label5");
         add(label5, new GridBagConstraints(1, 5, 2, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(5, 0, 5, 5), 0, 0));
@@ -400,6 +417,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         lblStepTwo.setText("Troop Information");
         lblStepTwo.setForeground(new Color(51, 102, 153));
         lblStepTwo.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblStepTwo.setName("lblStepTwo");
         add(lblStepTwo, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(6, 10, 5, 5), 0, 0));
@@ -407,6 +425,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         //======== pnlTroopInfo ========
         {
             pnlTroopInfo.setBackground(Color.white);
+            pnlTroopInfo.setName("pnlTroopInfo");
             pnlTroopInfo.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlTroopInfo.getLayout()).columnWidths = new int[] {107, 168, 84, 140, 0};
             ((GridBagLayout)pnlTroopInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
@@ -417,6 +436,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblTroopLeader.setText("Troop Leader:");
             lblTroopLeader.setForeground(new Color(51, 102, 153));
             lblTroopLeader.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblTroopLeader.setName("lblTroopLeader");
             pnlTroopInfo.add(lblTroopLeader, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
@@ -426,6 +446,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtLeaderName.setDefaultText("Troop leader name");
             txtLeaderName.setMinimumSize(new Dimension(14, 40));
             txtLeaderName.setPreferredSize(new Dimension(135, 40));
+            txtLeaderName.setName("txtLeaderName");
             pnlTroopInfo.add(txtLeaderName, new GridBagConstraints(1, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
@@ -434,6 +455,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblTroopNumber.setText("Troop #:");
             lblTroopNumber.setForeground(new Color(51, 102, 153));
             lblTroopNumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblTroopNumber.setName("lblTroopNumber");
             pnlTroopInfo.add(lblTroopNumber, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
@@ -443,6 +465,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtTroopNumber.setDefaultText("Troop #");
             txtTroopNumber.setMinimumSize(new Dimension(14, 40));
             txtTroopNumber.setPreferredSize(new Dimension(65, 40));
+            txtTroopNumber.setName("txtTroopNumber");
             pnlTroopInfo.add(txtTroopNumber, new GridBagConstraints(1, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
@@ -451,6 +474,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblScoutCouncil.setText("Scout Council:");
             lblScoutCouncil.setForeground(new Color(51, 102, 153));
             lblScoutCouncil.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblScoutCouncil.setName("lblScoutCouncil");
             pnlTroopInfo.add(lblScoutCouncil, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
@@ -460,6 +484,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtScoutCouncil.setMinimumSize(new Dimension(14, 40));
             txtScoutCouncil.setDefaultText("Scout Council");
             txtScoutCouncil.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtScoutCouncil.setName("txtScoutCouncil");
             pnlTroopInfo.add(txtScoutCouncil, new GridBagConstraints(1, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
@@ -468,6 +493,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             lblTroopName.setText("Troop Name:");
             lblTroopName.setForeground(new Color(51, 102, 153));
             lblTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblTroopName.setName("lblTroopName");
             pnlTroopInfo.add(lblTroopName, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
@@ -477,6 +503,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             txtTroopName.setMinimumSize(new Dimension(14, 40));
             txtTroopName.setDefaultText("Troop name");
             txtTroopName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtTroopName.setName("txtTroopName");
             pnlTroopInfo.add(txtTroopName, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
@@ -491,6 +518,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             btnSave.setForeground(Color.white);
             btnSave.setFocusPainted(false);
             btnSave.setPreferredSize(new Dimension(82, 40));
+            btnSave.setName("btnSave");
             btnSave.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -511,6 +539,7 @@ public class PnlSettings extends JPanel implements PnlGui {
         label6.setMaximumSize(new Dimension(600, 2));
         label6.setMinimumSize(new Dimension(0, 2));
         label6.setPreferredSize(new Dimension(0, 2));
+        label6.setName("label6");
         add(label6, new GridBagConstraints(1, 8, 2, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
             new Insets(5, 0, 5, 5), 0, 0));
