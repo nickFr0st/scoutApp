@@ -46,7 +46,7 @@ public class DBConnector {
             Class.forName(driver).newInstance();
 
             // test the connection
-            DriverManager.getConnection(url + dbName, userName, password);
+            connection = DriverManager.getConnection(url + dbName, userName, password);
 
             DBConnector.url = url;
             DBConnector.dbName = dbName;

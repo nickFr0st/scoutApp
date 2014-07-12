@@ -10,6 +10,7 @@ import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.User;
 import util.DBConnector;
+import util.LogicUser;
 import util.Util;
 
 import javax.swing.*;
@@ -154,7 +155,7 @@ public class PnlSetupWizard extends JPanel implements PnlGui {
     }
 
     private void populateStep2() {
-        User user = connector.getUser();
+        User user = LogicUser.getUser();
         if (user != null) {
             userExists = user.getId();
             txtLeaderName.setText(user.getTroopLeader());
