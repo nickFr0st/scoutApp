@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="pulled out logic">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed some bugs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -108,7 +107,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="274" class="util.DBConnector" package="util">
+      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="223" class="util.DBConnector" package="util">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -123,7 +122,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="204" class="util.DBConnector" package="util">
+      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="153" class="util.DBConnector" package="util">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -256,22 +255,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DBConnector.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0" vertical-offset="334" max-vertical-offset="4760">
+            <state line="278" column="0" selection-start="9682" selection-end="9682" vertical-scroll-proportion="0.7605634" vertical-offset="4070" max-vertical-offset="4760">
               <folding>
-                <marker date="1405130660661" expanded="true" signature="4815:5105" placeholder="CREATE TABLE..user..." />
-                <marker date="1405130660661" expanded="true" signature="5183:5382" placeholder="CREATE TABLE..advancement..." />
-                <marker date="1405130660661" expanded="true" signature="5466:5781" placeholder="CREATE TABLE..meritBadge..." />
-                <marker date="1405130660661" expanded="true" signature="5886:5969" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="6026:6111" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="6168:6257" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="6314:6401" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="6458:6531" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="6588:6661" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="6718:6793" placeholder="INSERT INTO ..." />
-                <marker date="1405130660661" expanded="true" signature="7229:7243" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1405130952837" expanded="true" signature="4929:4943" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1405130952837" expanded="true" signature="7665:7955" placeholder="CREATE TABLE..user..." />
+                <marker date="1405130952837" expanded="true" signature="8033:8232" placeholder="CREATE TABLE..advancement..." />
+                <marker date="1405130952837" expanded="true" signature="8316:8631" placeholder="CREATE TABLE..meritBadge..." />
+                <marker date="1405130952837" expanded="true" signature="8736:8819" placeholder="INSERT INTO ..." />
+                <marker date="1405130952837" expanded="true" signature="8876:8961" placeholder="INSERT INTO ..." />
+                <marker date="1405130952837" expanded="true" signature="9018:9107" placeholder="INSERT INTO ..." />
+                <marker date="1405130952837" expanded="true" signature="9164:9251" placeholder="INSERT INTO ..." />
+                <marker date="1405130952837" expanded="true" signature="9308:9381" placeholder="INSERT INTO ..." />
+                <marker date="1405130952837" expanded="true" signature="9438:9511" placeholder="INSERT INTO ..." />
+                <marker date="1405130952837" expanded="true" signature="9568:9643" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -307,10 +306,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlSetupWizard.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlSetupWizard.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="39" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.3402556" vertical-offset="2218" max-vertical-offset="3145">
+            <state line="157" column="39" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.0" vertical-offset="2218" max-vertical-offset="3145">
               <folding>
                 <marker date="1405130493443" expanded="false" signature="6254:22374" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1405130493443" expanded="false" signature="22386:23453" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
@@ -953,7 +952,7 @@
       <workItem from="1404876527738" duration="1572000" />
       <workItem from="1404966530514" duration="49000" />
       <workItem from="1405045782402" duration="7287000" />
-      <workItem from="1405127518108" duration="3335000" />
+      <workItem from="1405127518108" duration="3381000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1279,11 +1278,15 @@
       <created>1405130469963</created>
       <updated>1405130469963</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="fixed some bugs">
+      <created>1405130914603</created>
+      <updated>1405130914603</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201513000" />
+    <option name="totallyTimeSpent" value="201559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1333,7 +1336,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="creating and connecting to a database now update the db properties&#10;" />
     <MESSAGE value="can now save to the database" />
     <MESSAGE value="fixed duplcate entry issue" />
     <MESSAGE value="created better error messages" />
@@ -1358,7 +1360,8 @@
     <MESSAGE value="gui change" />
     <MESSAGE value="advancements are now populated when clicking on the advancement list" />
     <MESSAGE value="pulled out logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="pulled out logic" />
+    <MESSAGE value="fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1687,25 +1690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0" vertical-offset="334" max-vertical-offset="4760">
-          <folding>
-            <marker date="1405130660661" expanded="true" signature="4815:5105" placeholder="CREATE TABLE..user..." />
-            <marker date="1405130660661" expanded="true" signature="5183:5382" placeholder="CREATE TABLE..advancement..." />
-            <marker date="1405130660661" expanded="true" signature="5466:5781" placeholder="CREATE TABLE..meritBadge..." />
-            <marker date="1405130660661" expanded="true" signature="5886:5969" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="6026:6111" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="6168:6257" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="6314:6401" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="6458:6531" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="6588:6661" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="6718:6793" placeholder="INSERT INTO ..." />
-            <marker date="1405130660661" expanded="true" signature="7229:7243" placeholder="SELECT * FRO..missingValue..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="0" selection-start="2354" selection-end="2354" vertical-scroll-proportion="0.0" vertical-offset="845" max-vertical-offset="1785">
@@ -1721,10 +1705,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="39" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.3402556" vertical-offset="2218" max-vertical-offset="3145">
+        <state line="157" column="39" selection-start="5406" selection-end="5406" vertical-scroll-proportion="0.0" vertical-offset="2218" max-vertical-offset="3145">
           <folding>
             <marker date="1405130493443" expanded="false" signature="6254:22374" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1405130493443" expanded="false" signature="22386:23453" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="0" selection-start="9682" selection-end="9682" vertical-scroll-proportion="0.7605634" vertical-offset="4070" max-vertical-offset="4760">
+          <folding>
+            <marker date="1405130952837" expanded="true" signature="4929:4943" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1405130952837" expanded="true" signature="7665:7955" placeholder="CREATE TABLE..user..." />
+            <marker date="1405130952837" expanded="true" signature="8033:8232" placeholder="CREATE TABLE..advancement..." />
+            <marker date="1405130952837" expanded="true" signature="8316:8631" placeholder="CREATE TABLE..meritBadge..." />
+            <marker date="1405130952837" expanded="true" signature="8736:8819" placeholder="INSERT INTO ..." />
+            <marker date="1405130952837" expanded="true" signature="8876:8961" placeholder="INSERT INTO ..." />
+            <marker date="1405130952837" expanded="true" signature="9018:9107" placeholder="INSERT INTO ..." />
+            <marker date="1405130952837" expanded="true" signature="9164:9251" placeholder="INSERT INTO ..." />
+            <marker date="1405130952837" expanded="true" signature="9308:9381" placeholder="INSERT INTO ..." />
+            <marker date="1405130952837" expanded="true" signature="9438:9511" placeholder="INSERT INTO ..." />
+            <marker date="1405130952837" expanded="true" signature="9568:9643" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>

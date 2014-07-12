@@ -140,57 +140,6 @@ public class DBConnector {
         return createStatement();
     }
 
-    private void buildDataBase() throws SQLException {
-        Statement statement = createStatement();
-        StringBuilder query = new StringBuilder();
-
-        // Create Tables
-        String tableUser = "CREATE TABLE user " +
-                "(id INT NOT NULL," +
-                " troop VARCHAR(45) NULL," +
-                " council VARCHAR(255) NULL," +
-                " troopLeader VARCHAR(255) NULL," +
-                " troopName VARCHAR(255) NULL," +
-                " PRIMARY KEY (id))";
-        statement.addBatch(tableUser);
-
-        String tableAdvancement = "CREATE TABLE advancement " +
-                "(id INT NOT NULL," +
-                " name VARCHAR(225) NOT NULL," +
-                " imgPath VARCHAR(255) NULL," +
-                " PRIMARY KEY (id))";
-        statement.addBatch(tableAdvancement);
-
-        String tableMeritBadge = "CREATE TABLE meritBadge " +
-                "(id INT NOT NULL," +
-                " name VARCHAR(225) NOT NULL," +
-                " imgPath VARCHAR(255) NOT NULL," +
-                " requirementsLink VARCHAR(255) NULL," +
-                " requiredForEagle TINYINT NOT NULL," +
-                " PRIMARY KEY (id))";
-        statement.addBatch(tableMeritBadge);
-
-        // Insert Advancements
-        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancements/new_scout.png')";
-        statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancements/tenderfoot.png')";
-        statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancements/second_class.png')";
-        statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancements/first_class.png')";
-        statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancements/star.png')";
-        statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancements/life.png')";
-        statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancements/eagle.png')";
-        statement.addBatch(insert);
-
-        // Insert Requirements
-
-        statement.executeBatch();
-    }
-
     public Statement createStatement() throws SQLException {
         return connection.createStatement();
     }
@@ -280,5 +229,56 @@ public class DBConnector {
 
     public static void setDBName(String dbNameText) {
         dbName = dbNameText;
+    }
+
+    private void buildDataBase() throws SQLException {
+        Statement statement = createStatement();
+        StringBuilder query = new StringBuilder();
+
+        // Create Tables
+        String tableUser = "CREATE TABLE user " +
+                "(id INT NOT NULL," +
+                " troop VARCHAR(45) NULL," +
+                " council VARCHAR(255) NULL," +
+                " troopLeader VARCHAR(255) NULL," +
+                " troopName VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableUser);
+
+        String tableAdvancement = "CREATE TABLE advancement " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(225) NOT NULL," +
+                " imgPath VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableAdvancement);
+
+        String tableMeritBadge = "CREATE TABLE meritBadge " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(225) NOT NULL," +
+                " imgPath VARCHAR(255) NOT NULL," +
+                " requirementsLink VARCHAR(255) NULL," +
+                " requiredForEagle TINYINT NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableMeritBadge);
+
+        // Insert Advancements
+        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancements/new_scout.png')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancements/tenderfoot.png')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancements/second_class.png')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancements/first_class.png')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancements/star.png')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancements/life.png')";
+        statement.addBatch(insert);
+        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancements/eagle.png')";
+        statement.addBatch(insert);
+
+        // Insert Requirements
+
+        statement.executeBatch();
     }
 }
