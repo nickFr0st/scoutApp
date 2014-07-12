@@ -10,6 +10,7 @@ import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.User;
 import util.DBConnector;
+import util.LogicUser;
 import util.Util;
 
 import javax.swing.*;
@@ -123,7 +124,7 @@ public class PnlSettings extends JPanel implements PnlGui {
     }
 
     private void btnSaveMouseClicked() {
-        User user = connector.getUser();
+        User user = LogicUser.getUser();
 
         if (user != null) {
             connector.updateById(user.getId(), "user", new String[]{"troopLeader", "troop", "council", "troopName"}, new String[]{Util.getTxtFieldString(txtLeaderName), Util.getTxtFieldString(txtTroopNumber), Util.getTxtFieldString(txtScoutCouncil), Util.getTxtFieldString(txtTroopName)});
@@ -154,7 +155,7 @@ public class PnlSettings extends JPanel implements PnlGui {
             return;
         }
 
-        User user = connector.getUser();
+        User user = LogicUser.getUser();
         if (user != null) {
             userExists = user.getId();
             txtLeaderName.setText(user.getTroopLeader());

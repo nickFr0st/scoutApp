@@ -5,6 +5,8 @@ import scout.dbObjects.Advancement;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Malloch on 7/11/14
@@ -38,5 +40,27 @@ public class LogicAdvancement {
         }
 
         return advancement;
+    }
+
+    public static List<String> getAdvancementList() {
+        if (!connector.checkForDBConnection()) {
+            return null;
+        }
+
+        List<String> advancementList = new ArrayList<String>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT name FROM advancement");
+
+            while(rs.next()) {
+                advancementList.add(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return advancementList;
     }
 }

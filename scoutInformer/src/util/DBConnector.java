@@ -1,12 +1,9 @@
 package util;
 
 import constants.KeyConst;
-import scout.dbObjects.User;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 /**
@@ -251,27 +248,6 @@ public class DBConnector {
         }
     }
 
-    public User getUser() {
-        try {
-            Statement statement = setupConnection(userName, dbName, password);
-            ResultSet rs = statement.executeQuery("SELECT * FROM user");
-
-            User user = new User();
-            if (rs.next()) {
-                user.setId(rs.getInt(KeyConst.USER_ID.getName()));
-                user.setTroopLeader(rs.getString(KeyConst.USER_TROOP_LEADER.getName()));
-                user.setTroopNumber(rs.getString(KeyConst.USER_TROOP_NUMBER.getName()));
-                user.setCouncil(rs.getString(KeyConst.USER_COUNCIL.getName()));
-                user.setTroopName(rs.getString(KeyConst.USER_TROOP_NAME.getName()));
-                return user;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public void updateById(int id, String tableName, String[] tableColumnNames, String[] columnValues) {
         if (tableColumnNames == null || tableColumnNames.length < 1) {
             return;
@@ -304,23 +280,5 @@ public class DBConnector {
 
     public static void setDBName(String dbNameText) {
         dbName = dbNameText;
-    }
-
-    public List<String> getAdvancementList() {
-        List<String> advancementList = new ArrayList<String>();
-
-        try {
-            Statement statement = setupConnection(userName, dbName, password);
-            ResultSet rs = statement.executeQuery("SELECT name FROM advancement");
-
-            while(rs.next()) {
-                advancementList.add(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return advancementList;
     }
 }

@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 /**
  * @author User #2
@@ -69,10 +70,14 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblListName.setText("Advancements");
         chkReqForEagle.setVisible(false);
 
-        listBadgeNames.setListData(connector.getAdvancementList().toArray());
+        List<String> advancements = LogicAdvancement.getAdvancementList();
+
+        if (advancements != null) {
+            listBadgeNames.setListData(advancements.toArray());
+        }
     }
 
-    private void listBadgeNamesMouseClicked(MouseEvent e) {
+    private void listBadgeNamesMouseClicked() {
         if (listBadgeNames.getSelectedValue() != null) {
             Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
 
@@ -253,7 +258,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             listBadgeNames.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    listBadgeNamesMouseClicked(e);
+                    listBadgeNamesMouseClicked();
                 }
             });
             scrollPane1.setViewportView(listBadgeNames);
