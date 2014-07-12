@@ -7,8 +7,11 @@ package scout.clientPnls;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.Advancement;
+import scout.dbObjects.Requirement;
 import util.DBConnector;
 import util.LogicAdvancement;
+import util.LogicRequirement;
+import util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -89,7 +92,11 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             txtBadgeName.setText(advancement.getName());
             lblImage.setIcon(new ImageIcon(getClass().getResource(advancement.getImgPath())));
 
-            // todo: need to add the requirements as well
+            List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
+
+            if (!Util.isEmpty(requirementList)) {
+                listRequirements.setListData(requirementList.toArray());
+            }
         }
     }
 

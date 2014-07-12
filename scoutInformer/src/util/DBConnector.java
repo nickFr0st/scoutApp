@@ -308,7 +308,66 @@ public class DBConnector {
         statement.addBatch(insert);
         insert = "INSERT INTO requirement VALUES( " + id++ + ",'9', 'Complete the pamphlet exercises. With your parent or guardian, complete the exercises in the pamphlet \"How to Protect Your Children from Child Abuse: A Parents Guide\".', 1, 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO requirement VALUES( " + id + ",'10', 'Participate in a Scoutmaster conference. Turn in your Boy Scout application and health history form signed by your parent or guardian, then participate in a Scoutmaster conference.', 1, 1)";
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'10', 'Participate in a Scoutmaster conference. Turn in your Boy Scout application and health history form signed by your parent or guardian, then participate in a Scoutmaster conference.', 1, 1)";
+        statement.addBatch(insert);
+
+        //  Tenderfoot
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Present yourself to your leader, properly dressed, before going on an overnight camping trip. Show the camping gear you will use. Show the right way to pack and carry it.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Spend at least one night on a patrol or troop campout. Sleep in a tent you have helped pitch.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'On the campout, assist in preparing and cooking one of your patrols meals. Tell why it is important for each patrol member to share in meal preparation and cleanup, and explain the importance of eating together.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4a', 'Demonstrate how to whip and fuse the ends of a rope.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4b', 'Demonstrate you know how to tie the following knots and tell what their uses are: two half hitches and the taut-line hitch.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4c', 'Using the EDGE method, teach another person how to tie the square knot.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'Explain the rules of safe hiking, both on the highway and cross-country, during the day and at night. Explain what to do if you are lost.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Demonstrate how to display, raise, lower, and fold the American flag.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Repeat from memory and explain in your own words the Scout Oath, Law, motto, and slogan.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8', 'Know your patrol name, give the patrol yell, and describe your patrol flag.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9', 'Explain the importance of the buddy system as it relates to your personal safety on outings and in your neighborhood. Describe what a bully is and how you should respond to one.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'10a', 'Record your best in the following tests:\n" +
+                "Current results\n" +
+                "Push-ups ________\n" +
+                "Pull-ups ________\n" +
+                "Sit-ups ________\n" +
+                "Standing long jump (______ ft. ______ in.)\n" +
+                "1/4 mile walk/run _____________\n" +
+                "30 days later\n" +
+                "Push-ups ________\n" +
+                "Pull-ups ________\n" +
+                "Sit-ups ________\n" +
+                "Standing long jump (______ ft. ______ in.)\n" +
+                "1/4 mile walk/run _____________', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'10b', 'Show improvement in the activities listed in requirement 10a after practicing for 30 days.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'11', 'Identify local poisonous plants; tell how to treat for exposure to them.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'12a', 'Demonstrate how to care for someone who is choking.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'12b', 'Show first aid for the following:\n" +
+                "Simple cuts and scrapes\n" +
+                "Blisters on the hand and foot\n" +
+                "Minor (thermal/heat) burns or scalds (superficial, or first degree)\n" +
+                "Bites or stings of insects and ticks\n" +
+                "Venomous snakebite\n" +
+                "Nosebleed\n" +
+                "Frostbite and sunburn', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'13', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life. Discuss four specific examples of how you have lived the points of the Scout Law in your daily life.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'14', 'Participate in a Scoutmaster conference.', 1, 2)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id + ",'15', 'Complete your board of review.', 1, 2)";
         statement.addBatch(insert);
 
         statement.executeBatch();

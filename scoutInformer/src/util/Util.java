@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -15,6 +16,10 @@ import java.util.Properties;
 public class Util {
     public static boolean isEmpty(String s) {
         return s == null || s.isEmpty();
+    }
+
+    public static boolean isEmpty(List list) {
+        return list == null || list.isEmpty();
     }
 
     public static void saveProperties(Properties properties, String propertyFileName) {
