@@ -56,7 +56,7 @@ new FormModel {
 						"background": new java.awt.Color( 255, 255, 255, 255 )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "lblCurrentBadge"
-							"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/badge_new_scout.png" )
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/advancements/new_scout.png" )
 							"border": new javax.swing.border.BevelBorder( 1, null, null, null, null )
 							"minimumSize": new java.awt.Dimension( 132, 143 )
 							"maximumSize": new java.awt.Dimension( 132, 143 )

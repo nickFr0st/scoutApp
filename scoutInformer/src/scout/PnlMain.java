@@ -251,6 +251,7 @@ public class PnlMain extends JFrame {
         setMinimumSize(new Dimension(1200, 800));
         setBackground(new Color(51, 51, 51));
         setTitle("Scout Informer");
+        setName("this");
         Container contentPane = getContentPane();
         contentPane.setLayout(new GridBagLayout());
         ((GridBagLayout)contentPane.getLayout()).columnWidths = new int[] {0, 0};
@@ -261,6 +262,7 @@ public class PnlMain extends JFrame {
         //======== menuBar1 ========
         {
             menuBar1.setBackground(new Color(195, 169, 117));
+            menuBar1.setName("menuBar1");
 
             //---- btnNewScout ----
             btnNewScout.setIcon(new ImageIcon(getClass().getResource("/images/new_scout.png")));
@@ -270,6 +272,7 @@ public class PnlMain extends JFrame {
             btnNewScout.setOpaque(false);
             btnNewScout.setBackground(new Color(60, 63, 65, 0));
             btnNewScout.setToolTipText("New");
+            btnNewScout.setName("btnNewScout");
             menuBar1.add(btnNewScout);
         }
         setJMenuBar(menuBar1);
@@ -277,6 +280,7 @@ public class PnlMain extends JFrame {
         //======== pnlScoutModule ========
         {
             pnlScoutModule.setBackground(new Color(51, 51, 51));
+            pnlScoutModule.setName("pnlScoutModule");
             pnlScoutModule.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlScoutModule.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0};
             ((GridBagLayout)pnlScoutModule.getLayout()).rowHeights = new int[] {0, 0, 0};
@@ -287,11 +291,13 @@ public class PnlMain extends JFrame {
             {
                 scrollPane1.setPreferredSize(new Dimension(200, 600));
                 scrollPane1.setMinimumSize(new Dimension(200, 600));
+                scrollPane1.setName("scrollPane1");
 
                 //---- listScouts ----
                 listScouts.setMinimumSize(new Dimension(20, 300));
                 listScouts.setMaximumSize(new Dimension(20, 300));
                 listScouts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                listScouts.setName("listScouts");
                 listScouts.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -306,10 +312,12 @@ public class PnlMain extends JFrame {
 
             //======== tbpDetails ========
             {
+                tbpDetails.setName("tbpDetails");
 
                 //======== pnlGeneral ========
                 {
                     pnlGeneral.setBackground(Color.white);
+                    pnlGeneral.setName("pnlGeneral");
                     pnlGeneral.setLayout(new GridBagLayout());
                     ((GridBagLayout)pnlGeneral.getLayout()).columnWidths = new int[] {0, 0, 59, 256, 0, 0, 0};
                     ((GridBagLayout)pnlGeneral.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
@@ -322,6 +330,7 @@ public class PnlMain extends JFrame {
                     lblCurrentBadge.setMinimumSize(new Dimension(132, 143));
                     lblCurrentBadge.setMaximumSize(new Dimension(132, 143));
                     lblCurrentBadge.setPreferredSize(new Dimension(132, 143));
+                    lblCurrentBadge.setName("lblCurrentBadge");
                     pnlGeneral.add(lblCurrentBadge, new GridBagConstraints(0, 0, 1, 5, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 10, 15, 15), 0, 0));
@@ -330,6 +339,7 @@ public class PnlMain extends JFrame {
                     lblName.setText("Name:");
                     lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     lblName.setHorizontalAlignment(SwingConstants.RIGHT);
+                    lblName.setName("lblName");
                     pnlGeneral.add(lblName, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
@@ -338,6 +348,7 @@ public class PnlMain extends JFrame {
                     txtName.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     txtName.setHorizontalAlignment(SwingConstants.LEFT);
                     txtName.setBackground(Color.white);
+                    txtName.setName("txtName");
                     pnlGeneral.add(txtName, new GridBagConstraints(2, 0, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(10, 0, 5, 5), 0, 0));
@@ -346,6 +357,7 @@ public class PnlMain extends JFrame {
                     lblAge.setText("Age:");
                     lblAge.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     lblAge.setHorizontalAlignment(SwingConstants.RIGHT);
+                    lblAge.setName("lblAge");
                     pnlGeneral.add(lblAge, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
@@ -354,6 +366,7 @@ public class PnlMain extends JFrame {
                     txtAge.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     txtAge.setHorizontalAlignment(SwingConstants.LEFT);
                     txtAge.setBackground(Color.white);
+                    txtAge.setName("txtAge");
                     pnlGeneral.add(txtAge, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
@@ -362,12 +375,14 @@ public class PnlMain extends JFrame {
                     lblRank.setText("Rank:");
                     lblRank.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     lblRank.setHorizontalAlignment(SwingConstants.RIGHT);
+                    lblRank.setName("lblRank");
                     pnlGeneral.add(lblRank, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
 
                     //---- cboRank ----
                     cboRank.setBackground(Color.white);
+                    cboRank.setName("cboRank");
                     cboRank.addItemListener(new ItemListener() {
                         @Override
                         public void itemStateChanged(ItemEvent e) {
@@ -382,6 +397,7 @@ public class PnlMain extends JFrame {
                     lblPosition.setText("Position:");
                     lblPosition.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     lblPosition.setHorizontalAlignment(SwingConstants.RIGHT);
+                    lblPosition.setName("lblPosition");
                     pnlGeneral.add(lblPosition, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
@@ -390,6 +406,7 @@ public class PnlMain extends JFrame {
                     txtPosition.setFont(new Font("Tahoma", Font.PLAIN, 16));
                     txtPosition.setHorizontalAlignment(SwingConstants.LEFT);
                     txtPosition.setBackground(Color.white);
+                    txtPosition.setName("txtPosition");
                     pnlGeneral.add(txtPosition, new GridBagConstraints(2, 3, 2, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 5), 0, 0));
@@ -399,6 +416,7 @@ public class PnlMain extends JFrame {
                         pnlNewRankRequirements.setBorder(new TitledBorder(new EtchedBorder(), "Requirements for Next Rank", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
                             new Font("Tahoma", Font.PLAIN, 16), Color.blue));
                         pnlNewRankRequirements.setBackground(Color.white);
+                        pnlNewRankRequirements.setName("pnlNewRankRequirements");
                         pnlNewRankRequirements.setLayout(new GridBagLayout());
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).columnWidths = new int[] {76, 0, 0};
                         ((GridBagLayout)pnlNewRankRequirements.getLayout()).rowHeights = new int[] {0, 0, 0};
@@ -410,6 +428,7 @@ public class PnlMain extends JFrame {
                         lblNextRank.setFont(new Font("Tahoma", Font.PLAIN, 16));
                         lblNextRank.setOpaque(true);
                         lblNextRank.setBackground(new Color(153, 204, 255));
+                        lblNextRank.setName("lblNextRank");
                         pnlNewRankRequirements.add(lblNextRank, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                             new Insets(0, 0, 0, 0), 0, 0));
@@ -418,12 +437,14 @@ public class PnlMain extends JFrame {
                         lblNextRankValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
                         lblNextRankValue.setOpaque(true);
                         lblNextRankValue.setBackground(new Color(153, 204, 255));
+                        lblNextRankValue.setName("lblNextRankValue");
                         pnlNewRankRequirements.add(lblNextRankValue, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                             new Insets(0, 0, 0, 0), 0, 0));
 
                         //======== pnlRequirements ========
                         {
+                            pnlRequirements.setName("pnlRequirements");
                             pnlRequirements.setLayout(new GridBagLayout());
                             ((GridBagLayout)pnlRequirements.getLayout()).columnWidths = new int[] {0, 0};
                             ((GridBagLayout)pnlRequirements.getLayout()).rowHeights = new int[] {0, 0};
@@ -433,10 +454,12 @@ public class PnlMain extends JFrame {
                             //======== scrollPane2 ========
                             {
                                 scrollPane2.setBorder(null);
+                                scrollPane2.setName("scrollPane2");
 
                                 //======== panel2 ========
                                 {
                                     panel2.setBackground(Color.white);
+                                    panel2.setName("panel2");
                                     panel2.setLayout(new GridBagLayout());
                                     ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0};
                                     ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
