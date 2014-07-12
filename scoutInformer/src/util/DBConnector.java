@@ -261,23 +261,55 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableMeritBadge);
 
+        String tableRequirement = "CREATE TABLE requirement " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(45) NOT NULL," +
+                " description BLOB NOT NULL," +
+                " typeId INT NOT NULL," +
+                " parentId INT NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableRequirement);
+
         // Insert Advancements
-        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancements/new_scout.png')";
+        int id = 1;
+        String insert = "INSERT INTO advancement VALUES( " + id++ + ",'New Scout', '/images/advancements/new_scout.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancements/tenderfoot.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Tenderfoot', '/images/advancements/tenderfoot.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancements/second_class.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Second Class', '/images/advancements/second_class.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancements/first_class.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'First Class', '/images/advancements/first_class.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancements/star.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Star', '/images/advancements/star.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancements/life.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Life', '/images/advancements/life.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancements/eagle.png')";
+        insert = "INSERT INTO advancement VALUES( " + id + ",'Eagle', '/images/advancements/eagle.png')";
         statement.addBatch(insert);
 
         // Insert Requirements
+        //  New Scout
+        id = 1;
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Meet the age requirements. Be a boy who is 11 years old, or one who has completed the fifth grade or earned the Arrow of Light Award and is at least 10 years old, but is not yet 18 years old.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Find a Scout troop near your home.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Complete a Boy Scout application and health history signed by your parent or guardian.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'Repeat the Pledge of Allegiance.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'Demonstrate the Scout sign, salute, and handshake.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Demonstrate tying the square knot (a joining knot).', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Understand and agree to live by the Scout Oath, Scout Law, motto, slogan, and the Outdoor Code.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8', 'Describe the Scout badge.', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9', 'Complete the pamphlet exercises. With your parent or guardian, complete the exercises in the pamphlet \"How to Protect Your Children from Child Abuse: A Parents Guide\".', 1, 1)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id + ",'10', 'Participate in a Scoutmaster conference. Turn in your Boy Scout application and health history form signed by your parent or guardian, then participate in a Scoutmaster conference.', 1, 1)";
+        statement.addBatch(insert);
 
         statement.executeBatch();
     }
