@@ -5,7 +5,6 @@
 package scout;
 
 import constants.RankConst;
-import guiUtil.PnlRequirement;
 import scout.dbObjects.Requirement;
 import scout.dbObjects.Scout;
 import scout.rank.EmptyRank;
@@ -150,16 +149,16 @@ public class PnlMain extends JFrame {
             return;
         }
 
-        for (Requirement reqConst : requirementList) {
-            PnlRequirement pnlRequirement = new PnlRequirement("Requirement " + reqConst.getName() + ":", reqConst.getDescription());
-            if (completedRequirements != null && completedRequirements.contains(reqConst.getName())) {
-                pnlRequirement.getChkReq().setSelected(true);
-            }
-
-            panel2.add(pnlRequirement, new GridBagConstraints(0, grid++, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(5, 0, 0, 0), 0, 0));
-        }
+//        for (Requirement reqConst : requirementList) {
+//            PnlRequirement pnlRequirement = new PnlRequirement("Requirement " + reqConst.getName() + ":", reqConst.getDescription());
+//            if (completedRequirements != null && completedRequirements.contains(reqConst.getName())) {
+//                pnlRequirement.getChkReq().setSelected(true);
+//            }
+//
+//            panel2.add(pnlRequirement, new GridBagConstraints(0, grid++, 1, 1, 0.0, 0.0,
+//                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+//                    new Insets(5, 0, 0, 0), 0, 0));
+//        }
     }
 
     private Rank getRankInfo(int rankId) {
