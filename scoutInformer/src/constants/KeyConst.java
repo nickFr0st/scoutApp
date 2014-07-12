@@ -21,7 +21,14 @@ public enum KeyConst {
     // Advancement Table
     ADVANCEMENT_ID("id"),
     ADVANCEMENT_NAME("name"),
-    ADVANCEMENT_IMG_PATH("imgPath");
+    ADVANCEMENT_IMG_PATH("imgPath"),
+
+    // Requirement Table
+    REQUIREMENT_ID("id"),
+    REQUIREMENT_NAME("name"),
+    REQUIREMENT_DESCRIPTION("description"),
+    REQUIREMENT_TYPE_ID("typeId"),
+    REQUIREMENT_PARENT_ID("parentId");
 
     private String name;
 

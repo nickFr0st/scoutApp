@@ -125,11 +125,11 @@ public class PnlMain extends JFrame {
 
             while (rs.next()) {
                 Requirement requirement = new Requirement();
-                requirement.setId(rs.getInt(Requirement.ID));
-                requirement.setName(rs.getString(Requirement.NAME));
-                requirement.setDescription(rs.getString(Requirement.DESCRIPTION));
-                requirement.setType(rs.getInt(Requirement.TYPE));
-                requirement.setParentId(parentId);
+//                requirement.setId(rs.getInt(Requirement.ID));
+//                requirement.setName(rs.getString(Requirement.NAME));
+//                requirement.setDescription(rs.getString(Requirement.DESCRIPTION));
+//                requirement.setTypeId(rs.getInt(Requirement.TYPE));
+//                requirement.setParentId(parentId);
                 requirementList.add(requirement);
             }
 
