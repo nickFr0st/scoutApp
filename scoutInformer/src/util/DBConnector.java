@@ -140,11 +140,11 @@ public class DBConnector {
     private Statement setupConnection(String rootUser, String dbName, String rootPassword) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
         Class.forName(driver).newInstance();
         connection = DriverManager.getConnection(dataBase + dbName, rootUser, rootPassword);
-        return connection.createStatement();
+        return createStatement();
     }
 
     private void buildDataBase() throws SQLException {
-        Statement statement = connection.createStatement();
+        Statement statement = createStatement();
         StringBuilder query = new StringBuilder();
 
         // Create Tables
@@ -174,24 +174,28 @@ public class DBConnector {
         statement.addBatch(tableMeritBadge);
 
         // Insert Advancements
-        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancement/new_scout.png')";
+        String insert = "INSERT INTO advancement VALUES(1,'New Scout', '/images/advancements/new_scout.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancement/tenderfoot.png')";
+        insert = "INSERT INTO advancement VALUES(2,'Tenderfoot', '/images/advancements/tenderfoot.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancement/second_class.png')";
+        insert = "INSERT INTO advancement VALUES(3,'Second Class', '/images/advancements/second_class.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancement/first_class.png')";
+        insert = "INSERT INTO advancement VALUES(4,'First Class', '/images/advancements/first_class.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancement/star.png')";
+        insert = "INSERT INTO advancement VALUES(5,'Star', '/images/advancements/star.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancement/life.png')";
+        insert = "INSERT INTO advancement VALUES(6,'Life', '/images/advancements/life.png')";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancement/eagle.png')";
+        insert = "INSERT INTO advancement VALUES(7,'Eagle', '/images/advancements/eagle.png')";
         statement.addBatch(insert);
 
         // Insert Requirements
 
         statement.executeBatch();
+    }
+
+    public Statement createStatement() throws SQLException {
+        return connection.createStatement();
     }
 
     private int getNextId(String tableName) {

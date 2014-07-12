@@ -6,7 +6,9 @@ package scout.clientPnls;
 
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
+import scout.dbObjects.Advancement;
 import util.DBConnector;
+import util.LogicAdvancement;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -43,6 +45,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         txtBadgeName.setEnabled(enable);
         txtImagePath.setEnabled(enable);
         btnBrowseImgPath.setEnabled(enable);
+        chkReqForEagle.setVisible(enable);
 
         listRequirements.setEnabled(enable);
         listBadgeNames.setEnabled(enable);
@@ -64,8 +67,25 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void btnAdvancementsMouseClicked() {
         enableComponents(true);
         lblListName.setText("Advancements");
+        chkReqForEagle.setVisible(false);
 
         listBadgeNames.setListData(connector.getAdvancementList().toArray());
+    }
+
+    private void listBadgeNamesMouseClicked(MouseEvent e) {
+        if (listBadgeNames.getSelectedValue() != null) {
+            Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
+
+            if (advancement == null) {
+                return;
+            }
+
+            txtImagePath.setText(advancement.getImgPath());
+            txtBadgeName.setText(advancement.getName());
+            lblImage.setIcon(new ImageIcon(getClass().getResource(advancement.getImgPath())));
+
+            // todo: need to add the requirements as well
+        }
     }
 
     private void initComponents() {
@@ -230,6 +250,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             listBadgeNames.setBorder(new LineBorder(new Color(51, 102, 153), 2));
             listBadgeNames.setFont(new Font("Tahoma", Font.PLAIN, 14));
             listBadgeNames.setName("listBadgeNames");
+            listBadgeNames.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    listBadgeNamesMouseClicked(e);
+                }
+            });
             scrollPane1.setViewportView(listBadgeNames);
         }
         add(scrollPane1, new GridBagConstraints(2, 3, 1, 3, 0.0, 0.0,

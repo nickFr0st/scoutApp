@@ -18,8 +18,10 @@ public enum KeyConst {
     USER_COUNCIL("council"),
     USER_TROOP_NAME("troopName"),
 
-    // Addvancement Table
-    ADVANCEMENT_NAME("name");
+    // Advancement Table
+    ADVANCEMENT_ID("id"),
+    ADVANCEMENT_NAME("name"),
+    ADVANCEMENT_IMG_PATH("imgPath");
 
     private String name;
 

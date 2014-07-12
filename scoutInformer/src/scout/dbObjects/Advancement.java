@@ -5,10 +5,8 @@ package scout.dbObjects;
  */
 public class Advancement {
     private int id;
-    private String troop;
-    private String council;
-    private String troopLeader;
-    private String troopName;
+    private String name;
+    private String imgPath;
 
     public Advancement() {
     }
@@ -21,35 +19,19 @@ public class Advancement {
         this.id = id;
     }
 
-    public String getTroop() {
-        return troop;
+    public String getName() {
+        return name;
     }
 
-    public void setTroop(String troop) {
-        this.troop = troop;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCouncil() {
-        return council;
+    public String getImgPath() {
+        return imgPath;
     }
 
-    public void setCouncil(String council) {
-        this.council = council;
-    }
-
-    public String getTroopLeader() {
-        return troopLeader;
-    }
-
-    public void setTroopLeader(String troopLeader) {
-        this.troopLeader = troopLeader;
-    }
-
-    public String getTroopName() {
-        return troopName;
-    }
-
-    public void setTroopName(String troopName) {
-        this.troopName = troopName;
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }
