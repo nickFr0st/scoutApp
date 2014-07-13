@@ -100,12 +100,21 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 int grid = 0;
 
                 for (Requirement requirement : requirementList) {
-                    PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName() + ":", requirement.getDescription(), grid > 0, requirement.getId());
+                    PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid > 0, requirement.getId());
 
                     pnlRequirements.add(pnlRequirement, new GridBagConstraints(0, grid++, 400, 1, 0.0, 0.0,
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                             new Insets(0, 0, 0, 0), 0, 0));
                 }
+            } else {
+                JLabel lblNoRequirements = new JLabel();
+                lblNoRequirements.setText("No Requirements");
+                lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
+                lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
+                pnlRequirements.add(lblNoRequirements, new GridBagConstraints(0, 0, 400, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 0, 0), 0, 0));
             }
         }
     }
@@ -146,7 +155,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setBackground(Color.white);
         setName("this");
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 213, 59, 78, 115, 64, 498, 20, 0};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 213, 59, 78, 115, 72, 498, 20, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 131, 117, 118, 36, 166, 501, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};

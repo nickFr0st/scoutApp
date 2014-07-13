@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "5, 17, 208, 54, 73, 110, 59, 493:1.0, 20"
+			"$columnSpecs": "5, 17, 208, 54, 73, 110, 67, 493:1.0, 20"
 			"$rowSpecs": "6, 0, 49, 126, 112, 113, 31, 161, 501:1.0"
 			"$hGap": 5
 			"$vGap": 5
