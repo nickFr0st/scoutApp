@@ -106,6 +106,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                             new Insets(0, 0, 0, 0), 0, 0));
                 }
+
+                addSpacer(grid);
+
             } else {
                 JLabel lblNoRequirements = new JLabel();
                 lblNoRequirements.setText("No Requirements");
@@ -117,6 +120,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                         new Insets(0, 0, 0, 0), 0, 0));
             }
         }
+    }
+
+    private void addSpacer(int grid) {
+        pnlRequirements.add(new JLabel(""), new GridBagConstraints(0, grid, 400, 1, 0.0, 1000.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
     }
 
     private void initComponents() {
