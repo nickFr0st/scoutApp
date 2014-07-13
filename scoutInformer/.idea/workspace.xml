@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="made a better requirements list">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added a spacer to make the requirements look better">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -217,13 +217,137 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="16" selection-start="3295" selection-end="3295" vertical-scroll-proportion="0.3568075" vertical-offset="1336" max-vertical-offset="7310">
+            <state line="112" column="56" selection-start="3390" selection-end="3390" vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="7310">
               <folding>
                 <marker date="1405218730481" expanded="true" signature="4182:20000" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1405218730481" expanded="false" signature="20012:21058" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnector.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="491" column="78" selection-start="31442" selection-end="31442" vertical-scroll-proportion="0.6198083" vertical-offset="7789" max-vertical-offset="9588">
+              <folding>
+                <marker date="1405222101897" expanded="true" signature="4929:4943" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1405222101897" expanded="true" signature="7665:7955" placeholder="CREATE TABLE..user..." />
+                <marker date="1405222101897" expanded="true" signature="8033:8232" placeholder="CREATE TABLE..advancement..." />
+                <marker date="1405222101897" expanded="true" signature="8316:8631" placeholder="CREATE TABLE..meritBadge..." />
+                <marker date="1405222101897" expanded="true" signature="8715:8999" placeholder="CREATE TABLE..requirement..." />
+                <marker date="1405222101897" expanded="true" signature="9125:9220" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="9277:9374" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="9431:9532" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="9589:9688" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="9745:9830" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="9887:9972" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="10029:10114" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="10241:10491" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="10548:10641" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="10698:10843" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="10900:10991" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="11048:11157" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="11214:11324" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="11381:11535" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="11592:11676" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="11733:11961" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="12018:12258" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="12339:12568" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="12625:12777" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="12834:13104" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="13161:13273" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="13330:13513" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="13570:13701" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="13758:13954" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="14011:14139" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="14196:14343" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="14400:14534" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="14591:14827" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="14884:15535" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="15592:15743" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="15800:15932" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="15989:16101" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="16158:16630" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="16687:16934" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="16991:17091" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="17148:17238" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="17321:17353" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="17321:17468" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="17525:17724" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="17781:17881" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="17938:18148" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="18205:18448" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="18505:18675" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="18732:18888" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="18945:19411" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="19468:19775" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="19832:20138" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="20195:20452" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="20509:20633" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="20690:20879" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="20936:21095" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="21152:21272" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="21329:21833" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="21890:22002" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="22059:22313" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="22370:22747" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="22804:23136" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="23193:23264" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="23193:23310" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="23367:23531" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="23588:23893" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="23950:24050" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="24107:24197" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="24279:24425" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="24482:24729" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="24786:25058" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="25115:25462" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="25519:25728" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="25785:25932" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="25989:26291" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="26348:26663" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="26720:26980" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="27037:27184" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="27241:27512" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="27569:27670" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="27727:27863" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="27920:28086" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="28143:28398" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="28455:28636" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="28693:28812" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="28869:28973" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="29030:29256" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="29313:29624" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="29681:29882" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="29939:30275" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="30332:30432" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="30489:30579" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="30654:30815" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="30872:31017" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="31074:31640" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="31697:31902" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="31959:32273" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="32330:32427" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="32484:32573" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="32648:32801" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="32858:33003" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="33060:33591" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="33648:33846" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="33903:34189" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="34246:35087" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="35144:35241" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="35298:35387" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="35463:35650" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="35707:36095" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="36152:37171" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="37228:37542" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="37599:38293" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="38350:38447" placeholder="INSERT INTO ..." />
+                <marker date="1405222101897" expanded="true" signature="38504:38977" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -287,12 +411,12 @@
         <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/Requirement.java" />
-        <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/scout/PnlMain.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+        <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
       </list>
     </option>
   </component>
@@ -362,6 +486,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -422,6 +550,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="clientPnls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -836,7 +978,7 @@
       <workItem from="1405045782402" duration="7287000" />
       <workItem from="1405127518108" duration="3501000" />
       <workItem from="1405185655113" duration="8790000" />
-      <workItem from="1405217126799" duration="1624000" />
+      <workItem from="1405217126799" duration="5051000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1190,11 +1332,15 @@
       <created>1405217937502</created>
       <updated>1405217937502</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="added a spacer to make the requirements look better">
+      <created>1405218781492</created>
+      <updated>1405218781492</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212093000" />
+    <option name="totallyTimeSpent" value="215520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1219,7 +1365,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31987247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1244,7 +1390,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added and update field by id" />
     <MESSAGE value="added some nicities" />
     <MESSAGE value="re worked settings pnl" />
     <MESSAGE value="more stuff" />
@@ -1269,7 +1414,8 @@
     <MESSAGE value="move some stuff around" />
     <MESSAGE value="did some stuff that may be reverted later" />
     <MESSAGE value="made a better requirements list" />
-    <option name="LAST_COMMIT_MESSAGE" value="made a better requirements list" />
+    <MESSAGE value="added a spacer to make the requirements look better" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a spacer to make the requirements look better" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1472,62 +1618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="343" column="35" selection-start="15294" selection-end="15294" vertical-scroll-proportion="0.30462864" vertical-offset="5548" max-vertical-offset="6477">
-          <folding>
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..user..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..advancement..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..meritBadge..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..requirement..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1405189084474" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="17" selection-start="312" selection-end="312" vertical-scroll-proportion="0.32484075" vertical-offset="0" max-vertical-offset="942">
@@ -1656,10 +1746,132 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="16" selection-start="3295" selection-end="3295" vertical-scroll-proportion="0.3568075" vertical-offset="1336" max-vertical-offset="7310">
+        <state line="112" column="56" selection-start="3390" selection-end="3390" vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="7310">
           <folding>
             <marker date="1405218730481" expanded="true" signature="4182:20000" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1405218730481" expanded="false" signature="20012:21058" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="491" column="78" selection-start="31442" selection-end="31442" vertical-scroll-proportion="0.6198083" vertical-offset="7789" max-vertical-offset="9588">
+          <folding>
+            <marker date="1405222101897" expanded="true" signature="4929:4943" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1405222101897" expanded="true" signature="7665:7955" placeholder="CREATE TABLE..user..." />
+            <marker date="1405222101897" expanded="true" signature="8033:8232" placeholder="CREATE TABLE..advancement..." />
+            <marker date="1405222101897" expanded="true" signature="8316:8631" placeholder="CREATE TABLE..meritBadge..." />
+            <marker date="1405222101897" expanded="true" signature="8715:8999" placeholder="CREATE TABLE..requirement..." />
+            <marker date="1405222101897" expanded="true" signature="9125:9220" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="9277:9374" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="9431:9532" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="9589:9688" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="9745:9830" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="9887:9972" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="10029:10114" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="10241:10491" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="10548:10641" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="10698:10843" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="10900:10991" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="11048:11157" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="11214:11324" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="11381:11535" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="11592:11676" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="11733:11961" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="12018:12258" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="12339:12568" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="12625:12777" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="12834:13104" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="13161:13273" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="13330:13513" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="13570:13701" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="13758:13954" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="14011:14139" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="14196:14343" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="14400:14534" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="14591:14827" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="14884:15535" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="15592:15743" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="15800:15932" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="15989:16101" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="16158:16630" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="16687:16934" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="16991:17091" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="17148:17238" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="17321:17353" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="17321:17468" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="17525:17724" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="17781:17881" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="17938:18148" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="18205:18448" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="18505:18675" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="18732:18888" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="18945:19411" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="19468:19775" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="19832:20138" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="20195:20452" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="20509:20633" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="20690:20879" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="20936:21095" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="21152:21272" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="21329:21833" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="21890:22002" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="22059:22313" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="22370:22747" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="22804:23136" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="23193:23264" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="23193:23310" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="23367:23531" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="23588:23893" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="23950:24050" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="24107:24197" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="24279:24425" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="24482:24729" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="24786:25058" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="25115:25462" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="25519:25728" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="25785:25932" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="25989:26291" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="26348:26663" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="26720:26980" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="27037:27184" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="27241:27512" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="27569:27670" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="27727:27863" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="27920:28086" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="28143:28398" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="28455:28636" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="28693:28812" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="28869:28973" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="29030:29256" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="29313:29624" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="29681:29882" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="29939:30275" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="30332:30432" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="30489:30579" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="30654:30815" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="30872:31017" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="31074:31640" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="31697:31902" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="31959:32273" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="32330:32427" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="32484:32573" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="32648:32801" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="32858:33003" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="33060:33591" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="33648:33846" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="33903:34189" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="34246:35087" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="35144:35241" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="35298:35387" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="35463:35650" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="35707:36095" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="36152:37171" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="37228:37542" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="37599:38293" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="38350:38447" placeholder="INSERT INTO ..." />
+            <marker date="1405222101897" expanded="true" signature="38504:38977" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
