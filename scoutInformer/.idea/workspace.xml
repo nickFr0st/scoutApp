@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="cleaning up database">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -137,7 +137,22 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" line="179" class="scout.clientPnls.PnlSignIn" package="scout.clientPnls">
+      <breakpoint url="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java" line="80" class="scout.clientPnls.PnlHome" package="scout.clientPnls">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/util/DBConnector.java" line="90" class="util.DBConnector" package="util">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -165,22 +180,46 @@
       <file leaf-file-name="SignIn.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="29" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
+            <state line="32" column="0" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1071">
               <folding>
-                <marker date="1404449010987" expanded="false" signature="1459:2383" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1404449010987" expanded="false" signature="2395:2547" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1406007264250" expanded="false" signature="1459:2383" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406007264250" expanded="false" signature="2395:2547" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlSignIn.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlHome.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="0" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0" vertical-offset="985" max-vertical-offset="2040">
+              <folding>
+                <marker date="1406006731983" expanded="false" signature="2910:8253" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406006731983" expanded="false" signature="8265:8610" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlSetupWizard.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="11" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="3111">
+              <folding>
+                <marker date="1406004579843" expanded="false" signature="6150:22270" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406004579843" expanded="false" signature="22282:23349" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlSignIn.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="88" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.5070422" vertical-offset="2889" max-vertical-offset="4080">
+            <state line="234" column="20" selection-start="6658" selection-end="6658" vertical-scroll-proportion="0.0" vertical-offset="2732" max-vertical-offset="4080">
               <folding>
-                <marker date="1406005272285" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1406005272285" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1406006731984" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406006731984" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -189,8 +228,19 @@
       <file leaf-file-name="KeyConst.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="4" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+            <state line="14" column="37" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="816">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogicUser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/LogicUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="51" selection-start="683" selection-end="688" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="850">
+              <folding>
+                <marker date="1406004680370" expanded="true" signature="549:567" placeholder="SELECT * FRO..user..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,49 +252,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LogicAdvancement.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="65" selection-start="843" selection-end="855" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1224">
+              <folding>
+                <marker date="1406004680370" expanded="true" signature="700:756" placeholder="SELECT * FRO..advancement..." />
+                <marker date="1406004680370" expanded="true" signature="1510:1538" placeholder="SELECT name ..advancement..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogicRequirement.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="65" selection-start="930" selection-end="942" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="952">
+              <folding>
+                <marker date="1406004680370" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnector.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="45" selection-start="1297" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="4658">
+            <state line="92" column="9" selection-start="2362" selection-end="2362" vertical-scroll-proportion="0.67304623" vertical-offset="836" max-vertical-offset="10013">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#868#869#0" expanded="true" />
-                <element signature="e#901#902#0" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#963#964#0" expanded="true" />
-                <element signature="e#996#997#0" expanded="true" />
-                <element signature="e#1025#1026#0" expanded="true" />
-                <element signature="e#1055#1056#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
-                <element signature="e#1116#1117#0" expanded="true" />
-                <element signature="e#1147#1148#0" expanded="true" />
-                <element signature="e#1182#1183#0" expanded="true" />
-                <element signature="e#1213#1214#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1275#1276#0" expanded="true" />
-                <element signature="method#buildDataBase#0;class#DBConnector#0" expanded="false" />
-                <marker date="1406004874824" expanded="true" signature="5588:5602" placeholder="SELECT * FRO..missingValue..." />
-                <marker date="1406004874824" expanded="true" signature="8234:8524" placeholder="CREATE TABLE..user..." />
-                <marker date="1406004874824" expanded="true" signature="8602:8801" placeholder="CREATE TABLE..advancement..." />
-                <marker date="1406004874824" expanded="true" signature="8885:9200" placeholder="CREATE TABLE..meritBadge..." />
-                <marker date="1406004874824" expanded="true" signature="9284:9568" placeholder="CREATE TABLE..requirement..." />
-                <marker date="1406004874824" expanded="true" signature="9694:9789" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="9846:9943" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="10000:10101" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="10158:10257" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="10314:10399" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="10456:10541" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="10598:10683" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="10810:11060" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="11117:11210" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="11267:11412" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="11469:11560" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="11617:11726" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="11783:11893" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="11950:12104" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="12161:12245" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="12302:12530" placeholder="INSERT INTO ..." />
-                <marker date="1406004874824" expanded="true" signature="12587:12827" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="5681:5695" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1406035341118" expanded="true" signature="8327:8617" placeholder="CREATE TABLE..user..." />
+                <marker date="1406035341118" expanded="true" signature="8695:8894" placeholder="CREATE TABLE..advancement..." />
+                <marker date="1406035341118" expanded="true" signature="8978:9293" placeholder="CREATE TABLE..meritBadge..." />
+                <marker date="1406035341118" expanded="true" signature="9377:9661" placeholder="CREATE TABLE..requirement..." />
+                <marker date="1406035341118" expanded="true" signature="9787:9882" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="9939:10036" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="10093:10194" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="10251:10350" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="10407:10492" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="10549:10634" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="10691:10776" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="10903:11153" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="11210:11303" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="11360:11505" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="11562:11653" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="11710:11819" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="11876:11986" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="12043:12197" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="12254:12338" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="12395:12623" placeholder="INSERT INTO ..." />
+                <marker date="1406035341118" expanded="true" signature="12680:12920" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -284,7 +341,6 @@
         <option value="$PROJECT_DIR$/src/guiUtil/PnlFileBrowser.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/CustomFileChooser.java" />
         <option value="$PROJECT_DIR$/src/constants/ErrorConst.java" />
-        <option value="$PROJECT_DIR$/src/scout/SignIn.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/SelectionBorder.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.jfd" />
@@ -297,7 +353,6 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd" />
         <option value="$PROJECT_DIR$/src/scout/PnlMain.jfd" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/Advancement.java" />
-        <option value="$PROJECT_DIR$/src/constants/KeyConst.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/Requirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
@@ -307,13 +362,15 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
+        <option value="$PROJECT_DIR$/src/scout/PnlMain.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" />
+        <option value="$PROJECT_DIR$/src/properties/users.properties" />
+        <option value="$PROJECT_DIR$/src/constants/KeyConst.java" />
         <option value="$PROJECT_DIR$/src/util/LogicAdvancement.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
         <option value="$PROJECT_DIR$/src/util/LogicUser.java" />
-        <option value="$PROJECT_DIR$/src/scout/PnlMain.java" />
+        <option value="$PROJECT_DIR$/src/scout/SignIn.java" />
         <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" />
-        <option value="$PROJECT_DIR$/src/properties/users.properties" />
       </list>
     </option>
   </component>
@@ -351,7 +408,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -521,6 +577,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -897,6 +954,8 @@
       <workItem from="1405300128829" duration="1705000" />
       <workItem from="1406002521120" duration="944000" />
       <workItem from="1406003552071" duration="1756000" />
+      <workItem from="1406006735876" duration="566000" />
+      <workItem from="1406034860854" duration="578000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1270,7 +1329,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220925000" />
+    <option name="totallyTimeSpent" value="222069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1281,7 +1340,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32873806" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39744952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1290,14 +1349,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32518598" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3244963" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31987247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31880978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1486,9 +1545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/Advancement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="38" selection-start="410" selection-end="410" vertical-scroll-proportion="0.45116773" vertical-offset="0" max-vertical-offset="942">
-          <folding />
-        </state>
+        <state line="25" column="38" selection-start="410" selection-end="410" vertical-scroll-proportion="0.45116773" vertical-offset="0" max-vertical-offset="942" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Util.java">
@@ -1498,9 +1555,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/Requirement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.38641188" vertical-offset="129" max-vertical-offset="1071">
-          <folding />
-        </state>
+        <state line="29" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.38641188" vertical-offset="129" max-vertical-offset="1071" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
@@ -1530,27 +1585,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="36" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <folding>
-            <marker date="1406003009017" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406003009017" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
+        <state line="19" column="36" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="1865" selection-end="1865" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="2040">
-          <folding>
-            <marker date="1406004579837" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406004579837" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.jfd">
@@ -1561,132 +1601,25 @@
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="153" column="51" selection-start="5248" selection-end="5248" vertical-scroll-proportion="0.0" vertical-offset="1731" max-vertical-offset="2975">
-          <folding>
-            <marker date="1406004579884" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406004579884" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="43" selection-start="4553" selection-end="4553" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3111">
-          <folding>
-            <marker date="1406004579843" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406004579843" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlDefaultSplash.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
-          <folding>
-            <marker date="1404675228112" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1404675228112" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
+        <state line="13" column="13" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="33" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="2125">
-          <folding>
-            <marker date="1406002896091" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406002896091" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="51" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1122">
-          <folding>
-            <marker date="1406004680370" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..advancement..." />
-            <marker date="1406004680370" expanded="true" signature="-1:-1" placeholder="SELECT name ..advancement..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="51" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <folding>
-            <marker date="1406004680370" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="36" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <folding>
-            <marker date="1406004680370" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..user..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/ProgramDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="161" selection-end="161" vertical-scroll-proportion="0.12659575" vertical-offset="0" max-vertical-offset="940">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="45" selection-start="1297" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="4658">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#934#935#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1055#1056#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1116#1117#0" expanded="true" />
-            <element signature="e#1147#1148#0" expanded="true" />
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="method#buildDataBase#0;class#DBConnector#0" expanded="false" />
-            <marker date="1406004874824" expanded="true" signature="5588:5602" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1406004874824" expanded="true" signature="8234:8524" placeholder="CREATE TABLE..user..." />
-            <marker date="1406004874824" expanded="true" signature="8602:8801" placeholder="CREATE TABLE..advancement..." />
-            <marker date="1406004874824" expanded="true" signature="8885:9200" placeholder="CREATE TABLE..meritBadge..." />
-            <marker date="1406004874824" expanded="true" signature="9284:9568" placeholder="CREATE TABLE..requirement..." />
-            <marker date="1406004874824" expanded="true" signature="9694:9789" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="9846:9943" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="10000:10101" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="10158:10257" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="10314:10399" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="10456:10541" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="10598:10683" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="10810:11060" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="11117:11210" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="11267:11412" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="11469:11560" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="11617:11726" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="11783:11893" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="11950:12104" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="12161:12245" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="12302:12530" placeholder="INSERT INTO ..." />
-            <marker date="1406004874824" expanded="true" signature="12587:12827" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="29" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1071">
-          <folding>
-            <marker date="1404449010987" expanded="false" signature="1459:2383" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1404449010987" expanded="false" signature="2395:2547" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
+        <state line="7" column="31" selection-start="161" selection-end="161" vertical-scroll-proportion="0.12659575" vertical-offset="0" max-vertical-offset="940" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.jfd">
@@ -1694,26 +1627,112 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
+    <entry file="file://$PROJECT_DIR$/src/properties/users.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <folding />
+        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="639" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="65" selection-start="843" selection-end="855" vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="1122">
+          <folding>
+            <marker date="1406004680370" expanded="true" signature="700:756" placeholder="SELECT * FRO..advancement..." />
+            <marker date="1406004680370" expanded="true" signature="1510:1538" placeholder="SELECT name ..advancement..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/properties/users.properties">
+    <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="639">
+        <state line="34" column="65" selection-start="930" selection-end="942" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+          <folding>
+            <marker date="1406004680370" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LogicUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="51" selection-start="683" selection-end="688" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <folding>
+            <marker date="1406004680370" expanded="true" signature="549:567" placeholder="SELECT * FRO..user..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="37" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="88" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.5070422" vertical-offset="2889" max-vertical-offset="4080">
+        <state line="234" column="20" selection-start="6658" selection-end="6658" vertical-scroll-proportion="0.0" vertical-offset="3140" max-vertical-offset="4080">
           <folding>
-            <marker date="1406005272285" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406005272285" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1406006731984" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406006731984" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1071">
+          <folding>
+            <marker date="1406007264250" expanded="false" signature="1459:2383" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406007264250" expanded="false" signature="2395:2547" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="11" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="3111">
+          <folding>
+            <marker date="1406004579843" expanded="false" signature="6150:22270" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406004579843" expanded="false" signature="22282:23349" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0" vertical-offset="985" max-vertical-offset="2040">
+          <folding>
+            <marker date="1406006731983" expanded="false" signature="2910:8253" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406006731983" expanded="false" signature="8265:8610" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="9" selection-start="2362" selection-end="2362" vertical-scroll-proportion="0.67304623" vertical-offset="836" max-vertical-offset="10013">
+          <folding>
+            <marker date="1406035341118" expanded="true" signature="5681:5695" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1406035341118" expanded="true" signature="8327:8617" placeholder="CREATE TABLE..user..." />
+            <marker date="1406035341118" expanded="true" signature="8695:8894" placeholder="CREATE TABLE..advancement..." />
+            <marker date="1406035341118" expanded="true" signature="8978:9293" placeholder="CREATE TABLE..meritBadge..." />
+            <marker date="1406035341118" expanded="true" signature="9377:9661" placeholder="CREATE TABLE..requirement..." />
+            <marker date="1406035341118" expanded="true" signature="9787:9882" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="9939:10036" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="10093:10194" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="10251:10350" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="10407:10492" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="10549:10634" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="10691:10776" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="10903:11153" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="11210:11303" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="11360:11505" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="11562:11653" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="11710:11819" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="11876:11986" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="12043:12197" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="12254:12338" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="12395:12623" placeholder="INSERT INTO ..." />
+            <marker date="1406035341118" expanded="true" signature="12680:12920" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>

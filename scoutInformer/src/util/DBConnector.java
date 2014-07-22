@@ -88,19 +88,19 @@ public class DBConnector {
     }
 
     private void updateCurrentDataBaseInfo(String url, String dbName, String userName, String password) {
-        if (!this.url.equals(url)) {
+        if (this.url == null || !this.url.equals(url)) {
             this.url = url;
         }
 
-        if (!this.dbName.equals(dbName)){
+        if (this.dbName == null || !this.dbName.equals(dbName)){
             this.dbName = dbName;
         }
 
-        if (!this.userName.equals(userName)) {
+        if (this.userName == null || !this.userName.equals(userName)) {
             this.userName = userName;
         }
 
-        if (!this.password.equals(password)) {
+        if (this.password == null || !this.password.equals(password)) {
             this.password = password;
         }
     }
