@@ -46,16 +46,8 @@ public class DBConnector {
         return properties.getProperty(KeyConst.DB_URL.getName());
     }
 
-    public String getUserName() {
-        return properties.getProperty(KeyConst.DB_USER_NAME.getName());
-    }
-
     public String getPassword() {
         return properties.getProperty(KeyConst.DB_PASSWORD.getName());
-    }
-
-    public String getDbPath() {
-        return dbPath;
     }
 
     public boolean checkForDataBaseConnection() {
@@ -173,7 +165,7 @@ public class DBConnector {
 
 
             StringBuilder query = new StringBuilder();
-            query.append("INSERT INTO " + tableName).append(" (");
+            query.append("INSERT INTO ").append(tableName).append(" (");
 
             query.append("id");
             for (String s : tableColumnNames) {
@@ -230,7 +222,6 @@ public class DBConnector {
 
     private void buildDataBase() throws SQLException {
         Statement statement = createStatement();
-        StringBuilder query = new StringBuilder();
 
         // Create Tables
         String tableUser = "CREATE TABLE user " +
@@ -425,58 +416,58 @@ public class DBConnector {
         statement.addBatch(insert);
         insert = "INSERT INTO requirement VALUES( " + id++ + ",'13', 'Complete your board of review.', 1, 3)";
         statement.addBatch(insert);
-//
-//        //  First Class
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Demonstrate how to find directions during the day and at night without using a compass.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Using a map and compass, complete an orienteering course that covers at least one mile and requires measuring the height and/or width of designated items (tree, tower, canyon, ditch, etc.)', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Since joining, have participated in 10 separate troop/patrol activities (other than troop/patrol meetings), three of which included camping overnight. Demonstrate the principles of Leave No Trace on these outings.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4a', 'Help plan a patrol menu for one campout that includes at least one breakfast, one lunch, and one dinner, and that requires cooking at least two of the meals. Tell how the menu includes the foods from the MyPlate food guide or the current USDA nutrition model and meets nutritional needs.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4b', 'Using the menu planned in requirement 4a, make a list showing the cost and food amounts needed to feed three or more boys and secure the ingredients.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4c', 'Tell which pans, utensils, and other gear will be needed to cook and serve these meals.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4d', 'Explain the procedures to follow in the safe handling and storage of fresh meats, dairy products, eggs, vegetables, and other perishable food products. Tell how to properly dispose of camp garbage, cans, plastic containers, and other rubbish.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4e', 'On one campout, serve as your patrol\'s cook. Supervise your assistant(s) in using a stove or building a cooking fire. Prepare the breakfast, lunch, and dinner planned in requirement 4a. Lead your patrol in saying grace at the meals and supervise cleanup.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'Visit and discuss with a selected individual approved by your leader (elected official, judge, attorney, civil servant, principal, teacher) your constitutional rights and obligations as a U.S. citizen.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Identify or show evidence of at least 10 kinds of native plants found in your community.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7a', 'Discuss when you should and should not use lashings. Then demonstrate tying the timber hitch and clove hitch and their use in square, shear, and diagonal lashings by joining two or more poles or staves together.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7b', 'Use lashing to make a useful camp gadget.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8a', 'Demonstrate tying the bowline knot and describe several ways it can be used.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8b', 'Demonstrate bandages for a sprained ankle and for injuries on the head, the upper arm, and the collarbone.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8c', 'Show how to transport by yourself, and with one other person, a person:\n" +
-//                "   - From a smoke-filled room\n" +
-//                "   - With a sprained ankle, for at least 25 yards', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8d', 'Tell the five most common signs of a heart attack. Explain the steps (procedures) in cardiopulmonary resuscitation (CPR).', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9a', 'Tell what precautions must be taken for a safe trip afloat.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9b', 'Successfully complete the BSA swimmer test.*', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9c', 'With a helper and a practice victim, show a line rescue both as tender and as rescuer. (The practice victim should be approximately 30 feet from shore in deep water.)', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'10', 'Tell someone who is eligible to join Boy Scouts, or an inactive Boy Scout, about your troop\'s activities. Invite him to a troop outing, activity, service project, or meeting. Tell him how to join, or encourage the inactive Boy Scout to become active.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'11', 'Describe the three things you should avoid doing related to the use of the Internet. Describe a cyberbully and how you should respond to one.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'12', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life. Discuss four specific examples (different from those used in Tenderfoot requirement 13 and Second Class requirement 11) of how you have lived the points of the Scout Law in your daily life.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'13', 'Participate in a Scoutmaster conference.', 1, 4)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'14', 'Complete your board of review.', 1, 4)";
-//        statement.addBatch(insert);
+
+        //  First Class
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Demonstrate how to find directions during the day and at night without using a compass.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Using a map and compass, complete an orienteering course that covers at least one mile and requires measuring the height and/or width of designated items (tree, tower, canyon, ditch, etc.)', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Since joining, have participated in 10 separate troop/patrol activities (other than troop/patrol meetings), three of which included camping overnight. Demonstrate the principles of Leave No Trace on these outings.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4a', 'Help plan a patrol menu for one campout that includes at least one breakfast, one lunch, and one dinner, and that requires cooking at least two of the meals. Tell how the menu includes the foods from the MyPlate food guide or the current USDA nutrition model and meets nutritional needs.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4b', 'Using the menu planned in requirement 4a, make a list showing the cost and food amounts needed to feed three or more boys and secure the ingredients.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4c', 'Tell which pans, utensils, and other gear will be needed to cook and serve these meals.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4d', 'Explain the procedures to follow in the safe handling and storage of fresh meats, dairy products, eggs, vegetables, and other perishable food products. Tell how to properly dispose of camp garbage, cans, plastic containers, and other rubbish.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4e', 'On one campout, serve as your patrols cook. Supervise your assistant(s) in using a stove or building a cooking fire. Prepare the breakfast, lunch, and dinner planned in requirement 4a. Lead your patrol in saying grace at the meals and supervise cleanup.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'Visit and discuss with a selected individual approved by your leader (elected official, judge, attorney, civil servant, principal, teacher) your constitutional rights and obligations as a U.S. citizen.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Identify or show evidence of at least 10 kinds of native plants found in your community.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7a', 'Discuss when you should and should not use lashings. Then demonstrate tying the timber hitch and clove hitch and their use in square, shear, and diagonal lashings by joining two or more poles or staves together.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7b', 'Use lashing to make a useful camp gadget.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8a', 'Demonstrate tying the bowline knot and describe several ways it can be used.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8b', 'Demonstrate bandages for a sprained ankle and for injuries on the head, the upper arm, and the collarbone.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8c', 'Show how to transport by yourself, and with one other person, a person:\n" +
+                "   - From a smoke-filled room\n" +
+                "   - With a sprained ankle, for at least 25 yards', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8d', 'Tell the five most common signs of a heart attack. Explain the steps (procedures) in cardiopulmonary resuscitation (CPR).', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9a', 'Tell what precautions must be taken for a safe trip afloat.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9b', 'Successfully complete the BSA swimmer test.*', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9c', 'With a helper and a practice victim, show a line rescue both as tender and as rescuer. (The practice victim should be approximately 30 feet from shore in deep water.)', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'10', 'Tell someone who is eligible to join Boy Scouts, or an inactive Boy Scout, about your troops activities. Invite him to a troop outing, activity, service project, or meeting. Tell him how to join, or encourage the inactive Boy Scout to become active.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'11', 'Describe the three things you should avoid doing related to the use of the Internet. Describe a cyberbully and how you should respond to one.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'12', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life. Discuss four specific examples (different from those used in Tenderfoot requirement 13 and Second Class requirement 11) of how you have lived the points of the Scout Law in your daily life.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'13', 'Participate in a Scoutmaster conference.', 1, 4)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'14', 'Complete your board of review.', 1, 4)";
+        statement.addBatch(insert);
 //
 //        //  Star
 //        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your unit (and patrol if you are in one) for at least four months as a First Class Scout.', 1, 5)";
