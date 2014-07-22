@@ -201,6 +201,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
         }
 
         properties.setProperty(txtNewUserName.getText(), txtNewUserPassword.getText());
+        properties.setProperty(KeyConst.SAVED_USER.getName(), txtNewUserName.getText());
         Util.saveProperties(properties, getClass().getResource(propertyFileName).toString());
 
         clearFields();
