@@ -406,7 +406,7 @@ public class DBConnector {
         statement.addBatch(insert);
         insert = "INSERT INTO requirement VALUES( " + id++ + ",'9a', 'Participate in a school, community, or troop program on the dangers of using drugs, alcohol, and tobacco, and other practices that could be harmful to your health. Discuss your participation in the program with your family, and explain the dangers of substance addictions.', 1, 3)";
         statement.addBatch(insert);
-        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9b', 'Explain the three Rs of personal safety and protection.', 1, 3)";
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'9b', 'Explain the three R''s of personal safety and protection.', 1, 3)";
         statement.addBatch(insert);
         insert = "INSERT INTO requirement VALUES( " + id++ + ",'10', 'Earn an amount of money agreed upon by you and your parent, then save at least 50 percent of that money.', 1, 3)";
         statement.addBatch(insert);
@@ -468,88 +468,88 @@ public class DBConnector {
         statement.addBatch(insert);
         insert = "INSERT INTO requirement VALUES( " + id++ + ",'14', 'Complete your board of review.', 1, 4)";
         statement.addBatch(insert);
-//
-//        //  Star
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your unit (and patrol if you are in one) for at least four months as a First Class Scout.', 1, 5)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life.', 1, 5)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Earn six merit badges, including any four from the required list for Eagle.\n" +
-//                "___________________________________(required for Eagle)*\n" +
-//                "___________________________________(required for Eagle)*\n" +
-//                "___________________________________(required for Eagle)*\n" +
-//                "___________________________________(required for Eagle)*\n" +
-//                "___________________________________\n" +
-//                "___________________________________', 1, 5)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'While a First Class Scout, take part in service projects totaling at least six hours of work. These projects must be approved by your Scoutmaster.', 1, 5)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'While a First Class Scout, serve actively in your unit for four months in one or more of the following positions of responsibility (or carry out a unit leader-assigned leadership project to help your unit): (see boy scout handbook for available positions)', 1, 5)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Take part in a Scoutmaster conference.', 1, 5)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Complete your board of review.', 1, 5)";
-//        statement.addBatch(insert);
-//
-//        //  Life
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your unit (and patrol if you are in one) for at least six months as a Star Scout.', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life.', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Earn five more merit badges (so that you have 11 in all), including any three more from the required list for Eagle.\n" +
-//                "___________________________________ (required for Eagle)*\n" +
-//                "___________________________________ (required for Eagle)*\n" +
-//                "___________________________________ (required for Eagle)*\n" +
-//                "___________________________________\n" +
-//                "___________________________________', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'While a Star Scout, take part in service projects totaling at least six hours of work. These projects must be approved by your Scoutmaster.', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'While a Star Scout, serve actively in your unit for six months in one or more of the positions of responsibility listed in requirement 5 for Star Scout (or carry out a Scoutmaster-assigned leadership project to help the troop).', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'While a Star Scout, use the EDGE method to teach another Scout (preferably younger than you) the skills from ONE of the following seven choices, so that he is prepared to pass those requirements to his unit leader\'s satisfaction.\n" +
-//                "  a.  Second Class: 7a and 7c (first aid)\n" +
-//                "  b.  Second Class: 1a (outdoor skills)\n" +
-//                "  c.  Second Class: 3c, 3d, 3e, and 3f (cooking/camping)\n" +
-//                "  d.  First Class: 8a, 8b, 8c, and 8d (first aid)\n" +
-//                "  e.  First Class: 1, 7a, and 7b (outdoor skills)\n" +
-//                "  f.  First Class: 4a, 4b, and 4d (cooking/camping)\n" +
-//                "  g.  Three requirements from one of the required for Eagle merit badges, as approved by your unit leader.', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Take part in a Scoutmaster conference.', 1, 6)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8', 'Complete your board of review.', 1, 6)";
-//        statement.addBatch(insert);
-//
-//        //  Eagle
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your troop, team, crew, or ship for a period of at least six months after you have achieved the rank of Life Scout.', 1, 7)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Demonstrate that you live by the principles of the Scout Oath and Scout Law in your daily life. List on your Eagle Scout Rank Application the names of individuals who know you personally and would be willing to provide a recommendation on your behalf, including parents/guardians, religious, educational, and employer references.', 1, 7)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Earn a total of 21 merit badges (10 more than you already have), including the following:\n" +
-//                "  a. First Aid\n" +
-//                "  b. Citizenship in the Community\n" +
-//                "  c. Citizenship in the Nation\n" +
-//                "  d. Citizenship in the World\n" +
-//                "  e. Communication\n" +
-//                "  f. Cooking\n" +
-//                "  g. Personal Fitness\n" +
-//                "  h. Emergency Preparedness OR Lifesaving*\n" +
-//                "  i. Environmental Science OR Sustainability*\n" +
-//                "  j. Personal Management\n" +
-//                "  k. Swimming OR Hiking OR Cycling*\n" +
-//                "  l. Camping, and\n" +
-//                "  m. Family Life\n" +
-//                "* You must choose only one merit badge listed in items h, i, and k. If you have earned more than one of the badges listed in items h, i, and/or k, choose one and list the remaining badges to make your total of 21.', 1, 7)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'While a Life Scout, serve actively in your unit for a period of six months in one or more of the following positions of responsibility. List only those positions served after your Life board of review date. (see boy scout handbook for available positions)', 1, 7)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'While a Life Scout, plan, develop, and give leadership to others in a service project helpful to any religious institution, any school, or your community. (The project should benefit an organization other than Boy Scouting.) The project proposal must be approved by the organization benefiting from the effort, your unit leader and unit committee, and the council or district before you start. You must use the Eagle Scout Leadership Service Project Workbook, BSA publication No. 521-927, in meeting this requirement. (To learn more about the Eagle Scout service project, see the Guide To Advancement, topics 9.0.2.0 through 9.0.2.15.)', 1, 7)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Take part in a unit leader conference.', 1, 7)";
-//        statement.addBatch(insert);
-//        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Successfully complete an Eagle Scout board of review. In preparation for your board of review, prepare and attach to your Eagle Scout Rank Application a statement of your ambitions and life purpose and a listing of positions held in your religious institution, school, camp, community, or other organizations, during which you demonstrated leadership skills. Include honors and awards received during this service.', 1, 7)";
-//        statement.addBatch(insert);
+
+        //  Star
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your unit (and patrol if you are in one) for at least four months as a First Class Scout.', 1, 5)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life.', 1, 5)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Earn six merit badges, including any four from the required list for Eagle.\n" +
+                "___________________________________(required for Eagle)*\n" +
+                "___________________________________(required for Eagle)*\n" +
+                "___________________________________(required for Eagle)*\n" +
+                "___________________________________(required for Eagle)*\n" +
+                "___________________________________\n" +
+                "___________________________________', 1, 5)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'While a First Class Scout, take part in service projects totaling at least six hours of work. These projects must be approved by your Scoutmaster.', 1, 5)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'While a First Class Scout, serve actively in your unit for four months in one or more of the following positions of responsibility (or carry out a unit leader-assigned leadership project to help your unit): (see boy scout handbook for available positions)', 1, 5)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Take part in a Scoutmaster conference.', 1, 5)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Complete your board of review.', 1, 5)";
+        statement.addBatch(insert);
+
+        //  Life
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your unit (and patrol if you are in one) for at least six months as a Star Scout.', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Demonstrate Scout spirit by living the Scout Oath and Scout Law in your everyday life.', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Earn five more merit badges (so that you have 11 in all), including any three more from the required list for Eagle.\n" +
+                "___________________________________ (required for Eagle)*\n" +
+                "___________________________________ (required for Eagle)*\n" +
+                "___________________________________ (required for Eagle)*\n" +
+                "___________________________________\n" +
+                "___________________________________', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'While a Star Scout, take part in service projects totaling at least six hours of work. These projects must be approved by your Scoutmaster.', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'While a Star Scout, serve actively in your unit for six months in one or more of the positions of responsibility listed in requirement 5 for Star Scout (or carry out a Scoutmaster-assigned leadership project to help the troop).', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'While a Star Scout, use the EDGE method to teach another Scout (preferably younger than you) the skills from ONE of the following seven choices, so that he is prepared to pass those requirements to his unit leader''s satisfaction.\n" +
+                "  a.  Second Class: 7a and 7c (first aid)\n" +
+                "  b.  Second Class: 1a (outdoor skills)\n" +
+                "  c.  Second Class: 3c, 3d, 3e, and 3f (cooking/camping)\n" +
+                "  d.  First Class: 8a, 8b, 8c, and 8d (first aid)\n" +
+                "  e.  First Class: 1, 7a, and 7b (outdoor skills)\n" +
+                "  f.  First Class: 4a, 4b, and 4d (cooking/camping)\n" +
+                "  g.  Three requirements from one of the required for Eagle merit badges, as approved by your unit leader.', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Take part in a Scoutmaster conference.', 1, 6)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'8', 'Complete your board of review.', 1, 6)";
+        statement.addBatch(insert);
+
+        //  Eagle
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'1', 'Be active in your troop, team, crew, or ship for a period of at least six months after you have achieved the rank of Life Scout.', 1, 7)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'2', 'Demonstrate that you live by the principles of the Scout Oath and Scout Law in your daily life. List on your Eagle Scout Rank Application the names of individuals who know you personally and would be willing to provide a recommendation on your behalf, including parents/guardians, religious, educational, and employer references.', 1, 7)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'3', 'Earn a total of 21 merit badges (10 more than you already have), including the following:\n" +
+                "  a. First Aid\n" +
+                "  b. Citizenship in the Community\n" +
+                "  c. Citizenship in the Nation\n" +
+                "  d. Citizenship in the World\n" +
+                "  e. Communication\n" +
+                "  f. Cooking\n" +
+                "  g. Personal Fitness\n" +
+                "  h. Emergency Preparedness OR Lifesaving*\n" +
+                "  i. Environmental Science OR Sustainability*\n" +
+                "  j. Personal Management\n" +
+                "  k. Swimming OR Hiking OR Cycling*\n" +
+                "  l. Camping, and\n" +
+                "  m. Family Life\n" +
+                "* You must choose only one merit badge listed in items h, i, and k. If you have earned more than one of the badges listed in items h, i, and/or k, choose one and list the remaining badges to make your total of 21.', 1, 7)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'4', 'While a Life Scout, serve actively in your unit for a period of six months in one or more of the following positions of responsibility. List only those positions served after your Life board of review date. (see boy scout handbook for available positions)', 1, 7)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'5', 'While a Life Scout, plan, develop, and give leadership to others in a service project helpful to any religious institution, any school, or your community. (The project should benefit an organization other than Boy Scouting.) The project proposal must be approved by the organization benefiting from the effort, your unit leader and unit committee, and the council or district before you start. You must use the Eagle Scout Leadership Service Project Workbook, BSA publication No. 521-927, in meeting this requirement. (To learn more about the Eagle Scout service project, see the Guide To Advancement, topics 9.0.2.0 through 9.0.2.15.)', 1, 7)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'6', 'Take part in a unit leader conference.', 1, 7)";
+        statement.addBatch(insert);
+        insert = "INSERT INTO requirement VALUES( " + id++ + ",'7', 'Successfully complete an Eagle Scout board of review. In preparation for your board of review, prepare and attach to your Eagle Scout Rank Application a statement of your ambitions and life purpose and a listing of positions held in your religious institution, school, camp, community, or other organizations, during which you demonstrated leadership skills. Include honors and awards received during this service.', 1, 7)";
+        statement.addBatch(insert);
 
         statement.executeBatch();
     }
