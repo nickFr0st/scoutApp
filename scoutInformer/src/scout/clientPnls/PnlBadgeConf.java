@@ -119,6 +119,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 0, 0), 0, 0));
             }
+
+            pnlRequirements.revalidate();
         }
     }
 
