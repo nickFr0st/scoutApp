@@ -12,10 +12,6 @@ import java.util.Properties;
 public class DBConnector {
     private Connection connection;
     private String driver;
-    private String dbName;
-    private String url;
-    private String userName;
-    private String password;
     private String dbPath;
     private Properties properties;
 
@@ -43,19 +39,19 @@ public class DBConnector {
     }
 
     public String getDbName() {
-        return dbName;
+        return properties.getProperty(KeyConst.DB_NAME.getName());
     }
 
     public String getUrl() {
-        return url;
+        return properties.getProperty(KeyConst.DB_URL.getName());
     }
 
     public String getUserName() {
-        return userName;
+        return properties.getProperty(KeyConst.DB_USER_NAME.getName());
     }
 
     public String getPassword() {
-        return password;
+        return properties.getProperty(KeyConst.DB_PASSWORD.getName());
     }
 
     public String getDbPath() {
@@ -64,6 +60,7 @@ public class DBConnector {
 
     public boolean checkForDataBaseConnection() {
         try {
+            properties.load(getClass().getResourceAsStream("/properties/database.properties"));
             String url = properties.getProperty(KeyConst.DB_URL.getName());
             String dbName = properties.getProperty(KeyConst.DB_NAME.getName());
             String userName = properties.getProperty(KeyConst.DB_USER_NAME.getName());
@@ -78,45 +75,11 @@ public class DBConnector {
             // test the connection
             connection = DriverManager.getConnection(url + dbName, userName, password);
 
-            updateCurrentDataBaseInfo(url, dbName, userName, password);
-
         } catch (Exception e) {
             return false;
         }
 
         return true;
-    }
-
-    private void updateCurrentDataBaseInfo(String url, String dbName, String userName, String password) {
-        if (this.url == null || !this.url.equals(url)) {
-            this.url = url;
-        }
-
-        if (this.dbName == null || !this.dbName.equals(dbName)){
-            this.dbName = dbName;
-        }
-
-        if (this.userName == null || !this.userName.equals(userName)) {
-            this.userName = userName;
-        }
-
-        if (this.password == null || !this.password.equals(password)) {
-            this.password = password;
-        }
-    }
-
-    public void connectToDataBase() {
-        try {
-            Class.forName(driver).newInstance();
-
-            connection = DriverManager.getConnection(url + dbName, userName, password);
-
-        } catch (SQLException sqle) {
-            System.err.print("Exception in connectToDB(): ");
-            System.err.println(sqle.getMessage());
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
     }
 
     public int connectToDB(String name, String rootUser, String rootPassword) {
@@ -133,26 +96,12 @@ public class DBConnector {
     }
 
     public void resetProperties(String name, String rootUser, String rootPassword) {
-        url = dbPath;
-        dbName = name;
-        userName = rootUser;
-        password = rootPassword;
-
         properties.setProperty(KeyConst.DB_URL.getName(), dbPath);
         properties.setProperty(KeyConst.DB_NAME.getName(), name);
         properties.setProperty(KeyConst.DB_USER_NAME.getName(), rootUser);
         properties.setProperty(KeyConst.DB_PASSWORD.getName(), rootPassword);
 
         Util.saveProperties(properties, getClass().getResource("/properties/database.properties").toString());
-    }
-
-    public void closeConnection() {
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            System.out.println("connection close failed.");
-            System.out.println(e.getMessage());
-        }
     }
 
     public int createDatabase(String name, String rootUser, String rootPassword) {
@@ -184,6 +133,10 @@ public class DBConnector {
     private int getNextId(String tableName) {
         int id = 0;
         try {
+            String dbName = properties.getProperty(KeyConst.DB_NAME.getName());
+            String userName = properties.getProperty(KeyConst.DB_USER_NAME.getName());
+            String password = properties.getProperty(KeyConst.DB_PASSWORD.getName());
+
             Statement statement = setupConnection(userName, dbName, password);
             ResultSet rs = statement.executeQuery("SELECT * FROM " + tableName);
 
@@ -208,6 +161,10 @@ public class DBConnector {
         }
 
         try {
+            String dbName = properties.getProperty(KeyConst.DB_NAME.getName());
+            String userName = properties.getProperty(KeyConst.DB_USER_NAME.getName());
+            String password = properties.getProperty(KeyConst.DB_PASSWORD.getName());
+
             Statement statement = setupConnection(userName, dbName, password);
             int id = getNextId(tableName);
 
@@ -240,6 +197,10 @@ public class DBConnector {
         }
 
         try {
+            String dbName = properties.getProperty(KeyConst.DB_NAME.getName());
+            String userName = properties.getProperty(KeyConst.DB_USER_NAME.getName());
+            String password = properties.getProperty(KeyConst.DB_PASSWORD.getName());
+
             Statement statement = setupConnection(userName, dbName, password);
             StringBuilder query = new StringBuilder();
 

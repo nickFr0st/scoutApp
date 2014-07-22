@@ -23,7 +23,6 @@ import java.awt.event.MouseEvent;
  */
 public class PnlSettings extends JPanel implements PnlGui {
     private DBConnector connector;
-    private int userExists;
 
     {
         connector = new DBConnector();
@@ -157,7 +156,6 @@ public class PnlSettings extends JPanel implements PnlGui {
 
         User user = LogicUser.getUser();
         if (user != null) {
-            userExists = user.getId();
             txtLeaderName.setText(user.getTroopLeader());
             txtTroopNumber.setText(user.getTroopNumber());
             txtTroopName.setText(user.getTroopName());
