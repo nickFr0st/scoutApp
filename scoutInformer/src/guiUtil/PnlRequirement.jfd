@@ -28,6 +28,8 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
 				"background": new java.awt.Color( 255, 255, 255, 255 )
 				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "txtReqNameFocusLost", false ) )
+				addEvent( new FormEvent( "java.awt.event.FocusListener", "focusGained", "txtReqNameFocusGained", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"insets": new java.awt.Insets( 0, 5, 0, 0 )
@@ -39,6 +41,8 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 0, 14 )
 				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
 				"background": new java.awt.Color( 255, 255, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "txtReqDescriptionFocusLost", false ) )
+				addEvent( new FormEvent( "java.awt.event.FocusListener", "focusGained", "txtReqDescriptionFocusGained", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridheight": 2

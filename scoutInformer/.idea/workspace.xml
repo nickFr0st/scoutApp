@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added back some inserts">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed some stuff">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" afterPath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" afterPath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -180,13 +179,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="41" selection-start="3979" selection-end="3979" vertical-scroll-proportion="0.6630265" vertical-offset="1377" max-vertical-offset="2176">
+            <state line="125" column="40" selection-start="4021" selection-end="4021" vertical-scroll-proportion="0.0" vertical-offset="1287" max-vertical-offset="2227">
               <folding>
-                <marker date="1406070269387" expanded="false" signature="4300:20220" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1406070269387" expanded="false" signature="20232:21278" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1406070397523" expanded="false" signature="4414:20334" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406070397523" expanded="false" signature="20346:21392" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -196,6 +195,21 @@
         <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlRequirement.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="37" selection-start="671" selection-end="671" vertical-scroll-proportion="0.2652106" vertical-offset="255" max-vertical-offset="1037">
+              <folding>
+                <element signature="e#603#604#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <marker date="1406071537020" expanded="false" signature="1421:4286" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406071537020" expanded="false" signature="4298:4556" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -254,7 +268,6 @@
         <option value="$PROJECT_DIR$/src/scout/dbObjects/Advancement.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/Requirement.java" />
-        <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlHome.java" />
         <option value="$PROJECT_DIR$/src/scout/PnlMain.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java" />
@@ -268,8 +281,9 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java" />
         <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
-        <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+        <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
+        <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
       </list>
     </option>
   </component>
@@ -854,7 +868,7 @@
       <workItem from="1406002521120" duration="944000" />
       <workItem from="1406003552071" duration="1756000" />
       <workItem from="1406006735876" duration="566000" />
-      <workItem from="1406034860854" duration="8861000" />
+      <workItem from="1406034860854" duration="10152000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1248,11 +1262,15 @@
       <created>1406068146263</created>
       <updated>1406068146263</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="fixed some stuff">
+      <created>1406070279401</created>
+      <updated>1406070279401</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230352000" />
+    <option name="totallyTimeSpent" value="231643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1278,7 +1296,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1404185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3177471" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1303,7 +1321,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added advancements into the database" />
     <MESSAGE value="changed some icons and added a new btn" />
     <MESSAGE value="added new step" />
     <MESSAGE value="clean up a lot of stuff" />
@@ -1328,7 +1345,8 @@
     <MESSAGE value="fixed a connection bug" />
     <MESSAGE value="fixed a bug" />
     <MESSAGE value="added back some inserts" />
-    <option name="LAST_COMMIT_MESSAGE" value="added back some inserts" />
+    <MESSAGE value="fixed some stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some stuff" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1488,13 +1506,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Font.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="565" column="38" selection-start="21392" selection-end="21397" vertical-scroll-proportion="0.0" vertical-offset="8236" max-vertical-offset="44472" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="36" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlHome.jfd">
@@ -1753,11 +1764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state propertiesWidth="301" />
@@ -1765,10 +1771,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="41" selection-start="3979" selection-end="3979" vertical-scroll-proportion="0.6630265" vertical-offset="1377" max-vertical-offset="2176">
+        <state line="125" column="40" selection-start="4021" selection-end="4021" vertical-scroll-proportion="0.0" vertical-offset="1287" max-vertical-offset="2227">
           <folding>
-            <marker date="1406070269387" expanded="false" signature="4300:20220" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406070269387" expanded="false" signature="20232:21278" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1406070397523" expanded="false" signature="4414:20334" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406070397523" expanded="false" signature="20346:21392" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="37" selection-start="671" selection-end="671" vertical-scroll-proportion="0.2652106" vertical-offset="255" max-vertical-offset="1037">
+          <folding>
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <marker date="1406071537020" expanded="false" signature="1421:4286" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406071537020" expanded="false" signature="4298:4556" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>

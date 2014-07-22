@@ -122,6 +122,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             }
 
             pnlRequirements.revalidate();
+
+            txtBadgeName.requestFocus();
+            scrollPane2.getViewport().setViewPosition(new Point(0, 0));
         }
     }
 

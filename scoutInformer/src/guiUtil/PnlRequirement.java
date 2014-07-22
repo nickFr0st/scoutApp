@@ -5,7 +5,10 @@
 package guiUtil;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 /**
  * @author User #2
@@ -28,6 +31,26 @@ public class PnlRequirement extends JPanel {
 
     public void setReqId(int reqId) {
         this.reqId = reqId;
+    }
+
+    private void txtReqDescriptionFocusLost() {
+        txtReqDescription.setBackground(Color.white);
+        txtReqDescription.setBorder(null);
+    }
+
+    private void txtReqNameFocusLost() {
+        txtReqName.setBackground(Color.white);
+        txtReqName.setBorder(null);
+    }
+
+    private void txtReqDescriptionFocusGained() {
+        txtReqDescription.setBackground(new Color(242, 233, 206));
+        txtReqDescription.setBorder(new LineBorder(new Color(32, 154, 26), 2));
+    }
+
+    private void txtReqNameFocusGained() {
+        txtReqName.setBackground(new Color(242, 233, 206));
+        txtReqName.setBorder(new LineBorder(new Color(32, 154, 26), 2));
     }
 
     private void initComponents() {
@@ -61,6 +84,17 @@ public class PnlRequirement extends JPanel {
         txtReqName.setBackground(Color.white);
         txtReqName.setBorder(null);
         txtReqName.setName("txtReqName");
+        txtReqName.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                txtReqNameFocusGained();
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                txtReqNameFocusLost();
+            }
+        });
         add(txtReqName, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 5, 0, 5), 0, 0));
@@ -72,6 +106,16 @@ public class PnlRequirement extends JPanel {
         txtReqDescription.setBorder(null);
         txtReqDescription.setBackground(Color.white);
         txtReqDescription.setName("txtReqDescription");
+        txtReqDescription.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                txtReqDescriptionFocusGained();
+            }
+            @Override
+            public void focusLost(FocusEvent e) {
+                txtReqDescriptionFocusLost();
+            }
+        });
         add(txtReqDescription, new GridBagConstraints(1, 1, 1, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
