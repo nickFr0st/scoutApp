@@ -74,7 +74,7 @@ public class PnlRequirement extends JPanel {
         txtReqDescription.setName("txtReqDescription");
         add(txtReqDescription, new GridBagConstraints(1, 1, 1, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 0, 0), 0, 0));
+            new Insets(0, 0, 0, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

@@ -43,6 +43,7 @@ new FormModel {
 				"gridx": 1
 				"gridheight": 2
 				"gridy": 1
+				"insets": new java.awt.Insets( 0, 0, 0, 5 )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

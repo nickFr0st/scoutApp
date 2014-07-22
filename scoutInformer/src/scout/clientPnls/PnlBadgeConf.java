@@ -40,6 +40,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void init() {
         enableComponents(false);
+        scrollPane2.getVerticalScrollBar().setUnitIncrement(18);
     }
 
     private void enableComponents(boolean enable) {
@@ -103,8 +104,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid > 0, requirement.getId());
 
                     pnlRequirements.add(pnlRequirement, new GridBagConstraints(0, grid++, 400, 1, 0.0, 0.0,
-                            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                            new Insets(0, 0, 0, 0), 0, 0));
+                            GridBagConstraints.NORTHWEST, GridBagConstraints.HORIZONTAL,
+                            new Insets(0, 0, 0, 10), 0, 0));
                 }
 
                 addSpacer(grid);
@@ -313,6 +314,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
         //======== scrollPane2 ========
         {
+            scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
             scrollPane2.setName("scrollPane2");
 
             //======== pnlRequirements ========
