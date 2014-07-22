@@ -19,7 +19,7 @@ public class LogicRequirement {
     }
 
     public static List<Requirement> findAllByParentId(int parentId) {
-        if (!connector.checkForDBConnection()) {
+        if (!connector.checkForDataBaseConnection()) {
             return null;
         }
 

@@ -43,7 +43,7 @@ public class PnlHome extends JPanel implements GuiManager {
         this();
         this.parentFrame = parentFrame;
 
-        if (!dbConnector.checkForDBConnection()) {
+        if (!dbConnector.checkForDataBaseConnection()) {
             enableBtns(false);
         }
 
@@ -78,7 +78,7 @@ public class PnlHome extends JPanel implements GuiManager {
     }
 
     private void btnSettingsMouseClicked() {
-        if (!dbConnector.checkForDBConnection()) {
+        if (!dbConnector.checkForDataBaseConnection()) {
             changePanel(setupWizard);
         } else {
             changePanel(pnlSettings);
@@ -129,6 +129,7 @@ public class PnlHome extends JPanel implements GuiManager {
         setMinimumSize(new Dimension(1200, 800));
         setPreferredSize(new Dimension(1200, 800));
         setBackground(Color.white);
+        setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {100, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0};
@@ -138,6 +139,7 @@ public class PnlHome extends JPanel implements GuiManager {
         //======== pnlOptionsMenu ========
         {
             pnlOptionsMenu.setBackground(new Color(190, 174, 150));
+            pnlOptionsMenu.setName("pnlOptionsMenu");
             pnlOptionsMenu.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWidths = new int[] {100, 0};
             ((GridBagLayout)pnlOptionsMenu.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
@@ -149,6 +151,7 @@ public class PnlHome extends JPanel implements GuiManager {
             btnSettings.setSelectedImage(new ImageIcon(getClass().getResource("/images/settings_selected90.png")));
             btnSettings.setToolTipText("Settings");
             btnSettings.setBackground(Color.white);
+            btnSettings.setName("btnSettings");
             btnSettings.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -164,6 +167,7 @@ public class PnlHome extends JPanel implements GuiManager {
             btnAdvancementConf.setSelectedImage(new ImageIcon(getClass().getResource("/images/badge_settings_selected.png")));
             btnAdvancementConf.setToolTipText("Configure advancements");
             btnAdvancementConf.setBackground(Color.white);
+            btnAdvancementConf.setName("btnAdvancementConf");
             btnAdvancementConf.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -183,6 +187,7 @@ public class PnlHome extends JPanel implements GuiManager {
             btnSignOut.setSelectedImage(new ImageIcon(getClass().getResource("/images/sign_out_selected90.png")));
             btnSignOut.setBackground(Color.white);
             btnSignOut.setToolTipText("Sign out");
+            btnSignOut.setName("btnSignOut");
             btnSignOut.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -200,6 +205,7 @@ public class PnlHome extends JPanel implements GuiManager {
         //======== pnlBase ========
         {
             pnlBase.setBackground(Color.white);
+            pnlBase.setName("pnlBase");
             pnlBase.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlBase.getLayout()).columnWidths = new int[] {0, 0};
             ((GridBagLayout)pnlBase.getLayout()).rowHeights = new int[] {0, 0};

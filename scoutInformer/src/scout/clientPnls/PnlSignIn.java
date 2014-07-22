@@ -47,6 +47,11 @@ public class PnlSignIn extends JPanel implements GuiManager {
         showCreateUser(false);
     }
 
+    public PnlSignIn(SignIn parentFrame) {
+        this();
+        this.parentFrame = parentFrame;
+    }
+
     private void loadSavedUser() {
         String savedUser = properties.getProperty(KeyConst.SAVED_USER.getName());
         txtUsername.requestFocus();
@@ -57,11 +62,6 @@ public class PnlSignIn extends JPanel implements GuiManager {
         } else {
             txtUsername.setDefault();
         }
-    }
-
-    public PnlSignIn(SignIn parentFrame) {
-        this();
-        this.parentFrame = parentFrame;
     }
 
     private void showCreateUser(boolean show) {
@@ -265,6 +265,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
         //======== this ========
         setMinimumSize(new Dimension(1200, 800));
         setPreferredSize(new Dimension(1200, 800));
+        setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0};
@@ -274,6 +275,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
         //======== pnlSignIn ========
         {
             pnlSignIn.setBackground(Color.white);
+            pnlSignIn.setName("pnlSignIn");
             pnlSignIn.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlSignIn.getLayout()).columnWidths = new int[] {692, 0, 0};
             ((GridBagLayout)pnlSignIn.getLayout()).rowHeights = new int[] {0, 0, 0};
@@ -282,12 +284,14 @@ public class PnlSignIn extends JPanel implements GuiManager {
 
             //---- lblHeader ----
             lblHeader.setIcon(new ImageIcon(getClass().getResource("/images/signInTitlebar.png")));
+            lblHeader.setName("lblHeader");
             pnlSignIn.add(lblHeader, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
             //---- lblBanner ----
             lblBanner.setIcon(new ImageIcon(getClass().getResource("/images/timelessValues.png")));
+            lblBanner.setName("lblBanner");
             pnlSignIn.add(lblBanner, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(90, 100, 106, 55), 0, 0));
@@ -295,6 +299,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
             //======== pnlSignInInfo ========
             {
                 pnlSignInInfo.setOpaque(false);
+                pnlSignInInfo.setName("pnlSignInInfo");
                 pnlSignInInfo.setLayout(new GridBagLayout());
                 ((GridBagLayout)pnlSignInInfo.getLayout()).columnWidths = new int[] {0, 0, 69, 0, 52, 0};
                 ((GridBagLayout)pnlSignInInfo.getLayout()).rowHeights = new int[] {67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -306,6 +311,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 txtUsername.setPreferredSize(new Dimension(400, 40));
                 txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtUsername.setDefaultText("Username");
+                txtUsername.setName("txtUsername");
                 pnlSignInInfo.add(txtUsername, new GridBagConstraints(0, 1, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -315,6 +321,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 lblUserNameError.setForeground(Color.red);
                 lblUserNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblUserNameError.setVisible(false);
+                lblUserNameError.setName("lblUserNameError");
                 pnlSignInInfo.add(lblUserNameError, new GridBagConstraints(0, 2, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -324,6 +331,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 txtPassword.setMinimumSize(new Dimension(400, 40));
                 txtPassword.setDefaultText("Password");
                 txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                txtPassword.setName("txtPassword");
                 pnlSignInInfo.add(txtPassword, new GridBagConstraints(0, 3, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -333,6 +341,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 lblPasswordError.setForeground(Color.red);
                 lblPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblPasswordError.setVisible(false);
+                lblPasswordError.setName("lblPasswordError");
                 pnlSignInInfo.add(lblPasswordError, new GridBagConstraints(0, 4, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -343,6 +352,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 chkRememberUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 chkRememberUser.setBorder(null);
                 chkRememberUser.setFocusPainted(false);
+                chkRememberUser.setName("chkRememberUser");
                 pnlSignInInfo.add(chkRememberUser, new GridBagConstraints(0, 5, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -356,6 +366,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 btnSignIn.setBackground(new Color(51, 102, 153));
                 btnSignIn.setForeground(Color.white);
                 btnSignIn.setFocusPainted(false);
+                btnSignIn.setName("btnSignIn");
                 btnSignIn.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -372,6 +383,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 label1.setPreferredSize(new Dimension(400, 2));
                 label1.setMinimumSize(new Dimension(400, 2));
                 label1.setMaximumSize(new Dimension(400, 10));
+                label1.setName("label1");
                 pnlSignInInfo.add(label1, new GridBagConstraints(0, 7, 5, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(10, 0, 8, 0), 0, 0));
@@ -385,6 +397,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 btnNewUser.setBackground(new Color(51, 102, 153));
                 btnNewUser.setForeground(Color.white);
                 btnNewUser.setFocusPainted(false);
+                btnNewUser.setName("btnNewUser");
                 btnNewUser.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -400,6 +413,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 txtNewUserName.setMinimumSize(new Dimension(14, 40));
                 txtNewUserName.setDefaultText("Username");
                 txtNewUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                txtNewUserName.setName("txtNewUserName");
                 pnlSignInInfo.add(txtNewUserName, new GridBagConstraints(0, 9, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -409,6 +423,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 lblNewUserError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblNewUserError.setForeground(Color.red);
                 lblNewUserError.setVisible(false);
+                lblNewUserError.setName("lblNewUserError");
                 pnlSignInInfo.add(lblNewUserError, new GridBagConstraints(0, 10, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -418,6 +433,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 txtNewUserPassword.setPreferredSize(new Dimension(14, 40));
                 txtNewUserPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtNewUserPassword.setDefaultText("Password");
+                txtNewUserPassword.setName("txtNewUserPassword");
                 pnlSignInInfo.add(txtNewUserPassword, new GridBagConstraints(0, 11, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -427,6 +443,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 lblNewPasswordError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblNewPasswordError.setForeground(Color.red);
                 lblNewPasswordError.setVisible(false);
+                lblNewPasswordError.setName("lblNewPasswordError");
                 pnlSignInInfo.add(lblNewPasswordError, new GridBagConstraints(0, 12, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -436,6 +453,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 txtNewUserPasswordVerify.setMinimumSize(new Dimension(14, 40));
                 txtNewUserPasswordVerify.setDefaultText("Re-enter password");
                 txtNewUserPasswordVerify.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                txtNewUserPasswordVerify.setName("txtNewUserPasswordVerify");
                 pnlSignInInfo.add(txtNewUserPasswordVerify, new GridBagConstraints(0, 13, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -445,6 +463,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 lblNewPasswordVerifyError.setFont(new Font("Tahoma", Font.ITALIC, 11));
                 lblNewPasswordVerifyError.setForeground(Color.red);
                 lblNewPasswordVerifyError.setVisible(false);
+                lblNewPasswordVerifyError.setName("lblNewPasswordVerifyError");
                 pnlSignInInfo.add(lblNewPasswordVerifyError, new GridBagConstraints(0, 14, 4, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 8, 8), 0, 0));
@@ -455,6 +474,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 btnSubmit.setForeground(Color.white);
                 btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 btnSubmit.setFocusPainted(false);
+                btnSubmit.setName("btnSubmit");
                 btnSubmit.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -471,6 +491,7 @@ public class PnlSignIn extends JPanel implements GuiManager {
                 btnCancel.setForeground(Color.white);
                 btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 btnCancel.setFocusPainted(false);
+                btnCancel.setName("btnCancel");
                 btnCancel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {

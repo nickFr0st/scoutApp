@@ -17,7 +17,7 @@ public class LogicUser {
     }
 
     public static User getUser() {
-        if (!connector.checkForDBConnection()) {
+        if (!connector.checkForDataBaseConnection()) {
             return null;
         }
 

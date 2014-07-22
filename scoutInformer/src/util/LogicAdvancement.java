@@ -19,7 +19,7 @@ public class LogicAdvancement {
     }
 
     public static Advancement findAdvancementByName(String name) {
-        if (!connector.checkForDBConnection()) {
+        if (!connector.checkForDataBaseConnection()) {
             return null;
         }
 
@@ -43,7 +43,7 @@ public class LogicAdvancement {
     }
 
     public static List<String> getAdvancementList() {
-        if (!connector.checkForDBConnection()) {
+        if (!connector.checkForDataBaseConnection()) {
             return null;
         }
 

@@ -130,7 +130,6 @@ public class PnlSetupWizard extends JPanel implements PnlGui {
             connector.insert("user", new String[]{"troopLeader", "troop", "council", "troopName"}, new String[]{Util.getTxtFieldString(txtLeaderName), Util.getTxtFieldString(txtTroopNumber), Util.getTxtFieldString(txtScoutCouncil), Util.getTxtFieldString(txtTroopName)});
         }
 
-        DBConnector.setDBName(txtDBName.getText());
         ((PnlHome) parent).moveToSettingsPnl();
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
@@ -170,7 +169,6 @@ public class PnlSetupWizard extends JPanel implements PnlGui {
             return;
         }
 
-        DBConnector.setDBName(txtDBName.getText());
         enableStep2(false);
         lblStepTwo.setIcon(completeIcon);
         ((PnlHome)parent).moveToSettingsPnl();
