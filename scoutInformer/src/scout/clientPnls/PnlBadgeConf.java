@@ -14,11 +14,16 @@ import util.LogicAdvancement;
 import util.LogicRequirement;
 import util.Util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -90,6 +95,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 return;
             }
 
+            // todo: will probably need to use setImage() here
             txtImagePath.setText(advancement.getImgPath());
             txtBadgeName.setText(advancement.getName());
             lblImage.setIcon(new ImageIcon(getClass().getResource(advancement.getImgPath())));
@@ -132,6 +138,38 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         pnlRequirements.add(new JLabel(""), new GridBagConstraints(0, grid, 400, 1, 0.0, 1000.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
+    }
+
+    private void btnBrowseImgPathMouseClicked() {
+        if (!btnBrowseImgPath.isEnabled()) {
+            return;
+        }
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Select an image");
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setFileFilter(filter);
+        int returnValue = chooser.showOpenDialog(this);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            setImage(file.getPath());
+        }
+    }
+
+    private void setImage(String imgPath) {
+        try {
+            BufferedImage img = ImageIO.read(new File(imgPath));
+
+            int height = img.getHeight() > lblImage.getHeight() ? lblImage.getHeight() : img.getHeight();
+            int width = img.getWidth() > lblImage.getWidth() ? lblImage.getWidth() : img.getWidth();
+
+            lblImage.setIcon(new ImageIcon(img.getScaledInstance(width, height, Image.SCALE_SMOOTH)));
+            txtImagePath.setText(imgPath);
+        } catch (IOException ignore) {
+        }
     }
 
     private void initComponents() {
@@ -340,6 +378,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         {
             pnlSelectedImage.setBackground(new Color(204, 204, 204));
             pnlSelectedImage.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            pnlSelectedImage.setMaximumSize(new Dimension(132, 132));
             pnlSelectedImage.setName("pnlSelectedImage");
             pnlSelectedImage.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlSelectedImage.getLayout()).columnWidths = new int[] {0, 0};
@@ -411,6 +450,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnBrowseImgPath.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnBrowseImgPath.setFocusPainted(false);
             btnBrowseImgPath.setName("btnBrowseImgPath");
+            btnBrowseImgPath.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnBrowseImgPathMouseClicked();
+                }
+            });
             pnlGeneralInfo.add(btnBrowseImgPath, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));

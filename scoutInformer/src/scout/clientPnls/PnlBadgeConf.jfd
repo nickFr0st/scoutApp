@@ -168,6 +168,7 @@ new FormModel {
 				name: "pnlSelectedImage"
 				"background": new java.awt.Color( 204, 204, 204, 255 )
 				"border": new javax.swing.border.LineBorder( new java.awt.Color( 51, 102, 153, 255 ), 2, false )
+				"maximumSize": new java.awt.Dimension( 132, 132 )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblImage"
 					"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/no_image.png" )
@@ -234,6 +235,7 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBrowseImgPathMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 1
 					"gridx": 2
