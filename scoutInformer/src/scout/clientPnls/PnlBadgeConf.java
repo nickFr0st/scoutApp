@@ -19,6 +19,8 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -128,9 +130,6 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             }
 
             pnlRequirements.revalidate();
-
-            txtBadgeName.requestFocus();
-            scrollPane2.getViewport().setViewPosition(new Point(0, 0));
         }
     }
 
@@ -169,6 +168,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             lblImage.setIcon(new ImageIcon(img.getScaledInstance(width, height, Image.SCALE_SMOOTH)));
             txtImagePath.setText(imgPath);
         } catch (IOException ignore) {
+        }
+    }
+
+    private void listBadgeNamesKeyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN) {
+            listBadgeNamesMouseClicked();
         }
     }
 
@@ -338,6 +343,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     listBadgeNamesMouseClicked();
+                }
+            });
+            listBadgeNames.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    listBadgeNamesKeyReleased(e);
                 }
             });
             scrollPane1.setViewportView(listBadgeNames);
