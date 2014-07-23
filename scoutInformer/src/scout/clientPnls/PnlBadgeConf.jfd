@@ -17,7 +17,7 @@ new FormModel {
 			"border": new guiUtil.SelectionBorder
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "0, 0, 0, 0:1.0, 0, 0, 0"
+				"$columnSpecs": "0, 0, 0, 0:1.0, 0, 0, 0, 0"
 				"$rowSpecs": "50"
 				"$hGap": 5
 				"$vGap": 5
@@ -76,14 +76,24 @@ new FormModel {
 					"gridx": 5
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "btnSave"
-					"text": "Save"
-					"background": new java.awt.Color( 32, 154, 26, 255 )
+					name: "btnNew"
+					"text": "New"
+					"background": new java.awt.Color( 51, 156, 229, 255 )
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 6
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSave"
+					"text": "Save"
+					"background": new java.awt.Color( 51, 102, 153, 255 )
+					"foreground": sfield java.awt.Color white
+					"font": #Font0
+					"focusPainted": false
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 7
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
