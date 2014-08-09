@@ -37,6 +37,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
 
+    private int grid;
     private int currentSelected;
 
     public PnlBadgeConf() {
@@ -47,6 +48,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     }
 
     private void init() {
+        grid = 0;
         enableComponents(false);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
@@ -65,6 +67,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         chkReqForEagle.setVisible(enable);
 
         listBadgeNames.setEnabled(enable);
+
+        btnNewRequirement.setEnabled(enable);
+        btnDeleteRequirement.setEnabled(enable);
 
         if (!enable) {
             txtBadgeName.setDefault();
@@ -116,22 +121,23 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             lblImage.setIcon(new ImageIcon(getClass().getResource(advancement.getImgPath())));
 
             pnlRequirements.removeAll();
+            grid = 0;
 
             List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
             if (!Util.isEmpty(requirementList)) {
-                int grid = 0;
 
                 for (Requirement requirement : requirementList) {
                     PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid > 0, requirement.getId());
 
                     pnlRequirements.add(pnlRequirement, new GridBagConstraints(0, grid++, 400, 1, 0.0, 0.0,
-                            GridBagConstraints.NORTHWEST, GridBagConstraints.HORIZONTAL,
+                            GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
                             new Insets(0, 0, 0, 10), 0, 0));
                 }
 
                 addSpacer(grid);
 
             } else {
+                grid = -1;
                 JLabel lblNoRequirements = new JLabel();
                 lblNoRequirements.setText("No Requirements");
                 lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
@@ -204,6 +210,32 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         txtBadgeName.requestFocus();
     }
 
+    private void btnNewRequirementMouseClicked() {
+        if (!btnNewRequirement.isEnabled()) {
+            return;
+        }
+
+        if (pnlRequirements.getComponentCount() > 0) {
+            if (grid < 0) {
+                pnlRequirements.removeAll();
+                pnlRequirements.revalidate();
+                grid = 0;
+            } else {
+                pnlRequirements.remove(pnlRequirements.getComponentCount() - 1);
+            }
+        }
+
+        // todo: take note when saving that an id of -1 is a new requirement
+        PnlRequirement pnlRequirement = new PnlRequirement("[num]", "[Description]", grid > 0, -1);
+
+        pnlRequirements.add(pnlRequirement, new GridBagConstraints(0, grid++, 400, 1, 0.0, 0.0,
+                GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                new Insets(0, 0, 0, 10), 0, 0));
+
+        addSpacer(grid);
+        pnlRequirements.revalidate();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -217,6 +249,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave = new JButton();
         lblListName = new JLabel();
         lblRequirements = new JLabel();
+        btnNewRequirement = new JLabel();
+        btnDeleteRequirement = new JLabel();
         hSpacer1 = new JPanel(null);
         scrollPane1 = new JScrollPane();
         listBadgeNames = new JList();
@@ -242,9 +276,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setBackground(Color.white);
         setName("this");
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 213, 59, 78, 115, 66, 498, 20, 0};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 213, 59, 78, 115, 66, 0, 0, 498, 20, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 131, 117, 118, 36, 166, 501, 0};
-        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
         //======== panel1 ========
@@ -357,7 +391,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(panel1, new GridBagConstraints(1, 1, 7, 1, 0.0, 0.0,
+        add(panel1, new GridBagConstraints(1, 1, 9, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -379,6 +413,42 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblRequirements.setName("lblRequirements");
         add(lblRequirements, new GridBagConstraints(7, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- btnNewRequirement ----
+        btnNewRequirement.setIcon(new ImageIcon(getClass().getResource("/images/add.png")));
+        btnNewRequirement.setPreferredSize(new Dimension(24, 24));
+        btnNewRequirement.setMinimumSize(new Dimension(24, 24));
+        btnNewRequirement.setMaximumSize(new Dimension(24, 24));
+        btnNewRequirement.setHorizontalAlignment(SwingConstants.CENTER);
+        btnNewRequirement.setBackground(Color.white);
+        btnNewRequirement.setOpaque(true);
+        btnNewRequirement.setToolTipText("Add New Requirement");
+        btnNewRequirement.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnNewRequirement.setName("btnNewRequirement");
+        btnNewRequirement.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                btnNewRequirementMouseClicked();
+            }
+        });
+        add(btnNewRequirement, new GridBagConstraints(8, 2, 1, 1, 0.0, 0.0,
+            GridBagConstraints.SOUTH, GridBagConstraints.HORIZONTAL,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- btnDeleteRequirement ----
+        btnDeleteRequirement.setIcon(new ImageIcon(getClass().getResource("/images/delete.png")));
+        btnDeleteRequirement.setPreferredSize(new Dimension(24, 24));
+        btnDeleteRequirement.setMinimumSize(new Dimension(24, 24));
+        btnDeleteRequirement.setMaximumSize(new Dimension(24, 24));
+        btnDeleteRequirement.setHorizontalAlignment(SwingConstants.CENTER);
+        btnDeleteRequirement.setBackground(Color.white);
+        btnDeleteRequirement.setOpaque(true);
+        btnDeleteRequirement.setToolTipText("Delete selected requirement");
+        btnDeleteRequirement.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnDeleteRequirement.setName("btnDeleteRequirement");
+        add(btnDeleteRequirement, new GridBagConstraints(9, 2, 1, 1, 0.0, 0.0,
+            GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- hSpacer1 ----
@@ -438,7 +508,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             }
             scrollPane2.setViewportView(pnlRequirements);
         }
-        add(scrollPane2, new GridBagConstraints(7, 3, 1, 5, 0.0, 0.0,
+        add(scrollPane2, new GridBagConstraints(7, 3, 3, 5, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -575,6 +645,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JButton btnSave;
     private JLabel lblListName;
     private JLabel lblRequirements;
+    private JLabel btnNewRequirement;
+    private JLabel btnDeleteRequirement;
     private JPanel hSpacer1;
     private JScrollPane scrollPane1;
     private JList listBadgeNames;

@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "5, 17, 208, 54, 73, 110, 61, 493:1.0, 20"
+			"$columnSpecs": "5, 17, 208, 54, 73, 110, 61, 0, 0, 493:1.0, 20"
 			"$rowSpecs": "6, 0, 49, 126, 112, 113, 31, 161, 501:1.0"
 			"$hGap": 5
 			"$vGap": 5
@@ -109,7 +109,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"gridx": 1
-				"gridwidth": 7
+				"gridwidth": 9
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblListName"
@@ -130,6 +130,40 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 7
 				"gridy": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "btnNewRequirement"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/add.png" )
+				"preferredSize": &Dimension0 new java.awt.Dimension( 24, 24 )
+				"minimumSize": &Dimension1 new java.awt.Dimension( 24, 24 )
+				"maximumSize": &Dimension2 new java.awt.Dimension( 24, 24 )
+				"horizontalAlignment": 0
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"opaque": true
+				"toolTipText": "Add New Requirement"
+				"cursor": &Cursor0 new java.awt.Cursor( 12 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewRequirementMouseClicked", false ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 8
+				"gridy": 2
+				"vAlign": 3
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "btnDeleteRequirement"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/delete.png" )
+				"preferredSize": #Dimension0
+				"minimumSize": #Dimension1
+				"maximumSize": #Dimension2
+				"horizontalAlignment": 0
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"opaque": true
+				"toolTipText": "Delete selected requirement"
+				"cursor": #Cursor0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+				"vAlign": 3
+				"gridx": 9
+				"hAlign": 2
 			} )
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 				name: "hSpacer1"
@@ -178,6 +212,7 @@ new FormModel {
 				"gridx": 7
 				"gridy": 3
 				"gridheight": 5
+				"gridwidth": 3
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "0:1.0"
