@@ -202,7 +202,19 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         txtBadgeName.setDefault();
 
         pnlRequirements.removeAll();
+
+        grid = -1;
+        JLabel lblNoRequirements = new JLabel();
+        lblNoRequirements.setText("No Requirements");
+        lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
+        pnlRequirements.add(lblNoRequirements, new GridBagConstraints(0, 0, 400, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
+
         pnlRequirements.revalidate();
+        pnlRequirements.repaint();
 
         btnSave.setVisible(true);
         btnUpdate.setVisible(false);
