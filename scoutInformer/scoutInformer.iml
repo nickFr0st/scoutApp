@@ -6,10 +6,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/imgRes" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/properties" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/lib" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="mysql-connector-java-5.0.8-bin" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.31-bin" level="project" />
   </component>
 </module>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2521570815">
-    <data-source source="LOCAL" name="MySQL - a@localhost" uuid="5c1e0090-3834-47cf-ad7c-d068fff6889d">
+  <component name="DataSourceManagerImpl" format="xml" hash="4242547455">
+    <data-source source="LOCAL" name="MySQL - sakila@localhost" uuid="5c1e0090-3834-47cf-ad7c-d068fff6889d">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/a</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/sakila</jdbc-url>
       <user-name>admin</user-name>
       <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
       <driver-properties>

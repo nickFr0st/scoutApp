@@ -35,6 +35,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private static final int MERIT_BAGDGE = 1;
     private static final int OTHER = 2;
 
+    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
+
     private int currentSelected;
 
     public PnlBadgeConf() {
@@ -46,6 +48,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void init() {
         enableComponents(false);
+        btnSave.setVisible(false);
+        btnUpdate.setVisible(false);
         scrollPane2.getVerticalScrollBar().setUnitIncrement(18);
     }
 
@@ -67,7 +71,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             txtImagePath.setDefault();
             currentSelected = -1;
 
-            lblImage.setIcon(new ImageIcon(getClass().getResource("/images/no_image.png")));
+            lblImage.setIcon(noImageIcon);
             lblListName.setText("");
             pnlRequirements.removeAll();
         }
@@ -80,6 +84,10 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void btnAdvancementsMouseClicked() {
         enableComponents(true);
+
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+
         currentSelected = ADVANCEMENT;
         lblListName.setText("Advancements");
         chkReqForEagle.setVisible(false);
@@ -98,6 +106,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             if (advancement == null) {
                 return;
             }
+
+            btnSave.setVisible(false);
+            btnUpdate.setVisible(true);
 
             // todo: will probably need to use setImage() here
             txtImagePath.setText(advancement.getImgPath());
@@ -179,6 +190,20 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         }
     }
 
+    private void btnNewMouseClicked() {
+        lblImage.setIcon(noImageIcon);
+        txtImagePath.setDefault();
+        txtBadgeName.setDefault();
+
+        pnlRequirements.removeAll();
+        pnlRequirements.revalidate();
+
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+
+        txtBadgeName.requestFocus();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -188,6 +213,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnImport = new JButton();
         btnExport = new JButton();
         btnNew = new JButton();
+        btnUpdate = new JButton();
         btnSave = new JButton();
         lblListName = new JLabel();
         lblRequirements = new JLabel();
@@ -226,9 +252,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             panel1.setBackground(Color.white);
             panel1.setName("panel1");
             panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {50, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
             ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
             //---- btnAdvancements ----
@@ -299,7 +325,24 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnNew.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnNew.setFocusPainted(false);
             btnNew.setName("btnNew");
+            btnNew.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnNewMouseClicked();
+                }
+            });
             panel1.add(btnNew, new GridBagConstraints(6, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 5), 0, 0));
+
+            //---- btnUpdate ----
+            btnUpdate.setText("Update");
+            btnUpdate.setBackground(new Color(51, 102, 153));
+            btnUpdate.setForeground(Color.white);
+            btnUpdate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnUpdate.setFocusPainted(false);
+            btnUpdate.setName("btnUpdate");
+            panel1.add(btnUpdate, new GridBagConstraints(7, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
@@ -310,7 +353,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnSave.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnSave.setFocusPainted(false);
             btnSave.setName("btnSave");
-            panel1.add(btnSave, new GridBagConstraints(7, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnSave, new GridBagConstraints(8, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
@@ -528,6 +571,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JButton btnImport;
     private JButton btnExport;
     private JButton btnNew;
+    private JButton btnUpdate;
     private JButton btnSave;
     private JLabel lblListName;
     private JLabel lblRequirements;

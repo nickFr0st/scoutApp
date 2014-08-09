@@ -89,7 +89,6 @@ public class PnlRequirement extends JPanel {
             public void focusGained(FocusEvent e) {
                 txtReqNameFocusGained();
             }
-
             @Override
             public void focusLost(FocusEvent e) {
                 txtReqNameFocusLost();
