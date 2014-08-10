@@ -6,6 +6,7 @@ package scout.clientPnls;
 
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
+import guiUtil.PnlSearchBar;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
@@ -61,6 +62,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnExport.setVisible(enable);
         btnSave.setVisible(enable);
         btnNew.setVisible(enable);
+        pnlSearch.setEnabled(enable);
 
         txtBadgeName.setEnabled(enable);
         txtImagePath.setEnabled(enable);
@@ -80,6 +82,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             lblImage.setIcon(noImageIcon);
             lblListName.setText("");
             pnlRequirements.removeAll();
+            pnlSearch.getTxtSearchField().setDefault();
         }
     }
 
@@ -281,10 +284,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave = new JButton();
         lblListName = new JLabel();
         lblGeneralInfo = new JLabel();
-        hSpacer1 = new JPanel(null);
+        pnlSearch = new PnlSearchBar("Search by name");
         scrollPane1 = new JScrollPane();
         listBadgeNames = new JList();
-        hSpacer2 = new JPanel(null);
         pnlSelectedImage = new JPanel();
         lblImage = new JLabel();
         pnlGeneralInfo = new JPanel();
@@ -294,6 +296,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblBadgeName = new JLabel();
         txtBadgeName = new JTextFieldDefaultText();
         chkReqForEagle = new JCheckBox();
+        hSpacer2 = new JPanel(null);
         lblRequirements = new JLabel();
         btnNewRequirement = new JLabel();
         btnDeleteRequirement = new JLabel();
@@ -307,10 +310,10 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setBackground(Color.white);
         setName("this");
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {10, 22, 237, 48, 128, 30, 30, 0, 535, 20, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 177, 54, 405, 501, 0};
-        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {31, 240, 33, 128, 30, 30, 0, 523, 20, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 0, 152, 54, 387, 501, 0};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
         //======== panel1 ========
         {
@@ -422,7 +425,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(panel1, new GridBagConstraints(1, 1, 8, 1, 0.0, 0.0,
+        add(panel1, new GridBagConstraints(1, 1, 7, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -432,9 +435,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblListName.setFont(new Font("Vijaya", Font.PLAIN, 24));
         lblListName.setForeground(new Color(51, 102, 153));
         lblListName.setName("lblListName");
-        add(lblListName, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(lblListName, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         //---- lblGeneralInfo ----
         lblGeneralInfo.setText("General Information");
@@ -442,16 +445,15 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblGeneralInfo.setFont(new Font("Vijaya", Font.PLAIN, 24));
         lblGeneralInfo.setForeground(new Color(51, 102, 153));
         lblGeneralInfo.setName("lblGeneralInfo");
-        add(lblGeneralInfo, new GridBagConstraints(4, 2, 3, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(lblGeneralInfo, new GridBagConstraints(3, 2, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- hSpacer1 ----
-        hSpacer1.setBackground(Color.white);
-        hSpacer1.setName("hSpacer1");
-        add(hSpacer1, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+        //---- pnlSearch ----
+        pnlSearch.setName("pnlSearch");
+        add(pnlSearch, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         //======== scrollPane1 ========
         {
@@ -475,14 +477,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             });
             scrollPane1.setViewportView(listBadgeNames);
         }
-        add(scrollPane1, new GridBagConstraints(2, 3, 1, 3, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
-
-        //---- hSpacer2 ----
-        hSpacer2.setBackground(Color.white);
-        hSpacer2.setName("hSpacer2");
-        add(hSpacer2, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
+        add(scrollPane1, new GridBagConstraints(1, 4, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -505,9 +500,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.NONE,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(pnlSelectedImage, new GridBagConstraints(4, 3, 2, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(pnlSelectedImage, new GridBagConstraints(3, 3, 2, 2, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         //======== pnlGeneralInfo ========
         {
@@ -584,9 +579,16 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(pnlGeneralInfo, new GridBagConstraints(7, 3, 2, 1, 0.0, 0.0,
+        add(pnlGeneralInfo, new GridBagConstraints(6, 3, 2, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(10, 0, 5, 5), 0, 0));
+
+        //---- hSpacer2 ----
+        hSpacer2.setBackground(Color.white);
+        hSpacer2.setName("hSpacer2");
+        add(hSpacer2, new GridBagConstraints(2, 4, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
 
         //---- lblRequirements ----
         lblRequirements.setText("Requirements");
@@ -594,9 +596,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblRequirements.setFont(new Font("Vijaya", Font.PLAIN, 24));
         lblRequirements.setForeground(new Color(51, 102, 153));
         lblRequirements.setName("lblRequirements");
-        add(lblRequirements, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(lblRequirements, new GridBagConstraints(3, 5, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         //---- btnNewRequirement ----
         btnNewRequirement.setIcon(new ImageIcon(getClass().getResource("/images/add.png")));
@@ -615,9 +617,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 btnNewRequirementMouseClicked();
             }
         });
-        add(btnNewRequirement, new GridBagConstraints(5, 4, 1, 1, 0.0, 0.0,
-            GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(btnNewRequirement, new GridBagConstraints(4, 5, 1, 1, 0.0, 0.0,
+                GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         //---- btnDeleteRequirement ----
         btnDeleteRequirement.setIcon(new ImageIcon(getClass().getResource("/images/delete.png")));
@@ -636,9 +638,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 btnDeleteRequirementMouseClicked();
             }
         });
-        add(btnDeleteRequirement, new GridBagConstraints(6, 4, 1, 1, 0.0, 0.0,
-            GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
-            new Insets(0, 0, 5, 5), 0, 0));
+        add(btnDeleteRequirement, new GridBagConstraints(5, 5, 1, 1, 0.0, 0.0,
+                GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         //======== scrollPane2 ========
         {
@@ -658,7 +660,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             }
             scrollPane2.setViewportView(pnlRequirements);
         }
-        add(scrollPane2, new GridBagConstraints(4, 5, 5, 1, 0.0, 0.0,
+        add(scrollPane2, new GridBagConstraints(3, 6, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -676,10 +678,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JButton btnSave;
     private JLabel lblListName;
     private JLabel lblGeneralInfo;
-    private JPanel hSpacer1;
+    private PnlSearchBar pnlSearch;
     private JScrollPane scrollPane1;
     private JList listBadgeNames;
-    private JPanel hSpacer2;
     private JPanel pnlSelectedImage;
     private JLabel lblImage;
     private JPanel pnlGeneralInfo;
@@ -689,6 +690,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JLabel lblBadgeName;
     private JTextFieldDefaultText txtBadgeName;
     private JCheckBox chkReqForEagle;
+    private JPanel hSpacer2;
     private JLabel lblRequirements;
     private JLabel btnNewRequirement;
     private JLabel btnDeleteRequirement;
