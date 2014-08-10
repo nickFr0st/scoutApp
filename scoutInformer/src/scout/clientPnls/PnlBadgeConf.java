@@ -137,15 +137,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 addSpacer(grid);
 
             } else {
-                grid = -1;
-                JLabel lblNoRequirements = new JLabel();
-                lblNoRequirements.setText("No Requirements");
-                lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
-                lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
-
-                pnlRequirements.add(lblNoRequirements, new GridBagConstraints(0, 0, 400, 1, 0.0, 0.0,
-                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                        new Insets(0, 0, 0, 0), 0, 0));
+                addNoRequirementsLabel();
             }
 
             pnlRequirements.revalidate();
@@ -203,15 +195,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
         pnlRequirements.removeAll();
 
-        grid = -1;
-        JLabel lblNoRequirements = new JLabel();
-        lblNoRequirements.setText("No Requirements");
-        lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
-
-        pnlRequirements.add(lblNoRequirements, new GridBagConstraints(0, 0, 400, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 0), 0, 0));
+        addNoRequirementsLabel();
 
         pnlRequirements.revalidate();
         pnlRequirements.repaint();
@@ -246,6 +230,37 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
         addSpacer(grid);
         pnlRequirements.revalidate();
+    }
+
+    private void btnDeleteRequirementMouseClicked() {
+        if (!btnDeleteRequirement.isEnabled() || KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner() == null) {
+            return;
+        }
+
+        if (KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner().getParent() instanceof PnlRequirement) {
+            pnlRequirements.remove(KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner().getParent());
+            grid--;
+
+            if (grid == 1) {
+                pnlRequirements.removeAll();
+                addNoRequirementsLabel();
+            }
+
+            pnlRequirements.revalidate();
+            pnlRequirements.repaint();
+        }
+    }
+
+    private void addNoRequirementsLabel() {
+        grid = -1;
+        JLabel lblNoRequirements = new JLabel();
+        lblNoRequirements.setText("No Requirements");
+        lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
+        pnlRequirements.add(lblNoRequirements, new GridBagConstraints(0, 0, 400, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
     }
 
     private void initComponents() {
@@ -459,6 +474,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnDeleteRequirement.setToolTipText("Delete selected requirement");
         btnDeleteRequirement.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnDeleteRequirement.setName("btnDeleteRequirement");
+        btnDeleteRequirement.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                btnDeleteRequirementMouseClicked();
+            }
+        });
         add(btnDeleteRequirement, new GridBagConstraints(9, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));

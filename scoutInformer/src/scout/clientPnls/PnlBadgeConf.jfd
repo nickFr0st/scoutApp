@@ -159,6 +159,7 @@ new FormModel {
 				"opaque": true
 				"toolTipText": "Delete selected requirement"
 				"cursor": #Cursor0
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteRequirementMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 2
 				"vAlign": 3
