@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "5, 17, 208, 54, 73, 110, 61, 0, 0, 493:1.0, 20"
-			"$rowSpecs": "6, 0, 49, 126, 112, 113, 31, 161, 501:1.0"
+			"$columnSpecs": "5, 17, 232, 43, 123, 25, 25, 0, 530, 20"
+			"$rowSpecs": "6, 0, 49, 172, 49, 400, 501:1.0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -109,7 +109,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"gridx": 1
-				"gridwidth": 9
+				"gridwidth": 8
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblListName"
@@ -122,49 +122,15 @@ new FormModel {
 				"gridy": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "lblRequirements"
-				"text": "Requirements"
+				name: "lblGeneralInfo"
+				"text": "General Information"
 				"verticalAlignment": 3
 				"font": new java.awt.Font( "Vijaya", 0, 24 )
 				"foreground": new java.awt.Color( 51, 102, 153, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 7
+				"gridwidth": 3
+				"gridx": 4
 				"gridy": 2
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "btnNewRequirement"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/add.png" )
-				"preferredSize": &Dimension0 new java.awt.Dimension( 24, 24 )
-				"minimumSize": &Dimension1 new java.awt.Dimension( 24, 24 )
-				"maximumSize": &Dimension2 new java.awt.Dimension( 24, 24 )
-				"horizontalAlignment": 0
-				"background": new java.awt.Color( 255, 255, 255, 255 )
-				"opaque": true
-				"toolTipText": "Add New Requirement"
-				"cursor": &Cursor0 new java.awt.Cursor( 12 )
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewRequirementMouseClicked", false ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 8
-				"gridy": 2
-				"vAlign": 3
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "btnDeleteRequirement"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/delete.png" )
-				"preferredSize": #Dimension0
-				"minimumSize": #Dimension1
-				"maximumSize": #Dimension2
-				"horizontalAlignment": 0
-				"background": new java.awt.Color( 255, 255, 255, 255 )
-				"opaque": true
-				"toolTipText": "Delete selected requirement"
-				"cursor": #Cursor0
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteRequirementMouseClicked", false ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 2
-				"vAlign": 3
-				"gridx": 9
-				"hAlign": 2
 			} )
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 				name: "hSpacer1"
@@ -193,27 +159,6 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
 				"gridy": 3
-				"gridheight": 2
-			} )
-			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-				name: "scrollPane2"
-				"horizontalScrollBarPolicy": 31
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-					"$columnSpecs": "0:1.0"
-					"$rowSpecs": "0:1.0"
-					"$hGap": 5
-					"$vGap": 5
-					"$alignLeft": true
-					"$alignTop": true
-				} ) {
-					name: "pnlRequirements"
-					"background": new java.awt.Color( 255, 255, 255, 255 )
-				} )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 7
-				"gridy": 3
-				"gridheight": 5
-				"gridwidth": 3
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "0:1.0"
@@ -236,20 +181,12 @@ new FormModel {
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 4
-				"gridy": 4
+				"gridy": 3
 				"gridwidth": 2
-				"gridheight": 2
-			} )
-			add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
-				name: "vSpacer1"
-				"background": new java.awt.Color( 255, 255, 255, 255 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 6
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "0, 271, 100, 0:1.0"
-				"$rowSpecs": "0, 0, 0, 0"
+				"$rowSpecs": "0, 0, 0"
 				"$hGap": 5
 				"$vGap": 5
 				"$alignLeft": true
@@ -258,23 +195,12 @@ new FormModel {
 				name: "pnlGeneralInfo"
 				"background": new java.awt.Color( 255, 255, 255, 255 )
 				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "lblGeneralInfo"
-					"text": "General Information"
-					"verticalAlignment": 3
-					"font": new java.awt.Font( "Vijaya", 0, 24 )
-					"foreground": new java.awt.Color( 51, 102, 153, 255 )
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridwidth": 3
-					"insets": new java.awt.Insets( 0, 0, 10, 0 )
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblImagePath"
 					"text": "Image Path:"
 					"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
 					"foreground": &Color2 new java.awt.Color( 51, 102, 153, 255 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"insets": new java.awt.Insets( 0, 5, 0, 0 )
-					"gridy": 1
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
 					name: "txtImagePath"
@@ -284,7 +210,6 @@ new FormModel {
 					"defaultText": "Path"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
-					"gridy": 1
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnBrowseImgPath"
@@ -295,7 +220,6 @@ new FormModel {
 					"focusPainted": false
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBrowseImgPathMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 1
 					"gridx": 2
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
@@ -304,7 +228,7 @@ new FormModel {
 					"font": #Font1
 					"foreground": #Color2
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 2
+					"gridy": 1
 					"insets": new java.awt.Insets( 0, 5, 0, 0 )
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
@@ -315,7 +239,7 @@ new FormModel {
 					"defaultText": "Badge Name"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
-					"gridy": 2
+					"gridy": 1
 					"gridwidth": 2
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
@@ -325,12 +249,79 @@ new FormModel {
 					"background": new java.awt.Color( 255, 255, 255, 255 )
 					"foreground": #Color2
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 3
+					"gridy": 2
 					"gridwidth": 3
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 7
+				"gridx": 7
+				"gridy": 3
+				"gridwidth": 2
+				"insets": new java.awt.Insets( 10, 0, 0, 0 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblRequirements"
+				"text": "Requirements"
+				"verticalAlignment": 3
+				"font": new java.awt.Font( "Vijaya", 0, 24 )
+				"foreground": new java.awt.Color( 51, 102, 153, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 4
+				"gridy": 4
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "btnNewRequirement"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/add.png" )
+				"preferredSize": &Dimension0 new java.awt.Dimension( 24, 24 )
+				"minimumSize": &Dimension1 new java.awt.Dimension( 24, 24 )
+				"maximumSize": &Dimension2 new java.awt.Dimension( 24, 24 )
+				"horizontalAlignment": 0
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"opaque": true
+				"toolTipText": "Add New Requirement"
+				"cursor": &Cursor0 new java.awt.Cursor( 12 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewRequirementMouseClicked", false ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 5
+				"gridy": 4
+				"vAlign": 3
+				"hAlign": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "btnDeleteRequirement"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/delete.png" )
+				"preferredSize": #Dimension0
+				"minimumSize": #Dimension1
+				"maximumSize": #Dimension2
+				"horizontalAlignment": 0
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"opaque": true
+				"toolTipText": "Delete selected requirement"
+				"cursor": #Cursor0
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteRequirementMouseClicked", false ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 4
+				"vAlign": 3
+				"gridx": 6
+				"hAlign": 2
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				"horizontalScrollBarPolicy": 31
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0:1.0"
+					"$rowSpecs": "387:1.0"
+					"$hGap": 5
+					"$vGap": 5
+					"$alignLeft": true
+					"$alignTop": true
+				} ) {
+					name: "pnlRequirements"
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"minimumSize": new java.awt.Dimension( 20, 387 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 4
+				"gridy": 5
 				"gridwidth": 5
 			} )
 		}, new FormLayoutConstraints( null ) {
