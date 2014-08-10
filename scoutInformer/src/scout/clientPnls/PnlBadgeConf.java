@@ -56,10 +56,10 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     }
 
     private void enableComponents(boolean enable) {
-        btnImport.setEnabled(enable);
-        btnExport.setEnabled(enable);
-        btnSave.setEnabled(enable);
-        btnNew.setEnabled(enable);
+        btnImport.setVisible(enable);
+        btnExport.setVisible(enable);
+        btnSave.setVisible(enable);
+        btnNew.setVisible(enable);
 
         txtBadgeName.setEnabled(enable);
         txtImagePath.setEnabled(enable);
@@ -85,6 +85,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     @Override
     public void resetPanel() {
         enableComponents(false);
+        btnSave.setVisible(false);
+        btnUpdate.setVisible(false);
     }
 
     private void btnAdvancementsMouseClicked() {

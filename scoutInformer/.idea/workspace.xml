@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added some functionality to the delete requirement btn">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="clean up">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" afterPath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" afterPath="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -166,27 +164,25 @@
       <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.734375" vertical-offset="3304" max-vertical-offset="11662">
-              <caret line="245" column="25" selection-start-line="245" selection-start-column="25" selection-end-line="245" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.8333333" vertical-offset="102" max-vertical-offset="11696">
+              <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
               <folding>
-                <element signature="e#2335#2336#0" expanded="true" />
-                <element signature="e#2374#2375#0" expanded="true" />
-                <element signature="e#11750#11936#0" expanded="true" />
-                <element signature="e#11921#11922#0" expanded="true" />
-                <element signature="e#14700#14877#0" expanded="true" />
-                <element signature="e#14862#14863#0" expanded="true" />
-                <element signature="e#18075#18243#0" expanded="true" />
-                <element signature="e#18232#18233#0" expanded="true" />
-                <element signature="e#19233#19404#0" expanded="true" />
-                <element signature="e#19393#19394#0" expanded="true" />
-                <element signature="e#20276#20461#0" expanded="true" />
-                <element signature="e#20446#20447#0" expanded="true" />
-                <element signature="e#20506#20686#0" expanded="true" />
-                <element signature="e#20671#20672#0" expanded="true" />
-                <element signature="e#26645#26832#0" expanded="true" />
-                <element signature="e#26817#26818#0" expanded="true" />
-                <marker date="1407632140134" expanded="true" signature="8721:28895" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1407632140134" expanded="true" signature="28907:30091" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#11822#12008#0" expanded="true" />
+                <element signature="e#11993#11994#0" expanded="true" />
+                <element signature="e#14772#14949#0" expanded="true" />
+                <element signature="e#14934#14935#0" expanded="true" />
+                <element signature="e#18147#18315#0" expanded="true" />
+                <element signature="e#18304#18305#0" expanded="true" />
+                <element signature="e#19305#19476#0" expanded="true" />
+                <element signature="e#19465#19466#0" expanded="true" />
+                <element signature="e#20348#20533#0" expanded="true" />
+                <element signature="e#20518#20519#0" expanded="true" />
+                <element signature="e#20578#20758#0" expanded="true" />
+                <element signature="e#20743#20744#0" expanded="true" />
+                <element signature="e#26717#26904#0" expanded="true" />
+                <element signature="e#26889#26890#0" expanded="true" />
+                <marker date="1407632548368" expanded="true" signature="8793:28967" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1407632548368" expanded="true" signature="28979:30163" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -867,7 +863,7 @@
       <workItem from="1406356032958" duration="359000" />
       <workItem from="1406395581762" duration="716000" />
       <workItem from="1406417238401" duration="9000" />
-      <workItem from="1407621367272" duration="10610000" />
+      <workItem from="1407621367272" duration="11089000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1293,11 +1289,15 @@
       <created>1407630064354</created>
       <updated>1407630064354</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="clean up">
+      <created>1407632174900</created>
+      <updated>1407632174900</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250284000" />
+    <option name="totallyTimeSpent" value="250763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1374,9 +1374,9 @@
     <MESSAGE value="added a nicity" />
     <MESSAGE value="made new btn work" />
     <MESSAGE value="created an add and delete requirement btn&#10;add requirement works" />
-    <MESSAGE value="clean up" />
     <MESSAGE value="added some functionality to the delete requirement btn" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some functionality to the delete requirement btn" />
+    <MESSAGE value="clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1849,11 +1849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="14492" max-vertical-offset="163540">
@@ -1882,29 +1877,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.734375" vertical-offset="3304" max-vertical-offset="11662">
-          <caret line="245" column="25" selection-start-line="245" selection-start-column="25" selection-end-line="245" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.8333333" vertical-offset="102" max-vertical-offset="11696">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
           <folding>
-            <element signature="e#2335#2336#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#11750#11936#0" expanded="true" />
-            <element signature="e#11921#11922#0" expanded="true" />
-            <element signature="e#14700#14877#0" expanded="true" />
-            <element signature="e#14862#14863#0" expanded="true" />
-            <element signature="e#18075#18243#0" expanded="true" />
-            <element signature="e#18232#18233#0" expanded="true" />
-            <element signature="e#19233#19404#0" expanded="true" />
-            <element signature="e#19393#19394#0" expanded="true" />
-            <element signature="e#20276#20461#0" expanded="true" />
-            <element signature="e#20446#20447#0" expanded="true" />
-            <element signature="e#20506#20686#0" expanded="true" />
-            <element signature="e#20671#20672#0" expanded="true" />
-            <element signature="e#26645#26832#0" expanded="true" />
-            <element signature="e#26817#26818#0" expanded="true" />
-            <marker date="1407632140134" expanded="true" signature="8721:28895" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407632140134" expanded="true" signature="28907:30091" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#11822#12008#0" expanded="true" />
+            <element signature="e#11993#11994#0" expanded="true" />
+            <element signature="e#14772#14949#0" expanded="true" />
+            <element signature="e#14934#14935#0" expanded="true" />
+            <element signature="e#18147#18315#0" expanded="true" />
+            <element signature="e#18304#18305#0" expanded="true" />
+            <element signature="e#19305#19476#0" expanded="true" />
+            <element signature="e#19465#19466#0" expanded="true" />
+            <element signature="e#20348#20533#0" expanded="true" />
+            <element signature="e#20518#20519#0" expanded="true" />
+            <element signature="e#20578#20758#0" expanded="true" />
+            <element signature="e#20743#20744#0" expanded="true" />
+            <element signature="e#26717#26904#0" expanded="true" />
+            <element signature="e#26889#26890#0" expanded="true" />
+            <marker date="1407632548368" expanded="true" signature="8793:28967" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1407632548368" expanded="true" signature="28979:30163" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
