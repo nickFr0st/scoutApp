@@ -228,6 +228,8 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
                 new Insets(0, 0, 0, 10), 0, 0));
 
+        pnlRequirement.getTxtReqName().requestFocus();
+
         addSpacer(grid);
         pnlRequirements.revalidate();
     }
@@ -241,7 +243,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             pnlRequirements.remove(KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner().getParent());
             grid--;
 
-            if (grid == 1) {
+            if (grid <= 0) {
                 pnlRequirements.removeAll();
                 addNoRequirementsLabel();
             }

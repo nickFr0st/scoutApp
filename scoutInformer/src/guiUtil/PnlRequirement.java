@@ -53,6 +53,10 @@ public class PnlRequirement extends JPanel {
         txtReqName.setBorder(new LineBorder(new Color(32, 154, 26), 2));
     }
 
+    public JTextField getTxtReqName() {
+        return txtReqName;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         lblBorder = new JLabel();
