@@ -514,9 +514,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             pnlGeneralInfo.setBackground(Color.white);
             pnlGeneralInfo.setName("pnlGeneralInfo");
             pnlGeneralInfo.setLayout(new GridBagLayout());
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWidths = new int[] {0, 276, 105, 0, 0};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWidths = new int[] {0, 344, 100, 0};
             ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
             ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
 
             //---- lblImagePath ----
@@ -553,7 +553,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             });
             pnlGeneralInfo.add(btnBrowseImgPath, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 5), 0, 0));
+                new Insets(0, 0, 5, 0), 0, 0));
 
             //---- lblBadgeName ----
             lblBadgeName.setText("Name:");
@@ -572,7 +572,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             txtBadgeName.setName("txtBadgeName");
             pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 5), 0, 0));
+                new Insets(0, 0, 5, 0), 0, 0));
 
             //---- chkReqForEagle ----
             chkReqForEagle.setText("Required For Eagle");
@@ -582,7 +582,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             chkReqForEagle.setName("chkReqForEagle");
             pnlGeneralInfo.add(chkReqForEagle, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 5), 0, 0));
+                new Insets(0, 0, 0, 0), 0, 0));
         }
         add(pnlGeneralInfo, new GridBagConstraints(7, 3, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,

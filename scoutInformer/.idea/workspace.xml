@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="clean up">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="re designed advancements page">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -176,14 +176,14 @@
                 <element signature="e#18253#18254#0" expanded="true" />
                 <element signature="e#18313#18493#0" expanded="true" />
                 <element signature="e#18478#18479#0" expanded="true" />
-                <element signature="e#22482#22669#0" expanded="true" />
-                <element signature="e#22654#22655#0" expanded="true" />
-                <element signature="e#25919#26087#0" expanded="true" />
-                <element signature="e#26076#26077#0" expanded="true" />
-                <element signature="e#27075#27246#0" expanded="true" />
-                <element signature="e#27235#27236#0" expanded="true" />
-                <marker date="1407701477677" expanded="true" signature="8864:28698" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1407701477677" expanded="true" signature="28710:29865" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#22474#22661#0" expanded="true" />
+                <element signature="e#22646#22647#0" expanded="true" />
+                <element signature="e#25911#26079#0" expanded="true" />
+                <element signature="e#26068#26069#0" expanded="true" />
+                <element signature="e#27067#27238#0" expanded="true" />
+                <element signature="e#27227#27228#0" expanded="true" />
+                <marker date="1407701659744" expanded="true" signature="8864:28690" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1407701659744" expanded="true" signature="28702:29857" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -431,7 +431,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -442,52 +442,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imgRes" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -861,7 +816,7 @@
       <workItem from="1406395581762" duration="716000" />
       <workItem from="1406417238401" duration="9000" />
       <workItem from="1407621367272" duration="11704000" />
-      <workItem from="1407697592447" duration="3860000" />
+      <workItem from="1407697592447" duration="4077000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1295,11 +1250,15 @@
       <created>1407632652876</created>
       <updated>1407632652876</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="re designed advancements page">
+      <created>1407701498705</created>
+      <updated>1407701498705</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255238000" />
+    <option name="totallyTimeSpent" value="255455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1325,7 +1284,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14002205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1353,7 +1312,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="more logic" />
     <MESSAGE value="gui change" />
     <MESSAGE value="advancements are now populated when clicking on the advancement list" />
     <MESSAGE value="pulled out logic" />
@@ -1378,7 +1336,8 @@
     <MESSAGE value="created an add and delete requirement btn&#10;add requirement works" />
     <MESSAGE value="added some functionality to the delete requirement btn" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="re designed advancements page" />
+    <option name="LAST_COMMIT_MESSAGE" value="re designed advancements page" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1890,14 +1849,14 @@
             <element signature="e#18253#18254#0" expanded="true" />
             <element signature="e#18313#18493#0" expanded="true" />
             <element signature="e#18478#18479#0" expanded="true" />
-            <element signature="e#22482#22669#0" expanded="true" />
-            <element signature="e#22654#22655#0" expanded="true" />
-            <element signature="e#25919#26087#0" expanded="true" />
-            <element signature="e#26076#26077#0" expanded="true" />
-            <element signature="e#27075#27246#0" expanded="true" />
-            <element signature="e#27235#27236#0" expanded="true" />
-            <marker date="1407701477677" expanded="true" signature="8864:28698" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407701477677" expanded="true" signature="28710:29865" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#22474#22661#0" expanded="true" />
+            <element signature="e#22646#22647#0" expanded="true" />
+            <element signature="e#25911#26079#0" expanded="true" />
+            <element signature="e#26068#26069#0" expanded="true" />
+            <element signature="e#27067#27238#0" expanded="true" />
+            <element signature="e#27227#27228#0" expanded="true" />
+            <marker date="1407701659744" expanded="true" signature="8864:28690" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1407701659744" expanded="true" signature="28702:29857" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
