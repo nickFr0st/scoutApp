@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="created a search bar">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added logic to search field">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lib/mysql-connector-java-5.1.31-bin.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lib/mysql-connector-license.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/scoutInformer_jar.xml" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\BSA-logo400.png" afterPath="$PROJECT_DIR$/resources/images/BSA-logo400.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\add.png" afterPath="$PROJECT_DIR$/resources/images/add.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\eagle.png" afterPath="$PROJECT_DIR$/resources/images/advancements/eagle.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\first_class.png" afterPath="$PROJECT_DIR$/resources/images/advancements/first_class.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\life.png" afterPath="$PROJECT_DIR$/resources/images/advancements/life.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\new_scout.png" afterPath="$PROJECT_DIR$/resources/images/advancements/new_scout.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\second_class.png" afterPath="$PROJECT_DIR$/resources/images/advancements/second_class.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\star.png" afterPath="$PROJECT_DIR$/resources/images/advancements/star.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\tenderfoot.png" afterPath="$PROJECT_DIR$/resources/images/advancements/tenderfoot.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\badge_settings.png" afterPath="$PROJECT_DIR$/resources/images/badge_settings.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\badge_settings_base.xcf" afterPath="$PROJECT_DIR$/resources/images/badge_settings_base.xcf" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\badge_settings_selected.png" afterPath="$PROJECT_DIR$/resources/images/badge_settings_selected.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\complete.png" afterPath="$PROJECT_DIR$/resources/images/complete.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\delete.png" afterPath="$PROJECT_DIR$/resources/images/delete.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\flurDeLis.png" afterPath="$PROJECT_DIR$/resources/images/flurDeLis.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\flurDeLis16.png" afterPath="$PROJECT_DIR$/resources/images/flurDeLis16.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\new_scout.png" afterPath="$PROJECT_DIR$/resources/images/new_scout.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\no_image.png" afterPath="$PROJECT_DIR$/resources/images/no_image.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\scout.png" afterPath="$PROJECT_DIR$/resources/images/scout.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\search.png" afterPath="$PROJECT_DIR$/resources/images/search.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\settings256.png" afterPath="$PROJECT_DIR$/resources/images/settings256.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\settings90.png" afterPath="$PROJECT_DIR$/resources/images/settings90.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\settings_selected90.png" afterPath="$PROJECT_DIR$/resources/images/settings_selected90.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\signInTitlebar.png" afterPath="$PROJECT_DIR$/resources/images/signInTitlebar.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\sign_out90.png" afterPath="$PROJECT_DIR$/resources/images/sign_out90.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\sign_out_base.png" afterPath="$PROJECT_DIR$/resources/images/sign_out_base.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\sign_out_selected90.png" afterPath="$PROJECT_DIR$/resources/images/sign_out_selected90.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\timelessValues.png" afterPath="$PROJECT_DIR$/resources/images/timelessValues.png" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\lib\mysql-connector-java-5.0.8.zip" afterPath="$PROJECT_DIR$/resources/lib/mysql-connector-java-5.0.8.zip" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\src\properties\database.properties" afterPath="$PROJECT_DIR$/resources/properties/database.properties" />
+      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\src\properties\users.properties" afterPath="$PROJECT_DIR$/resources/properties/users.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scoutInformer.iml" afterPath="$PROJECT_DIR$/scoutInformer.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -162,31 +196,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.296875" vertical-offset="4332" max-vertical-offset="12818">
-              <caret line="291" column="9" selection-start-line="291" selection-start-column="9" selection-end-line="291" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="12376">
+              <caret line="284" column="19" selection-start-line="284" selection-start-column="19" selection-end-line="284" selection-end-column="19" />
               <folding>
-                <element signature="e#9656#9664#0" expanded="true" />
-                <element signature="e#13081#13267#0" expanded="true" />
-                <element signature="e#13252#13253#0" expanded="true" />
-                <element signature="e#16031#16208#0" expanded="true" />
-                <element signature="e#16193#16194#0" expanded="true" />
-                <element signature="e#20050#20230#0" expanded="true" />
-                <element signature="e#20215#20216#0" expanded="true" />
-                <element signature="e#21008#21193#0" expanded="true" />
-                <element signature="e#21178#21179#0" expanded="true" />
-                <element signature="e#21238#21418#0" expanded="true" />
-                <element signature="e#21403#21404#0" expanded="true" />
-                <element signature="e#25111#25298#0" expanded="true" />
-                <element signature="e#25283#25284#0" expanded="true" />
-                <element signature="e#28836#29004#0" expanded="true" />
-                <element signature="e#28993#28994#0" expanded="true" />
-                <element signature="e#29992#30163#0" expanded="true" />
-                <element signature="e#30152#30153#0" expanded="true" />
-                <marker date="1407709416691" expanded="true" signature="10034:31615" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1407709416691" expanded="true" signature="31627:32862" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1407709577752" expanded="true" signature="10005:31586" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1407709577752" expanded="true" signature="31598:32833" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlSignIn.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47121534" vertical-offset="0" max-vertical-offset="3944">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <marker date="1406355948865" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1406355948865" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -202,7 +232,7 @@
       <file leaf-file-name="PnlRequirement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1955">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2295">
               <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
               <folding>
                 <marker date="1407700748416" expanded="true" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
@@ -222,13 +252,9 @@
       <file leaf-file-name="PnlSearchBar.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+            <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1360">
               <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
               <folding>
-                <element signature="e#263#264#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-                <element signature="e#482#483#0" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
                 <marker date="1407708039838" expanded="true" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1407708039838" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
@@ -239,12 +265,9 @@
       <file leaf-file-name="JTextFieldDefaultText.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="1887">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="2176">
               <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
-              <folding>
-                <element signature="e#2357#2358#0" expanded="true" />
-                <element signature="e#2416#2417#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -441,8 +464,8 @@
         <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
       </list>
     </option>
   </component>
@@ -483,6 +506,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -490,10 +514,6 @@
               <option name="myItemId" value="scoutInformer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -502,63 +522,12 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guiUtil" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imgRes" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -577,7 +546,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/.IntelliJIdea13/config/jdbc-drivers/mysql-connector-java-5.1.31-bin.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -596,6 +565,8 @@
       <recent name="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\src\scout\clientPnls" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\scoutApp\scoutInformer\resources" />
+      <recent name="C:\dev\scoutApp\scoutInformer" />
       <recent name="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\imgRes\images\advancements" />
       <recent name="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\src\guiUtil" />
       <recent name="C:\Users\Malloch\Documents\GitHub\scoutApp\scoutInformer\imgRes\images" />
@@ -933,7 +904,9 @@
       <workItem from="1406395581762" duration="716000" />
       <workItem from="1406417238401" duration="9000" />
       <workItem from="1407621367272" duration="11704000" />
-      <workItem from="1407697592447" duration="10712000" />
+      <workItem from="1407697592447" duration="11170000" />
+      <workItem from="1407711683479" duration="35000" />
+      <workItem from="1407725575916" duration="1280000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1379,15 +1352,19 @@
       <created>1407708039998</created>
       <updated>1407708039998</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="added logic to search field">
+      <created>1407709523095</created>
+      <updated>1407709523095</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262090000" />
+    <option name="totallyTimeSpent" value="263863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1408,15 +1385,15 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14002205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14002205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290735" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1437,7 +1414,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="advancements are now populated when clicking on the advancement list" />
     <MESSAGE value="pulled out logic" />
     <MESSAGE value="fixed some bugs" />
     <MESSAGE value="moved some stuff" />
@@ -1462,7 +1438,8 @@
     <MESSAGE value="re designed advancements page" />
     <MESSAGE value="clean up" />
     <MESSAGE value="created a search bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="created a search bar" />
+    <MESSAGE value="added logic to search field" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logic to search field" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1505,7 +1482,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java</url>
-          <line>288</line>
+          <line>287</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -1532,7 +1509,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imgRes/images/settings256.png">
+    <entry file="file://$PROJECT_DIR$/resources/images/settings256.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1632,7 +1609,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/properties/users.properties">
+    <entry file="file://$PROJECT_DIR$/resources/properties/users.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="639">
           <caret line="0" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1664,13 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="799">
           <caret line="41" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="4080">
-          <caret line="49" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1934,17 +1904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1955">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding>
-            <marker date="1407700748416" expanded="true" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407700748416" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
@@ -1960,10 +1919,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
           <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding>
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
             <marker date="1407708039838" expanded="true" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1407708039838" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
@@ -1974,10 +1929,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="1887">
           <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
-          <folding>
-            <element signature="e#2357#2358#0" expanded="true" />
-            <element signature="e#2416#2417#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1986,30 +1938,35 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1955">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <marker date="1407700748416" expanded="true" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1407700748416" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.296875" vertical-offset="4332" max-vertical-offset="12818">
-          <caret line="291" column="9" selection-start-line="291" selection-start-column="9" selection-end-line="291" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="12376">
+          <caret line="284" column="19" selection-start-line="284" selection-start-column="19" selection-end-line="284" selection-end-column="19" />
           <folding>
-            <element signature="e#9656#9664#0" expanded="true" />
-            <element signature="e#13081#13267#0" expanded="true" />
-            <element signature="e#13252#13253#0" expanded="true" />
-            <element signature="e#16031#16208#0" expanded="true" />
-            <element signature="e#16193#16194#0" expanded="true" />
-            <element signature="e#20050#20230#0" expanded="true" />
-            <element signature="e#20215#20216#0" expanded="true" />
-            <element signature="e#21008#21193#0" expanded="true" />
-            <element signature="e#21178#21179#0" expanded="true" />
-            <element signature="e#21238#21418#0" expanded="true" />
-            <element signature="e#21403#21404#0" expanded="true" />
-            <element signature="e#25111#25298#0" expanded="true" />
-            <element signature="e#25283#25284#0" expanded="true" />
-            <element signature="e#28836#29004#0" expanded="true" />
-            <element signature="e#28993#28994#0" expanded="true" />
-            <element signature="e#29992#30163#0" expanded="true" />
-            <element signature="e#30152#30153#0" expanded="true" />
-            <marker date="1407709416691" expanded="true" signature="10034:31615" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407709416691" expanded="true" signature="31627:32862" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1407709577752" expanded="true" signature="10005:31586" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1407709577752" expanded="true" signature="31598:32833" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47121534" vertical-offset="0" max-vertical-offset="3944">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <marker date="1406355948865" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1406355948865" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -2020,10 +1977,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>scoutInformer:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
