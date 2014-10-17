@@ -7,4 +7,6 @@ public interface Configuration {
     void onShow();
 
     void onHide();
+
+    void createNew();
 }

@@ -6,6 +6,7 @@ package scout.clientPnls.configPnls;
 
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
+import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
 import util.LogicAdvancement;
@@ -34,10 +35,21 @@ public class PnlAdvancements extends JPanel implements Configuration {
     private int grid;
     private final int gridWidth = 700;
     private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
+    private PnlBadgeConf pnlBadgeConf;
 
     public PnlAdvancements() {
         initComponents();
+    }
 
+    public PnlAdvancements(PnlBadgeConf pnlBadgeConf) {
+        this.pnlBadgeConf = pnlBadgeConf;
+        initComponents();
+        scrollPane2.getVerticalScrollBar().setUnitIncrement(18);
+        onShow();
+    }
+
+    @Override
+    public void onShow() {
         java.util.List<String> advancements = LogicAdvancement.getAdvancementList();
 
         if (advancements != null) {
@@ -46,13 +58,27 @@ public class PnlAdvancements extends JPanel implements Configuration {
     }
 
     @Override
-    public void onShow() {
+    public void onHide() {
 
     }
 
     @Override
-    public void onHide() {
+    public void createNew() {
+        lblImage.setIcon(noImageIcon);
+        txtImagePath.setDefault();
+        txtBadgeName.setDefault();
 
+        pnlRequirements.removeAll();
+
+        addNoRequirementsLabel();
+
+        pnlRequirements.revalidate();
+        pnlRequirements.repaint();
+
+        pnlBadgeConf.getBtnSave().setVisible(true);
+        pnlBadgeConf.getBtnUpdate().setVisible(false);
+
+        txtBadgeName.requestFocus();
     }
 
     private void txtSearchNameKeyReleased() {
@@ -86,8 +112,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
                 return;
             }
 
-//            btnSave.setVisible(false);
-//            btnUpdate.setVisible(true);
+            pnlBadgeConf.getBtnSave().setVisible(false);
+            pnlBadgeConf.getBtnUpdate().setVisible(true);
 
             // todo: will probably need to use setImage() here
             txtImagePath.setText(advancement.getImgPath());

@@ -39,7 +39,6 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         currentPnl = pnlSplash;
-//        scrollPane2.getVerticalScrollBar().setUnitIncrement(18);
     }
 
     private void enableComponents(boolean enable) {
@@ -62,7 +61,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnUpdate.setVisible(false);
         currentSelected = ADVANCEMENT;
 
-        updateConfigPnl(new PnlAdvancements());
+        updateConfigPnl(new PnlAdvancements(this));
 
         revalidate();
         repaint();
@@ -79,24 +78,22 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     }
 
     private void btnNewMouseClicked() {
-        // call the new per type that is select
+        switch (currentSelected) {
+            case ADVANCEMENT:
+                ((PnlAdvancements)currentPnl).createNew();
+                break;
+            case MERIT_BAGDGE:
+                break;
+            case OTHER:
+        }
+    }
 
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
 
-//        lblImage.setIcon(noImageIcon);
-//        txtImagePath.setDefault();
-//        txtBadgeName.setDefault();
-//
-//        pnlRequirements.removeAll();
-//
-//        addNoRequirementsLabel();
-//
-//        pnlRequirements.revalidate();
-//        pnlRequirements.repaint();
-//
-//        btnSave.setVisible(true);
-//        btnUpdate.setVisible(false);
-//
-//        txtBadgeName.requestFocus();
+    public JButton getBtnSave() {
+        return btnSave;
     }
 
     private void initComponents() {

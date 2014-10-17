@@ -93,6 +93,9 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 7
 				} )
@@ -103,6 +106,9 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 8
 				} )

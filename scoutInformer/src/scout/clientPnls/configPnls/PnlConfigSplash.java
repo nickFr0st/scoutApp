@@ -25,6 +25,11 @@ public class PnlConfigSplash extends JPanel implements Configuration {
         // do nothing
     }
 
+    @Override
+    public void createNew() {
+        // do nothing
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         lblWelcome = new JLabel();
