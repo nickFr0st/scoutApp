@@ -1,0 +1,44 @@
+JFDML JFormDesigner: "5.1.3.0.158" Java: "1.7.0_67" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "0:1.0"
+			"$rowSpecs": "0:1.0, 0, 0, 0:1.0"
+			"$hGap": 5
+			"$vGap": 5
+			"$alignLeft": true
+			"$alignTop": true
+		} ) {
+			name: "this"
+			"maximumSize": new java.awt.Dimension( 1000, 680 )
+			"minimumSize": new java.awt.Dimension( 1000, 680 )
+			"preferredSize": new java.awt.Dimension( 1000, 680 )
+			"background": new java.awt.Color( 255, 255, 255, 255 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblWelcome"
+				"text": "Welcome to the advancements and badge manager"
+				"horizontalAlignment": 0
+				"font": &Font0 new java.awt.Font( "Vijaya", 0, 28 )
+				"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"insets": &Insets0 new java.awt.Insets( 20, 0, 0, 0 )
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblWelcome2"
+				"text": "Please select one of the above options"
+				"horizontalAlignment": 0
+				"font": #Font0
+				"foreground": #Color0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"insets": #Insets0
+				"gridy": 2
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1000, 680 )
+		} )
+	}
+}
