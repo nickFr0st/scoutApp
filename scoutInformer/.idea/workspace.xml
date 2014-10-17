@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed update btn showing issue">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed the req list a bit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -969,7 +968,7 @@
       <workItem from="1407711683479" duration="35000" />
       <workItem from="1407725575916" duration="1280000" />
       <workItem from="1413431537454" duration="1429000" />
-      <workItem from="1413512968181" duration="14302000" />
+      <workItem from="1413512968181" duration="14338000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1439,11 +1438,15 @@
       <created>1413579715702</created>
       <updated>1413579715702</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="fixed the req list a bit">
+      <created>1413582488962</created>
+      <updated>1413582488962</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279594000" />
+    <option name="totallyTimeSpent" value="279630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1497,7 +1500,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added new scout requirements" />
     <MESSAGE value="move some stuff around" />
     <MESSAGE value="did some stuff that may be reverted later" />
     <MESSAGE value="made a better requirements list" />
@@ -1522,7 +1524,8 @@
     <MESSAGE value="reworking some of the configuration steps" />
     <MESSAGE value="made sure change did not break current functionality" />
     <MESSAGE value="fixed update btn showing issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed update btn showing issue" />
+    <MESSAGE value="fixed the req list a bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the req list a bit" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
