@@ -59,7 +59,7 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "0, 339:1.0, 100"
-				"$rowSpecs": "0:1.0, 0, 0"
+				"$rowSpecs": "0, 0"
 				"$hGap": 5
 				"$vGap": 5
 				"$alignLeft": true
@@ -74,7 +74,6 @@ new FormModel {
 					"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"insets": new java.awt.Insets( 0, 5, 0, 0 )
-					"gridy": 1
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
 					name: "txtImagePath"
@@ -84,7 +83,6 @@ new FormModel {
 					"defaultText": "Path"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
-					"gridy": 1
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnBrowseImgPath"
@@ -96,7 +94,6 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBrowseImgPathMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 2
-					"gridy": 1
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblBadgeName"
@@ -104,7 +101,7 @@ new FormModel {
 					"font": #Font0
 					"foreground": #Color0
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 2
+					"gridy": 1
 					"insets": new java.awt.Insets( 0, 5, 0, 0 )
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
@@ -115,7 +112,7 @@ new FormModel {
 					"defaultText": "Badge Name"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
-					"gridy": 2
+					"gridy": 1
 					"gridwidth": 2
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {

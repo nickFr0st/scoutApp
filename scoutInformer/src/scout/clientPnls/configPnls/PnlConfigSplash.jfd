@@ -18,7 +18,7 @@ new FormModel {
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblWelcome"
-				"text": "Welcome to the advancements and badge manager"
+				"text": "Welcome to the advancements and merit badge manager"
 				"horizontalAlignment": 0
 				"font": &Font0 new java.awt.Font( "Vijaya", 0, 28 )
 				"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
@@ -28,7 +28,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblWelcome2"
-				"text": "Please select one of the above options"
+				"text": "to start working please select one of the above options"
 				"horizontalAlignment": 0
 				"font": #Font0
 				"foreground": #Color0

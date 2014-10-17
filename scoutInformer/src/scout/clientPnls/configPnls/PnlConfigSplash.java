@@ -43,7 +43,7 @@ public class PnlConfigSplash extends JPanel implements Configuration {
         ((GridBagLayout)getLayout()).rowWeights = new double[] {1.0, 0.0, 0.0, 1.0, 1.0E-4};
 
         //---- lblWelcome ----
-        lblWelcome.setText("Welcome to the advancements and badge manager");
+        lblWelcome.setText("Welcome to the advancements and merit badge manager");
         lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
         lblWelcome.setFont(new Font("Vijaya", Font.PLAIN, 28));
         lblWelcome.setForeground(new Color(51, 102, 153));
@@ -53,7 +53,7 @@ public class PnlConfigSplash extends JPanel implements Configuration {
             new Insets(20, 0, 5, 0), 0, 0));
 
         //---- lblWelcome2 ----
-        lblWelcome2.setText("Please select one of the above options");
+        lblWelcome2.setText("to start working please select one of the above options");
         lblWelcome2.setHorizontalAlignment(SwingConstants.CENTER);
         lblWelcome2.setFont(new Font("Vijaya", Font.PLAIN, 28));
         lblWelcome2.setForeground(new Color(51, 102, 153));

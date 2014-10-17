@@ -33,9 +33,16 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     private int grid;
     private final int gridWidth = 700;
+    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
 
     public PnlAdvancements() {
         initComponents();
+
+        java.util.List<String> advancements = LogicAdvancement.getAdvancementList();
+
+        if (advancements != null) {
+            listBadgeNames.setListData(advancements.toArray());
+        }
     }
 
     @Override
@@ -306,16 +313,16 @@ public class PnlAdvancements extends JPanel implements Configuration {
             pnlGeneralInfo.setName("pnlGeneralInfo");
             pnlGeneralInfo.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWidths = new int[] {0, 344, 100, 0};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0};
             ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {1.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0E-4};
 
             //---- lblImagePath ----
             lblImagePath.setText("Image Path:");
             lblImagePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
             lblImagePath.setForeground(new Color(51, 102, 153));
             lblImagePath.setName("lblImagePath");
-            pnlGeneralInfo.add(lblImagePath, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(lblImagePath, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 5, 5, 5), 0, 0));
 
@@ -325,7 +332,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtImagePath.setPreferredSize(new Dimension(14, 40));
             txtImagePath.setDefaultText("Path");
             txtImagePath.setName("txtImagePath");
-            pnlGeneralInfo.add(txtImagePath, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(txtImagePath, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
 
@@ -342,7 +349,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
                     btnBrowseImgPathMouseClicked();
                 }
             });
-            pnlGeneralInfo.add(btnBrowseImgPath, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(btnBrowseImgPath, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
@@ -351,7 +358,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             lblBadgeName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             lblBadgeName.setForeground(new Color(51, 102, 153));
             lblBadgeName.setName("lblBadgeName");
-            pnlGeneralInfo.add(lblBadgeName, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(lblBadgeName, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 5, 0, 5), 0, 0));
 
@@ -361,7 +368,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtBadgeName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtBadgeName.setDefaultText("Badge Name");
             txtBadgeName.setName("txtBadgeName");
-            pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 2, 2, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
