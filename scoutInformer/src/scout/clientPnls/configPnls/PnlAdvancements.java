@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class PnlAdvancements extends JPanel implements Configuration {
 
     private int grid;
-    private final int gridWidth = 700;
+    private final int gridWidth = 200;
     private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private PnlBadgeConf pnlBadgeConf;
 
@@ -120,28 +120,26 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtBadgeName.setText(advancement.getName());
             lblImage.setIcon(new ImageIcon(getClass().getResource(advancement.getImgPath())));
 
-            pnlRequirements.removeAll();
+            resetPnlRequirements();
             grid = 0;
 
             java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
             if (!Util.isEmpty(requirementList)) {
-
                 for (Requirement requirement : requirementList) {
-                    PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid > 0, requirement.getId());
-
-                    pnlRequirements.add(pnlRequirement, new GridBagConstraints(0, grid++, gridWidth, 1, 0.0, 0.0,
-                            GridBagConstraints.NORTHWEST, GridBagConstraints.HORIZONTAL,
-                            new Insets(0, 0, 0, 10), 0, 0));
+                    PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid++ > 0, requirement.getId());
+                    pnlRequirements.add(pnlRequirement);
                 }
-
-                addSpacer(grid);
-
             } else {
                 addNoRequirementsLabel();
             }
 
             pnlRequirements.revalidate();
         }
+    }
+
+    private void resetPnlRequirements() {
+        pnlRequirements.removeAll();
+        pnlRequirements.setLayout(new BoxLayout(pnlRequirements, BoxLayout.Y_AXIS));
     }
 
     private void listBadgeNamesKeyReleased(KeyEvent e) {
@@ -155,26 +153,21 @@ public class PnlAdvancements extends JPanel implements Configuration {
             return;
         }
 
-        if (pnlRequirements.getComponentCount() > 0) {
-            if (grid < 0) {
-                pnlRequirements.removeAll();
-                pnlRequirements.revalidate();
-                grid = 0;
-            } else {
-                pnlRequirements.remove(pnlRequirements.getComponentCount() - 1);
-            }
+        if (pnlRequirements.getComponentCount() > 0 && grid < 0) {
+            resetPnlRequirements();
+            pnlRequirements.revalidate();
+            grid = 0;
+        } else if (pnlRequirements.getComponentCount() <= 0) {
+            resetPnlRequirements();
+            grid = 0;
         }
 
         // todo: take note when saving that an id of -1 is a new requirement
-        PnlRequirement pnlRequirement = new PnlRequirement("[num]", "[Description]", grid > 0, -1);
-
-        pnlRequirements.add(pnlRequirement, new GridBagConstraints(0, grid++, gridWidth, 1, 0.0, 0.0,
-                GridBagConstraints.NORTHWEST, GridBagConstraints.HORIZONTAL,
-                new Insets(0, 0, 0, 10), 0, 0));
+        PnlRequirement pnlRequirement = new PnlRequirement("[num]", "[Description]", grid++ > 0, -1);
+        pnlRequirements.add(pnlRequirement);
 
         pnlRequirement.getTxtReqName().requestFocus();
 
-        addSpacer(grid);
         pnlRequirements.revalidate();
     }
 
@@ -216,22 +209,15 @@ public class PnlAdvancements extends JPanel implements Configuration {
         }
     }
 
-    private void addSpacer(int grid) {
-        pnlRequirements.add(new JLabel(""), new GridBagConstraints(0, grid, gridWidth, 1, 0.0, 2000.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 0), 0, 0));
-    }
-
     private void addNoRequirementsLabel() {
+        resetPnlRequirements();
         grid = -1;
         JLabel lblNoRequirements = new JLabel();
         lblNoRequirements.setText("No Requirements");
         lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
         lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
-        pnlRequirements.add(lblNoRequirements, new GridBagConstraints(0, 0, gridWidth, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 0), 0, 0));
+        pnlRequirements.add(lblNoRequirements);
     }
 
     private void setImage(String imgPath) {
