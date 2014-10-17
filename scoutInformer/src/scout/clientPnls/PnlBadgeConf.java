@@ -46,6 +46,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnExport.setVisible(enable);
         btnSave.setVisible(enable);
         btnNew.setVisible(enable);
+        btnUpdate.setVisible(enable);
     }
 
     @Override
