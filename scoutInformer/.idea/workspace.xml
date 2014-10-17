@@ -2,41 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added logic to search field">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lib/mysql-connector-java-5.1.31-bin.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lib/mysql-connector-license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/scoutInformer_jar.xml" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\BSA-logo400.png" afterPath="$PROJECT_DIR$/resources/images/BSA-logo400.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\add.png" afterPath="$PROJECT_DIR$/resources/images/add.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\eagle.png" afterPath="$PROJECT_DIR$/resources/images/advancements/eagle.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\first_class.png" afterPath="$PROJECT_DIR$/resources/images/advancements/first_class.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\life.png" afterPath="$PROJECT_DIR$/resources/images/advancements/life.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\new_scout.png" afterPath="$PROJECT_DIR$/resources/images/advancements/new_scout.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\second_class.png" afterPath="$PROJECT_DIR$/resources/images/advancements/second_class.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\star.png" afterPath="$PROJECT_DIR$/resources/images/advancements/star.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\advancements\tenderfoot.png" afterPath="$PROJECT_DIR$/resources/images/advancements/tenderfoot.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\badge_settings.png" afterPath="$PROJECT_DIR$/resources/images/badge_settings.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\badge_settings_base.xcf" afterPath="$PROJECT_DIR$/resources/images/badge_settings_base.xcf" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\badge_settings_selected.png" afterPath="$PROJECT_DIR$/resources/images/badge_settings_selected.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\complete.png" afterPath="$PROJECT_DIR$/resources/images/complete.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\delete.png" afterPath="$PROJECT_DIR$/resources/images/delete.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\flurDeLis.png" afterPath="$PROJECT_DIR$/resources/images/flurDeLis.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\flurDeLis16.png" afterPath="$PROJECT_DIR$/resources/images/flurDeLis16.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\new_scout.png" afterPath="$PROJECT_DIR$/resources/images/new_scout.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\no_image.png" afterPath="$PROJECT_DIR$/resources/images/no_image.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\scout.png" afterPath="$PROJECT_DIR$/resources/images/scout.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\search.png" afterPath="$PROJECT_DIR$/resources/images/search.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\settings256.png" afterPath="$PROJECT_DIR$/resources/images/settings256.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\settings90.png" afterPath="$PROJECT_DIR$/resources/images/settings90.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\settings_selected90.png" afterPath="$PROJECT_DIR$/resources/images/settings_selected90.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\signInTitlebar.png" afterPath="$PROJECT_DIR$/resources/images/signInTitlebar.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\sign_out90.png" afterPath="$PROJECT_DIR$/resources/images/sign_out90.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\sign_out_base.png" afterPath="$PROJECT_DIR$/resources/images/sign_out_base.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\sign_out_selected90.png" afterPath="$PROJECT_DIR$/resources/images/sign_out_selected90.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\imgRes\images\timelessValues.png" afterPath="$PROJECT_DIR$/resources/images/timelessValues.png" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\lib\mysql-connector-java-5.0.8.zip" afterPath="$PROJECT_DIR$/resources/lib/mysql-connector-java-5.0.8.zip" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\src\properties\database.properties" afterPath="$PROJECT_DIR$/resources/properties/database.properties" />
-      <change type="MOVED" beforePath="C:\dev\scoutApp\scoutInformer\src\properties\users.properties" afterPath="$PROJECT_DIR$/resources/properties/users.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_31_bin1.xml" />
+      <change type="DELETED" beforePath="C:\Users\Nathanael\Desktop\scoutApp\scoutApp\scoutInformer\.idea\libraries\mysql_connector_java_5_1_31_bin.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scoutInformer.iml" afterPath="$PROJECT_DIR$/scoutInformer.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -199,24 +169,26 @@
       <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="12376">
-              <caret line="284" column="19" selection-start-line="284" selection-start-column="19" selection-end-line="284" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="4964">
+              <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
               <folding>
-                <marker date="1407709577752" expanded="true" signature="10005:31586" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1407709577752" expanded="true" signature="31598:32833" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#19580#19758#0" expanded="true" />
+                <element signature="e#19743#19744#0" expanded="true" />
+                <marker date="1413516891859" expanded="false" signature="9926:31147" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413516891859" expanded="false" signature="31159:32364" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlSignIn.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PnlSignIn.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47121534" vertical-offset="0" max-vertical-offset="3944">
+            <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="4318">
               <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <marker date="1406355948865" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1406355948865" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1413431435556" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413431435556" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -232,31 +204,41 @@
       <file leaf-file-name="PnlRequirement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2295">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1003">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
-                <marker date="1407700748416" expanded="true" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1407700748416" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1413431435490" expanded="false" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413431435490" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlBadgeConf.jfd" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PnlBadgeConf.jfd" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
             <state />
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SelectionBorder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/guiUtil/SelectionBorder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="918">
+              <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PnlSearchBar.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1360">
+            <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="799">
               <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
               <folding>
-                <marker date="1407708039838" expanded="true" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1407708039838" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1413431435494" expanded="false" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413431435494" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -279,125 +261,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SignIn.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="9554">
               <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-              <folding>
-                <marker date="1406355948883" expanded="true" signature="4581:4595" placeholder="SELECT * FRO..missingValue..." />
-                <marker date="1406355948883" expanded="true" signature="7690:7980" placeholder="CREATE TABLE..user..." />
-                <marker date="1406355948883" expanded="true" signature="8058:8257" placeholder="CREATE TABLE..advancement..." />
-                <marker date="1406355948883" expanded="true" signature="8341:8656" placeholder="CREATE TABLE..meritBadge..." />
-                <marker date="1406355948883" expanded="true" signature="8740:9024" placeholder="CREATE TABLE..requirement..." />
-                <marker date="1406355948883" expanded="true" signature="9150:9245" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="9302:9399" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="9456:9557" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="9614:9713" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="9770:9855" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="9912:9997" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="10054:10139" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="10266:10516" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="10573:10666" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="10723:10868" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="10925:11016" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="11073:11182" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="11239:11349" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="11406:11560" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="11617:11701" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="11758:11986" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="12043:12283" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="12364:12593" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="12650:12802" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="12859:13129" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="13186:13298" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="13355:13538" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="13595:13726" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="13783:13979" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="14036:14164" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="14221:14368" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="14425:14559" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="14616:14852" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="14909:15560" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="15617:15768" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="15825:15957" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="16014:16126" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="16183:16669" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="16726:16973" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="17030:17130" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="17187:17277" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="17360:17507" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="17564:17763" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="17820:17920" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="17977:18187" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="18244:18487" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="18544:18714" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="18771:18927" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="18984:19450" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="19507:19814" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="19871:20177" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="20234:20491" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="20548:20672" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="20729:20918" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="20975:21134" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="21191:21311" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="21368:21886" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="21943:22055" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="22112:22367" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="22424:22801" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="22858:23190" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="23247:23364" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="23421:23585" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="23642:23947" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="24004:24104" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="24161:24251" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="24333:24479" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="24536:24783" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="24840:25112" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="25169:25516" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="25573:25782" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="25839:25986" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="26043:26345" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="26402:26715" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="26772:27032" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="27089:27236" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="27293:27564" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="27621:27722" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="27779:27915" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="27972:28138" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="28195:28450" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="28507:28688" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="28745:28864" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="28921:29025" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="29082:29308" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="29365:29674" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="29731:29932" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="29989:30325" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="30382:30482" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="30539:30629" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="30704:30865" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="30922:31067" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="31124:31690" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="31747:31952" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="32009:32323" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="32380:32477" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="32534:32623" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="32698:32851" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="32908:33053" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="33110:33641" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="33698:33896" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="33953:34239" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="34296:35137" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="35194:35291" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="35348:35437" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="35513:35700" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="35757:36145" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="36202:37221" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="37278:37592" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="37649:38343" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="38400:38497" placeholder="INSERT INTO ..." />
-                <marker date="1406355948883" expanded="true" signature="38554:39027" placeholder="INSERT INTO ..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -433,7 +309,6 @@
         <option value="$PROJECT_DIR$/src/guiUtil/PnlFileBrowser.java" />
         <option value="$PROJECT_DIR$/src/guiUtil/CustomFileChooser.java" />
         <option value="$PROJECT_DIR$/src/constants/ErrorConst.java" />
-        <option value="$PROJECT_DIR$/src/guiUtil/SelectionBorder.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.jfd" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/User.java" />
@@ -459,11 +334,12 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSetupWizard.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java" />
         <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
-        <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
         <option value="db-console:/afb71f67/5c1e0090-3834-47cf-ad7c-d068fff6889d/" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd" />
         <option value="$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java" />
+        <option value="$PROJECT_DIR$/src/guiUtil/SelectionBorder.java" />
+        <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
       </list>
@@ -473,10 +349,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="-8" />
-    <option name="width" value="1874" />
-    <option name="height" value="1096" />
+    <option name="x" value="152" />
+    <option name="y" value="9" />
+    <option name="width" value="1622" />
+    <option name="height" value="1018" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -506,7 +382,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -525,9 +400,104 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scout" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scout" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rank" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scout" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clientPnls" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scoutInformer" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guiUtil" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -545,8 +515,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/.IntelliJIdea13/config/jdbc-drivers/mysql-connector-java-5.1.31-bin.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lib/mysql-connector-java-5.1.31-bin.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -907,6 +877,8 @@
       <workItem from="1407697592447" duration="11170000" />
       <workItem from="1407711683479" duration="35000" />
       <workItem from="1407725575916" duration="1280000" />
+      <workItem from="1413431537454" duration="1429000" />
+      <workItem from="1413512968181" duration="2955000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1360,11 +1332,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263863000" />
+    <option name="totallyTimeSpent" value="268247000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="false" />
+    <frame x="152" y="9" width="1622" height="1018" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1373,27 +1345,27 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3972311" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39713973" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32374868" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32343236" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14002205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31735888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2011208" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31683168" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290735" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1480,14 +1452,8 @@
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java</url>
-          <line>287</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1495,17 +1461,137 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/SelectionBorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="918">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="799">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding>
+            <marker date="1413431435494" expanded="false" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435494" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="2176">
+          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="9554">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13226">
+          <caret line="284" column="19" selection-start-line="284" selection-start-column="19" selection-end-line="284" selection-end-column="19" />
+          <folding>
+            <element signature="e#19580#19758#0" expanded="true" />
+            <element signature="e#19743#19744#0" expanded="true" />
+            <marker date="1413516891859" expanded="false" signature="9926:31147" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413516891859" expanded="false" signature="31159:32364" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="8534">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <marker date="1413431435556" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435556" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2363">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <marker date="1413431435490" expanded="false" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435490" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1411">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding>
+            <marker date="1413431435494" expanded="false" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435494" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/JTextFieldDefaultText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="2176">
+          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state paletteWidth="0" propertiesWidth="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="9554">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/RankConst.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41595745" vertical-offset="0" max-vertical-offset="1581">
           <caret line="23" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/sql/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="9173" max-vertical-offset="17782">
-          <caret line="581" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1545,13 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/sql/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1030" max-vertical-offset="24956">
-          <caret line="103" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/Advancement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45116773" vertical-offset="0" max-vertical-offset="942">
@@ -1563,25 +1642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38641188" vertical-offset="129" max-vertical-offset="1071">
           <caret line="29" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11517" max-vertical-offset="26809">
-          <caret line="761" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Font.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8236" max-vertical-offset="44472">
-          <caret line="565" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1689,229 +1749,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JScrollBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7607" max-vertical-offset="14892">
-          <caret line="507" column="15" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20323" max-vertical-offset="82008">
-          <caret line="1277" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/accessibility/Accessible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3978159" vertical-offset="0" max-vertical-offset="641">
-          <caret line="38" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/Scrollable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322933" vertical-offset="93" max-vertical-offset="1887">
-          <caret line="42" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37129486" vertical-offset="3723" max-vertical-offset="62135">
-          <caret line="281" column="57" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JFileChooser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322933" vertical-offset="1470" max-vertical-offset="32249">
-          <caret line="147" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/image/ImageFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2886117" vertical-offset="1824" max-vertical-offset="4097">
-          <caret line="44" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2141" max-vertical-offset="5559">
-          <caret line="167" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322933" vertical-offset="71952" max-vertical-offset="93602">
-          <caret line="4324" column="15" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/afb71f67/5c1e0090-3834-47cf-ad7c-d068fff6889d/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="9282">
           <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <marker date="1406355948883" expanded="true" signature="4581:4595" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1406355948883" expanded="true" signature="7690:7980" placeholder="CREATE TABLE..user..." />
-            <marker date="1406355948883" expanded="true" signature="8058:8257" placeholder="CREATE TABLE..advancement..." />
-            <marker date="1406355948883" expanded="true" signature="8341:8656" placeholder="CREATE TABLE..meritBadge..." />
-            <marker date="1406355948883" expanded="true" signature="8740:9024" placeholder="CREATE TABLE..requirement..." />
-            <marker date="1406355948883" expanded="true" signature="9150:9245" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="9302:9399" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="9456:9557" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="9614:9713" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="9770:9855" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="9912:9997" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="10054:10139" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="10266:10516" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="10573:10666" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="10723:10868" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="10925:11016" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="11073:11182" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="11239:11349" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="11406:11560" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="11617:11701" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="11758:11986" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="12043:12283" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="12364:12593" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="12650:12802" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="12859:13129" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="13186:13298" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="13355:13538" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="13595:13726" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="13783:13979" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="14036:14164" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="14221:14368" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="14425:14559" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="14616:14852" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="14909:15560" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="15617:15768" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="15825:15957" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="16014:16126" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="16183:16669" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="16726:16973" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="17030:17130" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="17187:17277" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="17360:17507" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="17564:17763" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="17820:17920" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="17977:18187" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="18244:18487" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="18544:18714" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="18771:18927" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="18984:19450" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="19507:19814" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="19871:20177" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="20234:20491" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="20548:20672" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="20729:20918" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="20975:21134" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="21191:21311" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="21368:21886" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="21943:22055" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="22112:22367" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="22424:22801" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="22858:23190" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="23247:23364" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="23421:23585" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="23642:23947" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="24004:24104" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="24161:24251" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="24333:24479" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="24536:24783" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="24840:25112" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="25169:25516" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="25573:25782" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="25839:25986" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="26043:26345" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="26402:26715" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="26772:27032" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="27089:27236" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="27293:27564" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="27621:27722" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="27779:27915" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="27972:28138" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="28195:28450" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="28507:28688" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="28745:28864" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="28921:29025" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="29082:29308" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="29365:29674" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="29731:29932" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="29989:30325" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="30382:30482" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="30539:30629" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="30704:30865" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="30922:31067" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="31124:31690" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="31747:31952" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="32009:32323" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="32380:32477" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="32534:32623" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="32698:32851" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="32908:33053" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="33110:33641" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="33698:33896" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="33953:34239" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="34296:35137" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="35194:35291" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="35348:35437" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="35513:35700" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="35757:36145" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="36202:37221" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="37278:37592" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="37649:38343" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="38400:38497" placeholder="INSERT INTO ..." />
-            <marker date="1406355948883" expanded="true" signature="38554:39027" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/KeyboardFocusManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6876" max-vertical-offset="50932">
-          <caret line="477" column="21" selection-start-line="477" selection-start-column="21" selection-end-line="477" selection-end-column="21" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14492" max-vertical-offset="163540">
-          <caret line="1008" column="18" selection-start-line="1008" selection-start-column="18" selection-end-line="1008" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/GridBagConstraints.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10038" max-vertical-offset="10948">
-          <caret line="626" column="11" selection-start-line="626" selection-start-column="11" selection-end-line="626" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.java">
@@ -1919,8 +1762,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
           <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding>
-            <marker date="1407708039838" expanded="true" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407708039838" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1413431435494" expanded="false" signature="751:2531" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435494" expanded="false" signature="2543:2775" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1933,42 +1776,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="3944">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <marker date="1413431435556" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435556" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlSearchBar.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/SignIn.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/guiUtil/SelectionBorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/PnlRequirement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1955">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1003">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <marker date="1407700748416" expanded="true" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407700748416" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1413431435490" expanded="false" signature="1540:4405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413431435490" expanded="false" signature="4417:4675" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="12376">
-          <caret line="284" column="19" selection-start-line="284" selection-start-column="19" selection-end-line="284" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="4964">
+          <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
           <folding>
-            <marker date="1407709577752" expanded="true" signature="10005:31586" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1407709577752" expanded="true" signature="31598:32833" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#19580#19758#0" expanded="true" />
+            <element signature="e#19743#19744#0" expanded="true" />
+            <marker date="1413516891859" expanded="false" signature="9926:31147" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413516891859" expanded="false" signature="31159:32364" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlSignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47121534" vertical-offset="0" max-vertical-offset="3944">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1406355948865" expanded="false" signature="6811:21848" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1406355948865" expanded="false" signature="21860:22793" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
       </provider>
     </entry>
   </component>
@@ -2038,7 +1906,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mysql-connector-java-5.1.31-bin</last-edited>
+          <last-edited>mysql-connector-java-5.1.31-bin1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

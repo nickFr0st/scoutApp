@@ -60,7 +60,6 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void enableSearchPnl(boolean enable) {
         pnlSearch.setEnabled(enable);
         txtSearchName.setEnabled(enable);
-        btnSearch.setEnabled(enable);
 
         if (!enable) {
             txtSearchName.setDefault();
@@ -280,11 +279,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 new Insets(0, 0, 0, 0), 0, 0));
     }
 
-    private void btnSearchMouseClicked() {
-        if (!btnSearch.isEnabled()) {
-            return;
-        }
-
+    private void txtSearchNameKeyReleased() {
         List<String> advancementList = LogicAdvancement.getAdvancementList();
         if (advancementList == null) {
             return;
@@ -322,7 +317,6 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         lblGeneralInfo = new JLabel();
         pnlSearch = new JPanel();
         txtSearchName = new JTextFieldDefaultText();
-        btnSearch = new JLabel();
         scrollPane1 = new JScrollPane();
         listBadgeNames = new JList();
         pnlSelectedImage = new JPanel();
@@ -493,33 +487,27 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             pnlSearch.setBorder(new LineBorder(new Color(51, 102, 153), 2));
             pnlSearch.setName("pnlSearch");
             pnlSearch.setLayout(new GridBagLayout());
-            ((GridBagLayout)pnlSearch.getLayout()).columnWidths = new int[] {0, 0, 0};
+            ((GridBagLayout)pnlSearch.getLayout()).columnWidths = new int[] {0, 0};
             ((GridBagLayout)pnlSearch.getLayout()).rowHeights = new int[] {0, 0};
-            ((GridBagLayout)pnlSearch.getLayout()).columnWeights = new double[] {1.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlSearch.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
             ((GridBagLayout)pnlSearch.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
             //---- txtSearchName ----
             txtSearchName.setDefaultText("Search by Name");
             txtSearchName.setBorder(null);
             txtSearchName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtSearchName.setMinimumSize(new Dimension(0, 20));
+            txtSearchName.setPreferredSize(new Dimension(101, 20));
             txtSearchName.setName("txtSearchName");
+            txtSearchName.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    txtSearchNameKeyReleased();
+                }
+            });
             pnlSearch.add(txtSearchName, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 5, 0, 0), 0, 0));
-
-            //---- btnSearch ----
-            btnSearch.setIcon(new ImageIcon(getClass().getResource("/images/search.png")));
-            btnSearch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            btnSearch.setName("btnSearch");
-            btnSearch.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    btnSearchMouseClicked();
-                }
-            });
-            pnlSearch.add(btnSearch, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 5), 0, 0));
         }
         add(pnlSearch, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -750,7 +738,6 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JLabel lblGeneralInfo;
     private JPanel pnlSearch;
     private JTextFieldDefaultText txtSearchName;
-    private JLabel btnSearch;
     private JScrollPane scrollPane1;
     private JList listBadgeNames;
     private JPanel pnlSelectedImage;
