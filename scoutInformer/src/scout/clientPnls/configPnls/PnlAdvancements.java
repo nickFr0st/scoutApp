@@ -486,7 +486,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 128, 30, 30, 0, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {54, 0, 152, 54, 358, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 45, 358, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
