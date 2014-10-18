@@ -86,6 +86,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         pnlBadgeConf.getBtnSave().setVisible(true);
         pnlBadgeConf.getBtnUpdate().setVisible(false);
+        pnlBadgeConf.getBtnDelete().setVisible(false);
 
         txtBadgeName.requestFocus();
     }
@@ -125,6 +126,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
             pnlBadgeConf.getBtnSave().setVisible(false);
             pnlBadgeConf.getBtnUpdate().setVisible(true);
+            pnlBadgeConf.getBtnDelete().setVisible(true);
 
             txtImagePath.setText(advancement.getImgPath());
             txtBadgeName.setText(advancement.getName());

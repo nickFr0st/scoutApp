@@ -17,7 +17,7 @@ new FormModel {
 			"border": new guiUtil.SelectionBorder
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "0, 0, 0, 0:1.0, 0, 0, 0, 0, 0"
+				"$columnSpecs": "0, 0, 0, 0:1.0, 0, 0, 0, 0, 0, 0"
 				"$rowSpecs": "50"
 				"$hGap": 5
 				"$vGap": 5
@@ -112,6 +112,19 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSaveMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 8
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnDelete"
+					"text": "Delete"
+					"background": new java.awt.Color( 207, 0, 0, 255 )
+					"foreground": sfield java.awt.Color white
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 9
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1

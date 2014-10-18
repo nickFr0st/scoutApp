@@ -35,6 +35,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         enableComponents(false);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
         currentPnl = pnlSplash;
     }
 
@@ -44,6 +45,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave.setVisible(enable);
         btnNew.setVisible(enable);
         btnUpdate.setVisible(enable);
+        btnDelete.setVisible(enable);
     }
 
     @Override
@@ -57,6 +59,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
         btnSave.setVisible(true);
         btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
         currentSelected = ADVANCEMENT;
 
         updateConfigPnl(new PnlAdvancements(this));
@@ -105,6 +108,10 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         }
     }
 
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -116,6 +123,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnNew = new JButton();
         btnUpdate = new JButton();
         btnSave = new JButton();
+        btnDelete = new JButton();
         pnlSplash = new PnlConfigSplash();
 
         //======== this ========
@@ -135,9 +143,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             panel1.setBackground(Color.white);
             panel1.setName("panel1");
             panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {50, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
             ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
             //---- btnAdvancements ----
@@ -244,6 +252,17 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             });
             panel1.add(btnSave, new GridBagConstraints(8, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 5), 0, 0));
+
+            //---- btnDelete ----
+            btnDelete.setText("Delete");
+            btnDelete.setBackground(new Color(207, 0, 0));
+            btnDelete.setForeground(Color.white);
+            btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnDelete.setFocusPainted(false);
+            btnDelete.setName("btnDelete");
+            panel1.add(btnDelete, new GridBagConstraints(9, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
         add(panel1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
@@ -268,6 +287,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private JButton btnNew;
     private JButton btnUpdate;
     private JButton btnSave;
+    private JButton btnDelete;
     private PnlConfigSplash pnlSplash;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
