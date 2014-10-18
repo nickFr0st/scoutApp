@@ -17,9 +17,9 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlBadgeConf extends JPanel implements PnlGui {
-    private static final int ADVANCEMENT = 0;
-    private static final int MERIT_BAGDGE = 1;
-    private static final int OTHER = 2;
+    public static final int ADVANCEMENT = 0;
+    public static final int MERIT_BAGDGE = 1;
+    public static final int OTHER = 2;
 
     private JPanel currentPnl;
     private int currentSelected;
@@ -134,6 +134,17 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         }
     }
 
+    private void btnExportMouseClicked() {
+        switch (currentSelected) {
+            case ADVANCEMENT:
+                ((PnlAdvancements)currentPnl).export();
+                break;
+            case MERIT_BAGDGE:
+                break;
+            case OTHER:
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -227,6 +238,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnExport.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnExport.setFocusPainted(false);
             btnExport.setName("btnExport");
+            btnExport.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnExportMouseClicked();
+                }
+            });
             panel1.add(btnExport, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));

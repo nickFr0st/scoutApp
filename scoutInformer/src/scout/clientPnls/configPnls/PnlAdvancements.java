@@ -6,6 +6,7 @@ package scout.clientPnls.configPnls;
 
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
+import scout.clientPnls.IEPnls.ExportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
@@ -404,6 +405,12 @@ public class PnlAdvancements extends JPanel implements Configuration {
         LogicAdvancement.update(advancement);
 
         reloadData();
+    }
+
+    public void export() {
+
+        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.ADVANCEMENT);
+        dialog.setVisible(true);
     }
 
     private void reloadData() {
