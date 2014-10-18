@@ -48,6 +48,28 @@ public class LogicRequirement {
         return requirementList;
     }
 
+    public static List<Integer> findIdsByParentId(int parentId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Integer> requirementIdList = new ArrayList<Integer>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT id FROM requirement WHERE parentId = " + parentId);
+
+            while (rs.next()) {
+                requirementIdList.add(rs.getInt(KeyConst.REQUIREMENT_ID.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return requirementIdList;
+    }
+
     public static void saveList(List<Requirement> requirementList) {
         if (Util.isEmpty(requirementList)) {
             return;
@@ -65,6 +87,23 @@ public class LogicRequirement {
             } catch (Exception e) {
                 // save error
             }
+        }
+    }
+
+    public static void save(Requirement requirement) {
+        if (requirement == null) {
+            return;
+        }
+
+        if (requirement.getId() < 0) {
+            requirement.setId(getNextId());
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("INSERT INTO requirement VALUES( " + requirement.getId() + ",'" + requirement.getName() + "', '" + requirement.getDescription() + "'," + requirement.getTypeId() + "," + requirement.getParentId() + ")");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -99,7 +138,48 @@ public class LogicRequirement {
         }
     }
 
-    public static void updateList(List<Requirement> requirementList) {
+    public static void updateList(List<Requirement> requirementList, int parentId) {
+        for (Requirement requirement : requirementList) {
+            if (requirement.getId() < 0) {
+                save(requirement);
+            } else {
+                update(requirement);
+            }
+        }
 
+        List<Integer> existingRequirementIdList = findIdsByParentId(parentId);
+        List<Integer> tempList = new ArrayList<Integer>();
+
+        for (Requirement requirement : requirementList) {
+            if (requirement.getId() < 0) {
+                continue;
+            }
+
+            tempList.add(requirement.getId());
+        }
+
+        if (Util.isEmpty(tempList)) {
+            deleteList(existingRequirementIdList);
+            return;
+        }
+
+        List<Integer> deletionList = new ArrayList<Integer>();
+
+        for (Integer id : existingRequirementIdList) {
+            if (!tempList.contains(id)) {
+                deletionList.add(id);
+            }
+        }
+
+        deleteList(deletionList);
+    }
+
+    private static void update(Requirement requirement) {
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("UPDATE requirement SET name = '" + requirement.getName() + "', description = '" + requirement.getDescription() + "', typeId = " + requirement.getTypeId() + ", parentId = " + requirement.getParentId() + " WHERE id = " + requirement.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

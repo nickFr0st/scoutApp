@@ -373,8 +373,17 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         clearErrors();
 
-        if (!validateName()) {
+        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+            Util.setError(lblNameError, "Advancement name cannot be left blank");
             return;
+        }
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            String advancementName = (String) listBadgeNames.getModel().getElementAt(i);
+            if (advancementName.equalsIgnoreCase(txtBadgeName.getText()) && !txtBadgeName.getText().equals(listBadgeNames.getSelectedValue().toString())) {
+                Util.setError(lblNameError, "Advancement name already exists");
+                return;
+            }
         }
 
         Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
@@ -388,7 +397,10 @@ public class PnlAdvancements extends JPanel implements Configuration {
         List<Requirement> requirementList = validateRequirements(advancement.getId());
         if (requirementList == null) return;
 
-        LogicRequirement.updateList(requirementList);
+
+        // when editing requirements may need to check who is using them
+
+        LogicRequirement.updateList(requirementList, advancement.getId());
         LogicAdvancement.update(advancement);
 
         reloadData();
