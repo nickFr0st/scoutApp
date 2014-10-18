@@ -412,8 +412,16 @@ public class PnlAdvancements extends JPanel implements Configuration {
         }
 
         int index = listBadgeNames.getSelectedIndex();
+        String name = txtBadgeName.getText();
 
         clearData();
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            if (listBadgeNames.getModel().getElementAt(i).toString().equals(name)) {
+                index = i;
+                break;
+            }
+        }
 
         listBadgeNames.setSelectedIndex(index);
         listBadgeNamesMouseClicked();
