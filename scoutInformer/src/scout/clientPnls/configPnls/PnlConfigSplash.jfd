@@ -16,6 +16,7 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 1000, 680 )
 			"preferredSize": new java.awt.Dimension( 1000, 680 )
 			"background": new java.awt.Color( 255, 255, 255, 255 )
+			"opaque": false
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblWelcome"
 				"text": "Welcome to the advancements and merit badge manager"

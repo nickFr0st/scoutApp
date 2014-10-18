@@ -40,6 +40,7 @@ public class PnlConfigSplash extends JPanel implements Configuration {
         setMinimumSize(new Dimension(1000, 680));
         setPreferredSize(new Dimension(1000, 680));
         setBackground(Color.white);
+        setOpaque(false);
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 0};

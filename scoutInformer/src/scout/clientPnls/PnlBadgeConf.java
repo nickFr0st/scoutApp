@@ -253,7 +253,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         //---- pnlSplash ----
         pnlSplash.setName("pnlSplash");
         add(pnlSplash, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            GridBagConstraints.CENTER, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
