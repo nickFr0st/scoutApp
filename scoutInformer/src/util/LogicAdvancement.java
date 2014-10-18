@@ -111,4 +111,17 @@ public class LogicAdvancement {
             e.printStackTrace();
         }
     }
+
+    public static void update(Advancement advancement) {
+        if (advancement == null) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("UPDATE advancement SET name = '" + advancement.getName() + "', imgPath = '" + advancement.getImgPath().replace("\\", "\\\\") + "'" + " WHERE id = " + advancement.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

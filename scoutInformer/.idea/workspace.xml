@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added delete logic">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="finish delete advancement logic">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicAdvancement.java" afterPath="$PROJECT_DIR$/src/util/LogicAdvancement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicRequirement.java" afterPath="$PROJECT_DIR$/src/util/LogicRequirement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -164,23 +168,27 @@
       <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1401" max-vertical-offset="4981">
-              <caret line="117" column="48" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1660" max-vertical-offset="5304">
+              <caret line="128" column="49" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
               <folding>
                 <element signature="e#2335#2336#0" expanded="true" />
                 <element signature="e#2367#2368#0" expanded="true" />
+                <element signature="e#2402#2403#0" expanded="true" />
+                <element signature="e#2432#2433#0" expanded="true" />
                 <element signature="e#2747#2748#0" expanded="true" />
                 <element signature="e#2779#2780#0" expanded="true" />
-                <element signature="e#5253#5439#0" expanded="true" />
-                <element signature="e#5424#5425#0" expanded="true" />
-                <element signature="e#8203#8380#0" expanded="true" />
-                <element signature="e#8365#8366#0" expanded="true" />
-                <element signature="e#9479#9657#0" expanded="true" />
-                <element signature="e#9642#9643#0" expanded="true" />
-                <element signature="e#10234#10414#0" expanded="true" />
-                <element signature="e#10399#10400#0" expanded="true" />
-                <marker date="1413654227565" expanded="true" signature="3108:11126" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1413654227565" expanded="false" signature="11138:11640" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#5535#5721#0" expanded="true" />
+                <element signature="e#5706#5707#0" expanded="true" />
+                <element signature="e#8485#8662#0" expanded="true" />
+                <element signature="e#8647#8648#0" expanded="true" />
+                <element signature="e#9241#9421#0" expanded="true" />
+                <element signature="e#9406#9407#0" expanded="true" />
+                <element signature="e#9983#10161#0" expanded="true" />
+                <element signature="e#10146#10147#0" expanded="true" />
+                <element signature="e#10738#10918#0" expanded="true" />
+                <element signature="e#10903#10904#0" expanded="true" />
+                <marker date="1413657333318" expanded="true" signature="3390:11630" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413657333318" expanded="false" signature="11642:12144" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -203,17 +211,17 @@
       <file leaf-file-name="PnlAdvancements.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3328446" vertical-offset="5553" max-vertical-offset="7004">
-              <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.48240468" vertical-offset="6267" max-vertical-offset="7939">
+              <caret line="390" column="32" selection-start-line="390" selection-start-column="32" selection-end-line="390" selection-end-column="32" />
               <folding>
-                <element signature="e#0#29204#0" expanded="true" />
+                <element signature="e#0#30705#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#1446#1447#0" expanded="true" />
-                <element signature="e#1473#1474#0" expanded="true" />
-                <element signature="e#9309#9322#0" expanded="true" />
-                <element signature="e#11004#11013#0" expanded="true" />
-                <marker date="1413655893556" expanded="false" signature="12276:28237" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1413655893556" expanded="true" signature="28249:29201" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#1406#1407#0" expanded="true" />
+                <element signature="e#1433#1434#0" expanded="true" />
+                <element signature="e#9224#9237#0" expanded="true" />
+                <element signature="e#11454#11463#0" expanded="true" />
+                <marker date="1413657981945" expanded="false" signature="13777:29738" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413657981945" expanded="true" signature="29750:30702" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -222,14 +230,14 @@
       <file leaf-file-name="LogicRequirement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1048" max-vertical-offset="1717">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1082" max-vertical-offset="1785">
+              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
-                <marker date="1413655132081" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
-                <marker date="1413655132081" expanded="true" signature="1941:2139" placeholder="INSERT INTO ..." />
-                <marker date="1413655132081" expanded="true" signature="2426:2463" placeholder="SELECT MAX(i..requirement..." />
-                <marker date="1413655132081" expanded="true" signature="2933:2970" placeholder="DELETE FROM ..." />
-                <marker date="1413655132081" expanded="true" signature="2933:3015" placeholder="DELETE FROM ..." />
+                <marker date="1413657645472" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
+                <marker date="1413657645472" expanded="true" signature="1941:2139" placeholder="INSERT INTO ..." />
+                <marker date="1413657645472" expanded="true" signature="2426:2463" placeholder="SELECT MAX(i..requirement..." />
+                <marker date="1413657645472" expanded="true" signature="2933:2970" placeholder="DELETE FROM ..." />
+                <marker date="1413657645472" expanded="true" signature="2933:3015" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
@@ -248,16 +256,24 @@
       <file leaf-file-name="LogicAdvancement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1256" max-vertical-offset="1938">
-              <caret line="103" column="19" selection-start-line="103" selection-start-column="19" selection-end-line="103" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1477" max-vertical-offset="2159">
+              <caret line="121" column="109" selection-start-line="121" selection-start-column="109" selection-end-line="121" selection-end-column="109" />
               <folding>
-                <marker date="1413655382118" expanded="true" signature="700:756" placeholder="SELECT * FRO..advancement..." />
-                <marker date="1413655382118" expanded="true" signature="1510:1552" placeholder="SELECT name ..advancement..." />
-                <marker date="1413655382118" expanded="true" signature="2127:2277" placeholder="INSERT INTO ..." />
-                <marker date="1413655382118" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
-                <marker date="1413655382118" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
-                <marker date="1413655382118" expanded="true" signature="2542:2579" placeholder="SELECT MAX(i..advancement..." />
-                <marker date="1413655382118" expanded="true" signature="3034:3101" placeholder="DELETE FROM ..." />
+                <marker date="1413657697213" expanded="true" signature="700:756" placeholder="SELECT * FRO..advancement..." />
+                <marker date="1413657697213" expanded="true" signature="1510:1552" placeholder="SELECT name ..advancement..." />
+                <marker date="1413657697213" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
+                <marker date="1413657697213" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
+                <marker date="1413657697213" expanded="true" signature="2127:2277" placeholder="INSERT INTO ..." />
+                <marker date="1413657697213" expanded="true" signature="2542:2579" placeholder="SELECT MAX(i..advancement..." />
+                <marker date="1413657697213" expanded="true" signature="3034:3101" placeholder="DELETE FROM ..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3455" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3455" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3594" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3498" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3498" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3498" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3569" placeholder="UPDATE advan..." />
+                <marker date="1413657697213" expanded="true" signature="3424:3570" placeholder="UPDATE advan..." />
               </folding>
             </state>
           </provider>
@@ -444,10 +460,10 @@
         <option value="$PROJECT_DIR$/src/guiUtil/PnlRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlConfigSplash.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.jfd" />
+        <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
-        <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/util/LogicAdvancement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
       </list>
@@ -1050,7 +1066,7 @@
       <workItem from="1407725575916" duration="1280000" />
       <workItem from="1413431537454" duration="1429000" />
       <workItem from="1413512968181" duration="26912000" />
-      <workItem from="1413649435487" duration="6648000" />
+      <workItem from="1413649435487" duration="8540000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1568,11 +1584,15 @@
       <created>1413655432198</created>
       <updated>1413655432198</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="finish delete advancement logic">
+      <created>1413656108453</created>
+      <updated>1413656108453</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298852000" />
+    <option name="totallyTimeSpent" value="300744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1626,7 +1646,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fixed a connection bug" />
     <MESSAGE value="added back some inserts" />
     <MESSAGE value="fixed some stuff" />
     <MESSAGE value="added some stuff" />
@@ -1651,7 +1670,8 @@
     <MESSAGE value="fixed saving and loading imgs" />
     <MESSAGE value="added a delete btn" />
     <MESSAGE value="added delete logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="added delete logic" />
+    <MESSAGE value="finish delete advancement logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish delete advancement logic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1694,13 +1714,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java</url>
-          <line>181</line>
+          <line>179</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java</url>
-          <line>284</line>
+          <line>273</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
@@ -1836,14 +1856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="279" max-vertical-offset="1700">
           <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="77761" max-vertical-offset="91494">
-          <caret line="4489" column="16" selection-start-line="4489" selection-start-column="16" selection-end-line="4489" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2157,6 +2169,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328446" vertical-offset="54870" max-vertical-offset="163659">
+          <caret line="3512" column="19" selection-start-line="3512" selection-start-column="19" selection-end-line="3512" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
@@ -2167,41 +2187,37 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/javax/swing/JComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1401" max-vertical-offset="4981">
-          <caret line="117" column="48" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
-          <folding>
-            <element signature="e#2335#2336#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2779#2780#0" expanded="true" />
-            <element signature="e#5253#5439#0" expanded="true" />
-            <element signature="e#5424#5425#0" expanded="true" />
-            <element signature="e#8203#8380#0" expanded="true" />
-            <element signature="e#8365#8366#0" expanded="true" />
-            <element signature="e#9479#9657#0" expanded="true" />
-            <element signature="e#9642#9643#0" expanded="true" />
-            <element signature="e#10234#10414#0" expanded="true" />
-            <element signature="e#10399#10400#0" expanded="true" />
-            <marker date="1413654227565" expanded="true" signature="3108:11126" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1413654227565" expanded="false" signature="11138:11640" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
+        <state vertical-scroll-proportion="0.3328446" vertical-offset="14954" max-vertical-offset="91494">
+          <caret line="961" column="16" selection-start-line="961" selection-start-column="16" selection-end-line="961" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1256" max-vertical-offset="1938">
-          <caret line="103" column="19" selection-start-line="103" selection-start-column="19" selection-end-line="103" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1660" max-vertical-offset="5304">
+          <caret line="128" column="49" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
           <folding>
-            <marker date="1413655382118" expanded="true" signature="700:756" placeholder="SELECT * FRO..advancement..." />
-            <marker date="1413655382118" expanded="true" signature="1510:1552" placeholder="SELECT name ..advancement..." />
-            <marker date="1413655382118" expanded="true" signature="2127:2277" placeholder="INSERT INTO ..." />
-            <marker date="1413655382118" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
-            <marker date="1413655382118" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
-            <marker date="1413655382118" expanded="true" signature="2542:2579" placeholder="SELECT MAX(i..advancement..." />
-            <marker date="1413655382118" expanded="true" signature="3034:3101" placeholder="DELETE FROM ..." />
+            <element signature="e#2335#2336#0" expanded="true" />
+            <element signature="e#2367#2368#0" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2432#2433#0" expanded="true" />
+            <element signature="e#2747#2748#0" expanded="true" />
+            <element signature="e#2779#2780#0" expanded="true" />
+            <element signature="e#5535#5721#0" expanded="true" />
+            <element signature="e#5706#5707#0" expanded="true" />
+            <element signature="e#8485#8662#0" expanded="true" />
+            <element signature="e#8647#8648#0" expanded="true" />
+            <element signature="e#9241#9421#0" expanded="true" />
+            <element signature="e#9406#9407#0" expanded="true" />
+            <element signature="e#9983#10161#0" expanded="true" />
+            <element signature="e#10146#10147#0" expanded="true" />
+            <element signature="e#10738#10918#0" expanded="true" />
+            <element signature="e#10903#10904#0" expanded="true" />
+            <marker date="1413657333318" expanded="true" signature="3390:11630" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413657333318" expanded="false" signature="11642:12144" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -2214,41 +2230,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/java/awt/Component.java">
+    <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328446" vertical-offset="54870" max-vertical-offset="163659">
-          <caret line="3512" column="19" selection-start-line="3512" selection-start-column="19" selection-end-line="3512" selection-end-column="19" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1477" max-vertical-offset="2159">
+          <caret line="121" column="109" selection-start-line="121" selection-start-column="109" selection-end-line="121" selection-end-column="109" />
+          <folding>
+            <marker date="1413657697213" expanded="true" signature="700:756" placeholder="SELECT * FRO..advancement..." />
+            <marker date="1413657697213" expanded="true" signature="1510:1552" placeholder="SELECT name ..advancement..." />
+            <marker date="1413657697213" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
+            <marker date="1413657697213" expanded="true" signature="2127:2221" placeholder="INSERT INTO ..." />
+            <marker date="1413657697213" expanded="true" signature="2127:2277" placeholder="INSERT INTO ..." />
+            <marker date="1413657697213" expanded="true" signature="2542:2579" placeholder="SELECT MAX(i..advancement..." />
+            <marker date="1413657697213" expanded="true" signature="3034:3101" placeholder="DELETE FROM ..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3455" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3455" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3594" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3498" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3498" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3498" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3569" placeholder="UPDATE advan..." />
+            <marker date="1413657697213" expanded="true" signature="3424:3570" placeholder="UPDATE advan..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1048" max-vertical-offset="1717">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1082" max-vertical-offset="1785">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
-            <marker date="1413655132081" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1413655132081" expanded="true" signature="1941:2139" placeholder="INSERT INTO ..." />
-            <marker date="1413655132081" expanded="true" signature="2426:2463" placeholder="SELECT MAX(i..requirement..." />
-            <marker date="1413655132081" expanded="true" signature="2933:2970" placeholder="DELETE FROM ..." />
-            <marker date="1413655132081" expanded="true" signature="2933:3015" placeholder="DELETE FROM ..." />
+            <marker date="1413657645472" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1413657645472" expanded="true" signature="1941:2139" placeholder="INSERT INTO ..." />
+            <marker date="1413657645472" expanded="true" signature="2426:2463" placeholder="SELECT MAX(i..requirement..." />
+            <marker date="1413657645472" expanded="true" signature="2933:2970" placeholder="DELETE FROM ..." />
+            <marker date="1413657645472" expanded="true" signature="2933:3015" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328446" vertical-offset="5553" max-vertical-offset="7004">
-          <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.48240468" vertical-offset="6267" max-vertical-offset="7939">
+          <caret line="390" column="32" selection-start-line="390" selection-start-column="32" selection-end-line="390" selection-end-column="32" />
           <folding>
-            <element signature="e#0#29204#0" expanded="true" />
+            <element signature="e#0#30705#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#1446#1447#0" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#9309#9322#0" expanded="true" />
-            <element signature="e#11004#11013#0" expanded="true" />
-            <marker date="1413655893556" expanded="false" signature="12276:28237" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1413655893556" expanded="true" signature="28249:29201" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#1406#1407#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#9224#9237#0" expanded="true" />
+            <element signature="e#11454#11463#0" expanded="true" />
+            <marker date="1413657981945" expanded="false" signature="13777:29738" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413657981945" expanded="true" signature="29750:30702" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>

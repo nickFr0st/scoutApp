@@ -33,9 +33,7 @@ import java.util.List;
  * @author User #2
  */
 public class PnlAdvancements extends JPanel implements Configuration {
-
     private int grid;
-    private final int gridWidth = 200;
     private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private PnlBadgeConf pnlBadgeConf;
 
@@ -265,17 +263,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
     public void save() {
         clearErrors();
 
-        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
-            Util.setError(lblNameError, "Advancement name cannot be left blank");
+        if (!validateName()) {
             return;
-        }
-
-        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
-            String advancementName = (String) listBadgeNames.getModel().getElementAt(i);
-            if (advancementName.equalsIgnoreCase(txtBadgeName.getText())) {
-                Util.setError(lblNameError, "Advancement name already exists");
-                return;
-            }
         }
 
         Advancement advancement = new Advancement();
@@ -287,31 +276,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
             advancement.setImgPath(txtImagePath.getDefaultText());
         }
 
-        List<Requirement> requirementList = new ArrayList<Requirement>();
-        if (grid > 0) {
-            for (Component component : pnlRequirements.getComponents()) {
-                if (component instanceof PnlRequirement) {
-
-                    if (((PnlRequirement)component).getName().trim().isEmpty()) {
-                        Util.setError(lblReqError, "Requirement name cannot be left blank");
-                        return;
-                    }
-
-                    if (((PnlRequirement)component).getDescription().trim().isEmpty()) {
-                        Util.setError(lblReqError, "Requirement description cannot be left blank");
-                        return;
-                    }
-
-                    Requirement requirement = new Requirement();
-                    requirement.setName(((PnlRequirement)component).getName());
-                    requirement.setDescription(((PnlRequirement)component).getDescription());
-                    requirement.setId(((PnlRequirement)component).getReqId());
-                    requirement.setTypeId(1);
-
-                    requirementList.add(requirement);
-                }
-            }
-        }
+        List<Requirement> requirementList = validateRequirements(-1);
+        if (requirementList == null) return;
 
         LogicAdvancement.save(advancement);
 
@@ -322,6 +288,54 @@ public class PnlAdvancements extends JPanel implements Configuration {
         LogicRequirement.saveList(requirementList);
 
         poplulateAdvancementNameList();
+    }
+
+    private List<Requirement> validateRequirements(int parentId) {
+        List<Requirement> requirementList = new ArrayList<Requirement>();
+        if (grid > 0) {
+            for (Component component : pnlRequirements.getComponents()) {
+                if (component instanceof PnlRequirement) {
+
+                    if (((PnlRequirement)component).getName().trim().isEmpty()) {
+                        Util.setError(lblReqError, "Requirement name cannot be left blank");
+                        return null;
+                    }
+
+                    if (((PnlRequirement)component).getDescription().trim().isEmpty()) {
+                        Util.setError(lblReqError, "Requirement description cannot be left blank");
+                        return null;
+                    }
+
+                    Requirement requirement = new Requirement();
+                    if (parentId > 0) {
+                        requirement.setParentId(parentId);
+                    }
+                    requirement.setName(((PnlRequirement)component).getName());
+                    requirement.setDescription(((PnlRequirement)component).getDescription());
+                    requirement.setId(((PnlRequirement)component).getReqId());
+                    requirement.setTypeId(1);
+
+                    requirementList.add(requirement);
+                }
+            }
+        }
+        return requirementList;
+    }
+
+    private boolean validateName() {
+        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+            Util.setError(lblNameError, "Advancement name cannot be left blank");
+            return false;
+        }
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            String advancementName = (String) listBadgeNames.getModel().getElementAt(i);
+            if (advancementName.equalsIgnoreCase(txtBadgeName.getText())) {
+                Util.setError(lblNameError, "Advancement name already exists");
+                return false;
+            }
+        }
+        return true;
     }
 
     public void delete() {
@@ -350,6 +364,47 @@ public class PnlAdvancements extends JPanel implements Configuration {
         LogicAdvancement.delete(listBadgeNames.getSelectedValue().toString());
 
         clearData();
+    }
+
+    public void update() {
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        clearErrors();
+
+        if (!validateName()) {
+            return;
+        }
+
+        Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
+        if (advancement == null) {
+            return;
+        }
+
+        advancement.setImgPath(txtImagePath.getText());
+        advancement.setName(txtBadgeName.getText());
+
+        List<Requirement> requirementList = validateRequirements(advancement.getId());
+        if (requirementList == null) return;
+
+        LogicRequirement.updateList(requirementList);
+        LogicAdvancement.update(advancement);
+
+        reloadData();
+    }
+
+    private void reloadData() {
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        int index = listBadgeNames.getSelectedIndex();
+
+        clearData();
+
+        listBadgeNames.setSelectedIndex(index);
+        listBadgeNamesMouseClicked();
     }
 
     private void clearData() {

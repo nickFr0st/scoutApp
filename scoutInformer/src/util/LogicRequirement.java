@@ -98,4 +98,8 @@ public class LogicRequirement {
             e.printStackTrace();
         }
     }
+
+    public static void updateList(List<Requirement> requirementList) {
+
+    }
 }
