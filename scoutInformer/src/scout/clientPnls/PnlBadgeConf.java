@@ -21,10 +21,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private static final int MERIT_BAGDGE = 1;
     private static final int OTHER = 2;
 
-    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
-    private final int gridWidth = 700;
     private JPanel currentPnl;
-
     private int currentSelected;
 
     public PnlBadgeConf() {

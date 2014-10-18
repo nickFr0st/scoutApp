@@ -47,4 +47,9 @@ public class LogicRequirement {
 
         return requirementList;
     }
+
+    public static void saveList(List<Requirement> requirementList) {
+
+
+    }
 }

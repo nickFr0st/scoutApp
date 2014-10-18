@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author User #2
@@ -71,6 +72,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     @Override
     public void createNew() {
+        clearErrors();
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
         txtBadgeName.setDefault();
@@ -113,6 +115,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     private void listBadgeNamesMouseClicked() {
         if (listBadgeNames.getSelectedValue() != null) {
+            clearErrors();
+
             Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
 
             if (advancement == null) {
@@ -122,7 +126,6 @@ public class PnlAdvancements extends JPanel implements Configuration {
             pnlBadgeConf.getBtnSave().setVisible(false);
             pnlBadgeConf.getBtnUpdate().setVisible(true);
 
-            // todo: will probably need to use setImage() here
             txtImagePath.setText(advancement.getImgPath());
             txtBadgeName.setText(advancement.getName());
 
@@ -247,15 +250,17 @@ public class PnlAdvancements extends JPanel implements Configuration {
     }
 
     public void save() {
+        clearErrors();
+
         if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
-            // display error message
+            Util.setError(lblNameError, "Advancement name cannot be left blank");
             return;
         }
 
         for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
             String advancementName = (String) listBadgeNames.getModel().getElementAt(i);
-            if (advancementName.equals(txtBadgeName.getText())) {
-                // display duplate item error message
+            if (advancementName.equalsIgnoreCase(txtBadgeName.getText())) {
+                Util.setError(lblNameError, "Advancement name already exists");
                 return;
             }
         }
@@ -269,10 +274,47 @@ public class PnlAdvancements extends JPanel implements Configuration {
             advancement.setImgPath(txtImagePath.getDefaultText());
         }
 
+        List<Requirement> requirementList = new ArrayList<Requirement>();
+        if (grid > 0) {
+            for (Component component : pnlRequirements.getComponents()) {
+                if (component instanceof PnlRequirement) {
+
+                    if (((PnlRequirement)component).getName().trim().isEmpty()) {
+                        Util.setError(lblReqError, "Requirement name cannot be left blank");
+                        return;
+                    }
+
+                    if (((PnlRequirement)component).getDescription().trim().isEmpty()) {
+                        Util.setError(lblReqError, "Requirement description cannot be left blank");
+                        return;
+                    }
+
+                    Requirement requirement = new Requirement();
+                    requirement.setName(((PnlRequirement)component).getName());
+                    requirement.setDescription(((PnlRequirement)component).getDescription());
+                    requirement.setId(((PnlRequirement)component).getReqId());
+                    requirement.setParentId(advancement.getId());
+                    requirement.setTypeId(1);
+
+                    requirementList.add(requirement);
+                }
+            }
+        }
+
         LogicAdvancement.save(advancement);
+        LogicRequirement.saveList(requirementList);
 
         poplulateAdvancementNameList();
-        // save down requirements
+    }
+
+    private void clearErrors() {
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
+
+        lblReqError.setText("");
+        lblReqError.setVisible(false);
+
+        revalidate();
     }
 
     private void initComponents() {
@@ -287,6 +329,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         btnBrowseImgPath = new JButton();
         lblBadgeName = new JLabel();
         txtBadgeName = new JTextFieldDefaultText();
+        lblNameError = new JLabel();
         pnlSelectedImage = new JPanel();
         lblImage = new JLabel();
         listBadgeNames = new JList();
@@ -294,6 +337,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         lblRequirements = new JLabel();
         btnNewRequirement = new JLabel();
         btnDeleteRequirement = new JLabel();
+        lblReqError = new JLabel();
         scrollPane2 = new JScrollPane();
         pnlRequirements = new JPanel();
 
@@ -367,9 +411,9 @@ public class PnlAdvancements extends JPanel implements Configuration {
             pnlGeneralInfo.setName("pnlGeneralInfo");
             pnlGeneralInfo.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWidths = new int[] {0, 344, 100, 0};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
             ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
 
             //---- lblImagePath ----
             lblImagePath.setText("Image Path:");
@@ -416,7 +460,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             lblBadgeName.setName("lblBadgeName");
             pnlGeneralInfo.add(lblBadgeName, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 5, 0, 5), 0, 0));
+                new Insets(0, 5, 5, 5), 0, 0));
 
             //---- txtBadgeName ----
             txtBadgeName.setPreferredSize(new Dimension(14, 40));
@@ -426,7 +470,17 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtBadgeName.setName("txtBadgeName");
             pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 0), 0, 0));
+                new Insets(0, 0, 5, 0), 0, 0));
+
+            //---- lblNameError ----
+            lblNameError.setText("* Error Message");
+            lblNameError.setForeground(Color.red);
+            lblNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblNameError.setVisible(false);
+            lblNameError.setName("lblNameError");
+            pnlGeneralInfo.add(lblNameError, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 0, 10), 0, 0));
         }
         add(pnlGeneralInfo, new GridBagConstraints(5, 1, 1, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -534,6 +588,17 @@ public class PnlAdvancements extends JPanel implements Configuration {
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
 
+        //---- lblReqError ----
+        lblReqError.setText("* Error Message");
+        lblReqError.setForeground(Color.red);
+        lblReqError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+        lblReqError.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblReqError.setVisible(false);
+        lblReqError.setName("lblReqError");
+        add(lblReqError, new GridBagConstraints(5, 3, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 10), 0, 0));
+
         //======== scrollPane2 ========
         {
             scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -569,6 +634,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
     private JButton btnBrowseImgPath;
     private JLabel lblBadgeName;
     private JTextFieldDefaultText txtBadgeName;
+    private JLabel lblNameError;
     private JPanel pnlSelectedImage;
     private JLabel lblImage;
     private JList listBadgeNames;
@@ -576,6 +642,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
     private JLabel lblRequirements;
     private JLabel btnNewRequirement;
     private JLabel btnDeleteRequirement;
+    private JLabel lblReqError;
     private JScrollPane scrollPane2;
     private JPanel pnlRequirements;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

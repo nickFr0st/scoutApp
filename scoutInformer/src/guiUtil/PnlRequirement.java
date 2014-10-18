@@ -33,6 +33,14 @@ public class PnlRequirement extends JPanel {
         this.reqId = reqId;
     }
 
+    public String getName() {
+        return txtReqName.getText();
+    }
+
+    public String getDescription() {
+        return txtReqDescription.getText();
+    }
+
     private void txtReqDescriptionFocusLost() {
         txtReqDescription.setBackground(Color.white);
         txtReqDescription.setBorder(null);
@@ -55,6 +63,10 @@ public class PnlRequirement extends JPanel {
 
     public JTextField getTxtReqName() {
         return txtReqName;
+    }
+
+    public JTextArea getTxtReqDescription() {
+        return txtReqDescription;
     }
 
     private void initComponents() {
