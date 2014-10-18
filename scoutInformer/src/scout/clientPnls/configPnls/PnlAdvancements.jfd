@@ -81,6 +81,8 @@ new FormModel {
 					"minimumSize": new java.awt.Dimension( 14, 40 )
 					"preferredSize": new java.awt.Dimension( 14, 40 )
 					"defaultText": "Path"
+					"enabled": false
+					"disabledTextColor": sfield java.awt.Color gray
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
 				} )

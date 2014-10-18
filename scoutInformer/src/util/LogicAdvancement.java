@@ -63,4 +63,39 @@ public class LogicAdvancement {
 
         return advancementList;
     }
+
+    public static void save(Advancement advancement) {
+        if (advancement == null) {
+            return;
+        }
+
+        if (advancement.getId() < 0) {
+            advancement.setId(getNextId());
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("INSERT INTO advancement VALUES( " + advancement.getId() + ",'" + advancement.getName() + "', '" + advancement.getImgPath() + "')");
+        } catch (Exception e) {
+            // save error
+        }
+    }
+
+    private static int getNextId() {
+        int id = 1;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM advancement");
+
+            if(rs.next()) {
+                id = rs.getInt(KeyConst.ADVANCEMENT_ID.getName()) + 1;
+            }
+
+        } catch (Exception e) {
+            id = -1;
+        }
+
+        return id;
+    }
 }

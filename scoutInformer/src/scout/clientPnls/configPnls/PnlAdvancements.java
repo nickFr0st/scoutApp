@@ -25,6 +25,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -50,11 +51,17 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     @Override
     public void onShow() {
+        poplulateAdvancementNameList();
+    }
+
+    private void poplulateAdvancementNameList() {
         java.util.List<String> advancements = LogicAdvancement.getAdvancementList();
 
         if (advancements != null) {
             listBadgeNames.setListData(advancements.toArray());
         }
+
+        listBadgeNames.revalidate();
     }
 
     @Override
@@ -118,7 +125,13 @@ public class PnlAdvancements extends JPanel implements Configuration {
             // todo: will probably need to use setImage() here
             txtImagePath.setText(advancement.getImgPath());
             txtBadgeName.setText(advancement.getName());
-            lblImage.setIcon(new ImageIcon(getClass().getResource(advancement.getImgPath())));
+
+            URL imgPath = getClass().getResource(advancement.getImgPath());
+            if (imgPath == null) {
+                lblImage.setIcon(noImageIcon);
+            } else {
+                lblImage.setIcon(new ImageIcon(imgPath));
+            }
 
             resetPnlRequirements();
             grid = 0;
@@ -233,6 +246,35 @@ public class PnlAdvancements extends JPanel implements Configuration {
         }
     }
 
+    public void save() {
+        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+            // display error message
+            return;
+        }
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            String advancementName = (String) listBadgeNames.getModel().getElementAt(i);
+            if (advancementName.equals(txtBadgeName.getText())) {
+                // display duplate item error message
+                return;
+            }
+        }
+
+        Advancement advancement = new Advancement();
+        advancement.setName(txtBadgeName.getText());
+
+        if (!txtImagePath.isMessageDefault()) {
+            advancement.setImgPath(txtImagePath.getText());
+        } else {
+            advancement.setImgPath(txtImagePath.getDefaultText());
+        }
+
+        LogicAdvancement.save(advancement);
+
+        poplulateAdvancementNameList();
+        // save down requirements
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         lblListName = new JLabel();
@@ -343,6 +385,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtImagePath.setMinimumSize(new Dimension(14, 40));
             txtImagePath.setPreferredSize(new Dimension(14, 40));
             txtImagePath.setDefaultText("Path");
+            txtImagePath.setEnabled(false);
+            txtImagePath.setDisabledTextColor(Color.gray);
             txtImagePath.setName("txtImagePath");
             pnlGeneralInfo.add(txtImagePath, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,

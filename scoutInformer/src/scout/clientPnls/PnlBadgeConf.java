@@ -97,6 +97,17 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         return btnSave;
     }
 
+    private void btnSaveMouseClicked() {
+        switch (currentSelected) {
+            case ADVANCEMENT:
+                ((PnlAdvancements)currentPnl).save();
+                break;
+            case MERIT_BAGDGE:
+                break;
+            case OTHER:
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -228,6 +239,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnSave.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnSave.setFocusPainted(false);
             btnSave.setName("btnSave");
+            btnSave.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnSaveMouseClicked();
+                }
+            });
             panel1.add(btnSave, new GridBagConstraints(8, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));

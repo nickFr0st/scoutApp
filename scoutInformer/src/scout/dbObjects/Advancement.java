@@ -9,6 +9,7 @@ public class Advancement {
     private String imgPath;
 
     public Advancement() {
+        id = -1;
     }
 
     public int getId() {
