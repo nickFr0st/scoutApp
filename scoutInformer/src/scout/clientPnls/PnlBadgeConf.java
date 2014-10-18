@@ -126,9 +126,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {31, 240, 20, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 0, 152, 54, 382, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 20, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //======== panel1 ========
         {
@@ -252,9 +252,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
         //---- pnlSplash ----
         pnlSplash.setName("pnlSplash");
-        add(pnlSplash, new GridBagConstraints(1, 2, 1, 5, 0.0, 0.0,
+        add(pnlSplash, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 0, 5), 0, 0));
+            new Insets(0, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

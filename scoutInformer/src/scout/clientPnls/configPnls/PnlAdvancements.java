@@ -337,6 +337,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         lblNameError = new JLabel();
         pnlSelectedImage = new JPanel();
         lblImage = new JLabel();
+        scrollPane3 = new JScrollPane();
         listBadgeNames = new JList();
         hSpacer2 = new JPanel(null);
         lblRequirements = new JLabel();
@@ -348,13 +349,14 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         //======== this ========
         setBackground(Color.white);
-        setMaximumSize(new Dimension(1000, 680));
-        setMinimumSize(new Dimension(1000, 680));
-        setPreferredSize(new Dimension(1000, 680));
+        setMaximumSize(new Dimension(1000, 670));
+        setMinimumSize(new Dimension(1000, 670));
+        setPreferredSize(new Dimension(1000, 670));
+        setOpaque(false);
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 128, 30, 30, 0, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {54, 0, 152, 54, 382, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {54, 0, 152, 54, 358, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
@@ -434,7 +436,6 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtImagePath.setMinimumSize(new Dimension(14, 40));
             txtImagePath.setPreferredSize(new Dimension(14, 40));
             txtImagePath.setDefaultText("Path");
-            txtImagePath.setEnabled(false);
             txtImagePath.setDisabledTextColor(Color.gray);
             txtImagePath.setName("txtImagePath");
             pnlGeneralInfo.add(txtImagePath, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
@@ -514,23 +515,30 @@ public class PnlAdvancements extends JPanel implements Configuration {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- listBadgeNames ----
-        listBadgeNames.setBorder(new LineBorder(new Color(51, 102, 153), 2));
-        listBadgeNames.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        listBadgeNames.setName("listBadgeNames");
-        listBadgeNames.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                listBadgeNamesMouseClicked();
-            }
-        });
-        listBadgeNames.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                listBadgeNamesKeyReleased(e);
-            }
-        });
-        add(listBadgeNames, new GridBagConstraints(0, 2, 1, 3, 0.0, 0.0,
+        //======== scrollPane3 ========
+        {
+            scrollPane3.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+            scrollPane3.setName("scrollPane3");
+
+            //---- listBadgeNames ----
+            listBadgeNames.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            listBadgeNames.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            listBadgeNames.setName("listBadgeNames");
+            listBadgeNames.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    listBadgeNamesMouseClicked();
+                }
+            });
+            listBadgeNames.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    listBadgeNamesKeyReleased(e);
+                }
+            });
+            scrollPane3.setViewportView(listBadgeNames);
+        }
+        add(scrollPane3, new GridBagConstraints(0, 2, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
 
@@ -601,8 +609,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
         lblReqError.setVisible(false);
         lblReqError.setName("lblReqError");
         add(lblReqError, new GridBagConstraints(5, 3, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 10), 0, 0));
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 20, 5, 10), 0, 0));
 
         //======== scrollPane2 ========
         {
@@ -642,6 +650,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
     private JLabel lblNameError;
     private JPanel pnlSelectedImage;
     private JLabel lblImage;
+    private JScrollPane scrollPane3;
     private JList listBadgeNames;
     private JPanel hSpacer2;
     private JLabel lblRequirements;
