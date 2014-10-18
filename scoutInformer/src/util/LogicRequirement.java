@@ -85,4 +85,17 @@ public class LogicRequirement {
 
         return id;
     }
+
+    public static void deleteList(List<Integer> requirementIdList) {
+        if (Util.isEmpty(requirementIdList)) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM requirement WHERE id IN (" + Util.listToString(requirementIdList) + ")");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

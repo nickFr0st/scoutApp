@@ -115,50 +115,53 @@ public class PnlAdvancements extends JPanel implements Configuration {
     }
 
     private void listBadgeNamesMouseClicked() {
-        if (listBadgeNames.getSelectedValue() != null) {
-            clearErrors();
-
-            Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
-
-            if (advancement == null) {
-                return;
-            }
-
-            pnlBadgeConf.getBtnSave().setVisible(false);
-            pnlBadgeConf.getBtnUpdate().setVisible(true);
-            pnlBadgeConf.getBtnDelete().setVisible(true);
-
-            txtImagePath.setText(advancement.getImgPath());
-            txtBadgeName.setText(advancement.getName());
-
-            URL imgPath = getClass().getResource(advancement.getImgPath());
-            if (imgPath == null) {
-                ImageIcon tryPath = new ImageIcon(advancement.getImgPath());
-                if (tryPath.getImageLoadStatus() < MediaTracker.COMPLETE) {
-                    lblImage.setIcon(noImageIcon);
-                } else {
-                    setImage(advancement.getImgPath());
-                }
-            } else {
-                setImage(imgPath.getPath());
-            }
-
-            resetPnlRequirements();
-            grid = 0;
-
-            java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
-            if (!Util.isEmpty(requirementList)) {
-                for (Requirement requirement : requirementList) {
-                    PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid++ > 0, requirement.getId());
-                    pnlRequirements.add(pnlRequirement);
-                }
-            } else {
-                addNoRequirementsLabel();
-            }
-
-            pnlRequirements.revalidate();
-            pnlRequirements.repaint();
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
         }
+
+        clearErrors();
+
+        Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
+
+        if (advancement == null) {
+            return;
+        }
+
+        pnlBadgeConf.getBtnSave().setVisible(false);
+        pnlBadgeConf.getBtnUpdate().setVisible(true);
+        pnlBadgeConf.getBtnDelete().setVisible(true);
+
+        txtImagePath.setText(advancement.getImgPath());
+        txtBadgeName.setText(advancement.getName());
+
+        URL imgPath = getClass().getResource(advancement.getImgPath());
+        if (imgPath == null) {
+            ImageIcon tryPath = new ImageIcon(advancement.getImgPath());
+            if (tryPath.getImageLoadStatus() < MediaTracker.COMPLETE) {
+                lblImage.setIcon(noImageIcon);
+            } else {
+                setImage(advancement.getImgPath());
+            }
+        } else {
+            setImage(imgPath.getPath());
+        }
+
+        resetPnlRequirements();
+        grid = 0;
+
+        java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
+        if (!Util.isEmpty(requirementList)) {
+            for (Requirement requirement : requirementList) {
+                PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid++ > 0, requirement.getId());
+                pnlRequirements.add(pnlRequirement);
+            }
+        } else {
+            addNoRequirementsLabel();
+        }
+
+        pnlRequirements.revalidate();
+        pnlRequirements.repaint();
+
     }
 
     private void resetPnlRequirements() {
@@ -317,6 +320,34 @@ public class PnlAdvancements extends JPanel implements Configuration {
         LogicRequirement.saveList(requirementList);
 
         poplulateAdvancementNameList();
+    }
+
+    public void delete() {
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        // (do this then scouts have been added to the program)
+        // before deleting check to see if advancement is used on any scouts
+
+        List<Integer> requirementIdList = new ArrayList<Integer>();
+        if (grid > 0) {
+            for (Component component : pnlRequirements.getComponents()) {
+                if (component instanceof PnlRequirement) {
+
+                    if (((PnlRequirement)component).getReqId() < 0) {
+                        continue;
+                    }
+
+                    requirementIdList.add(((PnlRequirement)component).getReqId());
+                }
+            }
+        }
+
+        LogicRequirement.deleteList(requirementIdList);
+        LogicAdvancement.delete(listBadgeNames.getSelectedValue().toString());
+
+        // then refresh list and page
     }
 
     private void clearErrors() {

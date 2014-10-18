@@ -112,6 +112,17 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         return btnDelete;
     }
 
+    private void btnDeleteMouseClicked() {
+        switch (currentSelected) {
+            case ADVANCEMENT:
+                ((PnlAdvancements)currentPnl).delete();
+                break;
+            case MERIT_BAGDGE:
+                break;
+            case OTHER:
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -261,6 +272,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnDelete.setFocusPainted(false);
             btnDelete.setName("btnDelete");
+            btnDelete.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnDeleteMouseClicked();
+                }
+            });
             panel1.add(btnDelete, new GridBagConstraints(9, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));

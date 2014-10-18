@@ -98,4 +98,17 @@ public class LogicAdvancement {
 
         return id;
     }
+
+    public static void delete(String advancementName) {
+        if (Util.isEmpty(advancementName)) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM advancement WHERE name LIKE ('" + advancementName + "')");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

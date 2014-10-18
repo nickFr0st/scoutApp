@@ -46,4 +46,25 @@ public class Util {
             return textField.getText();
         }
     }
+
+    public static String listToString(List list) {
+        StringBuilder sb = new StringBuilder();
+
+        if (isEmpty(list)) {
+            return sb.toString();
+        }
+
+        boolean firstLine = true;
+        for (Object obj : list) {
+            if (firstLine) {
+                sb.append(obj);
+                firstLine = false;
+            } else {
+                sb.append(",");
+                sb.append(obj);
+            }
+        }
+
+        return sb.toString();
+    }
 }
