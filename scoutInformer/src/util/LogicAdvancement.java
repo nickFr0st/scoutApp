@@ -51,7 +51,7 @@ public class LogicAdvancement {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT name FROM advancement");
+            ResultSet rs = statement.executeQuery("SELECT name FROM advancement ORDER BY name");
 
             while(rs.next()) {
                 advancementList.add(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));

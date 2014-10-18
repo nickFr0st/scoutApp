@@ -49,7 +49,40 @@ public class LogicRequirement {
     }
 
     public static void saveList(List<Requirement> requirementList) {
+        if (Util.isEmpty(requirementList)) {
+            return;
+        }
 
+        for (Requirement requirement : requirementList) {
 
+            if (requirement.getId() < 0) {
+                requirement.setId(getNextId());
+            }
+
+            try {
+                Statement statement = connector.createStatement();
+                statement.executeUpdate("INSERT INTO requirement VALUES( " + requirement.getId() + ",'" + requirement.getName() + "', '" + requirement.getDescription() + "'," + requirement.getTypeId() + "," + requirement.getParentId() + ")");
+            } catch (Exception e) {
+                // save error
+            }
+        }
+    }
+
+    private static int getNextId() {
+        int id = 1;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM requirement");
+
+            if(rs.next()) {
+                id = rs.getInt(KeyConst.REQUIREMENT_ID.getName()) + 1;
+            }
+
+        } catch (Exception e) {
+            id = -1;
+        }
+
+        return id;
     }
 }

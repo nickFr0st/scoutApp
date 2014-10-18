@@ -150,6 +150,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             }
 
             pnlRequirements.revalidate();
+            pnlRequirements.repaint();
         }
     }
 
@@ -293,7 +294,6 @@ public class PnlAdvancements extends JPanel implements Configuration {
                     requirement.setName(((PnlRequirement)component).getName());
                     requirement.setDescription(((PnlRequirement)component).getDescription());
                     requirement.setId(((PnlRequirement)component).getReqId());
-                    requirement.setParentId(advancement.getId());
                     requirement.setTypeId(1);
 
                     requirementList.add(requirement);
@@ -302,6 +302,11 @@ public class PnlAdvancements extends JPanel implements Configuration {
         }
 
         LogicAdvancement.save(advancement);
+
+        for (Requirement requirement : requirementList) {
+            requirement.setParentId(advancement.getId());
+        }
+
         LogicRequirement.saveList(requirementList);
 
         poplulateAdvancementNameList();
