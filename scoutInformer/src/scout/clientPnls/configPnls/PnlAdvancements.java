@@ -131,9 +131,14 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
             URL imgPath = getClass().getResource(advancement.getImgPath());
             if (imgPath == null) {
-                lblImage.setIcon(noImageIcon);
+                ImageIcon tryPath = new ImageIcon(advancement.getImgPath());
+                if (tryPath.getImageLoadStatus() < MediaTracker.COMPLETE) {
+                    lblImage.setIcon(noImageIcon);
+                } else {
+                    setImage(advancement.getImgPath());
+                }
             } else {
-                lblImage.setIcon(new ImageIcon(imgPath));
+                setImage(imgPath.getPath());
             }
 
             resetPnlRequirements();

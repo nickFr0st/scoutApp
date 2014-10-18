@@ -75,7 +75,7 @@ public class LogicAdvancement {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("INSERT INTO advancement VALUES( " + advancement.getId() + ",'" + advancement.getName() + "', '" + advancement.getImgPath() + "')");
+            statement.executeUpdate("INSERT INTO advancement VALUES( " + advancement.getId() + ",'" + advancement.getName() + "', '" + advancement.getImgPath().replace("\\", "\\\\") + "')");
         } catch (Exception e) {
             // save error
         }
