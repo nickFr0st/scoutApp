@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added a delete btn">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicAdvancement.java" afterPath="$PROJECT_DIR$/src/util/LogicAdvancement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicRequirement.java" afterPath="$PROJECT_DIR$/src/util/LogicRequirement.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added delete logic">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Util.java" afterPath="$PROJECT_DIR$/src/util/Util.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -208,15 +203,17 @@
       <file leaf-file-name="PnlAdvancements.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8064516" vertical-offset="5281" max-vertical-offset="6681">
-              <caret line="347" column="58" selection-start-line="347" selection-start-column="58" selection-end-line="348" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3328446" vertical-offset="5553" max-vertical-offset="7004">
+              <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
               <folding>
-                <element signature="e#0#28737#0" expanded="true" />
+                <element signature="e#0#29204#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#9255#9268#0" expanded="true" />
-                <element signature="e#10950#10959#0" expanded="true" />
-                <marker date="1413655354452" expanded="false" signature="11809:27770" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1413655354452" expanded="true" signature="27782:28734" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#1446#1447#0" expanded="true" />
+                <element signature="e#1473#1474#0" expanded="true" />
+                <element signature="e#9309#9322#0" expanded="true" />
+                <element signature="e#11004#11013#0" expanded="true" />
+                <marker date="1413655893556" expanded="false" signature="12276:28237" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413655893556" expanded="true" signature="28249:29201" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -226,7 +223,7 @@
         <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1048" max-vertical-offset="1717">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="98" selection-end-column="9" />
+              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
                 <marker date="1413655132081" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
                 <marker date="1413655132081" expanded="true" signature="1941:2139" placeholder="INSERT INTO ..." />
@@ -451,8 +448,8 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
         <option value="$PROJECT_DIR$/src/util/LogicAdvancement.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
       </list>
     </option>
   </component>
@@ -1053,7 +1050,7 @@
       <workItem from="1407725575916" duration="1280000" />
       <workItem from="1413431537454" duration="1429000" />
       <workItem from="1413512968181" duration="26912000" />
-      <workItem from="1413649435487" duration="5981000" />
+      <workItem from="1413649435487" duration="6648000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1567,11 +1564,15 @@
       <created>1413653355907</created>
       <updated>1413653355907</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="added delete logic">
+      <created>1413655432198</created>
+      <updated>1413655432198</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298185000" />
+    <option name="totallyTimeSpent" value="298852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1625,7 +1626,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="cleaning up database" />
     <MESSAGE value="fixed a connection bug" />
     <MESSAGE value="added back some inserts" />
     <MESSAGE value="fixed some stuff" />
@@ -1650,7 +1650,8 @@
     <MESSAGE value="fixed a bug" />
     <MESSAGE value="fixed saving and loading imgs" />
     <MESSAGE value="added a delete btn" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a delete btn" />
+    <MESSAGE value="added delete logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete logic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1699,7 +1700,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java</url>
-          <line>282</line>
+          <line>284</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
@@ -1708,12 +1709,6 @@
           <line>77</line>
           <properties />
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/util/LogicRequirement.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="35" />
@@ -1724,13 +1719,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/guiUtil/JButtonImageChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3468328" vertical-offset="244" max-vertical-offset="1207">
-          <caret line="34" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/guiUtil/ButtonSideMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.011422638" vertical-offset="533" max-vertical-offset="1496">
@@ -2226,10 +2214,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328446" vertical-offset="54870" max-vertical-offset="163659">
+          <caret line="3512" column="19" selection-start-line="3512" selection-start-column="19" selection-end-line="3512" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1048" max-vertical-offset="1717">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="98" selection-end-column="9" />
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <marker date="1413655132081" expanded="true" signature="724:767" placeholder="SELECT * FRO..requirement..." />
             <marker date="1413655132081" expanded="true" signature="1941:2139" placeholder="INSERT INTO ..." />
@@ -2242,15 +2238,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8064516" vertical-offset="5281" max-vertical-offset="6681">
-          <caret line="347" column="58" selection-start-line="347" selection-start-column="58" selection-end-line="348" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3328446" vertical-offset="5553" max-vertical-offset="7004">
+          <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28737#0" expanded="true" />
+            <element signature="e#0#29204#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#9255#9268#0" expanded="true" />
-            <element signature="e#10950#10959#0" expanded="true" />
-            <marker date="1413655354452" expanded="false" signature="11809:27770" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1413655354452" expanded="true" signature="27782:28734" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#1446#1447#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#9309#9322#0" expanded="true" />
+            <element signature="e#11004#11013#0" expanded="true" />
+            <marker date="1413655893556" expanded="false" signature="12276:28237" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413655893556" expanded="true" signature="28249:29201" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>

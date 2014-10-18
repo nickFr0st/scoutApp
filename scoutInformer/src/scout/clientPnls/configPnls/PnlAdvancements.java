@@ -52,7 +52,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     @Override
     public void onShow() {
-        poplulateAdvancementNameList();
+        clearData();
     }
 
     private void poplulateAdvancementNameList() {
@@ -245,6 +245,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
         lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
         pnlRequirements.add(lblNoRequirements);
+        pnlRequirements.revalidate();
+        pnlRequirements.repaint();
     }
 
     private void setImage(String imgPath) {
@@ -347,7 +349,22 @@ public class PnlAdvancements extends JPanel implements Configuration {
         LogicRequirement.deleteList(requirementIdList);
         LogicAdvancement.delete(listBadgeNames.getSelectedValue().toString());
 
-        // then refresh list and page
+        clearData();
+    }
+
+    private void clearData() {
+        clearErrors();
+        poplulateAdvancementNameList();
+        lblImage.setIcon(noImageIcon);
+        txtImagePath.setDefault();
+        txtBadgeName.setDefault();
+        addNoRequirementsLabel();
+
+        pnlBadgeConf.getBtnDelete().setVisible(false);
+        pnlBadgeConf.getBtnUpdate().setVisible(false);
+        pnlBadgeConf.getBtnSave().setVisible(true);
+
+        revalidate();
     }
 
     private void clearErrors() {
