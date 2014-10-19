@@ -30,6 +30,7 @@ public class ExportDialog extends JDialog {
 
         switch (exportTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
+                setTitle("Advancements Export");
                 updateConfigPnl(new ExportAdvancements());
                 break;
             case PnlBadgeConf.MERIT_BAGDGE:
