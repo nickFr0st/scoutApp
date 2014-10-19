@@ -59,6 +59,7 @@ public class ExportDialog extends JDialog {
         cancelButton = new JButton();
 
         //======== this ========
+        setMinimumSize(new Dimension(625, 465));
         setName("this");
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());

@@ -39,6 +39,7 @@ new FormModel {
 				"gridy": 1
 				"gridwidth": 5
 				"vAlign": 1
+				"insets": new java.awt.Insets( 0, 10, 0, 10 )
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "rbtnExportSelected"

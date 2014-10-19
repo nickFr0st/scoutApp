@@ -411,6 +411,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.ADVANCEMENT);
         dialog.setVisible(true);
+        dialog.setUndecorated(true);
     }
 
     private void reloadData() {

@@ -153,7 +153,7 @@ public class ExportAdvancements extends JPanel {
         label1.setName("label1");
         add(label1, new GridBagConstraints(0, 1, 5, 1, 0.0, 0.0,
             GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
-            new Insets(0, 0, 5, 0), 0, 0));
+            new Insets(0, 10, 5, 10), 0, 0));
 
         //---- rbtnExportSelected ----
         rbtnExportSelected.setText("Export Selected");
