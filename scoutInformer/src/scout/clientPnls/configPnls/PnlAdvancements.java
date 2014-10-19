@@ -4,6 +4,7 @@
 
 package scout.clientPnls.configPnls;
 
+import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
 import scout.clientPnls.IEPnls.ExportDialog;
@@ -223,11 +224,12 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
 
-        JFileChooser chooser = new JFileChooser();
+        CustomChooser chooser = new CustomChooser();
         chooser.setDialogTitle("Select an image");
         chooser.setAcceptAllFileFilterUsed(false);
         chooser.setFileFilter(filter);
         int returnValue = chooser.showOpenDialog(this);
+        chooser.resetLookAndFeel();
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();

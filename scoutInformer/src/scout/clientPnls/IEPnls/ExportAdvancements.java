@@ -103,6 +103,10 @@ public class ExportAdvancements extends JPanel {
         populateExportList();
     }
 
+    public void export(String exportPath) {
+
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         rbtnExportAll = new JRadioButton();

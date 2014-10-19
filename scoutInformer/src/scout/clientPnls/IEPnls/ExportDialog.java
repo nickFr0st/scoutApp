@@ -4,6 +4,7 @@
 
 package scout.clientPnls.IEPnls;
 
+import guiUtil.CustomChooser;
 import scout.clientPnls.PnlBadgeConf;
 
 import javax.swing.*;
@@ -18,6 +19,7 @@ import java.io.File;
  */
 public class ExportDialog extends JDialog {
     private JPanel wiz;
+    private int exportTypeId;
 
     public ExportDialog(Frame owner) {
         super(owner, true);
@@ -28,6 +30,7 @@ public class ExportDialog extends JDialog {
         super(owner, true);
         initComponents();
         wiz = contentPanel;
+        this.exportTypeId = exportTypeId;
 
         switch (exportTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
@@ -54,22 +57,36 @@ public class ExportDialog extends JDialog {
     private void exportButtonMouseClicked() {
         String exportPath;
 
-        JFileChooser chooser = new JFileChooser();
+
+        CustomChooser chooser = new CustomChooser();
         chooser.setDialogTitle("Where should I send the export");
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int returnValue = chooser.showOpenDialog(this);
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        int returnValue = chooser.showSaveDialog(this);
+        chooser.resetLookAndFeel();
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
             exportPath = file.getPath();
+
+            switch (exportTypeId) {
+                case PnlBadgeConf.ADVANCEMENT:
+                    ((ExportAdvancements) wiz).export(exportPath);
+                    break;
+                case PnlBadgeConf.MERIT_BAGDGE:
+                    break;
+                case PnlBadgeConf.OTHER:
+                    break;
+            }
         }
 
 
 
+        // need to know what type we are exporting (advancement, merit badge, etc.)
         // display where to save to dialog
         // then do export
         // let know if we are overwriting something, ask if it is ok
         // let know if the export was successful or not
+        // allow the user to name their export
     }
 
     private void initComponents() {
