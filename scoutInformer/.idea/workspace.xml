@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added gui logic for the export">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.jfd" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fixed dialog resizing issue">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -172,31 +169,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExportAdvancements.jfd" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ExportAdvancements.jfd" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExportDialog.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ExportDialog.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
-              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.59270835" vertical-offset="315" max-vertical-offset="1309">
+              <caret line="62" column="57" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
               <folding>
-                <marker date="1413732423105" expanded="false" signature="1264:5013" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1413732423105" expanded="false" signature="5025:5335" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#1269#1270#0" expanded="true" />
+                <element signature="e#1294#1295#0" expanded="true" />
+                <element signature="e#4501#4704#0" expanded="true" />
+                <element signature="e#4685#4686#0" expanded="true" />
+                <marker date="1413733460250" expanded="false" signature="2022:6063" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1413733460250" expanded="false" signature="6075:6389" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlAdvancements.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PnlAdvancements.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6704" max-vertical-offset="7990">
-              <caret line="413" column="11" selection-start-line="413" selection-start-column="11" selection-end-line="413" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6692" max-vertical-offset="7990">
+              <caret line="411" column="0" selection-start-line="411" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31932#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -266,11 +274,11 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportWizard.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportWizard.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.jfd" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" />
       </list>
     </option>
   </component>
@@ -402,77 +410,7 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rank" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scout" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dbObjects" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scout" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="clientPnls" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scoutInformer" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scout" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="clientPnls" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IEPnls" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -921,7 +859,7 @@
       <workItem from="1413512968181" duration="26912000" />
       <workItem from="1413649435487" duration="10665000" />
       <workItem from="1413668292827" duration="14212000" />
-      <workItem from="1413732074783" duration="454000" />
+      <workItem from="1413732074783" duration="1377000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1467,11 +1405,15 @@
       <created>1413685848851</created>
       <updated>1413685848851</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="fixed dialog resizing issue">
+      <created>1413732549223</created>
+      <updated>1413732549223</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317535000" />
+    <option name="totallyTimeSpent" value="318458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1498,7 +1440,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17530319" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31633714" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31633714" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1525,7 +1467,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="made new btn work" />
     <MESSAGE value="created an add and delete requirement btn&#10;add requirement works" />
     <MESSAGE value="added some functionality to the delete requirement btn" />
     <MESSAGE value="re designed advancements page" />
@@ -1550,7 +1491,8 @@
     <MESSAGE value="resizing stuff" />
     <MESSAGE value="the start of the Export Steps" />
     <MESSAGE value="added gui logic for the export" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gui logic for the export" />
+    <MESSAGE value="fixed dialog resizing issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed dialog resizing issue" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1621,14 +1563,8 @@
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java</url>
-          <line>411</line>
-          <properties />
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="40" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1913,11 +1849,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.209375" vertical-offset="1210" max-vertical-offset="4352">
@@ -1970,21 +1901,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <marker date="1413732423105" expanded="false" signature="1264:5013" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1413732423105" expanded="false" signature="5025:5335" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6704" max-vertical-offset="7990">
-          <caret line="413" column="11" selection-start-line="413" selection-start-column="11" selection-end-line="413" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6692" max-vertical-offset="7990">
+          <caret line="411" column="0" selection-start-line="411" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
           <folding>
             <element signature="e#0#31932#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1994,14 +1929,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59270835" vertical-offset="315" max-vertical-offset="1309">
+          <caret line="62" column="57" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
+          <folding>
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#4501#4704#0" expanded="true" />
+            <element signature="e#4685#4686#0" expanded="true" />
+            <marker date="1413733460250" expanded="false" signature="2022:6063" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1413733460250" expanded="false" signature="6075:6389" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

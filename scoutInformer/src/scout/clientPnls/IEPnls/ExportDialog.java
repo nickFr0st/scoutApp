@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 /**
  * @author User #2
@@ -50,12 +51,33 @@ public class ExportDialog extends JDialog {
         dispose();
     }
 
+    private void exportButtonMouseClicked() {
+        String exportPath;
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Where should I send the export");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int returnValue = chooser.showOpenDialog(this);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            exportPath = file.getPath();
+        }
+
+
+
+        // display where to save to dialog
+        // then do export
+        // let know if we are overwriting something, ask if it is ok
+        // let know if the export was successful or not
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         dialogPane = new JPanel();
         contentPanel = new JPanel();
         buttonBar = new JPanel();
-        okButton = new JButton();
+        exportButton = new JButton();
         cancelButton = new JButton();
 
         //======== this ========
@@ -93,14 +115,20 @@ public class ExportDialog extends JDialog {
                 ((GridBagLayout)buttonBar.getLayout()).rowHeights = new int[] {50};
                 ((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
 
-                //---- okButton ----
-                okButton.setText("Export");
-                okButton.setForeground(Color.white);
-                okButton.setBackground(new Color(51, 156, 229));
-                okButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                okButton.setFocusPainted(false);
-                okButton.setName("okButton");
-                buttonBar.add(okButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+                //---- exportButton ----
+                exportButton.setText("Export");
+                exportButton.setForeground(Color.white);
+                exportButton.setBackground(new Color(51, 156, 229));
+                exportButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                exportButton.setFocusPainted(false);
+                exportButton.setName("exportButton");
+                exportButton.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        exportButtonMouseClicked();
+                    }
+                });
+                buttonBar.add(exportButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 5), 0, 0));
 
@@ -133,7 +161,7 @@ public class ExportDialog extends JDialog {
     private JPanel dialogPane;
     private JPanel contentPanel;
     private JPanel buttonBar;
-    private JButton okButton;
+    private JButton exportButton;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
