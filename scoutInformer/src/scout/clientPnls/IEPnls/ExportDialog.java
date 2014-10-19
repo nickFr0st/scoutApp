@@ -57,10 +57,8 @@ public class ExportDialog extends JDialog {
     private void exportButtonMouseClicked() {
         String exportPath;
 
-
-        CustomChooser chooser = new CustomChooser();
-        chooser.setDialogTitle("Where should I send the export");
-        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        // todo: move the file name into a const file
+        CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_AND_DIRECTORIES, "AdvancementExport.csv");
         int returnValue = chooser.showSaveDialog(this);
         chooser.resetLookAndFeel();
 
