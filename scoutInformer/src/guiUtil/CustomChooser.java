@@ -1,7 +1,9 @@
 package guiUtil;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import java.io.File;
+import java.util.Locale;
 
 /**
  * Created by Nathanael on 10/19/2014
@@ -26,6 +28,15 @@ public class CustomChooser extends JFileChooser {
     public CustomChooser(String title, int selectionMode, String defaultFileName) {
         this();
 
+        setFileFilter(new FileFilter() {
+            public boolean accept(File f) {
+                String name = f.getName().toLowerCase(Locale.US);
+                return name.endsWith(".csv") || f.isDirectory();
+            }
+            public String getDescription() {
+                return "CSV delimited text files";
+            }
+        });
         setDialogTitle(title);
         setFileSelectionMode(selectionMode);
         setSelectedFile(new File(defaultFileName));
