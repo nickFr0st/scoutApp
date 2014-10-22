@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added more stuff to the export wizard">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/guiUtil/CustomChooser.java" afterPath="$PROJECT_DIR$/src/guiUtil/CustomChooser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -179,8 +177,8 @@
       <file leaf-file-name="ExportDialog.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5945122" vertical-offset="528" max-vertical-offset="1513">
-              <caret line="66" column="65" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.8277439" vertical-offset="528" max-vertical-offset="1513">
+              <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
               <folding>
                 <marker date="1413939050013" expanded="false" signature="2560:6601" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1413939050013" expanded="false" signature="6613:6927" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
@@ -765,7 +763,7 @@
       <workItem from="1413668292827" duration="14212000" />
       <workItem from="1413732074783" duration="1488000" />
       <workItem from="1413734380249" duration="6727000" />
-      <workItem from="1413934899988" duration="1458000" />
+      <workItem from="1413934899988" duration="1491000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1331,11 +1329,15 @@
       <created>1413935436903</created>
       <updated>1413935436903</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="added more stuff to the export wizard">
+      <created>1413939075257</created>
+      <updated>1413939075257</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326754000" />
+    <option name="totallyTimeSpent" value="326787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1856,8 +1858,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5945122" vertical-offset="528" max-vertical-offset="1513">
-          <caret line="66" column="65" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.8277439" vertical-offset="528" max-vertical-offset="1513">
+          <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
           <folding>
             <marker date="1413939050013" expanded="false" signature="2560:6601" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1413939050013" expanded="false" signature="6613:6927" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
