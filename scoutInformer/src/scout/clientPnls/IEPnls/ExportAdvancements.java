@@ -4,6 +4,7 @@
 
 package scout.clientPnls.IEPnls;
 
+import au.com.bytecode.opencsv.CSVWriter;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
@@ -18,6 +19,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +55,8 @@ public class ExportAdvancements extends JPanel {
         scrollPane2.setVisible(show);
         btnAdd.setVisible(show);
         btnRemove.setVisible(show);
+        lblAvailable.setVisible(show);
+        lblSelected.setVisible(show);
     }
 
     private void rbtnExportSelectedMouseClicked() {
@@ -111,8 +115,6 @@ public class ExportAdvancements extends JPanel {
 
     public void export(String exportPath) {
         try {
-            FileWriter export = new FileWriter(exportPath);
-
             List<Advancement> advancementExportList;
             if (rbtnExportAll.isSelected()) {
                 advancementExportList = LogicAdvancement.getAllAdvancements();
@@ -128,42 +130,49 @@ public class ExportAdvancements extends JPanel {
                 return;
             }
 
+            StringWriter writer = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(writer, ',');
+            List<String[]> records = new ArrayList<String[]>();
+
+            records.add(new String[]{"Advancement Name"});
             for (Advancement advancement : advancementExportList) {
-                export.append("Advancement Name").append("\n");
-                export.append(advancement.getName()).append("\n");
+                records.add(new String[]{advancement.getName()});
 
                 List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
                 if (Util.isEmpty(requirementList)) {
                     continue;
                 }
 
-                export.append("Requirement Name").append(",");
-                export.append("Requirement Description").append("\n");
-
+                records.add(new String[]{"Requirement Name", "Requirement Description"});
                 for (Requirement requirement : requirementList) {
-                    export.append(requirement.getName()).append(",");
-                    export.append(requirement.getDescription()).append("\n");
+                    records.add(new String[]{requirement.getName(), requirement.getDescription()});
                 }
             }
 
+            csvWriter.writeAll(records);
+            csvWriter.close();
+
+            // check directory and let know if we are overwriting something, ask if it is ok
+            FileWriter export = new FileWriter(exportPath);
+            export.append(writer.toString());
             export.flush();
             export.close();
+            // let us know if the export was successful or not
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
-        // check directory and let know if we are overwriting something, ask if it is ok
-        // create the export
-        // send it
-        // let us know if the export was successful or not
     }
+
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         rbtnExportAll = new JRadioButton();
         label1 = new JLabel();
         rbtnExportSelected = new JRadioButton();
-        vSpacer1 = new JPanel(null);
+        lblAvailable = new JLabel();
+        lblSelected = new JLabel();
         scrollPane1 = new JScrollPane();
         listSrc = new JList();
         scrollPane2 = new JScrollPane();
@@ -227,10 +236,21 @@ public class ExportAdvancements extends JPanel {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 10, 5, 5), 0, 0));
 
-        //---- vSpacer1 ----
-        vSpacer1.setBackground(Color.white);
-        vSpacer1.setName("vSpacer1");
-        add(vSpacer1, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+        //---- lblAvailable ----
+        lblAvailable.setText("Available");
+        lblAvailable.setForeground(new Color(51, 102, 153));
+        lblAvailable.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        lblAvailable.setName("lblAvailable");
+        add(lblAvailable, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- lblSelected ----
+        lblSelected.setText("Selected");
+        lblSelected.setForeground(new Color(51, 102, 153));
+        lblSelected.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        lblSelected.setName("lblSelected");
+        add(lblSelected, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -307,7 +327,8 @@ public class ExportAdvancements extends JPanel {
     private JRadioButton rbtnExportAll;
     private JLabel label1;
     private JRadioButton rbtnExportSelected;
-    private JPanel vSpacer1;
+    private JLabel lblAvailable;
+    private JLabel lblSelected;
     private JScrollPane scrollPane1;
     private JList listSrc;
     private JScrollPane scrollPane2;

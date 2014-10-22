@@ -55,11 +55,22 @@ new FormModel {
 				"gridwidth": 2
 				"insets": new java.awt.Insets( 0, 10, 0, 0 )
 			} )
-			add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
-				name: "vSpacer1"
-				"background": new java.awt.Color( 255, 255, 255, 255 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblAvailable"
+				"text": "Available"
+				"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+				"font": &Font0 new java.awt.Font( "Tahoma", 0, 16 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
+				"gridy": 3
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblSelected"
+				"text": "Selected"
+				"foreground": #Color0
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 3
 				"gridy": 3
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
