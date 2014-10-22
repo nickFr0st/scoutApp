@@ -18,7 +18,7 @@ public class LogicAdvancement {
         connector = new DBConnector();
     }
 
-    public static Advancement findAdvancementByName(String name) {
+    public static Advancement findByName(String name) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -40,6 +40,32 @@ public class LogicAdvancement {
         }
 
         return advancement;
+    }
+
+    public static List<Advancement> getAllAdvancements() {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Advancement> advancementList = new ArrayList<Advancement>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM advancement ORDER BY name");
+
+            while (rs.next()) {
+                Advancement advancement = new Advancement();
+                advancement.setId(rs.getInt(KeyConst.ADVANCEMENT_ID.getName()));
+                advancement.setName(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
+                advancement.setImgPath(rs.getString(KeyConst.ADVANCEMENT_IMG_PATH.getName()));
+                advancementList.add(advancement);
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return advancementList;
     }
 
     public static List<String> getAdvancementList() {

@@ -78,13 +78,10 @@ public class ExportDialog extends JDialog {
         }
 
 
-
-        // need to know what type we are exporting (advancement, merit badge, etc.)
-        // display where to save to dialog
+        dispose();
         // then do export
         // let know if we are overwriting something, ask if it is ok
         // let know if the export was successful or not
-        // allow the user to name their export
     }
 
     private void initComponents() {

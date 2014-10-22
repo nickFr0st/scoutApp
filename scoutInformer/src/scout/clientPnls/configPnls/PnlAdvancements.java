@@ -121,7 +121,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         clearErrors();
 
-        Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
+        Advancement advancement = LogicAdvancement.findByName(listBadgeNames.getSelectedValue().toString());
 
         if (advancement == null) {
             return;
@@ -389,7 +389,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             }
         }
 
-        Advancement advancement = LogicAdvancement.findAdvancementByName(listBadgeNames.getSelectedValue().toString());
+        Advancement advancement = LogicAdvancement.findByName(listBadgeNames.getSelectedValue().toString());
         if (advancement == null) {
             return;
         }

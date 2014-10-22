@@ -5,13 +5,19 @@
 package scout.clientPnls.IEPnls;
 
 import guiUtil.SelectionBorder;
+import scout.dbObjects.Advancement;
+import scout.dbObjects.Requirement;
 import util.LogicAdvancement;
+import util.LogicRequirement;
+import util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -104,7 +110,52 @@ public class ExportAdvancements extends JPanel {
     }
 
     public void export(String exportPath) {
+        try {
+            FileWriter export = new FileWriter(exportPath);
 
+            List<Advancement> advancementExportList;
+            if (rbtnExportAll.isSelected()) {
+                advancementExportList = LogicAdvancement.getAllAdvancements();
+            } else {
+                advancementExportList = new ArrayList<Advancement>();
+                for (int i = 0; i < listExport.getModel().getSize(); ++i) {
+                    advancementExportList.add(LogicAdvancement.findByName(listExport.getModel().getElementAt(i).toString()));
+                }
+            }
+
+            if (Util.isEmpty(advancementExportList)) {
+                // display message that there is nothing to export
+                return;
+            }
+
+            for (Advancement advancement : advancementExportList) {
+                export.append("Advancement Name").append("\n");
+                export.append(advancement.getName()).append("\n");
+
+                List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
+                if (Util.isEmpty(requirementList)) {
+                    continue;
+                }
+
+                export.append("Requirement Name").append(",");
+                export.append("Requirement Description").append("\n");
+
+                for (Requirement requirement : requirementList) {
+                    export.append(requirement.getName()).append(",");
+                    export.append(requirement.getDescription()).append("\n");
+                }
+            }
+
+            export.flush();
+            export.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        // check directory and let know if we are overwriting something, ask if it is ok
+        // create the export
+        // send it
+        // let us know if the export was successful or not
     }
 
     private void initComponents() {
