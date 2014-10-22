@@ -135,6 +135,7 @@ public class ExportAdvancements extends JPanel {
             List<String[]> records = new ArrayList<String[]>();
 
             records.add(new String[]{"Advancement Name"});
+            records.add(new String[]{"Requirement Name", "Requirement Description"});
             for (Advancement advancement : advancementExportList) {
                 records.add(new String[]{advancement.getName()});
 
@@ -143,7 +144,6 @@ public class ExportAdvancements extends JPanel {
                     continue;
                 }
 
-                records.add(new String[]{"Requirement Name", "Requirement Description"});
                 for (Requirement requirement : requirementList) {
                     records.add(new String[]{requirement.getName(), requirement.getDescription()});
                 }
