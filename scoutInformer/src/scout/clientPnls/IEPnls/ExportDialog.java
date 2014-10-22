@@ -56,25 +56,25 @@ public class ExportDialog extends JDialog {
 
     private void exportButtonMouseClicked() {
         String exportPath;
+        CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
 
-        // todo: move the file name into a const file
-        CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY, "AdvancementExport.csv");
-        int returnValue = chooser.showSaveDialog(this);
-        chooser.resetLookAndFeel();
+        switch (exportTypeId) {
+            case PnlBadgeConf.ADVANCEMENT:
+                chooser.setSelectedFile(new File("AdvancementExport.csv"));
+                int returnValue = chooser.showSaveDialog(this);
+                chooser.resetLookAndFeel();
 
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File file = chooser.getSelectedFile();
-            exportPath = file.getPath();
+                if (returnValue != JFileChooser.APPROVE_OPTION) {
+                    return;
+                }
 
-            switch (exportTypeId) {
-                case PnlBadgeConf.ADVANCEMENT:
-                    ((ExportAdvancements) wiz).export(exportPath);
-                    break;
-                case PnlBadgeConf.MERIT_BAGDGE:
-                    break;
-                case PnlBadgeConf.OTHER:
-                    break;
-            }
+                exportPath = chooser.getSelectedFile().getPath();
+                ((ExportAdvancements) wiz).export(exportPath);
+                break;
+            case PnlBadgeConf.MERIT_BAGDGE:
+                break;
+            case PnlBadgeConf.OTHER:
+                break;
         }
 
 

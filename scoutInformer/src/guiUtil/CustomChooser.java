@@ -25,7 +25,7 @@ public class CustomChooser extends JFileChooser {
         super.updateUI();
     }
 
-    public CustomChooser(String title, int selectionMode, String defaultFileName) {
+    public CustomChooser(String title, int selectionMode) {
         this();
 
         setFileFilter(new FileFilter() {
@@ -39,7 +39,6 @@ public class CustomChooser extends JFileChooser {
         });
         setDialogTitle(title);
         setFileSelectionMode(selectionMode);
-        setSelectedFile(new File(defaultFileName));
     }
 
     public void resetLookAndFeel() {
