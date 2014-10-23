@@ -11,8 +11,8 @@ new FormModel {
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
 				"background": new java.awt.Color( 255, 255, 255, 255 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-					"$columnSpecs": "0"
-					"$rowSpecs": "0"
+					"$columnSpecs": "300:1.0, 0"
+					"$rowSpecs": "50, 0:1.0"
 					"$hGap": 5
 					"$vGap": 5
 					"$alignLeft": true
@@ -21,6 +21,32 @@ new FormModel {
 					name: "contentPanel"
 					"minimumSize": new java.awt.Dimension( 600, 400 )
 					"preferredSize": new java.awt.Dimension( 600, 400 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+						name: "txtImportPath"
+						"defaultText": "Please select a file to import"
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnBrowse"
+						"text": "Browse"
+						"background": new java.awt.Color( 51, 102, 153, 255 )
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBrowseMouseClicked", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "txtImportInstructions"
+							"background": new java.awt.Color( 255, 255, 255, 255 )
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
+						"gridwidth": 2
+					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
 				} )
@@ -40,6 +66,7 @@ new FormModel {
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"foreground": new java.awt.Color( 255, 255, 255, 255 )
 						"focusPainted": false
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnImportMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 1
 						"gridy": 0
@@ -51,6 +78,7 @@ new FormModel {
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"background": new java.awt.Color( 206, 0, 0, 255 )
 						"focusPainted": false
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnCancelMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 2
 						"gridy": 0
