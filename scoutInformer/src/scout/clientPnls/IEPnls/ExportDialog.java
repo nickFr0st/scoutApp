@@ -4,7 +4,6 @@
 
 package scout.clientPnls.IEPnls;
 
-import guiUtil.CustomChooser;
 import scout.clientPnls.PnlBadgeConf;
 
 import javax.swing.*;
@@ -12,7 +11,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 
 /**
  * @author User #2
@@ -55,21 +53,10 @@ public class ExportDialog extends JDialog {
     }
 
     private void exportButtonMouseClicked() {
-        String exportPath;
-        CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
-
+        boolean success = false;
         switch (exportTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
-                chooser.setSelectedFile(new File("AdvancementExport.csv"));
-                int returnValue = chooser.showSaveDialog(this);
-                chooser.resetLookAndFeel();
-
-                if (returnValue != JFileChooser.APPROVE_OPTION) {
-                    return;
-                }
-
-                exportPath = chooser.getSelectedFile().getPath();
-                ((ExportAdvancements) wiz).export(exportPath);
+                success = ((ExportAdvancements) wiz).export();
                 break;
             case PnlBadgeConf.MERIT_BAGDGE:
                 break;
@@ -77,11 +64,9 @@ public class ExportDialog extends JDialog {
                 break;
         }
 
-
-        dispose();
-        // then do export
-        // let know if we are overwriting something, ask if it is ok
-        // let know if the export was successful or not
+        if (success) {
+            dispose();
+        }
     }
 
     private void initComponents() {
@@ -110,10 +95,10 @@ public class ExportDialog extends JDialog {
                 contentPanel.setMinimumSize(new Dimension(600, 400));
                 contentPanel.setName("contentPanel");
                 contentPanel.setLayout(new GridBagLayout());
-                ((GridBagLayout)contentPanel.getLayout()).columnWidths = new int[] {0, 0, 0};
-                ((GridBagLayout)contentPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-                ((GridBagLayout)contentPanel.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
-                ((GridBagLayout)contentPanel.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
+                ((GridBagLayout)contentPanel.getLayout()).columnWidths = new int[] {0, 0};
+                ((GridBagLayout)contentPanel.getLayout()).rowHeights = new int[] {0, 0};
+                ((GridBagLayout)contentPanel.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+                ((GridBagLayout)contentPanel.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
 

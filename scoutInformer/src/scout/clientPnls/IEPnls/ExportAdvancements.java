@@ -5,6 +5,7 @@
 package scout.clientPnls.IEPnls;
 
 import au.com.bytecode.opencsv.CSVWriter;
+import guiUtil.CustomChooser;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
@@ -17,6 +18,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -113,7 +115,7 @@ public class ExportAdvancements extends JPanel {
         populateExportList();
     }
 
-    public void export(String exportPath) {
+    public boolean export() {
         try {
             List<Advancement> advancementExportList;
             if (rbtnExportAll.isSelected()) {
@@ -126,10 +128,24 @@ public class ExportAdvancements extends JPanel {
             }
 
             if (Util.isEmpty(advancementExportList)) {
-                // display message that there is nothing to export
-                return;
+                JOptionPane.showMessageDialog(this, "There is nothing to export, please select at least one advancement and try again.", "No Items Selected", JOptionPane.ERROR_MESSAGE);
+                return false;
             }
 
+            // get the file path
+            CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
+
+            chooser.setSelectedFile(new File("AdvancementExport.csv"));
+            int returnValue = chooser.showSaveDialog(this);
+            chooser.resetLookAndFeel();
+
+            if (returnValue != JFileChooser.APPROVE_OPTION) {
+                return false;
+            }
+
+            String exportPath = chooser.getSelectedFile().getPath();
+
+            // write to location
             StringWriter writer = new StringWriter();
             CSVWriter csvWriter = new CSVWriter(writer, ',');
             List<String[]> records = new ArrayList<String[]>();
@@ -157,11 +173,13 @@ public class ExportAdvancements extends JPanel {
             export.append(writer.toString());
             export.flush();
             export.close();
-            // let us know if the export was successful or not
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+
+        JOptionPane.showMessageDialog(this, "Your selected advancement(s) have been successfully exported.", "Export Success", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
 
