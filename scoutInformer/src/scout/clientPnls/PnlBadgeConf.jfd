@@ -62,6 +62,7 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnImportMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 4
 				} )

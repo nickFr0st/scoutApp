@@ -8,6 +8,7 @@ import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
 import scout.clientPnls.IEPnls.ExportDialog;
+import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
@@ -410,8 +411,13 @@ public class PnlAdvancements extends JPanel implements Configuration {
     }
 
     public void export() {
-
         ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.ADVANCEMENT);
+        dialog.setVisible(true);
+        dialog.setUndecorated(true);
+    }
+
+    public void importData() {
+        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.ADVANCEMENT);
         dialog.setVisible(true);
         dialog.setUndecorated(true);
     }
