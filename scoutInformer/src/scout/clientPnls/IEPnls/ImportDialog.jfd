@@ -12,7 +12,7 @@ new FormModel {
 				"background": new java.awt.Color( 255, 255, 255, 255 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "300:1.0, 0"
-					"$rowSpecs": "50, 0:1.0"
+					"$rowSpecs": "0, 50, 0, 0:1.0"
 					"$hGap": 5
 					"$vGap": 5
 					"$alignLeft": true
@@ -22,11 +22,19 @@ new FormModel {
 					"minimumSize": new java.awt.Dimension( 600, 400 )
 					"preferredSize": new java.awt.Dimension( 600, 400 )
 					"background": new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "lblIntro"
+						"text": "Please Select a file to import"
+						"font": &Font0 new java.awt.Font( "Vijaya", 0, 20 )
+						"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 					add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
 						name: "txtImportPath"
-						"defaultText": "Please select a file to import"
+						"defaultText": "Import file path"
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
-					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
+					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "btnBrowse"
 						"text": "Browse"
@@ -36,15 +44,24 @@ new FormModel {
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBrowseMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 1
+						"gridy": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "lblIntro2"
+						"text": "Import file instructions"
+						"font": #Font0
+						"foreground": #Color0
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 2
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
-						add( new FormComponent( "javax.swing.JTextArea" ) {
+						add( new FormComponent( "javax.swing.JEditorPane" ) {
 							name: "txtImportInstructions"
 							"background": new java.awt.Color( 255, 255, 255, 255 )
 						} )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridy": 1
+						"gridy": 3
 						"gridwidth": 2
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
