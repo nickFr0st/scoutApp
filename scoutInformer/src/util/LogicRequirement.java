@@ -226,4 +226,26 @@ public class LogicRequirement {
 
         return requirement;
     }
+
+    public static ArrayList<String> findAllNamesByParentId(int parentId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        ArrayList<String> reqNameList = new ArrayList<String>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT name FROM requirement WHERE parentId = " + parentId);
+
+            while (rs.next()) {
+                reqNameList.add(rs.getString(KeyConst.REQUIREMENT_NAME.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return reqNameList;
+    }
 }

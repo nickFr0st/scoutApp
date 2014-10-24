@@ -241,6 +241,7 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane2"
 				"horizontalScrollBarPolicy": 31
+				"autoscrolls": true
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "0:1.0"
 					"$rowSpecs": "387:1.0"

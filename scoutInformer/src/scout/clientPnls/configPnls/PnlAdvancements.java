@@ -30,7 +30,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author User #2
@@ -296,12 +298,23 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     private List<Requirement> validateRequirements(int parentId) {
         List<Requirement> requirementList = new ArrayList<Requirement>();
+
+        Set<String> reqNameSet = new HashSet<String>();
+
         if (grid > 0) {
             for (Component component : pnlRequirements.getComponents()) {
                 if (component instanceof PnlRequirement) {
 
-                    if (((PnlRequirement)component).getName().trim().isEmpty()) {
+                    String reqName = ((PnlRequirement)component).getName().trim();
+
+                    if (reqName.isEmpty()) {
                         Util.setError(lblReqError, "Requirement name cannot be left blank");
+                        return null;
+                    }
+
+                    if (!reqNameSet.add(reqName)) {
+                        Util.setError(lblReqError, "Requirement name '" + reqName + "' already exists");
+                        component.requestFocus();
                         return null;
                     }
 
@@ -762,6 +775,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         //======== scrollPane2 ========
         {
             scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+            scrollPane2.setAutoscrolls(true);
             scrollPane2.setName("scrollPane2");
 
             //======== pnlRequirements ========
