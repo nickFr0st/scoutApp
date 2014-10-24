@@ -10,6 +10,9 @@ new FormModel {
 				name: "dialogPane"
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
 				"background": new java.awt.Color( 255, 255, 255, 255 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "300:1.0, 0"
 					"$rowSpecs": "0, 50, 0, 0:1.0"
@@ -22,11 +25,17 @@ new FormModel {
 					"minimumSize": new java.awt.Dimension( 600, 400 )
 					"preferredSize": new java.awt.Dimension( 600, 400 )
 					"background": new java.awt.Color( 255, 255, 255, 255 )
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "lblIntro"
 						"text": "Please Select a file to import"
 						"font": &Font0 new java.awt.Font( "Vijaya", 0, 20 )
 						"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 					add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
 						name: "txtImportPath"
@@ -41,6 +50,9 @@ new FormModel {
 						"background": new java.awt.Color( 51, 102, 153, 255 )
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBrowseMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 1
@@ -51,11 +63,17 @@ new FormModel {
 						"text": "Import file instructions"
 						"font": #Font0
 						"foreground": #Color0
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 2
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 						add( new FormComponent( "javax.swing.JEditorPane" ) {
 							name: "txtImportInstructions"
 							"background": new java.awt.Color( 255, 255, 255, 255 )
@@ -76,6 +94,9 @@ new FormModel {
 					name: "buttonBar"
 					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
 					"background": new java.awt.Color( 255, 255, 255, 255 )
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "btnImport"
 						"text": "Import"
@@ -83,6 +104,9 @@ new FormModel {
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"foreground": new java.awt.Color( 255, 255, 255, 255 )
 						"focusPainted": false
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnImportMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 1
@@ -95,6 +119,9 @@ new FormModel {
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"background": new java.awt.Color( 206, 0, 0, 255 )
 						"focusPainted": false
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnCancelMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 2

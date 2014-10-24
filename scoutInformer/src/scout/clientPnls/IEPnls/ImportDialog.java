@@ -29,18 +29,11 @@ import java.util.Map;
  * @author User #2
  */
 public class ImportDialog extends JDialog {
-    private JPanel wiz;
     private int importTypeId;
-
-    public ImportDialog(Frame owner) {
-        super(owner);
-        initComponents();
-    }
 
     public ImportDialog(Frame owner, int importTypeId) {
         super(owner, true);
         initComponents();
-        wiz = contentPanel;
         this.importTypeId = importTypeId;
 
         switch (importTypeId) {
@@ -126,9 +119,9 @@ public class ImportDialog extends JDialog {
                     String advancementName = record[0];
 
                     if (Util.isEmpty(advancementName)){
-                        errors.append("Advancement name is missing. " + errorLine);
+                        errors.append("Advancement name is missing. ").append(errorLine);
                     } else if (advancementName.length() > Advancement.COL_NAME_LENGTH) {
-                        errors.append("Advancement name is too long. " + errorLine);
+                        errors.append("Advancement name is too long. ").append(errorLine);
                     }
                     advancement.setName(advancementName);
 
@@ -138,9 +131,9 @@ public class ImportDialog extends JDialog {
 
                     String advancementImgPath = record[1];
                     if (Util.isEmpty(advancementImgPath)){
-                        errors.append("Advancement image path is missing. " + errorLine);
+                        errors.append("Advancement image path is missing. ").append(errorLine);
                     } else if (advancementImgPath.length() > Advancement.COL_IMG_PATH_LENGTH) {
-                        errors.append("Advancement image path is too long. " + errorLine);
+                        errors.append("Advancement image path is too long. ").append(errorLine);
                     }
                     advancement.setImgPath(advancementImgPath);
 
@@ -208,17 +201,17 @@ public class ImportDialog extends JDialog {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        dialogPane = new JPanel();
-        contentPanel = new JPanel();
-        lblIntro = new JLabel();
+        JPanel dialogPane = new JPanel();
+        JPanel contentPanel = new JPanel();
+        JLabel lblIntro = new JLabel();
         txtImportPath = new JTextFieldDefaultText();
-        btnBrowse = new JButton();
-        lblIntro2 = new JLabel();
-        scrollPane1 = new JScrollPane();
+        JButton btnBrowse = new JButton();
+        JLabel lblIntro2 = new JLabel();
+        JScrollPane scrollPane1 = new JScrollPane();
         txtImportInstructions = new JEditorPane();
-        buttonBar = new JPanel();
-        btnImport = new JButton();
-        btnCancel = new JButton();
+        JPanel buttonBar = new JPanel();
+        JButton btnImport = new JButton();
+        JButton btnCancel = new JButton();
 
         //======== this ========
         setMinimumSize(new Dimension(625, 465));
@@ -355,16 +348,7 @@ public class ImportDialog extends JDialog {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JPanel dialogPane;
-    private JPanel contentPanel;
-    private JLabel lblIntro;
     private JTextFieldDefaultText txtImportPath;
-    private JButton btnBrowse;
-    private JLabel lblIntro2;
-    private JScrollPane scrollPane1;
     private JEditorPane txtImportInstructions;
-    private JPanel buttonBar;
-    private JButton btnImport;
-    private JButton btnCancel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
