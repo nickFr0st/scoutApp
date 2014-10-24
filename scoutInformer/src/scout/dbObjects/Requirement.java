@@ -4,6 +4,8 @@ package scout.dbObjects;
  * Created by Malloch on 6/7/14
  */
 public class Requirement {
+    public static final int COL_NAME_LENGTH = 44;
+
     private int id;
     private String name;
     private String description;

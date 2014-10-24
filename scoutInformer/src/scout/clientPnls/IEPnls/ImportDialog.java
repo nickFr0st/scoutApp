@@ -85,13 +85,12 @@ public class ImportDialog extends JDialog {
             java.util.List<Requirement> requirementList = new ArrayList<Requirement>();
 
             String[] record;
-            int line = 1;
+            int line = 0;
             StringBuilder errors = new StringBuilder();
 
             while ((record = reader.readNext()) != null) {
+                ++line;
                 String errorLine = "line: " + line + "\n";
-
-                // todo: validate data lengths
 
                 // check for the headers
                 if (record[0].equals("Advancement Name") || record[0].equals("Requirement Name")) {
@@ -110,6 +109,8 @@ public class ImportDialog extends JDialog {
                         advancement = null;
                         requirementList = new ArrayList<Requirement>();
                     }
+
+                    continue;
                 }
 
                 if (getAdvancement) {
@@ -141,21 +142,32 @@ public class ImportDialog extends JDialog {
                 }
 
                 if (record.length < 2) {
-                    JOptionPane.showMessageDialog(this, "Requirements on line: " + line + "needs both a name and a description.");
-                    return;
+                    errors.append("Requirements needs both a name and a description.").append(errorLine);
+                    continue;
                 }
 
                 Requirement requirement = new Requirement();
-                requirement.setName(record[0]);
-                requirement.setDescription(record[1]);
-                requirementList.add(requirement);
+                String reqName = record[0];
+                if (Util.isEmpty(reqName)){
+                    errors.append("Requirement name is missing. ").append(errorLine);
+                } else if (reqName.length() > Requirement.COL_NAME_LENGTH) {
+                    errors.append("Requirement name is too long. ").append(errorLine);
+                }
+                requirement.setName(reqName);
 
-                ++line;
+                String reqDesc = record[1];
+                if (Util.isEmpty(reqDesc)){
+                    errors.append("Requirement description is missing. ").append(errorLine);
+                }
+                requirement.setDescription(reqDesc);
+
+                requirementList.add(requirement);
             }
 
             if (!checkForErrors(errors)) {
                 return;
             }
+
             importMap.put(advancement, requirementList);
 
             // todo: save down items
