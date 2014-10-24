@@ -182,4 +182,48 @@ public class LogicRequirement {
             e.printStackTrace();
         }
     }
+
+    public static void importReqList(List<Requirement> reqList) {
+        if (Util.isEmpty(reqList)) {
+            return;
+        }
+
+        for (Requirement requirement : reqList) {
+            Requirement req = findByNameAndParentId(requirement.getName(), requirement.getParentId());
+
+            if (req != null) {
+                requirement.setId(req.getId());
+                update(requirement);
+            } else {
+                save(requirement);
+            }
+        }
+    }
+
+    private static Requirement findByNameAndParentId(String name, int parentId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        Requirement requirement = null;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId + " AND name LIKE " + name);
+
+            if (rs.next()) {
+                requirement = new Requirement();
+                requirement.setId(rs.getInt(KeyConst.REQUIREMENT_ID.getName()));
+                requirement.setName(rs.getString(KeyConst.REQUIREMENT_NAME.getName()));
+                requirement.setDescription(rs.getString(KeyConst.REQUIREMENT_DESCRIPTION.getName()));
+                requirement.setParentId(rs.getInt(KeyConst.REQUIREMENT_PARENT_ID.getName()));
+                requirement.setTypeId(rs.getInt(KeyConst.REQUIREMENT_TYPE_ID.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return requirement;
+    }
 }

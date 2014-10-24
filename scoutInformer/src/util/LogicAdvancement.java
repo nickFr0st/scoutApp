@@ -23,13 +23,14 @@ public class LogicAdvancement {
             return null;
         }
 
-        Advancement advancement = new Advancement();
+        Advancement advancement = null;
 
         try {
             Statement statement = connector.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM advancement WHERE name LIKE '" + name + "'");
 
             if (rs.next()) {
+                advancement = new Advancement();
                 advancement.setId(rs.getInt(KeyConst.ADVANCEMENT_ID.getName()));
                 advancement.setName(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
                 advancement.setImgPath(rs.getString(KeyConst.ADVANCEMENT_IMG_PATH.getName()));
@@ -149,5 +150,29 @@ public class LogicAdvancement {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static Advancement importAdv(Advancement advancement) {
+        if (advancement == null) {
+            return null;
+        }
+
+        Advancement adv = findByName(advancement.getName());
+        if (adv != null) {
+            if (Util.isEmpty(advancement.getImgPath())) {
+                advancement.setImgPath(adv.getImgPath());
+            }
+            advancement.setId(adv.getId());
+
+            update(advancement);
+        } else {
+            if (Util.isEmpty(advancement.getImgPath())) {
+                advancement.setImgPath("Path");
+            }
+
+            save(advancement);
+        }
+
+        return advancement;
     }
 }

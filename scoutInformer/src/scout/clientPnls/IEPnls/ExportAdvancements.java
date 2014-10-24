@@ -178,7 +178,7 @@ public class ExportAdvancements extends JPanel {
             ioe.printStackTrace();
         }
 
-        JOptionPane.showMessageDialog(this, "Your selected advancement(s) have been successfully exported.", "Export Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Your selected advancement(s) have been successfully exported.", "Export Successful", JOptionPane.INFORMATION_MESSAGE);
         return true;
     }
 

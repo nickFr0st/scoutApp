@@ -12,6 +12,11 @@ public class Requirement {
     private int typeId;
     private int parentId;
 
+    {
+        typeId = 1;
+        id = -1;
+    }
+
     public int getId() {
         return id;
     }

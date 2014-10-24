@@ -10,6 +10,8 @@ import guiUtil.JTextFieldDefaultText;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
+import util.LogicAdvancement;
+import util.LogicRequirement;
 import util.Util;
 
 import javax.swing.*;
@@ -64,18 +66,24 @@ public class ImportDialog extends JDialog {
             return;
         }
 
+        boolean success = false;
+
         switch (importTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
-                handleAdvancementImport(txtImportPath.getText());
+                success = handleAdvancementImport(txtImportPath.getText());
                 break;
             case PnlBadgeConf.MERIT_BAGDGE:
                 break;
             case PnlBadgeConf.OTHER:
                 break;
         }
+
+        if (success) {
+            dispose();
+        }
     }
 
-    private void handleAdvancementImport(String importPath) {
+    private boolean handleAdvancementImport(String importPath) {
         try {
             CSVReader reader = new CSVReader(new FileReader(importPath), ',');
             Map<Advancement, java.util.List<Requirement>> importMap = new HashMap<Advancement, java.util.List<Requirement>>();
@@ -102,7 +110,7 @@ public class ImportDialog extends JDialog {
 
                     if (advancement != null) {
                         if (!checkForErrors(errors)) {
-                            return;
+                            return false;
                         }
 
                         importMap.put(advancement, requirementList);
@@ -164,19 +172,36 @@ public class ImportDialog extends JDialog {
                 requirementList.add(requirement);
             }
 
+            reader.close();
+
             if (!checkForErrors(errors)) {
-                return;
+                return false;
             }
 
             importMap.put(advancement, requirementList);
 
-            // todo: save down items
+            for (Advancement adv : importMap.keySet()) {
+                adv = LogicAdvancement.importAdv(adv);
 
-            reader.close();
+                java.util.List<Requirement> reqList = importMap.get(adv);
+                if (Util.isEmpty(reqList)) {
+                    continue;
+                }
+
+                for (Requirement req : reqList) {
+                    req.setParentId(adv.getId());
+                }
+
+                LogicRequirement.importReqList(reqList);
+            }
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
+            return false;
         }
+
+        JOptionPane.showMessageDialog(this, "Yout advancements have been successfully imported.", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean checkForErrors(StringBuilder errors) {

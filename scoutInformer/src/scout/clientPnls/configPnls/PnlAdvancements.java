@@ -419,8 +419,8 @@ public class PnlAdvancements extends JPanel implements Configuration {
         ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.ADVANCEMENT);
         dialog.setVisible(true);
 
-        poplulateAdvancementNameList();
         reloadData();
+        poplulateAdvancementNameList();
     }
 
     private void reloadData() {
