@@ -66,6 +66,8 @@ public class ImportDialog extends JDialog {
 
     private void btnImportMouseClicked() {
         if (txtImportPath.isMessageDefault()) {
+            JOptionPane.showMessageDialog(this, "Please specify a file that you wish to import.", "No File Selected", JOptionPane.ERROR_MESSAGE);
+            txtImportPath.requestFocus();
             return;
         }
 
@@ -107,6 +109,10 @@ public class ImportDialog extends JDialog {
                     getAdvancement = true;
 
                     if (advancement != null) {
+                        if (!checkForErrors(errors)) {
+                            return;
+                        }
+
                         importMap.put(advancement, requirementList);
                         advancement = null;
                         requirementList = new ArrayList<Requirement>();
@@ -134,7 +140,7 @@ public class ImportDialog extends JDialog {
                     if (Util.isEmpty(advancementImgPath)){
                         errors.append("Advancement image path is missing. " + errorLine);
                     } else if (advancementImgPath.length() > Advancement.COL_IMG_PATH_LENGTH) {
-                        errors.append("Advancement image path is not long. " + errorLine);
+                        errors.append("Advancement image path is too long. " + errorLine);
                     }
                     advancement.setImgPath(advancementImgPath);
 
@@ -154,6 +160,9 @@ public class ImportDialog extends JDialog {
                 ++line;
             }
 
+            if (!checkForErrors(errors)) {
+                return;
+            }
             importMap.put(advancement, requirementList);
 
             // todo: save down items
@@ -163,6 +172,18 @@ public class ImportDialog extends JDialog {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+    }
+
+    private boolean checkForErrors(StringBuilder errors) {
+        if (errors.length() <= 0) {
+            return true;
+        }
+
+        String errorHeaderMessage = "Please fix the following issues and try again.\n\n";
+        errors.insert(0, errorHeaderMessage);
+
+        JOptionPane.showMessageDialog(this, errors, "Import Errors", JOptionPane.ERROR_MESSAGE);
+        return false;
     }
 
     private void btnBrowseMouseClicked() {

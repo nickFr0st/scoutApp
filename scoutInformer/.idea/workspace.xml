@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added import message">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/dbObjects/Advancement.java" afterPath="$PROJECT_DIR$/src/scout/dbObjects/Advancement.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added some validation">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -192,11 +191,11 @@
       <file leaf-file-name="ImportDialog.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55042917" vertical-offset="1697" max-vertical-offset="5287">
-              <caret line="151" column="49" selection-start-line="151" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.60932475" vertical-offset="2375" max-vertical-offset="5644">
+              <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
               <folding>
-                <marker date="1414113364915" expanded="true" signature="6121:13344" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1414113364915" expanded="false" signature="13356:13887" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1414114248755" expanded="true" signature="6902:14125" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1414114248755" expanded="false" signature="14137:14668" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -1009,7 +1008,7 @@
       <workItem from="1414042166330" duration="2747000" />
       <workItem from="1414078624327" duration="1368000" />
       <workItem from="1414101720744" duration="5482000" />
-      <workItem from="1414112106203" duration="1257000" />
+      <workItem from="1414112106203" duration="2183000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1611,11 +1610,15 @@
       <created>1414107170597</created>
       <updated>1414107170597</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="added some validation">
+      <created>1414113376509</created>
+      <updated>1414113376509</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351431000" />
+    <option name="totallyTimeSpent" value="352357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1634,7 +1637,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32258064" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32258064" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972437" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1669,7 +1672,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="made sure change did not break current functionality" />
     <MESSAGE value="fixed update btn showing issue" />
     <MESSAGE value="fixed the req list a bit" />
     <MESSAGE value="now have the beginings of saving new advancements" />
@@ -1694,7 +1696,8 @@
     <MESSAGE value="started on the advancement import" />
     <MESSAGE value="added import logic" />
     <MESSAGE value="added import message" />
-    <option name="LAST_COMMIT_MESSAGE" value="added import message" />
+    <MESSAGE value="added some validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some validation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1767,19 +1770,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java</url>
-          <line>101</line>
+          <line>103</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java</url>
-          <line>115</line>
+          <line>121</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java</url>
-          <line>106</line>
+          <line>108</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
@@ -2158,11 +2161,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55042917" vertical-offset="1697" max-vertical-offset="5287">
-          <caret line="151" column="49" selection-start-line="151" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.60932475" vertical-offset="2375" max-vertical-offset="5644">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
           <folding>
-            <marker date="1414113364915" expanded="true" signature="6121:13344" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1414113364915" expanded="false" signature="13356:13887" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1414114248755" expanded="true" signature="6902:14125" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1414114248755" expanded="false" signature="14137:14668" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
