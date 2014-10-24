@@ -10,6 +10,7 @@ import guiUtil.JTextFieldDefaultText;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
+import util.Util;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -90,7 +91,10 @@ public class ImportDialog extends JDialog {
 
             String[] record;
             int line = 1;
+            StringBuilder errors = new StringBuilder();
+
             while ((record = reader.readNext()) != null) {
+                String errorLine = "line: " + line + "\n";
 
                 // todo: validate data lengths
 
@@ -110,10 +114,30 @@ public class ImportDialog extends JDialog {
                 }
 
                 if (getAdvancement) {
+                    getAdvancement = false;
+
                     advancement = new Advancement();
                     String advancementName = record[0];
-                    getAdvancement = false;
+
+                    if (Util.isEmpty(advancementName)){
+                        errors.append("Advancement name is missing. " + errorLine);
+                    } else if (advancementName.length() > Advancement.COL_NAME_LENGTH) {
+                        errors.append("Advancement name is too long. " + errorLine);
+                    }
                     advancement.setName(advancementName);
+
+                    if (record.length == 1) {
+                        continue;
+                    }
+
+                    String advancementImgPath = record[1];
+                    if (Util.isEmpty(advancementImgPath)){
+                        errors.append("Advancement image path is missing. " + errorLine);
+                    } else if (advancementImgPath.length() > Advancement.COL_IMG_PATH_LENGTH) {
+                        errors.append("Advancement image path is not long. " + errorLine);
+                    }
+                    advancement.setImgPath(advancementImgPath);
+
                     continue;
                 }
 
@@ -239,8 +263,8 @@ public class ImportDialog extends JDialog {
                 lblIntro2.setForeground(new Color(51, 102, 153));
                 lblIntro2.setName("lblIntro2");
                 contentPanel.add(lblIntro2, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
-                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                        new Insets(0, 0, 5, 5), 0, 0));
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 0, 5, 5), 0, 0));
 
                 //======== scrollPane1 ========
                 {

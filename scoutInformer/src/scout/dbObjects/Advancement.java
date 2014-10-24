@@ -4,6 +4,9 @@ package scout.dbObjects;
  * Created by Malloch on 7/10/14
  */
 public class Advancement {
+    public static final int COL_NAME_LENGTH = 254;
+    public static final int COL_IMG_PATH_LENGTH = 254;
+
     private int id;
     private String name;
     private String imgPath;
