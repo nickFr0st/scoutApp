@@ -165,7 +165,6 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         pnlRequirements.revalidate();
         pnlRequirements.repaint();
-
     }
 
     private void resetPnlRequirements() {

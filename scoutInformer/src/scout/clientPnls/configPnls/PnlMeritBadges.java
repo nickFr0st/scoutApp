@@ -5,9 +5,16 @@
 package scout.clientPnls.configPnls;
 
 import guiUtil.JTextFieldDefaultText;
+import guiUtil.PnlRequirement;
 import scout.clientPnls.PnlBadgeConf;
+import scout.dbObjects.MeritBadge;
+import scout.dbObjects.Requirement;
+import scout.dbObjects.RequirementTypeConst;
 import util.LogicMeritBadge;
+import util.LogicRequirement;
+import util.Util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -15,6 +22,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * @author User #2
@@ -57,6 +68,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
         txtBadgeName.setDefault();
+        chkReqForEagle.setSelected(false);
         addNoRequirementsLabel();
 
         pnlBadgeConf.getBtnDelete().setVisible(false);
@@ -110,7 +122,68 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void listBadgeNamesMouseClicked() {
-        // TODO add your code here
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        clearErrors();
+
+        MeritBadge meritBadge = LogicMeritBadge.findByName(listBadgeNames.getSelectedValue().toString());
+
+        if (meritBadge == null) {
+            return;
+        }
+
+        pnlBadgeConf.getBtnSave().setVisible(false);
+        pnlBadgeConf.getBtnUpdate().setVisible(true);
+        pnlBadgeConf.getBtnDelete().setVisible(true);
+
+        txtImagePath.setText(meritBadge.getImgPath());
+        txtBadgeName.setText(meritBadge.getName());
+        chkReqForEagle.setSelected(meritBadge.isRequiredForEagle());
+
+        URL imgPath = getClass().getResource(meritBadge.getImgPath());
+        if (imgPath == null) {
+            ImageIcon tryPath = new ImageIcon(meritBadge.getImgPath());
+            if (tryPath.getImageLoadStatus() < MediaTracker.COMPLETE) {
+                lblImage.setIcon(noImageIcon);
+            } else {
+                setImage(meritBadge.getImgPath());
+            }
+        } else {
+            setImage(imgPath.getPath());
+        }
+
+        resetPnlRequirements();
+        grid = 0;
+
+        java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentIdTypeId(meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
+        if (!Util.isEmpty(requirementList)) {
+            for (Requirement requirement : requirementList) {
+                PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid++ > 0, requirement.getId());
+                pnlRequirements.add(pnlRequirement);
+            }
+        } else {
+            addNoRequirementsLabel();
+        }
+
+        // todo: need to add Merit Badge Counselors
+
+        pnlRequirements.revalidate();
+        pnlRequirements.repaint();
+    }
+
+    private void setImage(String imgPath) {
+        try {
+            BufferedImage img = ImageIO.read(new File(imgPath));
+
+            int height = img.getHeight() > lblImage.getHeight() ? lblImage.getHeight() : img.getHeight();
+            int width = img.getWidth() > lblImage.getWidth() ? lblImage.getWidth() : img.getWidth();
+
+            lblImage.setIcon(new ImageIcon(img.getScaledInstance(width, height, Image.SCALE_SMOOTH)));
+            txtImagePath.setText(imgPath);
+        } catch (IOException ignore) {
+        }
     }
 
     private void listBadgeNamesKeyReleased(KeyEvent e) {

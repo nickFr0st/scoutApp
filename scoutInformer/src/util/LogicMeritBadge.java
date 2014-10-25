@@ -1,6 +1,7 @@
 package util;
 
 import constants.KeyConst;
+import scout.dbObjects.MeritBadge;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -37,5 +38,31 @@ public class LogicMeritBadge {
         }
 
         return meritBadgeNameList;
+    }
+
+    public static MeritBadge findByName(String name) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        MeritBadge meritBadge = null;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM meritBadge WHERE name LIKE '" + name + "'");
+
+            if (rs.next()) {
+                meritBadge = new MeritBadge();
+                meritBadge.setId(rs.getInt(KeyConst.MERIT_BADGE_ID.getName()));
+                meritBadge.setName(rs.getString(KeyConst.MERIT_BADGE_NAME.getName()));
+                meritBadge.setImgPath(rs.getString(KeyConst.MERIT_BADGE_IMG_PATH.getName()));
+                meritBadge.setRequiredForEagle(rs.getBoolean(KeyConst.MERIT_BADGE_REQ_FOR_EAGLE.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return meritBadge;
     }
 }

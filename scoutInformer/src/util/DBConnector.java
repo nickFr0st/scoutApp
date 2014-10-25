@@ -257,6 +257,13 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableRequirement);
 
+        String tableCounselor = "CREATE TABLE counselor " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(90) NOT NULL," +
+                " phoneNumber VARCHAR(20) NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableCounselor);
+
         // Insert Advancements
         int id = 1;
         String insert = "INSERT INTO advancement VALUES( " + id++ + ",'New Scout', '/images/advancements/new_scout.png')";
