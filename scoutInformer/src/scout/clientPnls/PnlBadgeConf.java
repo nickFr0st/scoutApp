@@ -165,7 +165,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnDelete.setVisible(false);
         currentSelected = MERIT_BAGDGE;
 
-        updateConfigPnl(new PnlMeritBadges());
+        updateConfigPnl(new PnlMeritBadges(this));
 
         revalidate();
         repaint();

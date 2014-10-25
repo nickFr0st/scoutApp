@@ -5,6 +5,8 @@
 package scout.clientPnls.configPnls;
 
 import guiUtil.JTextFieldDefaultText;
+import scout.clientPnls.PnlBadgeConf;
+import util.LogicMeritBadge;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -18,13 +20,25 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlMeritBadges extends JPanel implements Configuration {
+
+    private int grid;
+    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
+    private PnlBadgeConf pnlBadgeConf;
+
     public PnlMeritBadges() {
         initComponents();
     }
 
+    public PnlMeritBadges(PnlBadgeConf pnlBadgeConf) {
+        this.pnlBadgeConf = pnlBadgeConf;
+        initComponents();
+        scrollPane2.getVerticalScrollBar().setUnitIncrement(18);
+        onShow();
+    }
+
     @Override
     public void onShow() {
-
+        clearData();
     }
 
     @Override
@@ -35,6 +49,60 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     @Override
     public void createNew() {
 
+    }
+
+    private void clearData() {
+        clearErrors();
+        populateAdvancementNameList();
+        lblImage.setIcon(noImageIcon);
+        txtImagePath.setDefault();
+        txtBadgeName.setDefault();
+        addNoRequirementsLabel();
+
+        pnlBadgeConf.getBtnDelete().setVisible(false);
+        pnlBadgeConf.getBtnUpdate().setVisible(false);
+        pnlBadgeConf.getBtnSave().setVisible(true);
+
+        revalidate();
+    }
+
+    private void addNoRequirementsLabel() {
+        resetPnlRequirements();
+        grid = -1;
+        JLabel lblNoRequirements = new JLabel();
+        lblNoRequirements.setText("No Requirements");
+        lblNoRequirements.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNoRequirements.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
+        pnlRequirements.add(lblNoRequirements);
+        pnlRequirements.revalidate();
+        pnlRequirements.repaint();
+    }
+
+    private void resetPnlRequirements() {
+        pnlRequirements.removeAll();
+        pnlRequirements.setLayout(new BoxLayout(pnlRequirements, BoxLayout.Y_AXIS));
+    }
+
+    private void populateAdvancementNameList() {
+        java.util.List<String> meritBadgeNameList = LogicMeritBadge.getNameList();
+
+        if (meritBadgeNameList != null) {
+            listBadgeNames.setListData(meritBadgeNameList.toArray());
+        }
+
+        listBadgeNames.revalidate();
+    }
+
+    private void clearErrors() {
+        lblCounselorError.setText("");
+        lblCounselorError.setVisible(false);
+
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
+
+        lblReqError.setText("");
+        lblReqError.setVisible(false);
     }
 
     private void txtSearchNameKeyReleased() {
@@ -68,6 +136,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblRequirements = new JLabel();
         btnNewRequirement = new JLabel();
         btnDeleteRequirement = new JLabel();
+        lblReqError = new JLabel();
         pnlSearch = new JPanel();
         txtSearchName = new JTextFieldDefaultText();
         pnlSelectedImage = new JPanel();
@@ -87,6 +156,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblMBCoiunselors = new JLabel();
         btnNewCounselor = new JLabel();
         btnDeleteCounselor = new JLabel();
+        lblCounselorError = new JLabel();
         scrollPane1 = new JScrollPane();
         tblCounselors = new JTable();
 
@@ -98,9 +168,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 158, 44, 30, 30, 30, 33, 132, 30, 30, 177, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 152, 45, 238, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 152, 45, 0, 220, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- lblListName ----
         lblListName.setText("Merit Badges");
@@ -173,6 +243,16 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         add(btnDeleteRequirement, new GridBagConstraints(10, 0, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- lblReqError ----
+        lblReqError.setText("* Error Message");
+        lblReqError.setForeground(Color.red);
+        lblReqError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+        lblReqError.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblReqError.setName("lblReqError");
+        add(lblReqError, new GridBagConstraints(11, 0, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 0), 0, 0));
 
         //======== pnlSearch ========
         {
@@ -248,7 +328,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             }
             scrollPane2.setViewportView(pnlRequirements);
         }
-        add(scrollPane2, new GridBagConstraints(8, 1, 4, 5, 0.0, 0.0,
+        add(scrollPane2, new GridBagConstraints(8, 1, 4, 6, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
 
@@ -275,7 +355,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             });
             scrollPane3.setViewportView(listBadgeNames);
         }
-        add(scrollPane3, new GridBagConstraints(0, 2, 1, 4, 0.0, 0.0,
+        add(scrollPane3, new GridBagConstraints(0, 2, 1, 5, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
 
@@ -416,6 +496,16 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
 
+        //---- lblCounselorError ----
+        lblCounselorError.setText("* Error Message");
+        lblCounselorError.setForeground(Color.red);
+        lblCounselorError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+        lblCounselorError.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblCounselorError.setName("lblCounselorError");
+        add(lblCounselorError, new GridBagConstraints(2, 5, 5, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 20, 5, 15), 0, 0));
+
         //======== scrollPane1 ========
         {
             scrollPane1.setName("scrollPane1");
@@ -424,7 +514,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             tblCounselors.setName("tblCounselors");
             scrollPane1.setViewportView(tblCounselors);
         }
-        add(scrollPane1, new GridBagConstraints(2, 5, 5, 1, 0.0, 0.0,
+        add(scrollPane1, new GridBagConstraints(2, 6, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -436,6 +526,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private JLabel lblRequirements;
     private JLabel btnNewRequirement;
     private JLabel btnDeleteRequirement;
+    private JLabel lblReqError;
     private JPanel pnlSearch;
     private JTextFieldDefaultText txtSearchName;
     private JPanel pnlSelectedImage;
@@ -455,6 +546,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private JLabel lblMBCoiunselors;
     private JLabel btnNewCounselor;
     private JLabel btnDeleteCounselor;
+    private JLabel lblCounselorError;
     private JScrollPane scrollPane1;
     private JTable tblCounselors;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

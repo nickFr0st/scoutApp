@@ -23,6 +23,12 @@ public enum KeyConst {
     ADVANCEMENT_NAME("name"),
     ADVANCEMENT_IMG_PATH("imgPath"),
 
+    // MeritBadge Table
+    MERIT_BADGE_ID("id"),
+    MERIT_BADGE_NAME("name"),
+    MERIT_BADGE_IMG_PATH("imgPath"),
+    MERIT_BADGE_REQ_FOR_EAGLE("requiredForEagle"),
+
     // Requirement Table
     REQUIREMENT_ID("id"),
     REQUIREMENT_NAME("name"),
