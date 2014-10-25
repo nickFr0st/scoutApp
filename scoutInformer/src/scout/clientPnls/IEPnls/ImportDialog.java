@@ -41,10 +41,12 @@ public class ImportDialog extends JDialog {
 
         switch (importTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
-                setTitle("Advancements Import");
+                setTitle("Advancement Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/IEAdvancementInstructions.html").toString());
                 break;
             case PnlBadgeConf.MERIT_BAGDGE:
+                setTitle("Merit Badge Import");
+                setTxtImportInstructions(getClass().getResource("/instructions/ImportMeritBadgeInstructions.html").toString());
                 break;
             case PnlBadgeConf.OTHER:
                 break;
@@ -74,6 +76,7 @@ public class ImportDialog extends JDialog {
                 success = handleAdvancementImport(txtImportPath.getText());
                 break;
             case PnlBadgeConf.MERIT_BAGDGE:
+                success = handleMeritBadgeImport(txtImportPath.getText());
                 break;
             case PnlBadgeConf.OTHER:
                 break;
@@ -82,6 +85,10 @@ public class ImportDialog extends JDialog {
         if (success) {
             dispose();
         }
+    }
+
+    private boolean handleMeritBadgeImport(String importPath) {
+        return false;
     }
 
     private boolean handleAdvancementImport(String importPath) {

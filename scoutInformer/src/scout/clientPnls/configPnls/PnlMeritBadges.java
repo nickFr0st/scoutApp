@@ -7,6 +7,7 @@ package scout.clientPnls.configPnls;
 import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
+import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Counselor;
 import scout.dbObjects.MeritBadge;
@@ -292,6 +293,35 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             pnlRequirements.revalidate();
             pnlRequirements.repaint();
         }
+    }
+
+    public void importData() {
+        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.MERIT_BAGDGE);
+        dialog.setVisible(true);
+
+        reloadData();
+        populateAdvancementNameList();
+    }
+
+    private void reloadData() {
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        int index = listBadgeNames.getSelectedIndex();
+        String name = txtBadgeName.getText();
+
+        clearData();
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            if (listBadgeNames.getModel().getElementAt(i).toString().equals(name)) {
+                index = i;
+                break;
+            }
+        }
+
+        listBadgeNames.setSelectedIndex(index);
+        listBadgeNamesMouseClicked();
     }
 
     private void createUIComponents() {

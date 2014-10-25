@@ -69,6 +69,20 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         repaint();
     }
 
+    private void btnMeritBadgesMouseClicked() {
+        enableComponents(true);
+
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
+        currentSelected = MERIT_BAGDGE;
+
+        updateConfigPnl(new PnlMeritBadges(this));
+
+        revalidate();
+        repaint();
+    }
+
     private void updateConfigPnl(JPanel newPanel) {
         remove(currentPnl);
 
@@ -152,23 +166,10 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 ((PnlAdvancements)currentPnl).importData();
                 break;
             case MERIT_BAGDGE:
+                ((PnlMeritBadges)currentPnl).importData();
                 break;
             case OTHER:
         }
-    }
-
-    private void btnMeritBadgesMouseClicked() {
-        enableComponents(true);
-
-        btnSave.setVisible(true);
-        btnUpdate.setVisible(false);
-        btnDelete.setVisible(false);
-        currentSelected = MERIT_BAGDGE;
-
-        updateConfigPnl(new PnlMeritBadges(this));
-
-        revalidate();
-        repaint();
     }
 
     private void initComponents() {
