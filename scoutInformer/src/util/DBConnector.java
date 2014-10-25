@@ -244,7 +244,6 @@ public class DBConnector {
                 "(id INT NOT NULL," +
                 " name VARCHAR(225) NOT NULL," +
                 " imgPath VARCHAR(255) NOT NULL," +
-                " requirementsLink VARCHAR(255) NULL," +
                 " requiredForEagle TINYINT NOT NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableMeritBadge);

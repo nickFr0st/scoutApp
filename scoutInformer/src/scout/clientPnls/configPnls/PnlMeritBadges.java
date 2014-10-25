@@ -98,9 +98,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 158, 44, 30, 30, 30, 33, 132, 30, 30, 177, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 152, 45, 239, 0, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 152, 45, 238, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- lblListName ----
         lblListName.setText("Merit Badges");
@@ -250,7 +250,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         }
         add(scrollPane2, new GridBagConstraints(8, 1, 4, 5, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 0), 0, 0));
+            new Insets(0, 0, 0, 0), 0, 0));
 
         //======== scrollPane3 ========
         {
@@ -277,7 +277,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         }
         add(scrollPane3, new GridBagConstraints(0, 2, 1, 4, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+            new Insets(0, 0, 0, 5), 0, 0));
 
         //---- hSpacer1 ----
         hSpacer1.setOpaque(false);
@@ -426,7 +426,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         }
         add(scrollPane1, new GridBagConstraints(2, 5, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+            new Insets(0, 0, 0, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

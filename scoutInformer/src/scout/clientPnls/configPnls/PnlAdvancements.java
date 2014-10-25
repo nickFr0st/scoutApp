@@ -58,7 +58,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         clearData();
     }
 
-    private void poplulateAdvancementNameList() {
+    private void populateAdvancementNameList() {
         java.util.List<String> advancements = LogicAdvancement.getAdvancementList();
 
         if (advancements != null) {
@@ -293,7 +293,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         LogicRequirement.saveList(requirementList);
 
-        poplulateAdvancementNameList();
+        populateAdvancementNameList();
     }
 
     private List<Requirement> validateRequirements(int parentId) {
@@ -437,7 +437,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         dialog.setVisible(true);
 
         reloadData();
-        poplulateAdvancementNameList();
+        populateAdvancementNameList();
     }
 
     private void reloadData() {
@@ -463,7 +463,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
     private void clearData() {
         clearErrors();
-        poplulateAdvancementNameList();
+        populateAdvancementNameList();
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
         txtBadgeName.setDefault();

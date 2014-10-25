@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "235, 28, 153, 39, 25, 25, 25, 28, 127, 25, 25, 177"
-			"$rowSpecs": "40, 0, 147, 147, 40, 234, 0"
+			"$rowSpecs": "40, 0, 147, 147, 40, 238"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
