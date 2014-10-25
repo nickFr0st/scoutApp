@@ -150,10 +150,20 @@ public class ExportAdvancements extends JPanel {
             CSVWriter csvWriter = new CSVWriter(writer, ',');
             List<String[]> records = new ArrayList<String[]>();
 
-            records.add(new String[]{"Advancement Name"});
+            records.add(new String[]{"Advancement Name", "Advancement Image Path"});
             records.add(new String[]{"Requirement Name", "Requirement Description"});
+
+            boolean firstPass = true;
             for (Advancement advancement : advancementExportList) {
-                records.add(new String[]{advancement.getName()});
+                if (!firstPass) {
+                    records.add(new String[]{""});
+                }
+
+                if (Util.isEmpty(advancement.getImgPath())) {
+                    records.add(new String[]{advancement.getName()});
+                } else {
+                    records.add(new String[]{advancement.getName(), advancement.getImgPath()});
+                }
 
                 List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
                 if (Util.isEmpty(requirementList)) {
@@ -162,6 +172,10 @@ public class ExportAdvancements extends JPanel {
 
                 for (Requirement requirement : requirementList) {
                     records.add(new String[]{requirement.getName(), requirement.getDescription()});
+                }
+
+                if (firstPass) {
+                    firstPass = false;
                 }
             }
 

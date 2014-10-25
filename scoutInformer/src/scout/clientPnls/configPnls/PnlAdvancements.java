@@ -279,7 +279,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         if (!txtImagePath.isMessageDefault()) {
             advancement.setImgPath(txtImagePath.getText());
         } else {
-            advancement.setImgPath(txtImagePath.getDefaultText());
+            advancement.setImgPath("");
         }
 
         List<Requirement> requirementList = validateRequirements(-1);
@@ -408,7 +408,11 @@ public class PnlAdvancements extends JPanel implements Configuration {
             return;
         }
 
-        advancement.setImgPath(txtImagePath.getText());
+        if (txtImagePath.isMessageDefault()) {
+            advancement.setImgPath("");
+        } else {
+            advancement.setImgPath(txtImagePath.getText());
+        }
         advancement.setName(txtBadgeName.getText());
 
         List<Requirement> requirementList = validateRequirements(advancement.getId());

@@ -167,7 +167,7 @@ public class LogicAdvancement {
             update(advancement);
         } else {
             if (Util.isEmpty(advancement.getImgPath())) {
-                advancement.setImgPath("Path");
+                advancement.setImgPath("");
             }
 
             save(advancement);
