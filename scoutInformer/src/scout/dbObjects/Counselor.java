@@ -8,6 +8,7 @@ public class Counselor {
     public static final int COL_PHONE_NUMBER_LENGTH = 19;
 
     private int id;
+    private int badgeId;
     private String name;
     private String phoneNumber;
 
@@ -21,6 +22,14 @@ public class Counselor {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getBadgeId() {
+        return badgeId;
+    }
+
+    public void setBadgeId(int badgeId) {
+        this.badgeId = badgeId;
     }
 
     public String getName() {

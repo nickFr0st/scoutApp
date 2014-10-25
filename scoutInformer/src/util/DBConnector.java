@@ -259,6 +259,7 @@ public class DBConnector {
 
         String tableCounselor = "CREATE TABLE counselor " +
                 "(id INT NOT NULL," +
+                " badgeId INT NOT NULL," +
                 " name VARCHAR(90) NOT NULL," +
                 " phoneNumber VARCHAR(20) NOT NULL," +
                 " PRIMARY KEY (id))";
