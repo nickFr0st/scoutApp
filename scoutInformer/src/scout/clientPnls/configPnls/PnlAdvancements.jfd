@@ -110,7 +110,7 @@ new FormModel {
 					"preferredSize": new java.awt.Dimension( 14, 40 )
 					"minimumSize": new java.awt.Dimension( 14, 40 )
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
-					"defaultText": "Badge Name"
+					"defaultText": "Advancement Name"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
 					"gridy": 1

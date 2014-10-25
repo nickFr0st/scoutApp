@@ -7,6 +7,7 @@ package scout.clientPnls;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.configPnls.PnlAdvancements;
 import scout.clientPnls.configPnls.PnlConfigSplash;
+import scout.clientPnls.configPnls.PnlMeritBadges;
 
 import javax.swing.*;
 import java.awt.*;
@@ -156,6 +157,20 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         }
     }
 
+    private void btnMeritBadgesMouseClicked() {
+        enableComponents(true);
+
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
+        currentSelected = MERIT_BAGDGE;
+
+        updateConfigPnl(new PnlMeritBadges());
+
+        revalidate();
+        repaint();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -216,6 +231,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnMeritBadges.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnMeritBadges.setFocusPainted(false);
             btnMeritBadges.setName("btnMeritBadges");
+            btnMeritBadges.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnMeritBadgesMouseClicked();
+                }
+            });
             panel1.add(btnMeritBadges, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));

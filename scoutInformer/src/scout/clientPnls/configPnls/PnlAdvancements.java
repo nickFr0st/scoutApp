@@ -635,7 +635,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
             txtBadgeName.setPreferredSize(new Dimension(14, 40));
             txtBadgeName.setMinimumSize(new Dimension(14, 40));
             txtBadgeName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtBadgeName.setDefaultText("Badge Name");
+            txtBadgeName.setDefaultText("Advancement Name");
             txtBadgeName.setName("txtBadgeName");
             pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
