@@ -9,6 +9,7 @@ import guiUtil.CustomChooser;
 import guiUtil.SelectionBorder;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
+import scout.dbObjects.RequirementTypeConst;
 import util.LogicAdvancement;
 import util.LogicRequirement;
 import util.Util;
@@ -165,7 +166,7 @@ public class ExportAdvancements extends JPanel {
                     records.add(new String[]{advancement.getName(), advancement.getImgPath()});
                 }
 
-                List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
+                List<Requirement> requirementList = LogicRequirement.findAllByParentIdTypeId(advancement.getId(), RequirementTypeConst.ADVANCEMENT.getId());
                 if (Util.isEmpty(requirementList)) {
                     continue;
                 }

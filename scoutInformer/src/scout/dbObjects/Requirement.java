@@ -13,7 +13,7 @@ public class Requirement {
     private int parentId;
 
     {
-        typeId = 1;
+        typeId = -1;
         id = -1;
     }
 

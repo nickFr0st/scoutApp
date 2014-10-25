@@ -10,6 +10,7 @@ import guiUtil.JTextFieldDefaultText;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
+import scout.dbObjects.RequirementTypeConst;
 import util.LogicAdvancement;
 import util.LogicRequirement;
 import util.Util;
@@ -168,6 +169,7 @@ public class ImportDialog extends JDialog {
                     errors.append("Requirement description is missing. ").append(errorLine);
                 }
                 requirement.setDescription(reqDesc);
+                requirement.setTypeId(RequirementTypeConst.ADVANCEMENT.getId());
 
                 requirementList.add(requirement);
             }

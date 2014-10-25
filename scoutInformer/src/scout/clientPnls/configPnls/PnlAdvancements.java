@@ -12,6 +12,7 @@ import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
+import scout.dbObjects.RequirementTypeConst;
 import util.LogicAdvancement;
 import util.LogicRequirement;
 import util.Util;
@@ -152,7 +153,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
         resetPnlRequirements();
         grid = 0;
 
-        java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentId(advancement.getId());
+        java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentIdTypeId(advancement.getId(), RequirementTypeConst.ADVANCEMENT.getId());
         if (!Util.isEmpty(requirementList)) {
             for (Requirement requirement : requirementList) {
                 PnlRequirement pnlRequirement = new PnlRequirement(requirement.getName(), requirement.getDescription(), grid++ > 0, requirement.getId());
@@ -289,6 +290,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         for (Requirement requirement : requirementList) {
             requirement.setParentId(advancement.getId());
+            requirement.setTypeId(RequirementTypeConst.ADVANCEMENT.getId());
         }
 
         LogicRequirement.saveList(requirementList);
@@ -328,9 +330,9 @@ public class PnlAdvancements extends JPanel implements Configuration {
                         requirement.setParentId(parentId);
                     }
                     requirement.setName(((PnlRequirement)component).getName());
-                    requirement.setDescription(((PnlRequirement)component).getDescription());
-                    requirement.setId(((PnlRequirement)component).getReqId());
-                    requirement.setTypeId(1);
+                    requirement.setDescription(((PnlRequirement) component).getDescription());
+                    requirement.setId(((PnlRequirement) component).getReqId());
+                    requirement.setTypeId(RequirementTypeConst.ADVANCEMENT.getId());
 
                     requirementList.add(requirement);
                 }
@@ -421,7 +423,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         // when editing requirements may need to check who is using them
 
-        LogicRequirement.updateList(requirementList, advancement.getId());
+        LogicRequirement.updateList(requirementList, advancement.getId(), RequirementTypeConst.ADVANCEMENT.getId());
         LogicAdvancement.update(advancement);
 
         reloadData();

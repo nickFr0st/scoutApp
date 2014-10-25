@@ -18,7 +18,7 @@ public class LogicRequirement {
         connector = new DBConnector();
     }
 
-    public static List<Requirement> findAllByParentId(int parentId) {
+    public static List<Requirement> findAllByParentIdTypeId(int parentId, int typeId) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -27,7 +27,7 @@ public class LogicRequirement {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId);
+            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId + " AND typeId = " + typeId);
 
             while (rs.next()) {
                 Requirement requirement = new Requirement();
@@ -48,7 +48,7 @@ public class LogicRequirement {
         return requirementList;
     }
 
-    public static List<Integer> findIdsByParentId(int parentId) {
+    public static List<Integer> findIdsByParentIdTypeId(int parentId, int typeId) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -57,7 +57,7 @@ public class LogicRequirement {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT id FROM requirement WHERE parentId = " + parentId);
+            ResultSet rs = statement.executeQuery("SELECT id FROM requirement WHERE parentId = " + parentId + " AND typeId = " + typeId);
 
             while (rs.next()) {
                 requirementIdList.add(rs.getInt(KeyConst.REQUIREMENT_ID.getName()));
@@ -138,7 +138,7 @@ public class LogicRequirement {
         }
     }
 
-    public static void updateList(List<Requirement> requirementList, int parentId) {
+    public static void updateList(List<Requirement> requirementList, int parentId, int typeId) {
         for (Requirement requirement : requirementList) {
             if (requirement.getId() < 0) {
                 save(requirement);
@@ -147,7 +147,7 @@ public class LogicRequirement {
             }
         }
 
-        List<Integer> existingRequirementIdList = findIdsByParentId(parentId);
+        List<Integer> existingRequirementIdList = findIdsByParentIdTypeId(parentId, typeId);
         List<Integer> tempList = new ArrayList<Integer>();
 
         for (Requirement requirement : requirementList) {
@@ -189,8 +189,7 @@ public class LogicRequirement {
         }
 
         for (Requirement requirement : reqList) {
-            Requirement req = findByNameAndParentId(requirement.getName(), requirement.getParentId());
-
+            Requirement req = findByNameParentIdAndTypeId(requirement.getName(), requirement.getParentId(), requirement.getTypeId());
             if (req != null) {
                 requirement.setId(req.getId());
                 update(requirement);
@@ -200,7 +199,7 @@ public class LogicRequirement {
         }
     }
 
-    private static Requirement findByNameAndParentId(String name, int parentId) {
+    private static Requirement findByNameParentIdAndTypeId(String name, int parentId, int typeId) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -209,7 +208,7 @@ public class LogicRequirement {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId + " AND name LIKE " + name);
+            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId + " AND name LIKE " + name + " AND typeId = " + typeId);
 
             if (rs.next()) {
                 requirement = new Requirement();
@@ -227,7 +226,7 @@ public class LogicRequirement {
         return requirement;
     }
 
-    public static ArrayList<String> findAllNamesByParentId(int parentId) {
+    public static ArrayList<String> findAllNamesByParentIdAndTypeId(int parentId, int typeId) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -236,7 +235,7 @@ public class LogicRequirement {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT name FROM requirement WHERE parentId = " + parentId);
+            ResultSet rs = statement.executeQuery("SELECT name FROM requirement WHERE parentId = " + parentId + " AND typeId = " + typeId);
 
             while (rs.next()) {
                 reqNameList.add(rs.getString(KeyConst.REQUIREMENT_NAME.getName()));
