@@ -22,6 +22,9 @@ new FormModel {
 				"verticalAlignment": 3
 				"font": new java.awt.Font( "Vijaya", 0, 24 )
 				"foreground": new java.awt.Color( 51, 102, 153, 255 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblGeneralInfo"
@@ -29,6 +32,9 @@ new FormModel {
 				"verticalAlignment": 3
 				"font": &Font0 new java.awt.Font( "Vijaya", 0, 24 )
 				"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
 				"gridwidth": 5
@@ -39,6 +45,9 @@ new FormModel {
 				"verticalAlignment": 3
 				"font": new java.awt.Font( "Vijaya", 0, 24 )
 				"foreground": new java.awt.Color( 51, 102, 153, 255 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 8
 			} )
@@ -172,6 +181,9 @@ new FormModel {
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 				name: "hSpacer1"
 				"opaque": false
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 2
@@ -179,6 +191,9 @@ new FormModel {
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 				name: "hSpacer2"
 				"opaque": false
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 2
 				"gridx": 7
@@ -249,11 +264,14 @@ new FormModel {
 				"gridwidth": 5
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "lblMBCoiunselors"
+				name: "lblMBCounselors"
 				"text": "Merit Badge Counselors"
 				"verticalAlignment": 3
 				"font": #Font0
 				"foreground": #Color0
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
 				"gridx": 2
@@ -270,7 +288,6 @@ new FormModel {
 				"opaque": true
 				"toolTipText": "Add New Requirement"
 				"cursor": #Cursor0
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewRequirementMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
 				"vAlign": 3
@@ -288,7 +305,6 @@ new FormModel {
 				"opaque": true
 				"toolTipText": "Delete selected requirement"
 				"cursor": #Cursor0
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteRequirementMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
 				"vAlign": 3
@@ -309,8 +325,12 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
 				add( new FormComponent( "javax.swing.JTable" ) {
 					name: "tblCounselors"
+					auxiliary() {
+						"JavaCodeGenerator.customCreate": true
+					}
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2

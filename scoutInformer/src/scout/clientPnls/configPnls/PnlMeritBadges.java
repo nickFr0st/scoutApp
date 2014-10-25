@@ -4,12 +4,15 @@
 
 package scout.clientPnls.configPnls;
 
+import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
 import scout.clientPnls.PnlBadgeConf;
+import scout.dbObjects.Counselor;
 import scout.dbObjects.MeritBadge;
 import scout.dbObjects.Requirement;
 import scout.dbObjects.RequirementTypeConst;
+import util.LogicCounselor;
 import util.LogicMeritBadge;
 import util.LogicRequirement;
 import util.Util;
@@ -17,6 +20,9 @@ import util.Util;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -26,6 +32,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * @author User #2
@@ -35,6 +42,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private int grid;
     private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private PnlBadgeConf pnlBadgeConf;
+    private DefaultTableModel tableModel;
 
     public PnlMeritBadges() {
         initComponents();
@@ -118,7 +126,26 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void txtSearchNameKeyReleased() {
-        // TODO add your code here
+        java.util.List<String> meritBadgeList = LogicMeritBadge.getNameList();
+        if (meritBadgeList == null) {
+            return;
+        }
+
+        if (txtSearchName.isMessageDefault()) {
+            listBadgeNames.setListData(meritBadgeList.toArray());
+            listBadgeNames.revalidate();
+            return;
+        }
+
+        java.util.List<String> filteredList = new ArrayList<String>();
+        for (String name : meritBadgeList) {
+            if (name.toLowerCase().contains(txtSearchName.getText().toLowerCase())) {
+                filteredList.add(name);
+            }
+        }
+
+        listBadgeNames.setListData(filteredList.toArray());
+        listBadgeNames.revalidate();
     }
 
     private void listBadgeNamesMouseClicked() {
@@ -167,7 +194,20 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             addNoRequirementsLabel();
         }
 
-        // todo: need to add Merit Badge Counselors
+        if (tableModel.getRowCount() > 0) {
+            for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+                tableModel.removeRow(i);
+            }
+        }
+
+        java.util.List<Counselor> counselorList = LogicCounselor.findAllByBadgeId(meritBadge.getId());
+        if (!Util.isEmpty(counselorList)) {
+            for (Counselor counselor : counselorList) {
+                Object[] rowData = new Object[]{counselor.getName(), counselor.getPhoneNumber()};
+                tableModel.addRow(rowData);
+            }
+        }
+
 
         pnlRequirements.revalidate();
         pnlRequirements.repaint();
@@ -187,26 +227,96 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void listBadgeNamesKeyReleased(KeyEvent e) {
-        // TODO add your code here
+        if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN) {
+            listBadgeNamesMouseClicked();
+        }
     }
 
     private void btnBrowseImgPathMouseClicked() {
-        // TODO add your code here
+        if (!btnBrowseImgPath.isEnabled()) {
+            return;
+        }
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
+
+        CustomChooser chooser = new CustomChooser();
+        chooser.setDialogTitle("Select an image");
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setFileFilter(filter);
+        int returnValue = chooser.showOpenDialog(this);
+        chooser.resetLookAndFeel();
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            setImage(file.getPath());
+        }
     }
 
     private void btnNewRequirementMouseClicked() {
-        // TODO add your code here
+        if (!btnNewRequirement.isEnabled()) {
+            return;
+        }
+
+        if (pnlRequirements.getComponentCount() > 0 && grid < 0) {
+            resetPnlRequirements();
+            pnlRequirements.revalidate();
+            grid = 0;
+        } else if (pnlRequirements.getComponentCount() <= 0) {
+            resetPnlRequirements();
+            grid = 0;
+        }
+
+        // todo: take note when saving that an id of -1 is a new requirement
+        PnlRequirement pnlRequirement = new PnlRequirement("[num]", "[Description]", grid++ > 0, -1);
+        pnlRequirements.add(pnlRequirement);
+
+        pnlRequirement.getTxtReqName().requestFocus();
+
+        pnlRequirements.revalidate();
     }
 
     private void btnDeleteRequirementMouseClicked() {
-        // TODO add your code here
+        if (!btnDeleteRequirement.isEnabled() || KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner() == null) {
+            return;
+        }
+
+        if (KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner().getParent() instanceof PnlRequirement) {
+            pnlRequirements.remove(KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner().getParent());
+            grid--;
+
+            if (grid <= 0) {
+                pnlRequirements.removeAll();
+                addNoRequirementsLabel();
+            }
+
+            pnlRequirements.revalidate();
+            pnlRequirements.repaint();
+        }
+    }
+
+    private void createUIComponents() {
+        tableModel = new DefaultTableModel(new Object[] {"Name", "Phone Number"}, 0);
+
+        tblCounselors = new JTable();
+        tblCounselors.setBackground(Color.WHITE);
+
+        JTableHeader header = tblCounselors.getTableHeader();
+        header.setBackground(new Color(51, 102, 153));
+        header.setForeground(Color.WHITE);
+        header.setFont(new Font("Tahoma", Font.PLAIN, 14));
+
+
+        tblCounselors.setModel(tableModel);
+        tblCounselors.setSurrendersFocusOnKeystroke(true);
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        lblListName = new JLabel();
-        lblGeneralInfo = new JLabel();
-        lblRequirements = new JLabel();
+        createUIComponents();
+
+        JLabel lblListName = new JLabel();
+        JLabel lblGeneralInfo = new JLabel();
+        JLabel lblRequirements = new JLabel();
         btnNewRequirement = new JLabel();
         btnDeleteRequirement = new JLabel();
         lblReqError = new JLabel();
@@ -218,20 +328,19 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         pnlRequirements = new JPanel();
         scrollPane3 = new JScrollPane();
         listBadgeNames = new JList();
-        hSpacer1 = new JPanel(null);
-        hSpacer2 = new JPanel(null);
+        JPanel hSpacer1 = new JPanel(null);
+        JPanel hSpacer2 = new JPanel(null);
         pnlGeneralInfo = new JPanel();
         txtImagePath = new JTextFieldDefaultText();
         btnBrowseImgPath = new JButton();
         txtBadgeName = new JTextFieldDefaultText();
         lblNameError = new JLabel();
         chkReqForEagle = new JCheckBox();
-        lblMBCoiunselors = new JLabel();
+        JLabel lblMBCounselors = new JLabel();
         btnNewCounselor = new JLabel();
         btnDeleteCounselor = new JLabel();
         lblCounselorError = new JLabel();
         scrollPane1 = new JScrollPane();
-        tblCounselors = new JTable();
 
         //======== this ========
         setMaximumSize(new Dimension(1000, 670));
@@ -517,13 +626,13 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(10, 0, 5, 5), 0, 0));
 
-        //---- lblMBCoiunselors ----
-        lblMBCoiunselors.setText("Merit Badge Counselors");
-        lblMBCoiunselors.setVerticalAlignment(SwingConstants.BOTTOM);
-        lblMBCoiunselors.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        lblMBCoiunselors.setForeground(new Color(51, 102, 153));
-        lblMBCoiunselors.setName("lblMBCoiunselors");
-        add(lblMBCoiunselors, new GridBagConstraints(2, 4, 2, 1, 0.0, 0.0,
+        //---- lblMBCounselors ----
+        lblMBCounselors.setText("Merit Badge Counselors");
+        lblMBCounselors.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblMBCounselors.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        lblMBCounselors.setForeground(new Color(51, 102, 153));
+        lblMBCounselors.setName("lblMBCounselors");
+        add(lblMBCounselors, new GridBagConstraints(2, 4, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -538,12 +647,6 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnNewCounselor.setToolTipText("Add New Requirement");
         btnNewCounselor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewCounselor.setName("btnNewCounselor");
-        btnNewCounselor.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                btnNewRequirementMouseClicked();
-            }
-        });
         add(btnNewCounselor, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
@@ -559,12 +662,6 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnDeleteCounselor.setToolTipText("Delete selected requirement");
         btnDeleteCounselor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnDeleteCounselor.setName("btnDeleteCounselor");
-        btnDeleteCounselor.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                btnDeleteRequirementMouseClicked();
-            }
-        });
         add(btnDeleteCounselor, new GridBagConstraints(5, 4, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
@@ -581,6 +678,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setBackground(Color.white);
             scrollPane1.setName("scrollPane1");
 
             //---- tblCounselors ----
@@ -594,9 +692,6 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel lblListName;
-    private JLabel lblGeneralInfo;
-    private JLabel lblRequirements;
     private JLabel btnNewRequirement;
     private JLabel btnDeleteRequirement;
     private JLabel lblReqError;
@@ -608,15 +703,12 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private JPanel pnlRequirements;
     private JScrollPane scrollPane3;
     private JList listBadgeNames;
-    private JPanel hSpacer1;
-    private JPanel hSpacer2;
     private JPanel pnlGeneralInfo;
     private JTextFieldDefaultText txtImagePath;
     private JButton btnBrowseImgPath;
     private JTextFieldDefaultText txtBadgeName;
     private JLabel lblNameError;
     private JCheckBox chkReqForEagle;
-    private JLabel lblMBCoiunselors;
     private JLabel btnNewCounselor;
     private JLabel btnDeleteCounselor;
     private JLabel lblCounselorError;
