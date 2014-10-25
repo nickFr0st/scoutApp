@@ -23,6 +23,12 @@ public enum KeyConst {
     ADVANCEMENT_NAME("name"),
     ADVANCEMENT_IMG_PATH("imgPath"),
 
+    // Counselor Table
+    COUNSELOR_ID("id"),
+    COUNSELOR_NAME("name"),
+    COUNSELOR_BADGE_ID("badgeId"),
+    COUNSELOR_PHONE_NUMBER("phoneNumber"),
+
     // MeritBadge Table
     MERIT_BADGE_ID("id"),
     MERIT_BADGE_NAME("name"),
