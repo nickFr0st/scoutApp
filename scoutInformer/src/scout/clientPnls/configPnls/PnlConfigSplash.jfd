@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "0:1.0"
-			"$rowSpecs": "0:1.0, 0, 0, 0:1.0"
+			"$rowSpecs": "264, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -16,7 +16,6 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 1000, 680 )
 			"preferredSize": new java.awt.Dimension( 1000, 680 )
 			"background": new java.awt.Color( 255, 255, 255, 255 )
-			"opaque": false
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblWelcome"
 				"text": "Welcome to the advancements and merit badge manager"

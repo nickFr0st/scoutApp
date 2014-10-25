@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "235, 28, 123, 25, 25, 0"
-			"$rowSpecs": "40, 0, 147, 40, 358"
+			"$rowSpecs": "40, 0, 147, 40, 399"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -16,7 +16,6 @@ new FormModel {
 			"maximumSize": new java.awt.Dimension( 1000, 670 )
 			"minimumSize": new java.awt.Dimension( 1000, 670 )
 			"preferredSize": new java.awt.Dimension( 1000, 670 )
-			"opaque": false
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblListName"
 				"text": "Advancements"
@@ -244,7 +243,7 @@ new FormModel {
 				"autoscrolls": true
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "0:1.0"
-					"$rowSpecs": "387:1.0"
+					"$rowSpecs": "358"
 					"$hGap": 5
 					"$vGap": 5
 					"$alignLeft": true

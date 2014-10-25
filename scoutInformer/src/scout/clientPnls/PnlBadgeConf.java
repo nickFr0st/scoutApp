@@ -71,9 +71,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void updateConfigPnl(JPanel newPanel) {
         remove(currentPnl);
 
-        add(newPanel, new GridBagConstraints(1, 2, 1, 5, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 5), 0, 0));
+        add(newPanel, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.NONE,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         currentPnl = newPanel;
     }
@@ -179,7 +179,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {31, 240, 20, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 20, 0};
-        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //======== panel1 ========

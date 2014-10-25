@@ -40,13 +40,12 @@ public class PnlConfigSplash extends JPanel implements Configuration {
         setMinimumSize(new Dimension(1000, 680));
         setPreferredSize(new Dimension(1000, 680));
         setBackground(Color.white);
-        setOpaque(false);
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {269, 0, 0, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {1.0, 0.0, 0.0, 1.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
 
         //---- lblWelcome ----
         lblWelcome.setText("Welcome to the advancements and merit badge manager");
@@ -66,7 +65,7 @@ public class PnlConfigSplash extends JPanel implements Configuration {
         lblWelcome2.setName("lblWelcome2");
         add(lblWelcome2, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(20, 0, 5, 0), 0, 0));
+            new Insets(20, 0, 0, 0), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

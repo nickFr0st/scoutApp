@@ -516,11 +516,10 @@ public class PnlAdvancements extends JPanel implements Configuration {
         setMaximumSize(new Dimension(1000, 670));
         setMinimumSize(new Dimension(1000, 670));
         setPreferredSize(new Dimension(1000, 670));
-        setOpaque(false);
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 128, 30, 30, 0, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 45, 358, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 45, 399, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
@@ -789,9 +788,9 @@ public class PnlAdvancements extends JPanel implements Configuration {
                 pnlRequirements.setName("pnlRequirements");
                 pnlRequirements.setLayout(new GridBagLayout());
                 ((GridBagLayout)pnlRequirements.getLayout()).columnWidths = new int[] {0, 0};
-                ((GridBagLayout)pnlRequirements.getLayout()).rowHeights = new int[] {387, 0};
+                ((GridBagLayout)pnlRequirements.getLayout()).rowHeights = new int[] {358, 0};
                 ((GridBagLayout)pnlRequirements.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-                ((GridBagLayout)pnlRequirements.getLayout()).rowWeights = new double[] {1.0, 1.0E-4};
+                ((GridBagLayout)pnlRequirements.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
             }
             scrollPane2.setViewportView(pnlRequirements);
         }
