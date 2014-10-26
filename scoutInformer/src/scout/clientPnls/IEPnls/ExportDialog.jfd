@@ -11,8 +11,8 @@ new FormModel {
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
 				"background": new java.awt.Color( 255, 255, 255, 255 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-					"$columnSpecs": "0:1.0"
-					"$rowSpecs": "0:1.0"
+					"$columnSpecs": "10:1.0, 230, 80, 230, 10:1.0"
+					"$rowSpecs": "0, 5, 0, 16, 0:1.0, 40, 40, 0:1.0, 10"
 					"$hGap": 5
 					"$vGap": 5
 					"$alignLeft": true
@@ -20,6 +20,115 @@ new FormModel {
 				} ) {
 					name: "contentPanel"
 					"minimumSize": new java.awt.Dimension( 600, 400 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormComponent( "javax.swing.JRadioButton" ) {
+						name: "rbtnExportAll"
+						"text": "Export All"
+						"background": new java.awt.Color( 255, 255, 255, 255 )
+						"foreground": new java.awt.Color( 51, 102, 153, 255 )
+						"font": new java.awt.Font( "Vijaya", 0, 22 )
+						"focusPainted": false
+						"$buttonGroup": new FormReference( "buttonGroup1" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "rbtnExportAllMouseClicked", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"insets": new java.awt.Insets( 10, 10, 2, 0 )
+						"gridwidth": 2
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"background": new java.awt.Color( 51, 102, 153, 255 )
+						"opaque": true
+						"minimumSize": new java.awt.Dimension( 0, 2 )
+						"preferredSize": new java.awt.Dimension( 0, 2 )
+						"maximumSize": new java.awt.Dimension( 0, 2 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
+						"vAlign": 1
+						"insets": new java.awt.Insets( 0, 10, 0, 10 )
+						"gridwidth": 5
+					} )
+					add( new FormComponent( "javax.swing.JRadioButton" ) {
+						name: "rbtnExportSelected"
+						"text": "Export Selected"
+						"font": new java.awt.Font( "Vijaya", 0, 22 )
+						"background": new java.awt.Color( 255, 255, 255, 255 )
+						"foreground": new java.awt.Color( 51, 102, 153, 255 )
+						"focusPainted": false
+						"$buttonGroup": new FormReference( "buttonGroup1" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "rbtnExportSelectedMouseClicked", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 2
+						"insets": new java.awt.Insets( 0, 10, 0, 0 )
+						"gridwidth": 2
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "lblAvailable"
+						"text": "Available"
+						"foreground": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+						"font": &Font0 new java.awt.Font( "Tahoma", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 3
+						"gridx": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "lblSelected"
+						"text": "Selected"
+						"foreground": #Color0
+						"font": #Font0
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 3
+						"gridx": 3
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JList" ) {
+							name: "listSrc"
+							"border": new javax.swing.border.LineBorder( new java.awt.Color( 51, 102, 153, 255 ), 2, false )
+							"font": new java.awt.Font( "Tahoma", 0, 14 )
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 4
+						"gridx": 1
+						"gridheight": 4
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						add( new FormComponent( "javax.swing.JList" ) {
+							name: "listExport"
+							"border": new javax.swing.border.LineBorder( new java.awt.Color( 51, 102, 153, 255 ), 2, false )
+							"font": new java.awt.Font( "Tahoma", 0, 14 )
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 4
+						"gridx": 3
+						"gridheight": 4
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnAdd"
+						"text": "Add"
+						"background": new java.awt.Color( 51, 156, 229, 255 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+						"focusPainted": false
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnAddMouseClicked", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 5
+						"insets": new java.awt.Insets( 0, 5, 0, 5 )
+						"gridx": 2
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnRemove"
+						"text": "Remove"
+						"background": new java.awt.Color( 206, 0, 0, 255 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"font": new java.awt.Font( "Tahoma", 0, 14 )
+						"focusPainted": false
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnRemoveMouseClicked", false ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 6
+						"insets": new java.awt.Insets( 0, 5, 0, 5 )
+						"gridx": 2
+					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
 				} )
@@ -65,6 +174,11 @@ new FormModel {
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
 			"size": new java.awt.Dimension( 625, 465 )
+		} )
+		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
+			name: "buttonGroup1"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 475 )
 		} )
 	}
 }
