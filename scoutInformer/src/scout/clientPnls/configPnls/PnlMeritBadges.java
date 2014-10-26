@@ -303,7 +303,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void btnDeleteRequirementMouseClicked() {
-        if (!btnDeleteRequirement.isEnabled() || KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner() == null) {
+        if (KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner() == null) {
             return;
         }
 
@@ -473,17 +473,17 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             String counselorName = (String)tableModel.getValueAt(i, 0);
 
             if (Util.isEmpty(counselorName)) {
-                Util.setError(lblReqError, "Counselor name cannot be left blank");
+                Util.setError(lblCounselorError, "Counselor name cannot be left blank");
                 return null;
             }
 
             if (!counselorNameSet.add(counselorName)) {
-                Util.setError(lblReqError, "Counselor name '" + counselorName + "' already exists");
+                Util.setError(lblCounselorError, "Counselor name '" + counselorName + "' already exists");
                 return null;
             }
 
             if (Util.isEmpty((String)tableModel.getValueAt(i, 1))) {
-                Util.setError(lblReqError, "Counselor phone number cannot be left blank");
+                Util.setError(lblCounselorError, "Counselor phone number cannot be left blank");
                 return null;
             }
 
@@ -594,6 +594,19 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
         tblCounselors.setModel(tableModel);
         tblCounselors.setSurrendersFocusOnKeystroke(true);
+    }
+
+    private void btnNewCounselorMouseClicked() {
+        Object[] rowData = new Object[]{"", ""};
+        tableModel.addRow(rowData);
+    }
+
+    private void btnDeleteCounselorMouseClicked() {
+        if (tblCounselors.getSelectedRow() < 0) {
+            return;
+        }
+
+        tableModel.removeRow(tblCounselors.getSelectedRow());
     }
 
     private void initComponents() {
@@ -933,6 +946,12 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnNewCounselor.setToolTipText("Add New Requirement");
         btnNewCounselor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewCounselor.setName("btnNewCounselor");
+        btnNewCounselor.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                btnNewCounselorMouseClicked();
+            }
+        });
         add(btnNewCounselor, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
@@ -948,6 +967,12 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnDeleteCounselor.setToolTipText("Delete selected requirement");
         btnDeleteCounselor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnDeleteCounselor.setName("btnDeleteCounselor");
+        btnDeleteCounselor.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                btnDeleteCounselorMouseClicked();
+            }
+        });
         add(btnDeleteCounselor, new GridBagConstraints(5, 4, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
