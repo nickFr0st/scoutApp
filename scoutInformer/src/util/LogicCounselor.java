@@ -45,6 +45,28 @@ public class LogicCounselor {
         return counselorList;
     }
 
+    public static List<Integer> findAllIdsByBadgeId(int badgeId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Integer> counselorIdList = new ArrayList<Integer>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT id FROM counselor WHERE badgeId = " + badgeId);
+
+            while (rs.next()) {
+                counselorIdList.add(rs.getInt(KeyConst.MERIT_BADGE_ID.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return counselorIdList;
+    }
+
     public static void importList(List<Counselor> counselors) {
         if (Util.isEmpty(counselors)) {
             return;
@@ -165,5 +187,41 @@ public class LogicCounselor {
                 // save error
             }
         }
+    }
+
+    public static void updateList(List<Counselor> counselorList, int meritBadgeId) {
+        for (Counselor counselor : counselorList) {
+            if (counselor.getId() < 0) {
+                save(counselor);
+            } else {
+                update(counselor);
+            }
+        }
+
+        List<Integer> existingCounselorIdList = findAllIdsByBadgeId(meritBadgeId);
+        List<Integer> tempList = new ArrayList<Integer>();
+
+        for (Counselor counselor : counselorList) {
+            if (counselor.getId() < 0) {
+                continue;
+            }
+
+            tempList.add(counselor.getId());
+        }
+
+        if (Util.isEmpty(tempList)) {
+            deleteList(existingCounselorIdList);
+            return;
+        }
+
+        List<Integer> deletionList = new ArrayList<Integer>();
+
+        for (Integer id : existingCounselorIdList) {
+            if (!tempList.contains(id)) {
+                deletionList.add(id);
+            }
+        }
+
+        deleteList(deletionList);
     }
 }

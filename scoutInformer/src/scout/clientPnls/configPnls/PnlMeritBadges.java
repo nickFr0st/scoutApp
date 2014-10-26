@@ -413,6 +413,53 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         populateBadgeNameList();
     }
 
+    public void update() {
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        clearErrors();
+
+        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+            Util.setError(lblNameError, "Merit badge name cannot be left blank");
+            return;
+        }
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            String badgeName = (String) listBadgeNames.getModel().getElementAt(i);
+            if (badgeName.equalsIgnoreCase(txtBadgeName.getText()) && !txtBadgeName.getText().equals(listBadgeNames.getSelectedValue().toString())) {
+                Util.setError(lblNameError, "Merit badge name " + badgeName + " already exists");
+                return;
+            }
+        }
+
+        MeritBadge meritBadge = LogicMeritBadge.findByName(listBadgeNames.getSelectedValue().toString());
+        if (meritBadge == null) {
+            return;
+        }
+
+        meritBadge.setRequiredForEagle(chkReqForEagle.isSelected());
+
+        if (txtImagePath.isMessageDefault()) {
+            meritBadge.setImgPath("");
+        } else {
+            meritBadge.setImgPath(txtImagePath.getText());
+        }
+        meritBadge.setName(txtBadgeName.getText());
+
+        List<Counselor> counselorList = validateCounselors(meritBadge.getId());
+        if (counselorList == null) return;
+
+        List<Requirement> requirementList = validateRequirements(meritBadge.getId());
+        if (requirementList == null) return;
+
+        LogicCounselor.updateList(counselorList, meritBadge.getId());
+        LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.ADVANCEMENT.getId());
+        LogicMeritBadge.update(meritBadge);
+
+        reloadData();
+    }
+
     private List<Counselor> validateCounselors(int badgeId) {
         List<Counselor> counselorList = new ArrayList<Counselor>();
 
