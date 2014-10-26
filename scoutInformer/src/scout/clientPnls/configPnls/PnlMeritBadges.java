@@ -7,6 +7,7 @@ package scout.clientPnls.configPnls;
 import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
+import scout.clientPnls.IEPnls.ExportDialog;
 import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Counselor;
@@ -301,6 +302,11 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
         reloadData();
         populateAdvancementNameList();
+    }
+
+    public void export() {
+        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.MERIT_BAGDGE);
+        dialog.setVisible(true);
     }
 
     private void reloadData() {
