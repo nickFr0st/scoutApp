@@ -141,4 +141,31 @@ public class LogicMeritBadge {
 
         return id;
     }
+
+    public static List<MeritBadge> findAll() {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<MeritBadge> meritBadgeList = new ArrayList<MeritBadge>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM meritBadge ORDER BY name");
+
+            while (rs.next()) {
+                MeritBadge meritBadge = new MeritBadge();
+                meritBadge.setId(rs.getInt(KeyConst.MERIT_BADGE_ID.getName()));
+                meritBadge.setRequiredForEagle(rs.getBoolean(KeyConst.MERIT_BADGE_REQ_FOR_EAGLE.getName()));
+                meritBadge.setName(rs.getString(KeyConst.MERIT_BADGE_NAME.getName()));
+                meritBadge.setImgPath(rs.getString(KeyConst.MERIT_BADGE_IMG_PATH.getName()));
+                meritBadgeList.add(meritBadge);
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return meritBadgeList;
+    }
 }

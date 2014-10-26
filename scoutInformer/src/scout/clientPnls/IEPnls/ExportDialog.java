@@ -8,13 +8,8 @@ import au.com.bytecode.opencsv.CSVWriter;
 import guiUtil.CustomChooser;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.PnlBadgeConf;
-import scout.dbObjects.Advancement;
-import scout.dbObjects.Requirement;
-import scout.dbObjects.RequirementTypeConst;
-import util.LogicAdvancement;
-import util.LogicMeritBadge;
-import util.LogicRequirement;
-import util.Util;
+import scout.dbObjects.*;
+import util.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -164,8 +159,94 @@ public class ExportDialog extends JDialog {
     }
 
     private boolean handleMeritBadgeExport() {
-        // todo: add logic here
-        return false;
+        try {
+            java.util.List<MeritBadge> meritBadgeExportList;
+            if (rbtnExportAll.isSelected()) {
+                meritBadgeExportList = LogicMeritBadge.findAll();
+            } else {
+                meritBadgeExportList = new ArrayList<MeritBadge>();
+                for (int i = 0; i < listExport.getModel().getSize(); ++i) {
+                    meritBadgeExportList.add(LogicMeritBadge.findByName(listExport.getModel().getElementAt(i).toString()));
+                }
+            }
+
+            if (Util.isEmpty(meritBadgeExportList)) {
+                JOptionPane.showMessageDialog(this, "There is nothing to export, please select at least one merit badge and try again.", "No Items Selected", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+
+            CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
+
+            chooser.setSelectedFile(new File("MeritBadgeExport.csv"));
+            int returnValue = chooser.showSaveDialog(this);
+            chooser.resetLookAndFeel();
+
+            if (returnValue != JFileChooser.APPROVE_OPTION) {
+                return false;
+            }
+
+            String exportPath = chooser.getSelectedFile().getPath();
+
+            StringWriter writer = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(writer, ',');
+            java.util.List<String[]> records = new ArrayList<String[]>();
+
+            records.add(new String[]{"Merit Badge Name", "Is Required For Eagle", "Merit Badge Image Path"});
+            records.add(new String[]{"Counselor Name", "Counselor Phone Number"});
+            records.add(new String[]{"Requirement Name", "Requirement Description"});
+
+            boolean firstPass = true;
+            for (MeritBadge meritBadge : meritBadgeExportList) {
+                if (!firstPass) {
+                    records.add(new String[]{""});
+                }
+
+                if (Util.isEmpty(meritBadge.getImgPath())) {
+                    records.add(new String[]{meritBadge.getName(), Boolean.toString(meritBadge.isRequiredForEagle())});
+                } else {
+                    records.add(new String[]{meritBadge.getName(), Boolean.toString(meritBadge.isRequiredForEagle()), meritBadge.getImgPath()});
+                }
+
+                java.util.List<Counselor> counselorList = LogicCounselor.findAllByBadgeId(meritBadge.getId());
+                if (!Util.isEmpty(counselorList)) {
+                    for (Counselor counselor : counselorList) {
+                        records.add(new String[]{"*" + counselor.getName(), counselor.getPhoneNumber()});
+                    }
+                }
+
+                java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentIdTypeId(meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
+                if (!Util.isEmpty(requirementList)) {
+                    for (Requirement requirement : requirementList) {
+                        records.add(new String[]{requirement.getName(), requirement.getDescription()});
+                    }
+                }
+
+
+                if (firstPass) {
+                    firstPass = false;
+                }
+            }
+
+            csvWriter.writeAll(records);
+            csvWriter.close();
+
+            // check directory and let know if we are overwriting something, ask if it is ok
+            if (!exportPath.endsWith(".csv")) {
+                exportPath += ".csv";
+            }
+
+            FileWriter export = new FileWriter(exportPath);
+            export.append(writer.toString());
+            export.flush();
+            export.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your selected merit badge(s) have been successfully exported.", "Export Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     public boolean handleAdvancementExport() {
@@ -247,6 +328,7 @@ public class ExportDialog extends JDialog {
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
+            return false;
         }
 
         JOptionPane.showMessageDialog(this, "Your selected advancement(s) have been successfully exported.", "Export Successful", JOptionPane.INFORMATION_MESSAGE);
