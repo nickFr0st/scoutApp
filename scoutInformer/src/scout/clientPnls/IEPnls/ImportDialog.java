@@ -263,11 +263,7 @@ public class ImportDialog extends JDialog {
     }
 
     private boolean checkForBoolean(String arg) {
-        if (Util.isEmpty(arg)) {
-            return false;
-        }
-
-        return  ("true".equalsIgnoreCase(arg) || "false".equalsIgnoreCase(arg));
+        return !Util.isEmpty(arg) && ("true".equalsIgnoreCase(arg) || "false".equalsIgnoreCase(arg));
     }
 
     private boolean handleAdvancementImport(String importPath) {

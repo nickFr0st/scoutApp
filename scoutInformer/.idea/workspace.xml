@@ -4,12 +4,7 @@
     <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="updated db for meritbadges">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/instructions/IEAdvancementInstructions.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/instructions/ImportMeritBadgeInstructions.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/MeritBadgeImport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/dbObjects/Counselor.java" afterPath="$PROJECT_DIR$/src/scout/dbObjects/Counselor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicCounselor.java" afterPath="$PROJECT_DIR$/src/util/LogicCounselor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicMeritBadge.java" afterPath="$PROJECT_DIR$/src/util/LogicMeritBadge.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scoutInformer.iws" />
@@ -221,11 +216,11 @@
       <file leaf-file-name="ImportDialog.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4722222" vertical-offset="51" max-vertical-offset="7072">
-              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.35104167" vertical-offset="3828" max-vertical-offset="7004">
+              <caret line="265" column="101" selection-start-line="265" selection-start-column="101" selection-end-line="265" selection-end-column="101" />
               <folding>
-                <marker date="1414298398540" expanded="false" signature="16183:23527" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1414298398540" expanded="false" signature="23539:23787" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1414298819426" expanded="false" signature="16134:23478" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1414298819426" expanded="false" signature="23490:23738" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -351,63 +346,6 @@
                 <marker date="1414265053807" expanded="true" signature="38670:38767" placeholder="INSERT INTO ..." />
                 <marker date="1414265053807" expanded="true" signature="38824:39297" placeholder="INSERT INTO ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportDialog.jfd" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd">
-          <provider selected="true" editor-type-id="JFormDesigner">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogicRequirement.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="4250">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1414297906629" expanded="true" signature="742:815" placeholder="SELECT * FRO..requirement..." />
-                <marker date="1414297906629" expanded="true" signature="1923:1997" placeholder="SELECT id FR..requirement..." />
-                <marker date="1414297906629" expanded="true" signature="2688:2886" placeholder="INSERT INTO ..." />
-                <marker date="1414297906629" expanded="true" signature="3316:3514" placeholder="INSERT INTO ..." />
-                <marker date="1414297906629" expanded="true" signature="3786:3823" placeholder="SELECT MAX(i..requirement..." />
-                <marker date="1414297906629" expanded="true" signature="4293:4375" placeholder="DELETE FROM ..." />
-                <marker date="1414297906629" expanded="true" signature="5687:5902" placeholder="UPDATE requi..." />
-                <marker date="1414297906629" expanded="true" signature="6891:6991" placeholder="SELECT * FRO..requirement..." />
-                <marker date="1414297906629" expanded="true" signature="8037:8113" placeholder="SELECT name ..requirement..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MeritBadgeImport.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/MeritBadgeImport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="612">
-              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportMeritBadgeInstructions.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/instructions/ImportMeritBadgeInstructions.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.307692" vertical-offset="698" max-vertical-offset="1632">
-              <caret line="66" column="123" selection-start-line="66" selection-start-column="123" selection-end-line="66" selection-end-column="123" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequirementTypeConst.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/RequirementTypeConst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="425">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1151,7 +1089,7 @@
       <workItem from="1414258146011" duration="12697000" />
       <workItem from="1414270908220" duration="92000" />
       <workItem from="1414274044125" duration="4359000" />
-      <workItem from="1414294831814" duration="3779000" />
+      <workItem from="1414294831814" duration="3984000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1825,11 +1763,15 @@
       <created>1414276052888</created>
       <updated>1414276052888</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="import merit badges now works">
+      <created>1414298636232</created>
+      <updated>1414298636232</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382172000" />
+    <option name="totallyTimeSpent" value="382377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1842,7 +1784,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28720084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28720084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1883,8 +1825,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added gui logic for the export" />
-    <MESSAGE value="fixed dialog resizing issue" />
     <MESSAGE value="starting export logic" />
     <MESSAGE value="better look and feel" />
     <MESSAGE value="made file chooser a bit better" />
@@ -1908,61 +1848,17 @@
     <MESSAGE value="more logic" />
     <MESSAGE value="added some import logic for merit badges" />
     <MESSAGE value="updated db for meritbadges" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated db for meritbadges" />
+    <MESSAGE value="import merit badges now works" />
+    <MESSAGE value="html file" />
+    <option name="LAST_COMMIT_MESSAGE" value="html file" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/SignIn.java</url>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/util/DBConnector.java</url>
-          <line>138</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java</url>
-          <line>119</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/PnlSettings.java</url>
-          <line>124</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java</url>
-          <line>184</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java</url>
-          <line>279</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java</url>
-          <line>370</line>
-          <properties />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java</url>
-          <line>149</line>
-          <properties />
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="66" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="67" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -2255,6 +2151,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1207">
           <caret line="11" column="152" selection-start-line="11" selection-start-column="152" selection-end-line="11" selection-end-column="152" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2287,15 +2184,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="4250">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1414297906629" expanded="true" signature="742:815" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1414297906629" expanded="true" signature="1923:1997" placeholder="SELECT id FR..requirement..." />
-            <marker date="1414297906629" expanded="true" signature="2688:2886" placeholder="INSERT INTO ..." />
-            <marker date="1414297906629" expanded="true" signature="3316:3514" placeholder="INSERT INTO ..." />
-            <marker date="1414297906629" expanded="true" signature="3786:3823" placeholder="SELECT MAX(i..requirement..." />
-            <marker date="1414297906629" expanded="true" signature="4293:4375" placeholder="DELETE FROM ..." />
-            <marker date="1414297906629" expanded="true" signature="5687:5902" placeholder="UPDATE requi..." />
-            <marker date="1414297906629" expanded="true" signature="6891:6991" placeholder="SELECT * FRO..requirement..." />
-            <marker date="1414297906629" expanded="true" signature="8037:8113" placeholder="SELECT name ..requirement..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="SELECT id FR..requirement..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="SELECT MAX(i..requirement..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="UPDATE requi..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..requirement..." />
+            <marker date="1414297906629" expanded="true" signature="-1:-1" placeholder="SELECT name ..requirement..." />
           </folding>
         </state>
       </provider>
@@ -2487,11 +2384,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4722222" vertical-offset="51" max-vertical-offset="7072">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.35104167" vertical-offset="3828" max-vertical-offset="7004">
+          <caret line="265" column="101" selection-start-line="265" selection-start-column="101" selection-end-line="265" selection-end-column="101" />
           <folding>
-            <marker date="1414298398540" expanded="false" signature="16183:23527" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1414298398540" expanded="false" signature="23539:23787" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1414298819426" expanded="false" signature="16134:23478" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1414298819426" expanded="false" signature="23490:23738" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
