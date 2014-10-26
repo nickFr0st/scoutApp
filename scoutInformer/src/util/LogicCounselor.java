@@ -146,4 +146,24 @@ public class LogicCounselor {
             e.printStackTrace();
         }
     }
+
+    public static void saveList(List<Counselor> counselorList) {
+        if (Util.isEmpty(counselorList)) {
+            return;
+        }
+
+        for (Counselor counselor : counselorList) {
+
+            if (counselor.getId() < 0) {
+                counselor.setId(getNextId());
+            }
+
+            try {
+                Statement statement = connector.createStatement();
+                statement.executeUpdate("INSERT INTO requirement VALUES( " + counselor.getId() + ", " + counselor.getBadgeId() + ",'" + counselor.getName() + "', '" + counselor.getPhoneNumber() + "')");
+            } catch (Exception e) {
+                // save error
+            }
+        }
+    }
 }

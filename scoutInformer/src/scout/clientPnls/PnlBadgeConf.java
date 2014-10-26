@@ -119,6 +119,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 ((PnlAdvancements)currentPnl).save();
                 break;
             case MERIT_BAGDGE:
+                ((PnlMeritBadges)currentPnl).save();
                 break;
             case OTHER:
         }

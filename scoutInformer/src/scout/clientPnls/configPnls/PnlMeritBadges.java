@@ -35,6 +35,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author User #2
@@ -92,7 +95,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
     private void clearData() {
         clearErrors();
-        populateAdvancementNameList();
+        populateBadgeNameList();
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
         txtBadgeName.setDefault();
@@ -124,7 +127,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         pnlRequirements.setLayout(new BoxLayout(pnlRequirements, BoxLayout.Y_AXIS));
     }
 
-    private void populateAdvancementNameList() {
+    private void populateBadgeNameList() {
         java.util.List<String> meritBadgeNameList = LogicMeritBadge.getNameList();
 
         if (meritBadgeNameList != null) {
@@ -323,7 +326,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         dialog.setVisible(true);
 
         reloadData();
-        populateAdvancementNameList();
+        populateBadgeNameList();
     }
 
     public void export() {
@@ -367,6 +370,146 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         LogicMeritBadge.delete(meritBadge.getId());
 
         clearData();
+    }
+
+    public void save() {
+        clearErrors();
+
+        if (!validateName()) {
+            return;
+        }
+
+        MeritBadge meritBadge = new MeritBadge();
+        meritBadge.setName(txtBadgeName.getText());
+
+        meritBadge.setRequiredForEagle(chkReqForEagle.isSelected());
+
+        if (!txtImagePath.isMessageDefault()) {
+            meritBadge.setImgPath(txtImagePath.getText());
+        } else {
+            meritBadge.setImgPath("");
+        }
+
+        java.util.List<Counselor> counselorList = validateCounselors(-1);
+        if (counselorList == null) return;
+
+        java.util.List<Requirement> requirementList = validateRequirements(-1);
+        if (requirementList == null) return;
+
+        LogicMeritBadge.save(meritBadge);
+
+        for (Counselor counselor : counselorList) {
+            counselor.setBadgeId(meritBadge.getId());
+        }
+
+        LogicCounselor.saveList(counselorList);
+
+        for (Requirement requirement : requirementList) {
+            requirement.setParentId(meritBadge.getId());
+        }
+
+        LogicRequirement.saveList(requirementList);
+
+        populateBadgeNameList();
+    }
+
+    private List<Counselor> validateCounselors(int badgeId) {
+        List<Counselor> counselorList = new ArrayList<Counselor>();
+
+        Set<String> counselorNameSet = new HashSet<String>();
+
+        if (tableModel.getRowCount() <= 0) {
+            return counselorList;
+        }
+
+        for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+            String counselorName = (String)tableModel.getValueAt(i, 0);
+
+            if (Util.isEmpty(counselorName)) {
+                Util.setError(lblReqError, "Counselor name cannot be left blank");
+                return null;
+            }
+
+            if (!counselorNameSet.add(counselorName)) {
+                Util.setError(lblReqError, "Counselor name '" + counselorName + "' already exists");
+                return null;
+            }
+
+            if (Util.isEmpty((String)tableModel.getValueAt(i, 1))) {
+                Util.setError(lblReqError, "Counselor phone number cannot be left blank");
+                return null;
+            }
+
+            Counselor counselor = new Counselor();
+            if (badgeId > 0) {
+                counselor.setBadgeId(badgeId);
+            }
+            counselor.setName(counselorName);
+            counselor.setPhoneNumber((String) tableModel.getValueAt(i, 1));
+
+            counselorList.add(counselor);
+        }
+
+        return counselorList;
+    }
+
+    private List<Requirement> validateRequirements(int parentId) {
+        List<Requirement> requirementList = new ArrayList<Requirement>();
+
+        Set<String> reqNameSet = new HashSet<String>();
+
+        if (grid > 0) {
+            for (Component component : pnlRequirements.getComponents()) {
+                if (component instanceof PnlRequirement) {
+
+                    String reqName = ((PnlRequirement)component).getName().trim();
+
+                    if (reqName.isEmpty()) {
+                        Util.setError(lblReqError, "Requirement name cannot be left blank");
+                        return null;
+                    }
+
+                    if (!reqNameSet.add(reqName)) {
+                        Util.setError(lblReqError, "Requirement name '" + reqName + "' already exists");
+                        component.requestFocus();
+                        return null;
+                    }
+
+                    if (((PnlRequirement)component).getDescription().trim().isEmpty()) {
+                        Util.setError(lblReqError, "Requirement description cannot be left blank");
+                        return null;
+                    }
+
+                    Requirement requirement = new Requirement();
+                    if (parentId > 0) {
+                        requirement.setParentId(parentId);
+                    }
+                    requirement.setName(((PnlRequirement)component).getName());
+                    requirement.setDescription(((PnlRequirement) component).getDescription());
+                    requirement.setId(((PnlRequirement) component).getReqId());
+                    requirement.setTypeId(RequirementTypeConst.MERIT_BADGE.getId());
+
+                    requirementList.add(requirement);
+                }
+            }
+        }
+        return requirementList;
+    }
+
+    private boolean validateName() {
+        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+            Util.setError(lblNameError, "Merit badge name cannot be left blank");
+            return false;
+        }
+
+        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
+            String meritBadgeName = (String) listBadgeNames.getModel().getElementAt(i);
+            if (meritBadgeName.equalsIgnoreCase(txtBadgeName.getText())) {
+                Util.setError(lblNameError, "Merit badge name already exists");
+                return false;
+            }
+        }
+        return true;
     }
 
     private void reloadData() {
