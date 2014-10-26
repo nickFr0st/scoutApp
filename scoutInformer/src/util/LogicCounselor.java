@@ -91,7 +91,7 @@ public class LogicCounselor {
         }
     }
 
-    private static Counselor findByNameAndBadgeId(String name, int badgeId) {
+    public static Counselor findByNameAndBadgeId(String name, int badgeId) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -132,5 +132,18 @@ public class LogicCounselor {
         }
 
         return id;
+    }
+
+    public static void deleteList(List<Integer> counselorIdList) {
+        if (Util.isEmpty(counselorIdList)) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM counselor WHERE id IN (" + Util.listToString(counselorIdList) + ")");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

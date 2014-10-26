@@ -134,6 +134,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 ((PnlAdvancements)currentPnl).delete();
                 break;
             case MERIT_BAGDGE:
+                ((PnlMeritBadges)currentPnl).delete();
                 break;
             case OTHER:
         }

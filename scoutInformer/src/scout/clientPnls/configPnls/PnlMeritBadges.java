@@ -331,6 +331,44 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         dialog.setVisible(true);
     }
 
+    public void delete() {
+        if (listBadgeNames.getSelectedValue() == null) {
+            return;
+        }
+
+        // (do this then scouts have been added to the program)
+        // before deleting check to see if advancement is used on any scouts
+
+        java.util.List<Integer> requirementIdList = new ArrayList<Integer>();
+        if (grid > 0) {
+            for (Component component : pnlRequirements.getComponents()) {
+                if (component instanceof PnlRequirement) {
+
+                    if (((PnlRequirement)component).getReqId() < 0) {
+                        continue;
+                    }
+
+                    requirementIdList.add(((PnlRequirement)component).getReqId());
+                }
+            }
+        }
+
+        MeritBadge meritBadge = LogicMeritBadge.findByName(listBadgeNames.getSelectedValue().toString());
+
+        java.util.List<Integer> counselorIdList = new ArrayList<Integer>();
+        if (tableModel.getRowCount() > 0) {
+            for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+                counselorIdList.add(LogicCounselor.findByNameAndBadgeId((String) tableModel.getValueAt(i, 0), meritBadge.getId()).getId());
+            }
+        }
+
+        LogicCounselor.deleteList(counselorIdList);
+        LogicRequirement.deleteList(requirementIdList);
+        LogicMeritBadge.delete(meritBadge.getId());
+
+        clearData();
+    }
+
     private void reloadData() {
         if (listBadgeNames.getSelectedValue() == null) {
             return;

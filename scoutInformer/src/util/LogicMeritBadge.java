@@ -168,4 +168,17 @@ public class LogicMeritBadge {
 
         return meritBadgeList;
     }
+
+    public static void delete(int meritBadgeId) {
+        if (meritBadgeId < 0) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM meritBadge WHERE id = " + meritBadgeId + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
