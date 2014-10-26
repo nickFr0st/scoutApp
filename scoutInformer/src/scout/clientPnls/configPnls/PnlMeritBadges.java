@@ -69,7 +69,25 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
     @Override
     public void createNew() {
+        clearErrors();
+        lblImage.setIcon(noImageIcon);
+        txtImagePath.setDefault();
+        txtBadgeName.setDefault();
+        chkReqForEagle.setSelected(false);
 
+        clearCounselorTable();
+
+        pnlRequirements.removeAll();
+        addNoRequirementsLabel();
+
+        pnlRequirements.revalidate();
+        pnlRequirements.repaint();
+
+        pnlBadgeConf.getBtnSave().setVisible(true);
+        pnlBadgeConf.getBtnUpdate().setVisible(false);
+        pnlBadgeConf.getBtnDelete().setVisible(false);
+
+        txtBadgeName.requestFocus();
     }
 
     private void clearData() {
@@ -196,11 +214,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             addNoRequirementsLabel();
         }
 
-        if (tableModel.getRowCount() > 0) {
-            for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
-                tableModel.removeRow(i);
-            }
-        }
+        clearCounselorTable();
 
         java.util.List<Counselor> counselorList = LogicCounselor.findAllByBadgeId(meritBadge.getId());
         if (!Util.isEmpty(counselorList)) {
@@ -213,6 +227,14 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
         pnlRequirements.revalidate();
         pnlRequirements.repaint();
+    }
+
+    private void clearCounselorTable() {
+        if (tableModel.getRowCount() > 0) {
+            for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+                tableModel.removeRow(i);
+            }
+        }
     }
 
     private void setImage(String imgPath) {

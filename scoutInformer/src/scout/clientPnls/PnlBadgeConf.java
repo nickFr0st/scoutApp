@@ -99,6 +99,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 ((PnlAdvancements)currentPnl).createNew();
                 break;
             case MERIT_BAGDGE:
+                ((PnlMeritBadges)currentPnl).createNew();
                 break;
             case OTHER:
         }
