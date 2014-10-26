@@ -191,7 +191,9 @@ public class ImportDialog extends JDialog {
                         errors.append("Phone number is too long. ").append(errorLine);
                     }
 
-                    // todo: validate that phone number is proper
+                    if (!Util.validatePhoneNumber(phoneNumber)) {
+                        errors.append("Phone number format is incorrect. ").append(errorLine);
+                    }
 
                     counselor.setPhoneNumber(phoneNumber);
                     counselorList.add(counselor);

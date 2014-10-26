@@ -293,8 +293,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             grid = 0;
         }
 
-        // todo: take note when saving that an id of -1 is a new requirement
-        PnlRequirement pnlRequirement = new PnlRequirement("[num]", "[Description]", grid++ > 0, -1);
+        // take note when saving that an id of -1 is a new requirement
+        PnlRequirement pnlRequirement = new PnlRequirement("[name]", "[Description]", grid++ > 0, -1);
         pnlRequirements.add(pnlRequirement);
 
         pnlRequirement.getTxtReqName().requestFocus();
@@ -469,7 +469,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             return counselorList;
         }
 
-        for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+        for (int i = 0; i < tableModel.getRowCount(); ++i) {
             String counselorName = (String)tableModel.getValueAt(i, 0);
 
             if (Util.isEmpty(counselorName)) {
@@ -482,12 +482,16 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 return null;
             }
 
-            if (Util.isEmpty((String)tableModel.getValueAt(i, 1))) {
+            String phoneNumber = (String)tableModel.getValueAt(i, 1);
+            if (Util.isEmpty(phoneNumber)) {
                 Util.setError(lblCounselorError, "Counselor phone number cannot be left blank");
                 return null;
             }
 
-            // todo: validate that phone number is proper
+            if (!Util.validatePhoneNumber(phoneNumber)) {
+                Util.setError(lblCounselorError, "Invalid phone number format: " + phoneNumber);
+                return null;
+            }
 
             Counselor counselor = new Counselor();
             if (badgeId > 0) {
