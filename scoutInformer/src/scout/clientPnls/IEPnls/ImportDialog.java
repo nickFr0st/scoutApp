@@ -162,7 +162,7 @@ public class ImportDialog extends JDialog {
                     String advancementImgPath = record[2];
                     if (Util.isEmpty(advancementImgPath)){
                         errors.append("Merit badge image path is missing. ").append(errorLine);
-                    } else if (advancementImgPath.length() > Advancement.COL_IMG_PATH_LENGTH) {
+                    } else if (advancementImgPath.length() > MeritBadge.COL_IMG_PATH_LENGTH) {
                         errors.append("Merit badge image path is too long. ").append(errorLine);
                     }
                     meritBadge.setImgPath(advancementImgPath);
