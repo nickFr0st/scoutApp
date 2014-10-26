@@ -101,6 +101,10 @@ public class LogicCounselor {
     }
 
     public static void update(Counselor counselor) {
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
         if (counselor == null) {
             return;
         }
@@ -143,7 +147,7 @@ public class LogicCounselor {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM meritBadge");
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM counselor");
 
             if(rs.next()) {
                 id = rs.getInt(KeyConst.MERIT_BADGE_ID.getName()) + 1;
@@ -157,6 +161,10 @@ public class LogicCounselor {
     }
 
     public static void deleteList(List<Integer> counselorIdList) {
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
         if (Util.isEmpty(counselorIdList)) {
             return;
         }
@@ -170,6 +178,10 @@ public class LogicCounselor {
     }
 
     public static void saveList(List<Counselor> counselorList) {
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
         if (Util.isEmpty(counselorList)) {
             return;
         }
@@ -182,9 +194,9 @@ public class LogicCounselor {
 
             try {
                 Statement statement = connector.createStatement();
-                statement.executeUpdate("INSERT INTO requirement VALUES( " + counselor.getId() + ", " + counselor.getBadgeId() + ",'" + counselor.getName() + "', '" + counselor.getPhoneNumber() + "')");
+                statement.executeUpdate("INSERT INTO counselor VALUES( " + counselor.getId() + ", " + counselor.getBadgeId() + ",'" + counselor.getName() + "', '" + counselor.getPhoneNumber() + "')");
             } catch (Exception e) {
-                // save error
+                e.printStackTrace();
             }
         }
     }

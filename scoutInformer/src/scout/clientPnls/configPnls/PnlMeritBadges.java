@@ -487,6 +487,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 return null;
             }
 
+            // todo: validate that phone number is proper
+
             Counselor counselor = new Counselor();
             if (badgeId > 0) {
                 counselor.setBadgeId(badgeId);

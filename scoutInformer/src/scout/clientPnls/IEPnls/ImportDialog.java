@@ -190,6 +190,9 @@ public class ImportDialog extends JDialog {
                     } else if (counselorName.length() > Counselor.COL_PHONE_NUMBER_LENGTH) {
                         errors.append("Phone number is too long. ").append(errorLine);
                     }
+
+                    // todo: validate that phone number is proper
+
                     counselor.setPhoneNumber(phoneNumber);
                     counselorList.add(counselor);
                     continue;
