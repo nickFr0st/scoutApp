@@ -65,4 +65,80 @@ public class LogicMeritBadge {
 
         return meritBadge;
     }
+
+    public static MeritBadge importBadge(MeritBadge meritBadge) {
+        if (meritBadge == null) {
+            return null;
+        }
+
+        MeritBadge badge = findByName(meritBadge.getName());
+        if (badge != null) {
+            if (Util.isEmpty(meritBadge.getImgPath())) {
+                meritBadge.setImgPath(badge.getImgPath());
+            }
+            meritBadge.setId(badge.getId());
+
+            update(meritBadge);
+        } else {
+            if (Util.isEmpty(meritBadge.getImgPath())) {
+                meritBadge.setImgPath("");
+            }
+
+            save(meritBadge);
+        }
+
+        return meritBadge;
+    }
+
+    public static void save(MeritBadge meritBadge) {
+        if (meritBadge == null) {
+            return;
+        }
+
+        if (meritBadge.getId() < 0) {
+            meritBadge.setId(getNextId());
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("INSERT INTO meritBadge VALUES( " + meritBadge.getId() + ",'" + meritBadge.getName() + "', '" + meritBadge.getImgPath().replace("\\", "\\\\") + "', " + getIntValue(meritBadge.isRequiredForEagle()) + ")");
+        } catch (Exception e) {
+            // save error
+        }
+    }
+
+    public static void update(MeritBadge meritBadge) {
+        if (meritBadge == null) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("UPDATE meritBadge SET name = '" + meritBadge.getName() + "', imgPath = '" + meritBadge.getImgPath().replace("\\", "\\\\") + "'" + ", requiredForEagle = " + getIntValue(meritBadge.isRequiredForEagle()) + " WHERE id = " + meritBadge.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static int getIntValue(boolean requiredForEagle) {
+        return requiredForEagle ? 1 : 0;
+    }
+
+    private static int getNextId() {
+        int id = 1;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM meritBadge");
+
+            if(rs.next()) {
+                id = rs.getInt(KeyConst.MERIT_BADGE_ID.getName()) + 1;
+            }
+
+        } catch (Exception e) {
+            id = -1;
+        }
+
+        return id;
+    }
 }

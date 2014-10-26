@@ -4,8 +4,8 @@ package scout.dbObjects;
  * Created by Malloch on 7/10/14
  */
 public class Counselor {
-    public static final int COL_NAME_LENGTH = 89;
-    public static final int COL_PHONE_NUMBER_LENGTH = 19;
+    public static final int COL_NAME_LENGTH = 90;
+    public static final int COL_PHONE_NUMBER_LENGTH = 20;
 
     private int id;
     private int badgeId;
