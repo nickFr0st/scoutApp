@@ -40,11 +40,13 @@ public class ImportDialog extends JDialog {
                 setTitle("Advancement Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/IEAdvancementInstructions.html").toString());
                 break;
-            case PnlBadgeConf.MERIT_BAGDGE:
+            case PnlBadgeConf.MERIT_BADGE:
                 setTitle("Merit Badge Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/ImportMeritBadgeInstructions.html").toString());
                 break;
             case PnlBadgeConf.OTHER:
+                setTitle("Other Award Import");
+                setTxtImportInstructions(getClass().getResource("/instructions/ImportAwardInstructions.html").toString());
                 break;
         }
     }
@@ -71,10 +73,11 @@ public class ImportDialog extends JDialog {
             case PnlBadgeConf.ADVANCEMENT:
                 success = handleAdvancementImport(txtImportPath.getText());
                 break;
-            case PnlBadgeConf.MERIT_BAGDGE:
+            case PnlBadgeConf.MERIT_BADGE:
                 success = handleMeritBadgeImport(txtImportPath.getText());
                 break;
             case PnlBadgeConf.OTHER:
+                success = handleAwardImport(txtImportPath.getText());
                 break;
         }
 
@@ -269,6 +272,126 @@ public class ImportDialog extends JDialog {
 
     private boolean checkForBoolean(String arg) {
         return !Util.isEmpty(arg) && ("true".equalsIgnoreCase(arg) || "false".equalsIgnoreCase(arg));
+    }
+
+    private boolean handleAwardImport(String importPath) {
+        try {
+            CSVReader reader = new CSVReader(new FileReader(importPath), ',');
+            Map<OtherAward, java.util.List<Requirement>> importMap = new HashMap<OtherAward, java.util.List<Requirement>>();
+
+            boolean getAward = true;
+            OtherAward otherAward = null;
+            java.util.List<Requirement> requirementList = new ArrayList<Requirement>();
+
+            String[] record;
+            int line = 0;
+            StringBuilder errors = new StringBuilder();
+
+            while ((record = reader.readNext()) != null) {
+                ++line;
+                String errorLine = "line: " + line + "\n";
+
+                // check for the headers
+                if (record[0].equals("Award Name") || record[0].equals("Requirement Name")) {
+                    continue;
+                }
+
+                if (record[0].isEmpty()) {
+                    getAward = true;
+
+                    if (otherAward != null) {
+                        if (!checkForErrors(errors)) {
+                            return false;
+                        }
+
+                        importMap.put(otherAward, requirementList);
+                        otherAward = null;
+                        requirementList = new ArrayList<Requirement>();
+                    }
+
+                    continue;
+                }
+
+                if (getAward) {
+                    getAward = false;
+
+                    otherAward = new OtherAward();
+                    String awardName = record[0];
+
+                    if (Util.isEmpty(awardName)){
+                        errors.append("Award name is missing. ").append(errorLine);
+                    } else if (awardName.length() > OtherAward.COL_NAME_LENGTH) {
+                        errors.append("Award name is too long. ").append(errorLine);
+                    }
+                    otherAward.setName(awardName);
+
+                    if (record.length == 1 || Util.isEmpty(record[1])) {
+                        continue;
+                    }
+
+                    String awardImgPath = record[1];
+                    if (awardImgPath.length() > OtherAward.COL_IMG_PATH_LENGTH) {
+                        errors.append("Award image path is too long. ").append(errorLine);
+                    }
+                    otherAward.setImgPath(awardImgPath);
+
+                    continue;
+                }
+
+                if (record.length < 2) {
+                    errors.append("Requirements needs both a name and a description.").append(errorLine);
+                    continue;
+                }
+
+                Requirement requirement = new Requirement();
+                String reqName = record[0];
+                if (Util.isEmpty(reqName)){
+                    errors.append("Requirement name is missing. ").append(errorLine);
+                } else if (reqName.length() > Requirement.COL_NAME_LENGTH) {
+                    errors.append("Requirement name is too long. ").append(errorLine);
+                }
+                requirement.setName(reqName);
+
+                String reqDesc = record[1];
+                if (Util.isEmpty(reqDesc)){
+                    errors.append("Requirement description is missing. ").append(errorLine);
+                }
+                requirement.setDescription(reqDesc);
+                requirement.setTypeId(RequirementTypeConst.OTHER.getId());
+
+                requirementList.add(requirement);
+            }
+
+            reader.close();
+
+            if (!checkForErrors(errors)) {
+                return false;
+            }
+
+            importMap.put(otherAward, requirementList);
+
+            for (OtherAward award : importMap.keySet()) {
+                award = LogicOtherAward.importAward(award);
+
+                java.util.List<Requirement> reqList = importMap.get(award);
+                if (Util.isEmpty(reqList)) {
+                    continue;
+                }
+
+                for (Requirement req : reqList) {
+                    req.setParentId(award.getId());
+                }
+
+                LogicRequirement.importReqList(reqList);
+            }
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your award(s) have been successfully imported.", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean handleAdvancementImport(String importPath) {

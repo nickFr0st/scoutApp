@@ -240,6 +240,13 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableAdvancement);
 
+        String tableOtherAward = "CREATE TABLE otherAward " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(225) NOT NULL," +
+                " imgPath VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableOtherAward);
+
         String tableMeritBadge = "CREATE TABLE meritBadge " +
                 "(id INT NOT NULL," +
                 " name VARCHAR(225) NOT NULL," +

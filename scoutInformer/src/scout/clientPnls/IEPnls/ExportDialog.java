@@ -53,7 +53,7 @@ public class ExportDialog extends JDialog {
                     srcList = new ArrayList<String>();
                 }
                 break;
-            case PnlBadgeConf.MERIT_BAGDGE:
+            case PnlBadgeConf.MERIT_BADGE:
                 setTitle("Merit Badge Export");
                 srcList = LogicMeritBadge.getNameList();
                 if (srcList == null) {
@@ -61,6 +61,11 @@ public class ExportDialog extends JDialog {
                 }
                 break;
             case PnlBadgeConf.OTHER:
+                setTitle("Other Award Export");
+                srcList = LogicOtherAward.getNameList();
+                if (srcList == null) {
+                    srcList = new ArrayList<String>();
+                }
                 break;
         }
 
@@ -79,10 +84,11 @@ public class ExportDialog extends JDialog {
             case PnlBadgeConf.ADVANCEMENT:
                 success = handleAdvancementExport();
                 break;
-            case PnlBadgeConf.MERIT_BAGDGE:
+            case PnlBadgeConf.MERIT_BADGE:
                 success = handleMeritBadgeExport();
                 break;
             case PnlBadgeConf.OTHER:
+                success = handleOtherAwardExport();
                 break;
         }
 
@@ -156,6 +162,89 @@ public class ExportDialog extends JDialog {
 
         populateSrcList();
         populateExportList();
+    }
+
+    private boolean handleOtherAwardExport() {
+        try {
+            java.util.List<OtherAward> awardExportList;
+            if (rbtnExportAll.isSelected()) {
+                awardExportList = LogicOtherAward.getAllAwards();
+            } else {
+                awardExportList = new ArrayList<OtherAward>();
+                for (int i = 0; i < listExport.getModel().getSize(); ++i) {
+                    awardExportList.add(LogicOtherAward.findByName(listExport.getModel().getElementAt(i).toString()));
+                }
+            }
+
+            if (Util.isEmpty(awardExportList)) {
+                JOptionPane.showMessageDialog(this, "There is nothing to export, please select at least one award and try again.", "No Items Selected", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+
+            // get the file path
+            CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
+
+            chooser.setSelectedFile(new File("AwardExport.csv"));
+            int returnValue = chooser.showSaveDialog(this);
+            chooser.resetLookAndFeel();
+
+            if (returnValue != JFileChooser.APPROVE_OPTION) {
+                return false;
+            }
+
+            String exportPath = chooser.getSelectedFile().getPath();
+
+            // write to location
+            StringWriter writer = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(writer, ',');
+            java.util.List<String[]> records = new ArrayList<String[]>();
+
+            records.add(new String[]{"Award Name", "Award Image Path"});
+            records.add(new String[]{"Requirement Name", "Requirement Description"});
+
+            boolean firstPass = true;
+            for (OtherAward otherAward : awardExportList) {
+                if (!firstPass) {
+                    records.add(new String[]{""});
+                }
+
+                if (Util.isEmpty(otherAward.getImgPath())) {
+                    records.add(new String[]{otherAward.getName()});
+                } else {
+                    records.add(new String[]{otherAward.getName(), otherAward.getImgPath()});
+                }
+
+                java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentIdTypeId(otherAward.getId(), RequirementTypeConst.OTHER.getId());
+                if (!Util.isEmpty(requirementList)) {
+                    for (Requirement requirement : requirementList) {
+                        records.add(new String[]{requirement.getName(), requirement.getDescription()});
+                    }
+                }
+
+                if (firstPass) {
+                    firstPass = false;
+                }
+            }
+
+            csvWriter.writeAll(records);
+            csvWriter.close();
+
+            if (!exportPath.endsWith(".csv")) {
+                exportPath += ".csv";
+            }
+
+            FileWriter export = new FileWriter(exportPath);
+            export.append(writer.toString());
+            export.flush();
+            export.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your selected award(s) have been successfully exported.", "Export Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean handleMeritBadgeExport() {
@@ -300,13 +389,12 @@ public class ExportDialog extends JDialog {
                 }
 
                 java.util.List<Requirement> requirementList = LogicRequirement.findAllByParentIdTypeId(advancement.getId(), RequirementTypeConst.ADVANCEMENT.getId());
-                if (Util.isEmpty(requirementList)) {
-                    continue;
+                if (!Util.isEmpty(requirementList)) {
+                    for (Requirement requirement : requirementList) {
+                        records.add(new String[]{requirement.getName(), requirement.getDescription()});
+                    }
                 }
 
-                for (Requirement requirement : requirementList) {
-                    records.add(new String[]{requirement.getName(), requirement.getDescription()});
-                }
 
                 if (firstPass) {
                     firstPass = false;

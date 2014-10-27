@@ -8,6 +8,7 @@ import guiUtil.SelectionBorder;
 import scout.clientPnls.configPnls.PnlAdvancements;
 import scout.clientPnls.configPnls.PnlConfigSplash;
 import scout.clientPnls.configPnls.PnlMeritBadges;
+import scout.clientPnls.configPnls.PnlOtherAwards;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ import java.awt.event.MouseEvent;
  */
 public class PnlBadgeConf extends JPanel implements PnlGui {
     public static final int ADVANCEMENT = 0;
-    public static final int MERIT_BAGDGE = 1;
+    public static final int MERIT_BADGE = 1;
     public static final int OTHER = 2;
 
     private JPanel currentPnl;
@@ -75,7 +76,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave.setVisible(true);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
-        currentSelected = MERIT_BAGDGE;
+        currentSelected = MERIT_BADGE;
 
         updateConfigPnl(new PnlMeritBadges(this));
 
@@ -98,10 +99,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).createNew();
                 break;
-            case MERIT_BAGDGE:
+            case MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).createNew();
                 break;
             case OTHER:
+                ((PnlOtherAwards)currentPnl).createNew();
+                break;
         }
     }
 
@@ -118,10 +121,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).save();
                 break;
-            case MERIT_BAGDGE:
+            case MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).save();
                 break;
             case OTHER:
+                ((PnlOtherAwards)currentPnl).save();
+                break;
         }
     }
 
@@ -134,7 +139,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).delete();
                 break;
-            case MERIT_BAGDGE:
+            case MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).delete();
                 break;
             case OTHER:
@@ -146,10 +151,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).update();
                 break;
-            case MERIT_BAGDGE:
+            case MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).update();
                 break;
             case OTHER:
+                ((PnlOtherAwards)currentPnl).update();
+                break;
         }
     }
 
@@ -158,10 +165,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).export();
                 break;
-            case MERIT_BAGDGE:
+            case MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).export();
                 break;
             case OTHER:
+                ((PnlOtherAwards)currentPnl).export();
+                break;
         }
     }
 
@@ -170,19 +179,35 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).importData();
                 break;
-            case MERIT_BAGDGE:
+            case MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).importData();
                 break;
             case OTHER:
+                ((PnlOtherAwards)currentPnl).importData();
+                break;
         }
+    }
+
+    private void btnOtherMouseClicked() {
+        enableComponents(true);
+
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
+        currentSelected = OTHER;
+
+        updateConfigPnl(new PnlOtherAwards(this));
+
+        revalidate();
+        repaint();
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        panel1 = new JPanel();
-        btnAdvancements = new JButton();
-        btnMeritBadges = new JButton();
-        btnOther = new JButton();
+        JPanel panel1 = new JPanel();
+        JButton btnAdvancements = new JButton();
+        JButton btnMeritBadges = new JButton();
+        JButton btnOther = new JButton();
         btnImport = new JButton();
         btnExport = new JButton();
         btnNew = new JButton();
@@ -254,6 +279,12 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             btnOther.setFont(new Font("Tahoma", Font.PLAIN, 14));
             btnOther.setFocusPainted(false);
             btnOther.setName("btnOther");
+            btnOther.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnOtherMouseClicked();
+                }
+            });
             panel1.add(btnOther, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
@@ -373,10 +404,6 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JPanel panel1;
-    private JButton btnAdvancements;
-    private JButton btnMeritBadges;
-    private JButton btnOther;
     private JButton btnImport;
     private JButton btnExport;
     private JButton btnNew;

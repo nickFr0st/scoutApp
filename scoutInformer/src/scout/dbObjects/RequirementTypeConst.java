@@ -5,7 +5,8 @@ package scout.dbObjects;
  */
 public enum RequirementTypeConst {
     ADVANCEMENT(1),
-    MERIT_BADGE(10);
+    MERIT_BADGE(10),
+    OTHER(20);
 
     int id;
 

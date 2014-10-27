@@ -322,7 +322,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     public void importData() {
-        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.MERIT_BAGDGE);
+        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.MERIT_BADGE);
         dialog.setVisible(true);
 
         reloadData();
@@ -330,7 +330,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     public void export() {
-        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.MERIT_BAGDGE);
+        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.MERIT_BADGE);
         dialog.setVisible(true);
     }
 

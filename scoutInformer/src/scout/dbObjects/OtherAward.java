@@ -1,0 +1,41 @@
+package scout.dbObjects;
+
+/**
+ * Created by Malloch on 7/10/14
+ */
+public class OtherAward {
+    public static final int COL_NAME_LENGTH = 254;
+    public static final int COL_IMG_PATH_LENGTH = 254;
+
+    private int id;
+    private String name;
+    private String imgPath;
+
+    public OtherAward() {
+        id = -1;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+}

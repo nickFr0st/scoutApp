@@ -26,6 +26,9 @@ new FormModel {
 			} ) {
 				name: "panel1"
 				"background": sfield java.awt.Color white
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnAdvancements"
 					"text": "Advancements"
@@ -33,6 +36,9 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": &Font0 new java.awt.Font( "Tahoma", 0, 14 )
 					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnAdvancementsMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 				add( new FormComponent( "javax.swing.JButton" ) {
@@ -42,6 +48,9 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnMeritBadgesMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
@@ -53,6 +62,10 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnOtherMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 2
 				} )
