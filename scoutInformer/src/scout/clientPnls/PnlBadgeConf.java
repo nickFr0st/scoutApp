@@ -223,7 +223,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         setBackground(Color.white);
         setName("this");
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {31, 240, 20, 0};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {25, 240, 20, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 54, 20, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
