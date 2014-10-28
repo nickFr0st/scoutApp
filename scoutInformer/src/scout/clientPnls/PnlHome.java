@@ -206,7 +206,7 @@ public class PnlHome extends JPanel implements GuiManager {
             });
             pnlOptionsMenu.add(btnBoyScouts, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 5, 5, 0), 0, 0));
+                new Insets(0, 0, 5, 0), 0, 0));
 
             //---- btnSignOut ----
             btnSignOut.setIcon(new ImageIcon(getClass().getResource("/images/sign_out90.png")));

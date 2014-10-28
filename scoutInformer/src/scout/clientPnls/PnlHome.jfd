@@ -50,7 +50,6 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnBoyScoutsMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 2
-					"insets": new java.awt.Insets( 0, 5, 0, 0 )
 				} )
 				add( new FormComponent( "guiUtil.JButtonImageChange" ) {
 					name: "btnSignOut"
