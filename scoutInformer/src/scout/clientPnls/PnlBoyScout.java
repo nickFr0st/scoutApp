@@ -6,6 +6,7 @@ package scout.clientPnls;
 
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
+import scout.clientPnls.boyScoutPnls.PnlBoyScoutGeneralInfo;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -19,11 +20,17 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlBoyScout extends JPanel implements PnlGui {
+    JPanel currentPnl;
+
     public PnlBoyScout() {
         initComponents();
         ((SelectionBorder)getBorder()).cutSelectedArea(235, 335);
 
-        resetPanel();
+        currentPnl = pnlSplash;
+
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
     }
 
     @Override
@@ -31,6 +38,19 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnSave.setVisible(true);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
+
+        updateTabbedPnl(pnlSplash);
+    }
+
+    private void updateTabbedPnl(JPanel newPanel) {
+        pnlParentTab.remove(currentPnl);
+
+        pnlParentTab.add(newPanel, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(5, 5, 5, 5), 0, 0));
+
+        currentPnl = newPanel;
+        pnlParentTab.revalidate();
     }
 
     private void btnImportMouseClicked() {
@@ -55,18 +75,6 @@ public class PnlBoyScout extends JPanel implements PnlGui {
 
     private void btnDeleteMouseClicked() {
         // TODO add your code here
-    }
-
-    public JButton getBtnUpdate() {
-        return btnUpdate;
-    }
-
-    public JButton getBtnSave() {
-        return btnSave;
-    }
-
-    public JButton getBtnDelete() {
-        return btnDelete;
     }
 
     private void txtSearchNameKeyReleased() {
@@ -97,6 +105,10 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         lblDetails.setForeground(new Color(51, 102, 153));
     }
 
+    private void lblGeneralInfoMouseClicked() {
+        updateTabbedPnl(new PnlBoyScoutGeneralInfo());
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         JPanel panel1 = new JPanel();
@@ -109,16 +121,16 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnDelete = new JButton();
         lblListName = new JLabel();
         lblGeneralInfo = new JLabel();
-        separator1 = new JSeparator();
+        JSeparator separator1 = new JSeparator();
         lblDetails = new JLabel();
         pnlSearch = new JPanel();
         txtSearchName = new JTextFieldDefaultText();
         pnlParentTab = new JPanel();
         pnlSplash = new JPanel();
-        lblWelcome = new JLabel();
-        scrollPane3 = new JScrollPane();
+        JLabel lblWelcome = new JLabel();
+        JScrollPane scrollPane3 = new JScrollPane();
         listScoutNames = new JList();
-        hSpacer2 = new JPanel(null);
+        JPanel hSpacer2 = new JPanel(null);
 
         //======== this ========
         setMaximumSize(new Dimension(1100, 800));
@@ -279,10 +291,13 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         lblGeneralInfo.setName("lblGeneralInfo");
         lblGeneralInfo.addMouseListener(new MouseAdapter() {
             @Override
+            public void mouseClicked(MouseEvent e) {
+                lblGeneralInfoMouseClicked();
+            }
+            @Override
             public void mouseEntered(MouseEvent e) {
                 lblGeneralInfoMouseEntered();
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
                 lblGeneralInfoMouseExited();
@@ -313,7 +328,6 @@ public class PnlBoyScout extends JPanel implements PnlGui {
             public void mouseEntered(MouseEvent e) {
                 lblDetailsMouseEntered();
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
                 lblDetailsMouseExited();
@@ -442,15 +456,11 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     private JButton btnDelete;
     private JLabel lblListName;
     private JLabel lblGeneralInfo;
-    private JSeparator separator1;
     private JLabel lblDetails;
     private JPanel pnlSearch;
     private JTextFieldDefaultText txtSearchName;
     private JPanel pnlParentTab;
     private JPanel pnlSplash;
-    private JLabel lblWelcome;
-    private JScrollPane scrollPane3;
     private JList listScoutNames;
-    private JPanel hSpacer2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

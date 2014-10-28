@@ -81,9 +81,6 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
-					auxiliary() {
-						"JavaCodeGenerator.variableGetter": true
-					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnUpdateMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 5
@@ -95,9 +92,6 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
-					auxiliary() {
-						"JavaCodeGenerator.variableGetter": true
-					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSaveMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 6
@@ -109,9 +103,6 @@ new FormModel {
 					"foreground": sfield java.awt.Color white
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
 					"focusPainted": false
-					auxiliary() {
-						"JavaCodeGenerator.variableGetter": true
-					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 7
@@ -140,6 +131,7 @@ new FormModel {
 				"cursor": &Cursor0 new java.awt.Cursor( 12 )
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "lblGeneralInfoMouseEntered", false ) )
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "lblGeneralInfoMouseExited", false ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "lblGeneralInfoMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 2
 				"gridx": 3
@@ -149,6 +141,9 @@ new FormModel {
 				"orientation": 1
 				"background": new java.awt.Color( 255, 255, 255, 255 )
 				"foreground": new java.awt.Color( 51, 102, 153, 255 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 4
 				"gridy": 2
@@ -222,6 +217,9 @@ new FormModel {
 						"horizontalAlignment": 0
 						"font": new java.awt.Font( "Vijaya", 0, 28 )
 						"foreground": new java.awt.Color( 51, 102, 153, 255 )
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"insets": new java.awt.Insets( 20, 0, 0, 0 )
 						"gridy": 1
@@ -238,6 +236,9 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane3"
 				"horizontalScrollBarPolicy": 31
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "listScoutNames"
 					"border": new javax.swing.border.LineBorder( new java.awt.Color( 51, 102, 153, 255 ), 2, false )
@@ -252,6 +253,9 @@ new FormModel {
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 				name: "hSpacer2"
 				"background": new java.awt.Color( 255, 255, 255, 255 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
 				"gridx": 2
