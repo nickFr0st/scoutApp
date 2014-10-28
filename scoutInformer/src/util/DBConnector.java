@@ -272,6 +272,21 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableCounselor);
 
+        String tableBoyScout = "CREATE TABLE boyScout " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(90) NOT NULL," +
+                " birthDate DATE NOT NULL," +
+                " phoneNumber VARCHAR(20) NOT NULL," +
+                " parentName VARCHAR(90) NULL," +
+                " advancementId INT NOT NULL," +
+                " nextRankReqList BLOB NOT NULL," +
+                " completedAwardList BLOB NOT NULL," +
+                " completedMeritBadgeList BLOB NOT NULL," +
+                " inProgressAwardMap BLOB NOT NULL," +
+                " inProgressMeritBadgeMap BLOB NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableBoyScout);
+
         // Insert Advancements
         int id = 1;
         String insert = "INSERT INTO advancement VALUES( " + id++ + ",'New Scout', '/images/advancements/new_scout.png')";
