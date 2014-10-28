@@ -26,6 +26,7 @@ public class PnlHome extends JPanel implements GuiManager {
     private PnlSetupWizard setupWizard;
     private DBConnector dbConnector;
     private PnlBadgeConf pnlBadgeConf;
+    private PnlBoyScout pnlBoyScout;
 
     {
         defaultSplash = new PnlDefaultSplash();
@@ -33,6 +34,7 @@ public class PnlHome extends JPanel implements GuiManager {
         pnlSettings = new PnlSettings();
         dbConnector = new DBConnector();
         pnlBadgeConf = new PnlBadgeConf();
+        pnlBoyScout = new PnlBoyScout();
     }
 
     public PnlHome() {
@@ -75,6 +77,10 @@ public class PnlHome extends JPanel implements GuiManager {
         if (!(newPanel instanceof PnlBadgeConf)) {
             btnAdvancementConf.setDefault();
         }
+
+        if (!(newPanel instanceof PnlBoyScout)) {
+            btnBoyScouts.setDefault();
+        }
     }
 
     private void btnSettingsMouseClicked() {
@@ -94,6 +100,7 @@ public class PnlHome extends JPanel implements GuiManager {
 
     private void enableBtns(boolean enable) {
         btnAdvancementConf.setEnabled(enable);
+        btnBoyScouts.setEnabled(enable);
     }
 
     private void changePanel(JPanel newPanel) {
@@ -117,11 +124,18 @@ public class PnlHome extends JPanel implements GuiManager {
         }
     }
 
+    private void btnBoyScoutsMouseClicked() {
+        if (btnAdvancementConf.isEnabled()) {
+            changePanel(pnlBoyScout);
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         pnlOptionsMenu = new JPanel();
         btnSettings = new ButtonSideMenu();
         btnAdvancementConf = new ButtonSideMenu();
+        btnBoyScouts = new ButtonSideMenu();
         btnSignOut = new JButtonImageChange();
         pnlBase = new JPanel();
 
@@ -142,9 +156,9 @@ public class PnlHome extends JPanel implements GuiManager {
             pnlOptionsMenu.setName("pnlOptionsMenu");
             pnlOptionsMenu.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWidths = new int[] {100, 0};
-            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlOptionsMenu.getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
-            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)pnlOptionsMenu.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
             //---- btnSettings ----
             btnSettings.setDefaultImage(new ImageIcon(getClass().getResource("/images/settings90.png")));
@@ -178,6 +192,22 @@ public class PnlHome extends JPanel implements GuiManager {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
+            //---- btnBoyScouts ----
+            btnBoyScouts.setDefaultImage(new ImageIcon(getClass().getResource("/images/boy_scout_module.png")));
+            btnBoyScouts.setSelectedImage(new ImageIcon(getClass().getResource("/images/boy_scout_module_selected.png")));
+            btnBoyScouts.setToolTipText("manage boy scouts");
+            btnBoyScouts.setBackground(Color.white);
+            btnBoyScouts.setName("btnBoyScouts");
+            btnBoyScouts.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnBoyScoutsMouseClicked();
+                }
+            });
+            pnlOptionsMenu.add(btnBoyScouts, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 5, 5, 0), 0, 0));
+
             //---- btnSignOut ----
             btnSignOut.setIcon(new ImageIcon(getClass().getResource("/images/sign_out90.png")));
             btnSignOut.setBorderPainted(false);
@@ -194,7 +224,7 @@ public class PnlHome extends JPanel implements GuiManager {
                     btnSignOutMouseClicked();
                 }
             });
-            pnlOptionsMenu.add(btnSignOut, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+            pnlOptionsMenu.add(btnSignOut, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
         }
@@ -222,6 +252,7 @@ public class PnlHome extends JPanel implements GuiManager {
     private JPanel pnlOptionsMenu;
     private ButtonSideMenu btnSettings;
     private ButtonSideMenu btnAdvancementConf;
+    private ButtonSideMenu btnBoyScouts;
     private JButtonImageChange btnSignOut;
     private JPanel pnlBase;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
