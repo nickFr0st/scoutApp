@@ -26,10 +26,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -106,6 +103,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         pnlBadgeConf.getBtnUpdate().setVisible(false);
         pnlBadgeConf.getBtnSave().setVisible(false);
 
+        chkShowReqOnly.setSelected(false);
+        txtSearchName.setDefault();
+
         revalidate();
     }
 
@@ -128,10 +128,10 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void populateBadgeNameList() {
-        java.util.List<String> meritBadgeNameList = LogicMeritBadge.getNameList();
+        List<String> filteredList = LogicMeritBadge.getFilteredList(txtSearchName.isMessageDefault() ? "" : txtSearchName.getText(), chkShowReqOnly.isSelected());
 
-        if (meritBadgeNameList != null) {
-            listBadgeNames.setListData(meritBadgeNameList.toArray());
+        if (filteredList != null) {
+            listBadgeNames.setListData(filteredList.toArray());
         }
 
         listBadgeNames.revalidate();
@@ -149,22 +149,13 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void txtSearchNameKeyReleased() {
-        java.util.List<String> meritBadgeList = LogicMeritBadge.getNameList();
-        if (meritBadgeList == null) {
-            return;
-        }
+        filterNameList();
+    }
 
-        if (txtSearchName.isMessageDefault()) {
-            listBadgeNames.setListData(meritBadgeList.toArray());
-            listBadgeNames.revalidate();
+    private void filterNameList() {
+        List<String> filteredList = LogicMeritBadge.getFilteredList(txtSearchName.isMessageDefault() ? "" : txtSearchName.getText(), chkShowReqOnly.isSelected());
+        if (filteredList == null) {
             return;
-        }
-
-        java.util.List<String> filteredList = new ArrayList<String>();
-        for (String name : meritBadgeList) {
-            if (name.toLowerCase().contains(txtSearchName.getText().toLowerCase())) {
-                filteredList.add(name);
-            }
         }
 
         listBadgeNames.setListData(filteredList.toArray());
@@ -558,8 +549,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             return false;
         }
 
-        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
-            String meritBadgeName = (String) listBadgeNames.getModel().getElementAt(i);
+        for (String meritBadgeName : LogicMeritBadge.getNameList()) {
             if (meritBadgeName.equalsIgnoreCase(txtBadgeName.getText())) {
                 Util.setError(lblNameError, "Merit badge name already exists");
                 return false;
@@ -618,6 +608,10 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         tableModel.removeRow(tblCounselors.getSelectedRow());
     }
 
+    private void chkShowReqOnlyActionPerformed() {
+        filterNameList();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         createUIComponents();
@@ -634,6 +628,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblImage = new JLabel();
         scrollPane2 = new JScrollPane();
         pnlRequirements = new JPanel();
+        chkShowReqOnly = new JCheckBox();
         scrollPane3 = new JScrollPane();
         listBadgeNames = new JList();
         JPanel hSpacer1 = new JPanel(null);
@@ -658,9 +653,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 158, 44, 30, 30, 30, 33, 132, 30, 30, 177, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 152, 152, 45, 0, 220, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 30, 122, 152, 45, 0, 227, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- lblListName ----
         lblListName.setText("Merit Badges");
@@ -795,7 +790,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 GridBagConstraints.CENTER, GridBagConstraints.NONE,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(pnlSelectedImage, new GridBagConstraints(2, 1, 1, 2, 0.0, 0.0,
+        add(pnlSelectedImage, new GridBagConstraints(2, 1, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -818,9 +813,26 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             }
             scrollPane2.setViewportView(pnlRequirements);
         }
-        add(scrollPane2, new GridBagConstraints(8, 1, 4, 6, 0.0, 0.0,
+        add(scrollPane2, new GridBagConstraints(8, 1, 4, 7, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
+
+        //---- chkShowReqOnly ----
+        chkShowReqOnly.setText("Show Required Only");
+        chkShowReqOnly.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        chkShowReqOnly.setBackground(Color.white);
+        chkShowReqOnly.setForeground(new Color(51, 102, 153));
+        chkShowReqOnly.setFocusPainted(false);
+        chkShowReqOnly.setName("chkShowReqOnly");
+        chkShowReqOnly.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chkShowReqOnlyActionPerformed();
+            }
+        });
+        add(chkShowReqOnly, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
 
         //======== scrollPane3 ========
         {
@@ -845,21 +857,21 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             });
             scrollPane3.setViewportView(listBadgeNames);
         }
-        add(scrollPane3, new GridBagConstraints(0, 2, 1, 5, 0.0, 0.0,
+        add(scrollPane3, new GridBagConstraints(0, 3, 1, 5, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- hSpacer1 ----
         hSpacer1.setOpaque(false);
         hSpacer1.setName("hSpacer1");
-        add(hSpacer1, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+        add(hSpacer1, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- hSpacer2 ----
         hSpacer2.setOpaque(false);
         hSpacer2.setName("hSpacer2");
-        add(hSpacer2, new GridBagConstraints(7, 2, 1, 1, 0.0, 0.0,
+        add(hSpacer2, new GridBagConstraints(7, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -930,7 +942,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(pnlGeneralInfo, new GridBagConstraints(2, 3, 5, 1, 0.0, 0.0,
+        add(pnlGeneralInfo, new GridBagConstraints(2, 4, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(10, 0, 5, 5), 0, 0));
 
@@ -940,7 +952,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblMBCounselors.setFont(new Font("Vijaya", Font.PLAIN, 24));
         lblMBCounselors.setForeground(new Color(51, 102, 153));
         lblMBCounselors.setName("lblMBCounselors");
-        add(lblMBCounselors, new GridBagConstraints(2, 4, 2, 1, 0.0, 0.0,
+        add(lblMBCounselors, new GridBagConstraints(2, 5, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -961,7 +973,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 btnNewCounselorMouseClicked();
             }
         });
-        add(btnNewCounselor, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0,
+        add(btnNewCounselor, new GridBagConstraints(4, 5, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -982,7 +994,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 btnDeleteCounselorMouseClicked();
             }
         });
-        add(btnDeleteCounselor, new GridBagConstraints(5, 4, 1, 1, 0.0, 0.0,
+        add(btnDeleteCounselor, new GridBagConstraints(5, 5, 1, 1, 0.0, 0.0,
             GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -992,7 +1004,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblCounselorError.setFont(new Font("Tahoma", Font.ITALIC, 11));
         lblCounselorError.setVerticalAlignment(SwingConstants.BOTTOM);
         lblCounselorError.setName("lblCounselorError");
-        add(lblCounselorError, new GridBagConstraints(2, 5, 5, 1, 0.0, 0.0,
+        add(lblCounselorError, new GridBagConstraints(2, 6, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 20, 5, 15), 0, 0));
 
@@ -1005,7 +1017,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             tblCounselors.setName("tblCounselors");
             scrollPane1.setViewportView(tblCounselors);
         }
-        add(scrollPane1, new GridBagConstraints(2, 6, 5, 1, 0.0, 0.0,
+        add(scrollPane1, new GridBagConstraints(2, 7, 5, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -1021,6 +1033,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private JLabel lblImage;
     private JScrollPane scrollPane2;
     private JPanel pnlRequirements;
+    private JCheckBox chkShowReqOnly;
     private JScrollPane scrollPane3;
     private JList listBadgeNames;
     private JPanel pnlGeneralInfo;

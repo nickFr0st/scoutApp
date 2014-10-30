@@ -40,6 +40,49 @@ public class LogicMeritBadge {
         return meritBadgeNameList;
     }
 
+    public static List<String> getFilteredList(String name, boolean reqForEagle) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<String> meritBadgeNameList = new ArrayList<String>();
+
+        try {
+            StringBuilder query = new StringBuilder();
+            query.append("SELECT name FROM meritBadge ");
+
+            boolean hasWhere = false;
+            if (!Util.isEmpty(name)) {
+                query.append("WHERE UPPER(name) LIKE UPPER('%").append(name).append("%') ");
+                hasWhere = true;
+            }
+
+            if (reqForEagle) {
+                if (!hasWhere) {
+                    query.append("WHERE ");
+                } else {
+                    query.append("AND ");
+                }
+
+                query.append("requiredForEagle = ").append(1).append(" ");
+            }
+
+            query.append("ORDER BY name");
+
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery(query.toString());
+
+            while(rs.next()) {
+                meritBadgeNameList.add(rs.getString(KeyConst.MERIT_BADGE_NAME.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return meritBadgeNameList;
+    }
+
     public static MeritBadge findByName(String name) {
         if (!connector.checkForDataBaseConnection()) {
             return null;

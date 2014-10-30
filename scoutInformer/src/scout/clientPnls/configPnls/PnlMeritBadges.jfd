@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "235, 28, 153, 39, 25, 25, 25, 28, 127, 25, 25, 177"
-			"$rowSpecs": "40, 0, 147, 147, 40, 0, 220"
+			"$rowSpecs": "40, 0, 25, 117, 147, 40, 0, 227"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -140,7 +140,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"gridx": 2
-				"gridheight": 2
+				"gridheight": 3
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane2"
@@ -162,7 +162,18 @@ new FormModel {
 				"gridy": 1
 				"gridx": 8
 				"gridwidth": 4
-				"gridheight": 6
+				"gridheight": 7
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkShowReqOnly"
+				"text": "Show Required Only"
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"foreground": new java.awt.Color( 51, 102, 153, 255 )
+				"focusPainted": false
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "chkShowReqOnlyActionPerformed", false ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane3"
@@ -175,7 +186,7 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "listBadgeNamesKeyReleased", true ) )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 2
+				"gridy": 3
 				"gridheight": 5
 			} )
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
@@ -186,7 +197,7 @@ new FormModel {
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 2
+				"gridy": 3
 			} )
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 				name: "hSpacer2"
@@ -195,7 +206,7 @@ new FormModel {
 					"JavaCodeGenerator.variableLocal": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 2
+				"gridy": 3
 				"gridx": 7
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
@@ -258,7 +269,7 @@ new FormModel {
 					"gridwidth": 2
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 3
+				"gridy": 4
 				"insets": new java.awt.Insets( 10, 0, 0, 0 )
 				"gridx": 2
 				"gridwidth": 5
@@ -273,7 +284,7 @@ new FormModel {
 					"JavaCodeGenerator.variableLocal": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 4
+				"gridy": 5
 				"gridx": 2
 				"gridwidth": 2
 			} )
@@ -290,7 +301,7 @@ new FormModel {
 				"cursor": #Cursor0
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewCounselorMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 4
+				"gridy": 5
 				"vAlign": 3
 				"hAlign": 2
 				"gridx": 4
@@ -308,7 +319,7 @@ new FormModel {
 				"cursor": #Cursor0
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteCounselorMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 4
+				"gridy": 5
 				"vAlign": 3
 				"hAlign": 2
 				"gridx": 5
@@ -320,7 +331,7 @@ new FormModel {
 				"font": #Font1
 				"verticalAlignment": 3
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 5
+				"gridy": 6
 				"gridx": 2
 				"gridwidth": 5
 				"insets": new java.awt.Insets( 0, 20, 0, 10 )
@@ -336,7 +347,7 @@ new FormModel {
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
-				"gridy": 6
+				"gridy": 7
 				"gridwidth": 5
 			} )
 		}, new FormLayoutConstraints( null ) {
