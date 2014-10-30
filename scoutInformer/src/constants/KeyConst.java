@@ -23,6 +23,14 @@ public enum KeyConst {
     ADVANCEMENT_NAME("name"),
     ADVANCEMENT_IMG_PATH("imgPath"),
 
+    // Scout Table
+    SCOUT_ID("id"),
+    SCOUT_NAME("name"),
+    SCOUT_BIRTH_DATE("birthDate"),
+    SCOUT_PHONE_NUMBER("phoneNumber"),
+    SCOUT_ADVANCEMENT_ID("advancementId"),
+    SCOUT_TYPE_ID("typeId"),
+
     // Counselor Table
     COUNSELOR_ID("id"),
     COUNSELOR_NAME("name"),

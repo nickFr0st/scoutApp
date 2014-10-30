@@ -7,6 +7,7 @@ package scout.clientPnls;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.boyScoutPnls.PnlBoyScoutGeneralInfo;
+import util.LogicScout;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -15,6 +16,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 /**
  * @author User #2
@@ -31,6 +33,8 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnSave.setVisible(true);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
+
+        populateScoutNameList();
     }
 
     @Override
@@ -51,6 +55,16 @@ public class PnlBoyScout extends JPanel implements PnlGui {
 
         currentPnl = newPanel;
         pnlParentTab.revalidate();
+    }
+
+    private void populateScoutNameList() {
+        java.util.List<String> advancements = LogicScout.getNameList();
+
+        if (advancements != null) {
+            listScoutNames.setListData(advancements.toArray());
+        }
+
+        listScoutNames.revalidate();
     }
 
     private void btnImportMouseClicked() {
@@ -78,7 +92,26 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void txtSearchNameKeyReleased() {
-        // TODO add your code here
+        java.util.List<String> scoutNameList = LogicScout.getNameList();
+        if (scoutNameList == null) {
+            return;
+        }
+
+        if (txtSearchName.isMessageDefault()) {
+            listScoutNames.setListData(scoutNameList.toArray());
+            listScoutNames.revalidate();
+            return;
+        }
+
+        java.util.List<String> filteredList = new ArrayList<String>();
+        for (String scoutName : scoutNameList) {
+            if (scoutName.toLowerCase().contains(txtSearchName.getText().toLowerCase())) {
+                filteredList.add(scoutName);
+            }
+        }
+
+        listScoutNames.setListData(filteredList.toArray());
+        listScoutNames.revalidate();
     }
 
     private void listScoutNamesMouseClicked() {
