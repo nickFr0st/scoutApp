@@ -237,6 +237,7 @@ public class DBConnector {
                 "(id INT NOT NULL," +
                 " name VARCHAR(225) NOT NULL," +
                 " imgPath VARCHAR(255) NULL," +
+                " defaultFlag TINYINT NOT NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableAdvancement);
 
@@ -308,19 +309,19 @@ public class DBConnector {
 
         // Insert Advancements
         int id = 1;
-        String insert = "INSERT INTO advancement VALUES( " + id++ + ",'New Scout', '/images/advancements/new_scout.png')";
+        String insert = "INSERT INTO advancement VALUES( " + id++ + ",'New Scout', '/images/advancements/new_scout.png', 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Tenderfoot', '/images/advancements/tenderfoot.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Tenderfoot', '/images/advancements/tenderfoot.png', 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Second Class', '/images/advancements/second_class.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Second Class', '/images/advancements/second_class.png', 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES( " + id++ + ",'First Class', '/images/advancements/first_class.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'First Class', '/images/advancements/first_class.png', 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Star', '/images/advancements/star.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Star', '/images/advancements/star.png', 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Life', '/images/advancements/life.png')";
+        insert = "INSERT INTO advancement VALUES( " + id++ + ",'Life', '/images/advancements/life.png', 1)";
         statement.addBatch(insert);
-        insert = "INSERT INTO advancement VALUES( " + id + ",'Eagle', '/images/advancements/eagle.png')";
+        insert = "INSERT INTO advancement VALUES( " + id + ",'Eagle', '/images/advancements/eagle.png', 1)";
         statement.addBatch(insert);
 
         // Insert Requirements

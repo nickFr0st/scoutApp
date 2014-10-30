@@ -34,6 +34,7 @@ public class LogicAdvancement {
                 advancement.setId(rs.getInt(KeyConst.ADVANCEMENT_ID.getName()));
                 advancement.setName(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
                 advancement.setImgPath(rs.getString(KeyConst.ADVANCEMENT_IMG_PATH.getName()));
+                advancement.setDefaultFlag(rs.getBoolean(KeyConst.ADVANCEMENT_DEFAULT_FLAG.getName()));
             }
 
         } catch (Exception e) {
@@ -59,6 +60,7 @@ public class LogicAdvancement {
                 advancement.setId(rs.getInt(KeyConst.ADVANCEMENT_ID.getName()));
                 advancement.setName(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
                 advancement.setImgPath(rs.getString(KeyConst.ADVANCEMENT_IMG_PATH.getName()));
+                advancement.setDefaultFlag(rs.getBoolean(KeyConst.ADVANCEMENT_DEFAULT_FLAG.getName()));
                 advancementList.add(advancement);
             }
 
@@ -102,7 +104,7 @@ public class LogicAdvancement {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("INSERT INTO advancement VALUES( " + advancement.getId() + ",'" + advancement.getName() + "', '" + advancement.getImgPath().replace("\\", "\\\\") + "')");
+            statement.executeUpdate("INSERT INTO advancement VALUES( " + advancement.getId() + ",'" + advancement.getName() + "', '" + advancement.getImgPath().replace("\\", "\\\\") + "', 0)");
         } catch (Exception e) {
             // save error
         }
@@ -153,12 +155,12 @@ public class LogicAdvancement {
     }
 
     public static Advancement importAdv(Advancement advancement) {
-        if (advancement == null) {
-            return null;
-        }
-
         Advancement adv = findByName(advancement.getName());
         if (adv != null) {
+            if (adv.isDefaultFlag()) {
+                return null;
+            }
+
             if (Util.isEmpty(advancement.getImgPath())) {
                 advancement.setImgPath(adv.getImgPath());
             }

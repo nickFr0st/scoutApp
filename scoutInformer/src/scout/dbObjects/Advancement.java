@@ -10,6 +10,7 @@ public class Advancement {
     private int id;
     private String name;
     private String imgPath;
+    private boolean defaultFlag;
 
     public Advancement() {
         id = -1;
@@ -37,5 +38,13 @@ public class Advancement {
 
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
+    }
+
+    public boolean isDefaultFlag() {
+        return defaultFlag;
+    }
+
+    public void setDefaultFlag(boolean defaultFlag) {
+        this.defaultFlag = defaultFlag;
     }
 }

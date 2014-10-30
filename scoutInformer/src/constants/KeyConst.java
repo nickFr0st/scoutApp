@@ -22,6 +22,7 @@ public enum KeyConst {
     ADVANCEMENT_ID("id"),
     ADVANCEMENT_NAME("name"),
     ADVANCEMENT_IMG_PATH("imgPath"),
+    ADVANCEMENT_DEFAULT_FLAG("defaultFlag"),
 
     // Scout Table
     SCOUT_ID("id"),

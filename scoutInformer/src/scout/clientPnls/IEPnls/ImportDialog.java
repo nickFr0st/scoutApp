@@ -457,6 +457,7 @@ public class ImportDialog extends JDialog {
                         errors.append("Advancement image path is too long. ").append(errorLine);
                     }
                     advancement.setImgPath(advancementImgPath);
+                    advancement.setDefaultFlag(false);
 
                     continue;
                 }
@@ -495,6 +496,9 @@ public class ImportDialog extends JDialog {
 
             for (Advancement adv : importMap.keySet()) {
                 adv = LogicAdvancement.importAdv(adv);
+                if (adv == null) {
+                    continue;
+                }
 
                 java.util.List<Requirement> reqList = importMap.get(adv);
                 if (Util.isEmpty(reqList)) {
