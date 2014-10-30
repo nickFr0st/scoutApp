@@ -277,15 +277,34 @@ public class DBConnector {
                 " name VARCHAR(90) NOT NULL," +
                 " birthDate DATE NOT NULL," +
                 " phoneNumber VARCHAR(20) NOT NULL," +
-                " parentName VARCHAR(90) NULL," +
                 " advancementId INT NOT NULL," +
-                " nextRankReqList BLOB NOT NULL," +
-                " completedAwardList BLOB NOT NULL," +
-                " completedMeritBadgeList BLOB NOT NULL," +
-                " inProgressAwardMap BLOB NOT NULL," +
-                " inProgressMeritBadgeMap BLOB NOT NULL," +
+                " typeId INT NOT NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableBoyScout);
+
+        String tableParent = "CREATE TABLE parent " +
+                "(id INT NOT NULL," +
+                " scoutId INT NOT NULL," +
+                " name VARCHAR(90) NOT NULL," +
+                " relation VARCHAR(255) NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableParent);
+
+        String tableScoutAwards = "CREATE TABLE scoutAwards " +
+                "(id INT NOT NULL," +
+                " scoutId INT NOT NULL," +
+                " awardId INT NOT NULL," +
+                " reqIdList VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableScoutAwards);
+
+        String tableScoutMeritBadges = "CREATE TABLE ScoutMeritBadges " +
+                "(id INT NOT NULL," +
+                " scoutId INT NOT NULL," +
+                " meritBadgeId INT NOT NULL," +
+                " reqIdList VARCHAR(255) NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableScoutMeritBadges);
 
         // Insert Advancements
         int id = 1;

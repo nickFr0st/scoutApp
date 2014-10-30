@@ -1,4 +1,4 @@
-package scout.dbObjects;
+package constants;
 
 /**
  * Created by Nathanael on 10/25/2014

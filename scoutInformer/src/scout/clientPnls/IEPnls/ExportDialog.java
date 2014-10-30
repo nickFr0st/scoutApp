@@ -5,6 +5,7 @@
 package scout.clientPnls.IEPnls;
 
 import au.com.bytecode.opencsv.CSVWriter;
+import constants.RequirementTypeConst;
 import guiUtil.CustomChooser;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.PnlBadgeConf;

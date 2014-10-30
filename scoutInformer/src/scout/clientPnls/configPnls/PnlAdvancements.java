@@ -4,6 +4,7 @@
 
 package scout.clientPnls.configPnls;
 
+import constants.RequirementTypeConst;
 import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.PnlRequirement;
@@ -12,7 +13,6 @@ import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Requirement;
-import scout.dbObjects.RequirementTypeConst;
 import util.LogicAdvancement;
 import util.LogicRequirement;
 import util.Util;

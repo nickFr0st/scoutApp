@@ -1,8 +1,6 @@
 package scout.dbObjects;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Malloch on 7/10/14
@@ -16,12 +14,8 @@ public class BoyScout {
     private String name;
     private Date birthDate;
     private String phoneNumber;
-    private List<String> parentNameList;
-    private Integer currentAdvancementId;
-    private List<Integer> completedAwardIdList;
-    private List<Integer> completedMeritBadgeIdList;
-    private Map<Integer, List<Integer>> inProgressAwardMap;
-    private Map<Integer, List<Integer>> inProgressMeritBadgeMap;
+    private int currentAdvancementId;
+    private int typeId;
 
     public BoyScout() {
         id = -1;
@@ -59,51 +53,19 @@ public class BoyScout {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<String> getParentNameList() {
-        return parentNameList;
-    }
-
-    public void setParentNameList(List<String> parentNameList) {
-        this.parentNameList = parentNameList;
-    }
-
-    public Integer getCurrentAdvancementId() {
+    public int getCurrentAdvancementId() {
         return currentAdvancementId;
     }
 
-    public void setCurrentAdvancementId(Integer currentAdvancementId) {
+    public void setCurrentAdvancementId(int currentAdvancementId) {
         this.currentAdvancementId = currentAdvancementId;
     }
 
-    public List<Integer> getCompletedAwardIdList() {
-        return completedAwardIdList;
+    public int getTypeId() {
+        return typeId;
     }
 
-    public void setCompletedAwardIdList(List<Integer> completedAwardIdList) {
-        this.completedAwardIdList = completedAwardIdList;
-    }
-
-    public List<Integer> getCompletedMeritBadgeIdList() {
-        return completedMeritBadgeIdList;
-    }
-
-    public void setCompletedMeritBadgeIdList(List<Integer> completedMeritBadgeIdList) {
-        this.completedMeritBadgeIdList = completedMeritBadgeIdList;
-    }
-
-    public Map<Integer, List<Integer>> getInProgressAwardMap() {
-        return inProgressAwardMap;
-    }
-
-    public void setInProgressAwardMap(Map<Integer, List<Integer>> inProgressAwardMap) {
-        this.inProgressAwardMap = inProgressAwardMap;
-    }
-
-    public Map<Integer, List<Integer>> getInProgressMeritBadgeMap() {
-        return inProgressMeritBadgeMap;
-    }
-
-    public void setInProgressMeritBadgeMap(Map<Integer, List<Integer>> inProgressMeritBadgeMap) {
-        this.inProgressMeritBadgeMap = inProgressMeritBadgeMap;
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 }
