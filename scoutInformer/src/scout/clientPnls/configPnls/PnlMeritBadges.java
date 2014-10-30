@@ -104,7 +104,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
         pnlBadgeConf.getBtnDelete().setVisible(false);
         pnlBadgeConf.getBtnUpdate().setVisible(false);
-        pnlBadgeConf.getBtnSave().setVisible(true);
+        pnlBadgeConf.getBtnSave().setVisible(false);
 
         revalidate();
     }
@@ -411,6 +411,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         LogicRequirement.saveList(requirementList);
 
         populateBadgeNameList();
+
+        listBadgeNames.setSelectedValue(txtBadgeName.getText(), true);
+        reloadData();
     }
 
     public void update() {

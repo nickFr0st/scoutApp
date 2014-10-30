@@ -295,6 +295,9 @@ public class PnlAdvancements extends JPanel implements Configuration {
         LogicRequirement.saveList(requirementList);
 
         populateAdvancementNameList();
+
+        listBadgeNames.setSelectedValue(txtBadgeName.getText(), true);
+        reloadData();
     }
 
     private List<Requirement> validateRequirements(int parentId) {
@@ -472,7 +475,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         pnlBadgeConf.getBtnDelete().setVisible(false);
         pnlBadgeConf.getBtnUpdate().setVisible(false);
-        pnlBadgeConf.getBtnSave().setVisible(true);
+        pnlBadgeConf.getBtnSave().setVisible(false);
 
         revalidate();
     }

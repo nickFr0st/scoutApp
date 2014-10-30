@@ -106,7 +106,7 @@ new FormModel {
 					"insets": new java.awt.Insets( 0, 5, 0, 0 )
 				} )
 				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
-					name: "txtBadgeName"
+					name: "txtAwardName"
 					"preferredSize": new java.awt.Dimension( 14, 40 )
 					"minimumSize": new java.awt.Dimension( 14, 40 )
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
@@ -162,7 +162,7 @@ new FormModel {
 				name: "scrollPane3"
 				"horizontalScrollBarPolicy": 31
 				add( new FormComponent( "javax.swing.JList" ) {
-					name: "listBadgeNames"
+					name: "listAwardNames"
 					"border": new javax.swing.border.LineBorder( new java.awt.Color( 51, 102, 153, 255 ), 2, false )
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "listBadgeNamesMouseClicked", false ) )

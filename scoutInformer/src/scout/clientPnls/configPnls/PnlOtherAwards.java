@@ -63,10 +63,10 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         List<String> awardNameList = LogicOtherAward.getNameList();
 
         if (awardNameList != null) {
-            listBadgeNames.setListData(awardNameList.toArray());
+            listAwardNames.setListData(awardNameList.toArray());
         }
 
-        listBadgeNames.revalidate();
+        listAwardNames.revalidate();
     }
 
     @Override
@@ -79,7 +79,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         clearErrors();
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
-        txtBadgeName.setDefault();
+        txtAwardName.setDefault();
 
         pnlRequirements.removeAll();
 
@@ -92,7 +92,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         pnlBadgeConf.getBtnUpdate().setVisible(false);
         pnlBadgeConf.getBtnDelete().setVisible(false);
 
-        txtBadgeName.requestFocus();
+        txtAwardName.requestFocus();
     }
 
     private void txtSearchNameKeyReleased() {
@@ -102,8 +102,8 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         }
 
         if (txtSearchName.isMessageDefault()) {
-            listBadgeNames.setListData(awardNameList.toArray());
-            listBadgeNames.revalidate();
+            listAwardNames.setListData(awardNameList.toArray());
+            listAwardNames.revalidate();
             return;
         }
 
@@ -114,18 +114,18 @@ public class PnlOtherAwards extends JPanel implements Configuration {
             }
         }
 
-        listBadgeNames.setListData(filteredList.toArray());
-        listBadgeNames.revalidate();
+        listAwardNames.setListData(filteredList.toArray());
+        listAwardNames.revalidate();
     }
 
     private void listBadgeNamesMouseClicked() {
-        if (listBadgeNames.getSelectedValue() == null) {
+        if (listAwardNames.getSelectedValue() == null) {
             return;
         }
 
         clearErrors();
 
-        OtherAward otherAward = LogicOtherAward.findByName(listBadgeNames.getSelectedValue().toString());
+        OtherAward otherAward = LogicOtherAward.findByName(listAwardNames.getSelectedValue().toString());
 
         if (otherAward == null) {
             return;
@@ -136,7 +136,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         pnlBadgeConf.getBtnDelete().setVisible(true);
 
         txtImagePath.setText(otherAward.getImgPath());
-        txtBadgeName.setText(otherAward.getName());
+        txtAwardName.setText(otherAward.getName());
 
         URL imgPath = getClass().getResource(otherAward.getImgPath());
         if (imgPath == null) {
@@ -274,7 +274,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         }
 
         OtherAward otherAward = new OtherAward();
-        otherAward.setName(txtBadgeName.getText());
+        otherAward.setName(txtAwardName.getText());
 
         if (!txtImagePath.isMessageDefault()) {
             otherAward.setImgPath(txtImagePath.getText());
@@ -295,6 +295,9 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         LogicRequirement.saveList(requirementList);
 
         populateAwardNameList();
+
+        listAwardNames.setSelectedValue(txtAwardName.getText(), true);
+        reloadData();
     }
 
     private List<Requirement> validateRequirements(int parentId) {
@@ -341,14 +344,14 @@ public class PnlOtherAwards extends JPanel implements Configuration {
     }
 
     private boolean validateName() {
-        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+        if (txtAwardName.isMessageDefault() || txtAwardName.getText().isEmpty()) {
             Util.setError(lblNameError, "Award name cannot be left blank");
             return false;
         }
 
-        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
-            String otherAwardName = (String) listBadgeNames.getModel().getElementAt(i);
-            if (otherAwardName.equalsIgnoreCase(txtBadgeName.getText())) {
+        for (int i = 0; i < listAwardNames.getModel().getSize(); ++i) {
+            String otherAwardName = (String) listAwardNames.getModel().getElementAt(i);
+            if (otherAwardName.equalsIgnoreCase(txtAwardName.getText())) {
                 Util.setError(lblNameError, "Award name already exists");
                 return false;
             }
@@ -357,7 +360,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
     }
 
     public void delete() {
-        if (listBadgeNames.getSelectedValue() == null) {
+        if (listAwardNames.getSelectedValue() == null) {
             return;
         }
 
@@ -379,32 +382,32 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         }
 
         LogicRequirement.deleteList(requirementIdList);
-        LogicOtherAward.delete(listBadgeNames.getSelectedValue().toString());
+        LogicOtherAward.delete(listAwardNames.getSelectedValue().toString());
 
         clearData();
     }
 
     public void update() {
-        if (listBadgeNames.getSelectedValue() == null) {
+        if (listAwardNames.getSelectedValue() == null) {
             return;
         }
 
         clearErrors();
 
-        if (txtBadgeName.isMessageDefault() || txtBadgeName.getText().isEmpty()) {
+        if (txtAwardName.isMessageDefault() || txtAwardName.getText().isEmpty()) {
             Util.setError(lblNameError, "Award name cannot be left blank");
             return;
         }
 
-        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
-            String otherAwardName = (String) listBadgeNames.getModel().getElementAt(i);
-            if (otherAwardName.equalsIgnoreCase(txtBadgeName.getText()) && !txtBadgeName.getText().equals(listBadgeNames.getSelectedValue().toString())) {
+        for (int i = 0; i < listAwardNames.getModel().getSize(); ++i) {
+            String otherAwardName = (String) listAwardNames.getModel().getElementAt(i);
+            if (otherAwardName.equalsIgnoreCase(txtAwardName.getText()) && !txtAwardName.getText().equals(listAwardNames.getSelectedValue().toString())) {
                 Util.setError(lblNameError, "Award name already exists");
                 return;
             }
         }
 
-        OtherAward otherAward = LogicOtherAward.findByName(listBadgeNames.getSelectedValue().toString());
+        OtherAward otherAward = LogicOtherAward.findByName(listAwardNames.getSelectedValue().toString());
         if (otherAward == null) {
             return;
         }
@@ -414,7 +417,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         } else {
             otherAward.setImgPath(txtImagePath.getText());
         }
-        otherAward.setName(txtBadgeName.getText());
+        otherAward.setName(txtAwardName.getText());
 
         List<Requirement> requirementList = validateRequirements(otherAward.getId());
         if (requirementList == null) return;
@@ -442,23 +445,23 @@ public class PnlOtherAwards extends JPanel implements Configuration {
     }
 
     private void reloadData() {
-        if (listBadgeNames.getSelectedValue() == null) {
+        if (listAwardNames.getSelectedValue() == null) {
             return;
         }
 
-        int index = listBadgeNames.getSelectedIndex();
-        String name = txtBadgeName.getText();
+        int index = listAwardNames.getSelectedIndex();
+        String name = txtAwardName.getText();
 
         clearData();
 
-        for (int i = 0; i < listBadgeNames.getModel().getSize(); ++i) {
-            if (listBadgeNames.getModel().getElementAt(i).toString().equals(name)) {
+        for (int i = 0; i < listAwardNames.getModel().getSize(); ++i) {
+            if (listAwardNames.getModel().getElementAt(i).toString().equals(name)) {
                 index = i;
                 break;
             }
         }
 
-        listBadgeNames.setSelectedIndex(index);
+        listAwardNames.setSelectedIndex(index);
         listBadgeNamesMouseClicked();
     }
 
@@ -467,12 +470,12 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         populateAwardNameList();
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
-        txtBadgeName.setDefault();
+        txtAwardName.setDefault();
         addNoRequirementsLabel();
 
         pnlBadgeConf.getBtnDelete().setVisible(false);
         pnlBadgeConf.getBtnUpdate().setVisible(false);
-        pnlBadgeConf.getBtnSave().setVisible(true);
+        pnlBadgeConf.getBtnSave().setVisible(false);
 
         revalidate();
     }
@@ -498,12 +501,12 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         txtImagePath = new JTextFieldDefaultText();
         btnBrowseImgPath = new JButton();
         lblBadgeName = new JLabel();
-        txtBadgeName = new JTextFieldDefaultText();
+        txtAwardName = new JTextFieldDefaultText();
         lblNameError = new JLabel();
         pnlSelectedImage = new JPanel();
         lblImage = new JLabel();
         scrollPane3 = new JScrollPane();
-        listBadgeNames = new JList();
+        listAwardNames = new JList();
         hSpacer2 = new JPanel(null);
         lblRequirements = new JLabel();
         btnNewRequirement = new JLabel();
@@ -632,13 +635,13 @@ public class PnlOtherAwards extends JPanel implements Configuration {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 5, 5, 5), 0, 0));
 
-            //---- txtBadgeName ----
-            txtBadgeName.setPreferredSize(new Dimension(14, 40));
-            txtBadgeName.setMinimumSize(new Dimension(14, 40));
-            txtBadgeName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtBadgeName.setDefaultText("Award Name");
-            txtBadgeName.setName("txtBadgeName");
-            pnlGeneralInfo.add(txtBadgeName, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
+            //---- txtAwardName ----
+            txtAwardName.setPreferredSize(new Dimension(14, 40));
+            txtAwardName.setMinimumSize(new Dimension(14, 40));
+            txtAwardName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtAwardName.setDefaultText("Award Name");
+            txtAwardName.setName("txtAwardName");
+            pnlGeneralInfo.add(txtAwardName, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
 
@@ -684,23 +687,23 @@ public class PnlOtherAwards extends JPanel implements Configuration {
             scrollPane3.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
             scrollPane3.setName("scrollPane3");
 
-            //---- listBadgeNames ----
-            listBadgeNames.setBorder(new LineBorder(new Color(51, 102, 153), 2));
-            listBadgeNames.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            listBadgeNames.setName("listBadgeNames");
-            listBadgeNames.addMouseListener(new MouseAdapter() {
+            //---- listAwardNames ----
+            listAwardNames.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            listAwardNames.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            listAwardNames.setName("listAwardNames");
+            listAwardNames.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     listBadgeNamesMouseClicked();
                 }
             });
-            listBadgeNames.addKeyListener(new KeyAdapter() {
+            listAwardNames.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyReleased(KeyEvent e) {
                     listBadgeNamesKeyReleased(e);
                 }
             });
-            scrollPane3.setViewportView(listBadgeNames);
+            scrollPane3.setViewportView(listAwardNames);
         }
         add(scrollPane3, new GridBagConstraints(0, 2, 1, 3, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -811,12 +814,12 @@ public class PnlOtherAwards extends JPanel implements Configuration {
     private JTextFieldDefaultText txtImagePath;
     private JButton btnBrowseImgPath;
     private JLabel lblBadgeName;
-    private JTextFieldDefaultText txtBadgeName;
+    private JTextFieldDefaultText txtAwardName;
     private JLabel lblNameError;
     private JPanel pnlSelectedImage;
     private JLabel lblImage;
     private JScrollPane scrollPane3;
-    private JList listBadgeNames;
+    private JList listAwardNames;
     private JPanel hSpacer2;
     private JLabel lblRequirements;
     private JLabel btnNewRequirement;

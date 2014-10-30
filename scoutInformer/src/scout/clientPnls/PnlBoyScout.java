@@ -28,18 +28,24 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         initComponents();
         ((SelectionBorder)getBorder()).cutSelectedArea(235, 335);
 
+        clearData();
+    }
+
+    private void clearData() {
         currentPnl = pnlSplash;
 
-        btnSave.setVisible(true);
+        btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
 
         populateScoutNameList();
+
+        revalidate();
     }
 
     @Override
     public void resetPanel() {
-        btnSave.setVisible(true);
+        btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
 

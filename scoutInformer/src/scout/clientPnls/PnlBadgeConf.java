@@ -59,7 +59,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void btnAdvancementsMouseClicked() {
         enableComponents(true);
 
-        btnSave.setVisible(true);
+        btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
         currentSelected = ADVANCEMENT;
@@ -73,7 +73,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void btnMeritBadgesMouseClicked() {
         enableComponents(true);
 
-        btnSave.setVisible(true);
+        btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
         currentSelected = MERIT_BADGE;
@@ -191,7 +191,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
     private void btnOtherMouseClicked() {
         enableComponents(true);
 
-        btnSave.setVisible(true);
+        btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
         currentSelected = OTHER;
