@@ -69,6 +69,7 @@ public class SignIn extends JFrame implements GuiManager {
         setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/images/flurDeLis16.png")).getImage());
         setTitle("BSA Database");
+        setName("this");
         Container contentPane = getContentPane();
         contentPane.setLayout(new GridBagLayout());
         ((GridBagLayout)contentPane.getLayout()).columnWidths = new int[] {0, 0};

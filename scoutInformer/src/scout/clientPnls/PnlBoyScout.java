@@ -12,10 +12,7 @@ import util.LogicScout;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +25,15 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         initComponents();
         ((SelectionBorder)getBorder()).cutSelectedArea(235, 335);
 
+        init();
         clearData();
+    }
+
+    private void init() {
+        cboScoutTab.addItem("Tracking");
+        cboScoutTab.addItem("General Information");
+        cboScoutTab.addItem("Details");
+        cboScoutTab.setSelectedIndex(0);
     }
 
     private void clearData() {
@@ -128,24 +133,15 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         // TODO add your code here
     }
 
-    private void lblGeneralInfoMouseEntered() {
-        lblGeneralInfo.setForeground(new Color(32, 154, 26));
-    }
-
-    private void lblGeneralInfoMouseExited() {
-        lblGeneralInfo.setForeground(new Color(51, 102, 153));
-    }
-
-    private void lblDetailsMouseEntered() {
-        lblDetails.setForeground(new Color(32, 154, 26));
-    }
-
-    private void lblDetailsMouseExited() {
-        lblDetails.setForeground(new Color(51, 102, 153));
-    }
-
-    private void lblGeneralInfoMouseClicked() {
-        updateTabbedPnl(new PnlBoyScoutGeneralInfo());
+    private void cboScoutTabActionPerformed() {
+        switch (cboScoutTab.getSelectedIndex()) {
+            case 0:
+                break;
+            case 1:
+                updateTabbedPnl(new PnlBoyScoutGeneralInfo());
+                break;
+            default:
+        }
     }
 
     private void initComponents() {
@@ -159,9 +155,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnSave = new JButton();
         btnDelete = new JButton();
         lblListName = new JLabel();
-        lblGeneralInfo = new JLabel();
-        JSeparator separator1 = new JSeparator();
-        lblDetails = new JLabel();
+        cboScoutTab = new JComboBox();
         pnlSearch = new JPanel();
         txtSearchName = new JTextFieldDefaultText();
         pnlParentTab = new JPanel();
@@ -179,9 +173,9 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         setBorder(new SelectionBorder());
         setName("this");
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {25, 232, 33, 170, 10, 65, 0, 20, 0};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {25, 232, 33, 170, 0, 20, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {11, 0, 45, 0, 0, 20, 0};
-        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
 
         //======== panel1 ========
@@ -307,7 +301,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
-        add(panel1, new GridBagConstraints(1, 1, 6, 1, 0.0, 0.0,
+        add(panel1, new GridBagConstraints(1, 1, 4, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -321,60 +315,20 @@ public class PnlBoyScout extends JPanel implements PnlGui {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- lblGeneralInfo ----
-        lblGeneralInfo.setText("General Information");
-        lblGeneralInfo.setVerticalAlignment(SwingConstants.BOTTOM);
-        lblGeneralInfo.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        lblGeneralInfo.setForeground(new Color(51, 102, 153));
-        lblGeneralInfo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        lblGeneralInfo.setName("lblGeneralInfo");
-        lblGeneralInfo.addMouseListener(new MouseAdapter() {
+        //---- cboScoutTab ----
+        cboScoutTab.setFont(new Font("Vijaya", Font.PLAIN, 24));
+        cboScoutTab.setForeground(new Color(51, 102, 153));
+        cboScoutTab.setBackground(Color.white);
+        cboScoutTab.setName("cboScoutTab");
+        cboScoutTab.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                lblGeneralInfoMouseClicked();
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                lblGeneralInfoMouseEntered();
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                lblGeneralInfoMouseExited();
+            public void actionPerformed(ActionEvent e) {
+                cboScoutTabActionPerformed();
             }
         });
-        add(lblGeneralInfo, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
+        add(cboScoutTab, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
-
-        //---- separator1 ----
-        separator1.setOrientation(SwingConstants.VERTICAL);
-        separator1.setBackground(Color.white);
-        separator1.setForeground(new Color(51, 102, 153));
-        separator1.setName("separator1");
-        add(separator1, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(13, 2, 10, 5), 0, 0));
-
-        //---- lblDetails ----
-        lblDetails.setText("Details");
-        lblDetails.setVerticalAlignment(SwingConstants.BOTTOM);
-        lblDetails.setFont(new Font("Vijaya", Font.PLAIN, 24));
-        lblDetails.setForeground(new Color(51, 102, 153));
-        lblDetails.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        lblDetails.setName("lblDetails");
-        lblDetails.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                lblDetailsMouseEntered();
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                lblDetailsMouseExited();
-            }
-        });
-        add(lblDetails, new GridBagConstraints(5, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+            new Insets(5, 0, 5, 5), 0, 0));
 
         //======== pnlSearch ========
         {
@@ -446,7 +400,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(5, 5, 5, 5), 0, 0));
         }
-        add(pnlParentTab, new GridBagConstraints(3, 3, 4, 2, 0.0, 0.0,
+        add(pnlParentTab, new GridBagConstraints(3, 3, 2, 2, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -494,8 +448,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     private JButton btnSave;
     private JButton btnDelete;
     private JLabel lblListName;
-    private JLabel lblGeneralInfo;
-    private JLabel lblDetails;
+    private JComboBox cboScoutTab;
     private JPanel pnlSearch;
     private JTextFieldDefaultText txtSearchName;
     private JPanel pnlParentTab;
