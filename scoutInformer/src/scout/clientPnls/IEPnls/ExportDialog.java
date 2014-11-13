@@ -49,7 +49,7 @@ public class ExportDialog extends JDialog {
         switch (exportTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
                 setTitle("Advancement Export");
-                srcList = LogicAdvancement.getAdvancementList();
+                srcList = LogicAdvancement.getNameList();
                 if (srcList == null) {
                     srcList = new ArrayList<String>();
                 }
@@ -343,7 +343,7 @@ public class ExportDialog extends JDialog {
         try {
             java.util.List<Advancement> advancementExportList;
             if (rbtnExportAll.isSelected()) {
-                advancementExportList = LogicAdvancement.getAllAdvancements();
+                advancementExportList = LogicAdvancement.findAllAdvancements();
             } else {
                 advancementExportList = new ArrayList<Advancement>();
                 for (int i = 0; i < listExport.getModel().getSize(); ++i) {

@@ -44,7 +44,7 @@ public class LogicAdvancement {
         return advancement;
     }
 
-    public static List<Advancement> getAllAdvancements() {
+    public static List<Advancement> findAllAdvancements() {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -71,7 +71,7 @@ public class LogicAdvancement {
         return advancementList;
     }
 
-    public static List<String> getAdvancementList() {
+    public static List<String> getNameList() {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }

@@ -60,7 +60,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
     }
 
     private void populateAdvancementNameList() {
-        java.util.List<String> advancements = LogicAdvancement.getAdvancementList();
+        java.util.List<String> advancements = LogicAdvancement.getNameList();
 
         if (advancements != null) {
             listBadgeNames.setListData(advancements.toArray());
@@ -96,7 +96,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
     }
 
     private void txtSearchNameKeyReleased() {
-        java.util.List<String> advancementList = LogicAdvancement.getAdvancementList();
+        java.util.List<String> advancementList = LogicAdvancement.getNameList();
         if (advancementList == null) {
             return;
         }
