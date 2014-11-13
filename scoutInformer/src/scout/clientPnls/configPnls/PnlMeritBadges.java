@@ -448,7 +448,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         if (requirementList == null) return;
 
         LogicCounselor.updateList(counselorList, meritBadge.getId());
-        LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.ADVANCEMENT.getId());
+        LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
         LogicMeritBadge.update(meritBadge);
 
         reloadData();
