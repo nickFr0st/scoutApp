@@ -622,13 +622,13 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnNewRequirement = new JLabel();
         btnDeleteRequirement = new JLabel();
         lblReqError = new JLabel();
-        pnlSearch = new JPanel();
-        txtSearchName = new JTextFieldDefaultText();
+        chkShowReqOnly = new JCheckBox();
         pnlSelectedImage = new JPanel();
         lblImage = new JLabel();
         scrollPane2 = new JScrollPane();
         pnlRequirements = new JPanel();
-        chkShowReqOnly = new JCheckBox();
+        pnlSearch = new JPanel();
+        txtSearchName = new JTextFieldDefaultText();
         scrollPane3 = new JScrollPane();
         listBadgeNames = new JList();
         JPanel hSpacer1 = new JPanel(null);
@@ -739,37 +739,22 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 0), 0, 0));
 
-        //======== pnlSearch ========
-        {
-            pnlSearch.setBackground(Color.white);
-            pnlSearch.setBorder(new LineBorder(new Color(51, 102, 153), 2));
-            pnlSearch.setName("pnlSearch");
-            pnlSearch.setLayout(new GridBagLayout());
-            ((GridBagLayout)pnlSearch.getLayout()).columnWidths = new int[] {0, 0};
-            ((GridBagLayout)pnlSearch.getLayout()).rowHeights = new int[] {0, 0};
-            ((GridBagLayout)pnlSearch.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-            ((GridBagLayout)pnlSearch.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
-
-            //---- txtSearchName ----
-            txtSearchName.setDefaultText("Search by Name");
-            txtSearchName.setBorder(null);
-            txtSearchName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            txtSearchName.setMinimumSize(new Dimension(0, 20));
-            txtSearchName.setPreferredSize(new Dimension(101, 20));
-            txtSearchName.setName("txtSearchName");
-            txtSearchName.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyReleased(KeyEvent e) {
-                    txtSearchNameKeyReleased();
-                }
-            });
-            pnlSearch.add(txtSearchName, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 5, 0, 0), 0, 0));
-        }
-        add(pnlSearch, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+        //---- chkShowReqOnly ----
+        chkShowReqOnly.setText("Show Required Only");
+        chkShowReqOnly.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        chkShowReqOnly.setBackground(Color.white);
+        chkShowReqOnly.setForeground(new Color(51, 102, 153));
+        chkShowReqOnly.setFocusPainted(false);
+        chkShowReqOnly.setName("chkShowReqOnly");
+        chkShowReqOnly.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chkShowReqOnlyActionPerformed();
+            }
+        });
+        add(chkShowReqOnly, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 6), 0, 0));
+            new Insets(0, 0, 5, 5), 0, 0));
 
         //======== pnlSelectedImage ========
         {
@@ -817,22 +802,37 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
 
-        //---- chkShowReqOnly ----
-        chkShowReqOnly.setText("Show Required Only");
-        chkShowReqOnly.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        chkShowReqOnly.setBackground(Color.white);
-        chkShowReqOnly.setForeground(new Color(51, 102, 153));
-        chkShowReqOnly.setFocusPainted(false);
-        chkShowReqOnly.setName("chkShowReqOnly");
-        chkShowReqOnly.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                chkShowReqOnlyActionPerformed();
-            }
-        });
-        add(chkShowReqOnly, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+        //======== pnlSearch ========
+        {
+            pnlSearch.setBackground(Color.white);
+            pnlSearch.setBorder(new LineBorder(new Color(51, 102, 153), 2));
+            pnlSearch.setName("pnlSearch");
+            pnlSearch.setLayout(new GridBagLayout());
+            ((GridBagLayout)pnlSearch.getLayout()).columnWidths = new int[] {0, 0};
+            ((GridBagLayout)pnlSearch.getLayout()).rowHeights = new int[] {0, 0};
+            ((GridBagLayout)pnlSearch.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
+            ((GridBagLayout)pnlSearch.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
+
+            //---- txtSearchName ----
+            txtSearchName.setDefaultText("Search by Name");
+            txtSearchName.setBorder(null);
+            txtSearchName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtSearchName.setMinimumSize(new Dimension(0, 20));
+            txtSearchName.setPreferredSize(new Dimension(101, 20));
+            txtSearchName.setName("txtSearchName");
+            txtSearchName.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    txtSearchNameKeyReleased();
+                }
+            });
+            pnlSearch.add(txtSearchName, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 5, 0, 0), 0, 0));
+        }
+        add(pnlSearch, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+            new Insets(0, 0, 5, 6), 0, 0));
 
         //======== scrollPane3 ========
         {
@@ -1027,13 +1027,13 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private JLabel btnNewRequirement;
     private JLabel btnDeleteRequirement;
     private JLabel lblReqError;
-    private JPanel pnlSearch;
-    private JTextFieldDefaultText txtSearchName;
+    private JCheckBox chkShowReqOnly;
     private JPanel pnlSelectedImage;
     private JLabel lblImage;
     private JScrollPane scrollPane2;
     private JPanel pnlRequirements;
-    private JCheckBox chkShowReqOnly;
+    private JPanel pnlSearch;
+    private JTextFieldDefaultText txtSearchName;
     private JScrollPane scrollPane3;
     private JList listBadgeNames;
     private JPanel pnlGeneralInfo;
