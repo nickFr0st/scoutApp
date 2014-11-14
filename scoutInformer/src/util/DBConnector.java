@@ -276,19 +276,20 @@ public class DBConnector {
                 "(id INT NOT NULL," +
                 " name VARCHAR(90) NOT NULL," +
                 " birthDate DATE NOT NULL," +
-                " phoneNumber VARCHAR(20) NOT NULL," +
                 " advancementId INT NOT NULL," +
                 " typeId INT NOT NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableBoyScout);
 
-        String tableParent = "CREATE TABLE parent " +
+        String tableContact = "CREATE TABLE contact " +
                 "(id INT NOT NULL," +
                 " scoutId INT NOT NULL," +
+                " typeId INT NOT NULL," +
                 " name VARCHAR(90) NOT NULL," +
-                " relation VARCHAR(255) NOT NULL," +
+                " relation VARCHAR(90) NOT NULL," +
+                " data VARCHAR(255) NOT NULL," +
                 " PRIMARY KEY (id))";
-        statement.addBatch(tableParent);
+        statement.addBatch(tableContact);
 
         String tableScoutAwards = "CREATE TABLE scoutAwards " +
                 "(id INT NOT NULL," +
