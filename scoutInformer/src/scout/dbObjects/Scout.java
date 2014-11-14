@@ -1,24 +1,23 @@
 package scout.dbObjects;
 
-import java.util.List;
+import java.util.Date;
 
 /**
- * Created by nmalloch on 6/5/2014
+ * Created by Malloch on 7/10/14
  */
 public class Scout {
-    public static final String ID = "id";
-    public static final String NAME = "name";
-    public static final String AGE = "age";
-    public static final String COMPLETED_REQUIREMENTS = "completedRequirements";
-    public static final String CURRENT_RANK_ID = "currentRankId";
-    public static final String POSITION = "position";
+    public static final int COL_NAME_LENGTH = 90;
+    public static final int COL_PARENT_NAME_LENGTH = 90;
 
     private int id;
     private String name;
-    private int age;
-    private List<String> completedRequirements;
-    private int currentRankId;
-    private String position;
+    private Date birthDate;
+    private int currentAdvancementId;
+    private int typeId;
+
+    public Scout() {
+        id = -1;
+    }
 
     public int getId() {
         return id;
@@ -36,35 +35,27 @@ public class Scout {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public List<String> getCompletedRequirements() {
-        return completedRequirements;
+    public int getCurrentAdvancementId() {
+        return currentAdvancementId;
     }
 
-    public void setCompletedRequirements(List<String> completedRequirements) {
-        this.completedRequirements = completedRequirements;
+    public void setCurrentAdvancementId(int currentAdvancementId) {
+        this.currentAdvancementId = currentAdvancementId;
     }
 
-    public int getCurrentRankId() {
-        return currentRankId;
+    public int getTypeId() {
+        return typeId;
     }
 
-    public void setCurrentRankId(int currentRankId) {
-        this.currentRankId = currentRankId;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 }

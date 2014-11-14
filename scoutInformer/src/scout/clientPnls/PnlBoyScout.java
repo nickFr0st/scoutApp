@@ -7,6 +7,7 @@ package scout.clientPnls;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.boyScoutPnls.PnlBoyScoutGeneralInfo;
+import scout.dbObjects.Scout;
 import util.LogicScout;
 
 import javax.swing.*;
@@ -19,7 +20,10 @@ import java.util.ArrayList;
  * @author User #2
  */
 public class PnlBoyScout extends JPanel implements PnlGui {
-    JPanel currentPnl;
+    private JPanel currentPnl;
+    private Scout scout;
+
+    private PnlBoyScoutGeneralInfo pnlBoyScoutGeneralInfo = new PnlBoyScoutGeneralInfo();
 
     public PnlBoyScout() {
         initComponents();
@@ -43,9 +47,18 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
 
-        populateScoutNameList();
+        scout = null;
 
+        cboScoutTab.setEnabled(false);
+
+        populateScoutNameList();
         revalidate();
+    }
+
+    private void clearErrors() {
+        if (currentPnl instanceof PnlBoyScoutGeneralInfo) {
+            ((PnlBoyScoutGeneralInfo) currentPnl).clearErrors();
+        }
     }
 
     @Override
@@ -126,11 +139,37 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void listScoutNamesMouseClicked() {
-        // TODO add your code here
+        if (listScoutNames.getSelectedValue() == null) {
+            return;
+        }
+
+        clearErrors();
+
+        scout = LogicScout.findByName(listScoutNames.getSelectedValue().toString());
+        if (scout == null) {
+            return;
+        }
+
+        btnSave.setVisible(false);
+        btnDelete.setVisible(true);
+        btnUpdate.setVisible(true);
+
+        cboScoutTab.setEnabled(true);
+
+        pnlBoyScoutGeneralInfo.setScout(scout);
+
+        cboScoutTabActionPerformed();
+
+        revalidate();
+        repaint();
+
+        currentPnl.repaint();
     }
 
     private void listScoutNamesKeyReleased(KeyEvent e) {
-        // TODO add your code here
+        if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN) {
+            listScoutNamesMouseClicked();
+        }
     }
 
     private void cboScoutTabActionPerformed() {
@@ -138,7 +177,8 @@ public class PnlBoyScout extends JPanel implements PnlGui {
             case 0:
                 break;
             case 1:
-                updateTabbedPnl(new PnlBoyScoutGeneralInfo());
+                pnlBoyScoutGeneralInfo.init();
+                updateTabbedPnl(pnlBoyScoutGeneralInfo);
                 break;
             default:
         }

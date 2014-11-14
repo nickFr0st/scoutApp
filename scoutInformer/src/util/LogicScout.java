@@ -1,6 +1,7 @@
 package util;
 
 import constants.KeyConst;
+import scout.dbObjects.Scout;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -27,7 +28,7 @@ public class LogicScout {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT name FROM boyScout ORDER BY name");
+            ResultSet rs = statement.executeQuery("SELECT name FROM scout ORDER BY name");
 
             while(rs.next()) {
                 ScoutNameList.add(rs.getString(KeyConst.SCOUT_NAME.getName()));
@@ -38,5 +39,32 @@ public class LogicScout {
         }
 
         return ScoutNameList;
+    }
+
+    public static Scout findByName(String name) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        Scout scout = null;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM scout WHERE name LIKE '" + name + "'");
+
+            if (rs.next()) {
+                scout = new Scout();
+                scout.setId(rs.getInt(KeyConst.SCOUT_ID.getName()));
+                scout.setName(rs.getString(KeyConst.SCOUT_NAME.getName()));
+                scout.setBirthDate(rs.getDate(KeyConst.SCOUT_BIRTH_DATE.getName()));
+                scout.setCurrentAdvancementId(rs.getInt(KeyConst.SCOUT_ADVANCEMENT_ID.getName()));
+                scout.setTypeId(rs.getInt(KeyConst.SCOUT_TYPE_ID.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return scout;
     }
 }

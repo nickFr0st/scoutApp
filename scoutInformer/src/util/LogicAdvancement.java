@@ -171,4 +171,29 @@ public class LogicAdvancement {
 
         return advancement;
     }
+
+    public static Advancement findById(int id) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        Advancement advancement = null;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM advancement WHERE id = " + id);
+
+            if (rs.next()) {
+                advancement = new Advancement();
+                advancement.setId(rs.getInt(KeyConst.ADVANCEMENT_ID.getName()));
+                advancement.setName(rs.getString(KeyConst.ADVANCEMENT_NAME.getName()));
+                advancement.setImgPath(rs.getString(KeyConst.ADVANCEMENT_IMG_PATH.getName()));
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return advancement;
+    }
 }

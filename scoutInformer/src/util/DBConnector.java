@@ -272,14 +272,14 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableCounselor);
 
-        String tableBoyScout = "CREATE TABLE boyScout " +
+        String tableScout = "CREATE TABLE scout " +
                 "(id INT NOT NULL," +
                 " name VARCHAR(90) NOT NULL," +
                 " birthDate DATE NOT NULL," +
                 " advancementId INT NOT NULL," +
                 " typeId INT NOT NULL," +
                 " PRIMARY KEY (id))";
-        statement.addBatch(tableBoyScout);
+        statement.addBatch(tableScout);
 
         String tableContact = "CREATE TABLE contact " +
                 "(id INT NOT NULL," +

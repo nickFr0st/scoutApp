@@ -28,7 +28,6 @@ public enum KeyConst {
     SCOUT_ID("id"),
     SCOUT_NAME("name"),
     SCOUT_BIRTH_DATE("birthDate"),
-    SCOUT_PHONE_NUMBER("phoneNumber"),
     SCOUT_ADVANCEMENT_ID("advancementId"),
     SCOUT_TYPE_ID("typeId"),
 

@@ -6,9 +6,11 @@ package scout.clientPnls.boyScoutPnls;
 
 import guiUtil.JTextFieldDefaultText;
 import scout.dbObjects.Advancement;
+import scout.dbObjects.Scout;
 import util.LogicAdvancement;
 import util.Util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -16,29 +18,130 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author User #2
  */
 public class PnlBoyScoutGeneralInfo extends JPanel {
+    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
 
     private DefaultTableModel tableModelContacts;
-    private DefaultTableModel tableModelParents;
+    private Scout scout;
+    private SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 
     public PnlBoyScoutGeneralInfo() {
         initComponents();
-
-        init();
     }
 
-    private void init() {
+    public void init() {
         List<Advancement> advancementList = LogicAdvancement.findAllAdvancements();
         if (!Util.isEmpty(advancementList)) {
-            for(Advancement advancement : advancementList) {
+            for (Advancement advancement : advancementList) {
                 cboCurrentRank.addItem(advancement.getName());
             }
         }
+
+        if (scout == null) {
+            return;
+        }
+
+        txtName.setText(scout.getName());
+
+        txtBirthDate.setText(df.format(scout.getBirthDate()));
+        updateAge();
+
+        Advancement advancement = LogicAdvancement.findById(scout.getCurrentAdvancementId());
+        cboCurrentRank.setSelectedItem(advancement.getName());
+        loadImage(advancement.getImgPath());
+
+        updateContactTable();
+
+        revalidate();
+        repaint();
+    }
+
+    private void updateContactTable() {
+        clearContactTable();
+        // todo: create a logicContact then update the contact list
+    }
+
+    private void updateAge() {
+        Calendar a = getCalendar(scout.getBirthDate());
+        Calendar b = getCalendar(new Date());
+
+        Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff--;
+        }
+        lblAgeValue.setText(diff.toString());
+    }
+
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.US);
+        cal.setTime(date);
+        return cal;
+    }
+
+    private void clearContactTable() {
+        if (tableModelContacts.getRowCount() > 0) {
+            int rowCount = tableModelContacts.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) {
+                tableModelContacts.removeRow(i);
+            }
+        }
+    }
+
+    public void setScout(Scout scout) {
+        this.scout = scout;
+    }
+
+    private void setImage(String imgPath) {
+        try {
+            BufferedImage img = ImageIO.read(new File(imgPath));
+
+            int height = img.getHeight() > lblImage.getHeight() ? lblImage.getHeight() : img.getHeight();
+            int width = img.getWidth() > lblImage.getWidth() ? lblImage.getWidth() : img.getWidth();
+
+            if (width == 0 || height == 0) {
+                width = 128;
+                height = 128;
+            }
+
+            lblImage.setIcon(new ImageIcon(img.getScaledInstance(width, height, Image.SCALE_SMOOTH)));
+        } catch (IOException ignore) {
+        }
+    }
+
+    private void loadImage(String imagePath) {
+        URL imgPath = getClass().getResource(imagePath);
+        if (imgPath == null) {
+            ImageIcon tryPath = new ImageIcon(imagePath);
+            if (tryPath.getImageLoadStatus() < MediaTracker.COMPLETE) {
+                lblImage.setIcon(noImageIcon);
+            } else {
+                setImage(imagePath);
+            }
+        } else {
+            setImage(imgPath.getPath());
+        }
+    }
+
+    public void clearErrors() {
+        lblBirthDateError.setText("");
+        lblBirthDateError.setVisible(false);
+
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
     }
 
     private void createUIComponents() {
