@@ -192,7 +192,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
             grid = 0;
         }
 
-        // todo: take note when saving that an id of -1 is a new requirement
+        // take note when saving that an id of -1 is a new requirement
         PnlRequirement pnlRequirement = new PnlRequirement("[num]", "[Description]", grid++ > 0, -1);
         pnlRequirements.add(pnlRequirement);
 
