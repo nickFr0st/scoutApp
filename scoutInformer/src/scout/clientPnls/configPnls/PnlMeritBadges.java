@@ -1014,6 +1014,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             scrollPane1.setName("scrollPane1");
 
             //---- tblCounselors ----
+            tblCounselors.setBackground(Color.white);
+            tblCounselors.setFillsViewportHeight(true);
             tblCounselors.setName("tblCounselors");
             scrollPane1.setViewportView(tblCounselors);
         }
