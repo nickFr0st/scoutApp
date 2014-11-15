@@ -139,10 +139,13 @@ new FormModel {
 					name: "cboCurrentRank"
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
 					"background": new java.awt.Color( 255, 255, 255, 255 )
+					auxiliary() {
+						"JavaCodeGenerator.customCreate": true
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cboCurrentRankActionPerformed", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
 					"gridy": 4
-					"insets": new java.awt.Insets( 5, 0, 0, 0 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1

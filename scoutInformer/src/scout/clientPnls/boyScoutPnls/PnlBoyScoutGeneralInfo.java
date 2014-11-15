@@ -20,6 +20,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -72,6 +74,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         }
 
         updateContactTable();
+        cboCurrentRank.setSelectedItem(LogicAdvancement.findById(scout.getCurrentAdvancementId()).getName());
 
         revalidate();
         repaint();
@@ -180,6 +183,14 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         for (int i = 0; i < 4; ++i) {
             tblContacts.getColumnModel().getColumn(i).setCellRenderer(tableCellRenderer);
         }
+
+        cboCurrentRank = new JComboBox();
+        List<Advancement> advancementList = LogicAdvancement.findAllAdvancements();
+        if (!Util.isEmpty(advancementList)) {
+            for (Advancement advancement : advancementList) {
+                cboCurrentRank.addItem(advancement.getName());
+            }
+        }
     }
 
     private void btnNewContactMouseClicked() {
@@ -201,6 +212,12 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         tableModelContacts.removeRow(tblContacts.getSelectedRow());
     }
 
+    private void cboCurrentRankActionPerformed() {
+        Advancement advancement = LogicAdvancement.findByName(cboCurrentRank.getSelectedItem().toString());
+        loadImage(advancement.getImgPath());
+        scout.setCurrentAdvancementId(advancement.getId());
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         createUIComponents();
@@ -217,7 +234,6 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         lblAgeValue = new JLabel();
         lblBirthDateError = new JLabel();
         lblCurrentRank = new JLabel();
-        cboCurrentRank = new JComboBox();
         vSpacer1 = new JPanel(null);
         panel1 = new JPanel();
         panel2 = new JPanel();
@@ -360,9 +376,15 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             cboCurrentRank.setFont(new Font("Tahoma", Font.PLAIN, 14));
             cboCurrentRank.setBackground(Color.white);
             cboCurrentRank.setName("cboCurrentRank");
+            cboCurrentRank.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    cboCurrentRankActionPerformed();
+                }
+            });
             pnlGeneralInfo.add(cboCurrentRank, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(5, 0, 0, 5), 0, 0));
+                new Insets(0, 0, 0, 5), 0, 0));
         }
         add(pnlGeneralInfo, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
