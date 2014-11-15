@@ -33,4 +33,14 @@ public enum ContactTypeConst {
 
         return null;
     }
+
+    public static int getIdByName(String name) {
+        for (ContactTypeConst typeConst : ContactTypeConst.values()) {
+            if (typeConst.getName().equals(name)) {
+                return typeConst.getId();
+            }
+        }
+
+        return ContactTypeConst.HOME.getId();
+    }
 }

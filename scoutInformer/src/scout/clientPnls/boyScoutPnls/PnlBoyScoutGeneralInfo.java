@@ -183,7 +183,14 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     private void btnNewContactMouseClicked() {
-        // TODO add your code here
+        ContactDialog dialog = new ContactDialog((JFrame) SwingUtilities.getWindowAncestor(this));
+        dialog.setVisible(true);
+
+        if (dialog.getBtnChoice() == ContactDialog.BTN_OK) {
+            Contact contact = dialog.getContact();
+            Object[] row = new Object[] {ContactTypeConst.getNameById(contact.getTypeId()), contact.getName(), contact.getRelation(), contact.getData()};
+            tableModelContacts.addRow(row);
+        }
     }
 
     private void btnDeleteContactMouseClicked() {
