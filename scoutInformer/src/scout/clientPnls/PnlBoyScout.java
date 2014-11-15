@@ -20,6 +20,10 @@ import java.util.ArrayList;
  * @author User #2
  */
 public class PnlBoyScout extends JPanel implements PnlGui {
+    private final String TRACKING = "Tracking";
+    private final String GENERAL_INFORMATION = "General Information";
+    private final String DETAILS = "Details";
+
     private JPanel currentPnl;
     private Scout scout;
 
@@ -34,9 +38,9 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void init() {
-        cboScoutTab.addItem("Tracking");
-        cboScoutTab.addItem("General Information");
-        cboScoutTab.addItem("Details");
+        cboScoutTab.addItem(TRACKING);
+        cboScoutTab.addItem(GENERAL_INFORMATION);
+        cboScoutTab.addItem(DETAILS);
         cboScoutTab.setSelectedIndex(0);
     }
 
@@ -101,7 +105,13 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnNewMouseClicked() {
-        // TODO add your code here
+        pnlBoyScoutGeneralInfo.setScout(new Scout());
+        cboScoutTab.setEnabled(true);
+        btnDelete.setVisible(false);
+        btnSave.setVisible(true);
+        btnUpdate.setVisible(false);
+        cboScoutTab.setSelectedItem(GENERAL_INFORMATION);
+//        cboScoutTabActionPerformed();
     }
 
     private void btnUpdateMouseClicked() {

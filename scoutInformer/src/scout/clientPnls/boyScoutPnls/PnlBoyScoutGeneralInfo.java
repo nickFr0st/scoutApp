@@ -38,7 +38,8 @@ import java.util.Locale;
  * @author User #2
  */
 public class PnlBoyScoutGeneralInfo extends JPanel {
-    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
+    private final ImageIcon NO_IMAGE_ICON = new ImageIcon(getClass().getResource("/images/no_image.png"));
+    private final Integer MIN_AGE = 11;
 
     private DefaultTableModel tableModelContacts;
     private Scout scout;
@@ -56,7 +57,8 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             }
         }
 
-        if (scout == null) {
+        if (scout == null || scout.getId() < 0) {
+            clearData();
             return;
         }
 
@@ -70,7 +72,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             cboCurrentRank.setSelectedItem(advancement.getName());
             loadImage(advancement.getImgPath());
         } else {
-            lblImage.setIcon(noImageIcon);
+            lblImage.setIcon(NO_IMAGE_ICON);
         }
 
         updateContactTable();
@@ -78,6 +80,20 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         revalidate();
         repaint();
+    }
+
+    private void clearData() {
+        txtName.setDefault();
+        txtBirthDate.setDefault();
+        if (cboCurrentRank.getItemCount() > 0) {
+            cboCurrentRank.setSelectedIndex(0);
+        }
+        lblAgeValue.setText(MIN_AGE.toString());
+
+        clearErrors();
+        clearContactTable();
+
+        txtName.requestFocus();
     }
 
     private void updateContactTable() {
@@ -147,7 +163,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         if (imgPath == null) {
             ImageIcon tryPath = new ImageIcon(imagePath);
             if (tryPath.getImageLoadStatus() < MediaTracker.COMPLETE) {
-                lblImage.setIcon(noImageIcon);
+                lblImage.setIcon(NO_IMAGE_ICON);
             } else {
                 setImage(imagePath);
             }
