@@ -343,6 +343,7 @@ new FormModel {
 					name: "tblCounselors"
 					"background": new java.awt.Color( 255, 255, 255, 255 )
 					"fillsViewportHeight": true
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
 					auxiliary() {
 						"JavaCodeGenerator.customCreate": true
 					}

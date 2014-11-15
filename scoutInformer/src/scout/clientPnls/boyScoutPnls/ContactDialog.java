@@ -106,20 +106,16 @@ public class ContactDialog extends JDialog {
             if (txtEmail.isMessageDefault()) {
                 Util.setError(lblEmailError, "Cannot leave contact data blank");
                 hasErrors = true;
-            }
-
-            if (!Util.validateEmail(txtEmail.getText())) {
-                Util.setError(lblPhoneError, "contact data format is invalid.");
+            } else if (!Util.validateEmail(txtEmail.getText())) {
+                Util.setError(lblPhoneError, "contact data format is invalid");
                 hasErrors = true;
             }
         } else {
             if (txtPhone.isMessageDefault()) {
                 Util.setError(lblPhoneError, "Cannot leave contact data blank");
                 hasErrors = true;
-            }
-
-            if (!Util.validatePhoneNumber(txtPhone.getText())) {
-                Util.setError(lblPhoneError, "contact data format is invalid.");
+            } else if (!Util.validatePhoneNumber(txtPhone.getText())) {
+                Util.setError(lblPhoneError, "contact data format is invalid");
                 hasErrors = true;
             }
         }

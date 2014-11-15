@@ -596,8 +596,14 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     }
 
     private void btnNewCounselorMouseClicked() {
-        Object[] rowData = new Object[]{"", ""};
-        tableModel.addRow(rowData);
+        CounselorDialog dialog = new CounselorDialog((JFrame) SwingUtilities.getWindowAncestor(this));
+        dialog.setVisible(true);
+
+        if (dialog.getBtnChoice() == CounselorDialog.BTN_OK) {
+            Counselor counselor = dialog.getCounselor();
+            Object[] row = new Object[] {counselor.getName(), counselor.getPhoneNumber()};
+            tableModel.addRow(row);
+        }
     }
 
     private void btnDeleteCounselorMouseClicked() {
@@ -1016,6 +1022,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             //---- tblCounselors ----
             tblCounselors.setBackground(Color.white);
             tblCounselors.setFillsViewportHeight(true);
+            tblCounselors.setFont(new Font("Tahoma", Font.PLAIN, 14));
             tblCounselors.setName("tblCounselors");
             scrollPane1.setViewportView(tblCounselors);
         }
