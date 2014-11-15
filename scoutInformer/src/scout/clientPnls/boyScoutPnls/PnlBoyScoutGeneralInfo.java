@@ -182,12 +182,16 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         }
     }
 
-    private void btnDeleteCounselorMouseClicked() {
+    private void btnNewContactMouseClicked() {
         // TODO add your code here
     }
 
-    private void btnNewContactMouseClicked() {
-        // TODO add your code here
+    private void btnDeleteContactMouseClicked() {
+        if (tblContacts.getSelectedRow() < 0) {
+            return;
+        }
+
+        tableModelContacts.removeRow(tblContacts.getSelectedRow());
     }
 
     private void initComponents() {
@@ -428,7 +432,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 btnDeleteContact.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-                        btnDeleteCounselorMouseClicked();
+                        btnDeleteContactMouseClicked();
                     }
                 });
                 panel2.add(btnDeleteContact, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
