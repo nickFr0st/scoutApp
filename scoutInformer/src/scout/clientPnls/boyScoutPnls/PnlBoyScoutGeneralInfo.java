@@ -4,15 +4,19 @@
 
 package scout.clientPnls.boyScoutPnls;
 
+import constants.ContactTypeConst;
 import guiUtil.JTextFieldDefaultText;
 import scout.dbObjects.Advancement;
+import scout.dbObjects.Contact;
 import scout.dbObjects.Scout;
 import util.LogicAdvancement;
+import util.LogicContact;
 import util.Util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
@@ -60,8 +64,12 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         updateAge();
 
         Advancement advancement = LogicAdvancement.findById(scout.getCurrentAdvancementId());
-        cboCurrentRank.setSelectedItem(advancement.getName());
-        loadImage(advancement.getImgPath());
+        if (advancement != null) {
+            cboCurrentRank.setSelectedItem(advancement.getName());
+            loadImage(advancement.getImgPath());
+        } else {
+            lblImage.setIcon(noImageIcon);
+        }
 
         updateContactTable();
 
@@ -70,8 +78,17 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     private void updateContactTable() {
+        if (scout == null) {
+            return;
+        }
+
         clearContactTable();
-        // todo: create a logicContact then update the contact list
+
+        List<Contact> contactList = LogicContact.findAllByScoutId(scout.getId());
+        for (Contact contact : contactList) {
+            Object[] row = new Object[]{ContactTypeConst.getNameById(contact.getTypeId()), contact.getName(), contact.getRelation(), contact.getData()};
+            tableModelContacts.addRow(row);
+        }
     }
 
     private void updateAge() {
@@ -145,10 +162,14 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     private void createUIComponents() {
+        DefaultTableCellRenderer tableCellRenderer = new DefaultTableCellRenderer();
+        tableCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+
         tableModelContacts = new DefaultTableModel(new Object[] {"Type", "Name", "Relation", "Data"}, 0);
 
         tblContacts = new JTable();
         tblContacts.setBackground(Color.WHITE);
+
 
         JTableHeader headerContacts = tblContacts.getTableHeader();
         headerContacts.setBackground(new Color(51, 102, 153));
@@ -156,7 +177,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         headerContacts.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
         tblContacts.setModel(tableModelContacts);
-        tblContacts.setSurrendersFocusOnKeystroke(true);
+        for (int i = 0; i < 4; ++i) {
+            tblContacts.getColumnModel().getColumn(i).setCellRenderer(tableCellRenderer);
+        }
     }
 
     private void btnDeleteCounselorMouseClicked() {

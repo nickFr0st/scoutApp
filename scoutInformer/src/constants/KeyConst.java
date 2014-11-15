@@ -31,6 +31,14 @@ public enum KeyConst {
     SCOUT_ADVANCEMENT_ID("advancementId"),
     SCOUT_TYPE_ID("typeId"),
 
+    // Contact Table
+    CONTACT_ID("id"),
+    CONTACT_SCOUT_ID("scoutId"),
+    CONTACT_TYPE_ID("typeId"),
+    CONTACT_NAME("name"),
+    CONTACT_RELATION("relation"),
+    CONTACT_DATA("data"),
+
     // Counselor Table
     COUNSELOR_ID("id"),
     COUNSELOR_NAME("name"),
