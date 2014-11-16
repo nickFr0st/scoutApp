@@ -970,7 +970,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnNewCounselor.setHorizontalAlignment(SwingConstants.CENTER);
         btnNewCounselor.setBackground(Color.white);
         btnNewCounselor.setOpaque(true);
-        btnNewCounselor.setToolTipText("Add New Requirement");
+        btnNewCounselor.setToolTipText("Add new counselor");
         btnNewCounselor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewCounselor.setName("btnNewCounselor");
         btnNewCounselor.addMouseListener(new MouseAdapter() {
@@ -991,7 +991,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnDeleteCounselor.setHorizontalAlignment(SwingConstants.CENTER);
         btnDeleteCounselor.setBackground(Color.white);
         btnDeleteCounselor.setOpaque(true);
-        btnDeleteCounselor.setToolTipText("Delete selected requirement");
+        btnDeleteCounselor.setToolTipText("Delete selected counselor");
         btnDeleteCounselor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnDeleteCounselor.setName("btnDeleteCounselor");
         btnDeleteCounselor.addMouseListener(new MouseAdapter() {

@@ -734,7 +734,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         btnNewRequirement.setHorizontalAlignment(SwingConstants.CENTER);
         btnNewRequirement.setBackground(Color.white);
         btnNewRequirement.setOpaque(true);
-        btnNewRequirement.setToolTipText("Add New Requirement");
+        btnNewRequirement.setToolTipText("Add new requirement");
         btnNewRequirement.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewRequirement.setName("btnNewRequirement");
         btnNewRequirement.addMouseListener(new MouseAdapter() {

@@ -297,7 +297,7 @@ new FormModel {
 				"horizontalAlignment": 0
 				"background": #Color1
 				"opaque": true
-				"toolTipText": "Add New Requirement"
+				"toolTipText": "Add new counselor"
 				"cursor": #Cursor0
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewCounselorMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
@@ -315,7 +315,7 @@ new FormModel {
 				"horizontalAlignment": 0
 				"background": #Color2
 				"opaque": true
-				"toolTipText": "Delete selected requirement"
+				"toolTipText": "Delete selected counselor"
 				"cursor": #Cursor0
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteCounselorMouseClicked", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
