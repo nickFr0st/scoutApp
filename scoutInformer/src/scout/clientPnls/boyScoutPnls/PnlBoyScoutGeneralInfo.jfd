@@ -197,7 +197,7 @@ new FormModel {
 						"horizontalAlignment": 0
 						"background": new java.awt.Color( 255, 255, 255, 255 )
 						"opaque": true
-						"toolTipText": "Add New Requirement"
+						"toolTipText": "Add new contact information"
 						"cursor": &Cursor0 new java.awt.Cursor( 12 )
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewContactMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
@@ -214,7 +214,7 @@ new FormModel {
 						"horizontalAlignment": 0
 						"background": new java.awt.Color( 255, 255, 255, 255 )
 						"opaque": true
-						"toolTipText": "Delete selected requirement"
+						"toolTipText": "Delete selected contact information"
 						"cursor": #Cursor0
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteContactMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {

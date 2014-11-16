@@ -12,10 +12,7 @@ import util.Util;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 /**
  * @author User #2
@@ -61,6 +58,30 @@ public class ContactDialog extends JDialog {
         revalidate();
     }
 
+    private void clearNameErrors() {
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
+        revalidate();
+    }
+
+    private void clearRelationErrors() {
+        lblRelationError.setText("");
+        lblRelationError.setVisible(false);
+        revalidate();
+    }
+
+    private void clearEmailErrors() {
+        lblEmailError.setText("");
+        lblEmailError.setVisible(false);
+        revalidate();
+    }
+
+    private void clearPhoneErrors() {
+        lblPhoneError.setText("");
+        lblPhoneError.setVisible(false);
+        revalidate();
+    }
+
     public Contact getContact() {
         return contact;
     }
@@ -92,18 +113,18 @@ public class ContactDialog extends JDialog {
         clearErrors();
         boolean hasErrors = false;
 
-        if (txtName.isMessageDefault()) {
+        if (txtName.isMessageDefault() || Util.isEmpty(txtName.getText())) {
             Util.setError(lblNameError, "Cannot leave name blank");
             hasErrors = true;
         }
 
-        if (txtRelation.isMessageDefault()) {
+        if (txtRelation.isMessageDefault() || Util.isEmpty(txtRelation.getText())) {
             Util.setError(lblRelationError, "Cannot leave relation blank");
             hasErrors = true;
         }
 
         if (cboType.getSelectedItem().toString().equals(ContactTypeConst.EMAIL.getName())) {
-            if (txtEmail.isMessageDefault()) {
+            if (txtEmail.isMessageDefault() || Util.isEmpty(txtEmail.getText())) {
                 Util.setError(lblEmailError, "Cannot leave contact data blank");
                 hasErrors = true;
             } else if (!Util.validateEmail(txtEmail.getText())) {
@@ -111,7 +132,7 @@ public class ContactDialog extends JDialog {
                 hasErrors = true;
             }
         } else {
-            if (txtPhone.isMessageDefault()) {
+            if (txtPhone.isMessageDefault() || Util.isEmpty(txtPhone.getText())) {
                 Util.setError(lblPhoneError, "Cannot leave contact data blank");
                 hasErrors = true;
             } else if (!Util.validatePhoneNumber(txtPhone.getText())) {
@@ -121,6 +142,42 @@ public class ContactDialog extends JDialog {
         }
 
         return !hasErrors;
+    }
+
+    private void validateName() {
+        clearNameErrors();
+
+        if (txtName.isMessageDefault() || Util.isEmpty(txtName.getText())) {
+            Util.setError(lblNameError, "Cannot leave name blank");
+        }
+    }
+
+    private void validateRelation() {
+        clearRelationErrors();
+
+        if (txtRelation.isMessageDefault() || Util.isEmpty(txtRelation.getText())) {
+            Util.setError(lblRelationError, "Cannot leave relation blank");
+        }
+    }
+
+    private void validateEmail() {
+        clearEmailErrors();
+
+        if (txtEmail.isMessageDefault() || Util.isEmpty(txtEmail.getText())) {
+            Util.setError(lblEmailError, "Cannot leave contact data blank");
+        } else if (!Util.validateEmail(txtEmail.getText())) {
+            Util.setError(lblPhoneError, "contact data format is invalid");
+        }
+    }
+
+    private void validatePhone() {
+        clearPhoneErrors();
+
+        if (txtPhone.isMessageDefault() || Util.isEmpty(txtPhone.getText())) {
+            Util.setError(lblPhoneError, "Cannot leave contact data blank");
+        } else if (!Util.validatePhoneNumber(txtPhone.getText())) {
+            Util.setError(lblPhoneError, "contact data format is invalid");
+        }
     }
 
     public int getBtnChoice() {
@@ -222,6 +279,18 @@ public class ContactDialog extends JDialog {
                 txtName.setDefaultText("Name");
                 txtName.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtName.setName("txtName");
+                txtName.addFocusListener(new FocusAdapter() {
+                    @Override
+                    public void focusLost(FocusEvent e) {
+                        validateName();
+                    }
+                });
+                txtName.addKeyListener(new KeyAdapter() {
+                    @Override
+                    public void keyReleased(KeyEvent e) {
+                        validateName();
+                    }
+                });
                 contentPanel.add(txtName, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 5, 0), 0, 0));
@@ -249,6 +318,18 @@ public class ContactDialog extends JDialog {
                 txtRelation.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 txtRelation.setDefaultText("(Parent, Self, etc.)");
                 txtRelation.setName("txtRelation");
+                txtRelation.addFocusListener(new FocusAdapter() {
+                    @Override
+                    public void focusLost(FocusEvent e) {
+                        validateRelation();
+                    }
+                });
+                txtRelation.addKeyListener(new KeyAdapter() {
+                    @Override
+                    public void keyReleased(KeyEvent e) {
+                        validateRelation();
+                    }
+                });
                 contentPanel.add(txtRelation, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 5, 0), 0, 0));
@@ -286,6 +367,18 @@ public class ContactDialog extends JDialog {
                     txtEmail.setDefaultText("example@email.com");
                     txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
                     txtEmail.setName("txtEmail");
+                    txtEmail.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyReleased(KeyEvent e) {
+                            validateEmail();
+                        }
+                    });
+                    txtEmail.addFocusListener(new FocusAdapter() {
+                        @Override
+                        public void focusLost(FocusEvent e) {
+                            validateEmail();
+                        }
+                    });
                     pnlData.add(txtEmail, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 0), 0, 0));
@@ -304,6 +397,18 @@ public class ContactDialog extends JDialog {
                     txtPhone.setDefaultText("123-456-7890");
                     txtPhone.setFont(new Font("Tahoma", Font.PLAIN, 14));
                     txtPhone.setName("txtPhone");
+                    txtPhone.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyReleased(KeyEvent e) {
+                            validatePhone();
+                        }
+                    });
+                    txtPhone.addFocusListener(new FocusAdapter() {
+                        @Override
+                        public void focusLost(FocusEvent e) {
+                            validatePhone();
+                        }
+                    });
                     pnlData.add(txtPhone, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 0), 0, 0));

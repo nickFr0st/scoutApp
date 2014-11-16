@@ -719,7 +719,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 btnNewContact.setHorizontalAlignment(SwingConstants.CENTER);
                 btnNewContact.setBackground(Color.white);
                 btnNewContact.setOpaque(true);
-                btnNewContact.setToolTipText("Add New Requirement");
+                btnNewContact.setToolTipText("Add new contact information");
                 btnNewContact.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 btnNewContact.setName("btnNewContact");
                 btnNewContact.addMouseListener(new MouseAdapter() {
@@ -740,7 +740,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 btnDeleteContact.setHorizontalAlignment(SwingConstants.CENTER);
                 btnDeleteContact.setBackground(Color.white);
                 btnDeleteContact.setOpaque(true);
-                btnDeleteContact.setToolTipText("Delete selected requirement");
+                btnDeleteContact.setToolTipText("Delete selected contact information");
                 btnDeleteContact.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 btnDeleteContact.setName("btnDeleteContact");
                 btnDeleteContact.addMouseListener(new MouseAdapter() {

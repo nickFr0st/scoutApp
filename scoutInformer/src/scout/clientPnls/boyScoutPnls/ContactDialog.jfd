@@ -50,6 +50,8 @@ new FormModel {
 						"preferredSize": &Dimension0 new java.awt.Dimension( 14, 40 )
 						"defaultText": "Name"
 						"font": #Font0
+						addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateName", false ) )
+						addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateName", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 1
 						"gridy": 1
@@ -76,6 +78,8 @@ new FormModel {
 						"preferredSize": new java.awt.Dimension( 14, 40 )
 						"font": #Font0
 						"defaultText": "(Parent, Self, etc.)"
+						addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateRelation", false ) )
+						addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateRelation", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 3
 						"gridx": 1
@@ -112,6 +116,8 @@ new FormModel {
 							"preferredSize": #Dimension0
 							"defaultText": "example@email.com"
 							"font": #Font0
+							addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateEmail", false ) )
+							addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateEmail", false ) )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "lblEmailError"
@@ -126,6 +132,8 @@ new FormModel {
 							"preferredSize": #Dimension0
 							"defaultText": "123-456-7890"
 							"font": #Font0
+							addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validatePhone", false ) )
+							addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validatePhone", false ) )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 							"gridy": 2
 						} )
