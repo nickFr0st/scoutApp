@@ -47,4 +47,42 @@ public class LogicContact {
 
         return contactList;
     }
+
+    public static void saveList(List<Contact> contactList) {
+        if (Util.isEmpty(contactList) || !connector.checkForDataBaseConnection()) {
+            return;
+        }
+
+        for (Contact contact : contactList) {
+
+            if (contact.getId() < 0) {
+                contact.setId(getNextId());
+            }
+
+            try {
+                Statement statement = connector.createStatement();
+                statement.executeUpdate("INSERT INTO contact VALUES( " + contact.getId() + "," + contact.getScoutId() + "," + contact.getTypeId() + ",'" + contact.getName() + "', '" + contact.getRelation() + "','" + contact.getData() + "')");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static int getNextId() {
+        int id = 1;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM contact");
+
+            if(rs.next()) {
+                id = rs.getInt(KeyConst.CONTACT_ID.getName()) + 1;
+            }
+
+        } catch (Exception e) {
+            id = -1;
+        }
+
+        return id;
+    }
 }

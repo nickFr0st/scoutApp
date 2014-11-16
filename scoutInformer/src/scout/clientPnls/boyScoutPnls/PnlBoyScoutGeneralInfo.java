@@ -28,10 +28,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -340,7 +338,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             count++;
         }
 
-        return false;
+        return true;
     }
 
     private boolean validateBirthDate() {
@@ -464,6 +462,26 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         scout.setTypeId(ScoutTypeConst.BOY_SCOUT.getId());
 
         LogicScout.save(scout);
+
+        int colType = 0;
+        int colName = 1;
+        int colRelation = 2;
+        int colData = 3;
+
+        List<Contact> contactList = new ArrayList<Contact>();
+        if (tableModelContacts.getRowCount() > 0) {
+            for (int i = 0; i < tblContacts.getRowCount(); ++i) {
+                Contact contact = new Contact();
+                contact.setTypeId(ContactTypeConst.getIdByName((String)tableModelContacts.getValueAt(i, colType)));
+                contact.setName((String)tableModelContacts.getValueAt(i, colName));
+                contact.setRelation((String)tableModelContacts.getValueAt(i, colRelation));
+                contact.setData((String)tableModelContacts.getValueAt(i, colData));
+                contact.setScoutId(scout.getId());
+                contactList.add(contact);
+            }
+        }
+
+        LogicContact.saveList(contactList);
     }
 
     private void txtBirthDateKeyReleased() {

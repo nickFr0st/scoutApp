@@ -100,7 +100,7 @@ public class LogicScout {
             ResultSet rs = statement.executeQuery("SELECT MAX(id) AS id FROM scout");
 
             if(rs.next()) {
-                id = rs.getInt(KeyConst.ADVANCEMENT_ID.getName()) + 1;
+                id = rs.getInt(KeyConst.SCOUT_ID.getName()) + 1;
             }
 
         } catch (Exception e) {
