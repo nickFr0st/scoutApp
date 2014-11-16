@@ -14,6 +14,8 @@ import java.util.Properties;
  * Created by Malloch on 6/29/14
  */
 public class Util {
+    public static final String DATE_PATTERN = "(\\d{2})/(\\d{2})/(\\d{4})";
+
     public static boolean isEmpty(String s) {
         return s == null || s.isEmpty();
     }

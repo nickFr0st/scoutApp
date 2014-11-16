@@ -20,10 +20,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -33,13 +30,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author User #2
  */
+@SuppressWarnings("MagicConstant")
 public class PnlBoyScoutGeneralInfo extends JPanel {
     private final ImageIcon NO_IMAGE_ICON = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private final Integer MIN_AGE = 11;
+    private final Integer MAX_AGE = 18;
 
     private DefaultTableModel tableModelContacts;
     private Scout scout;
@@ -50,6 +51,8 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     public void init() {
+        clearErrors();
+
         List<Advancement> advancementList = LogicAdvancement.findAllAdvancements();
         if (!Util.isEmpty(advancementList)) {
             for (Advancement advancement : advancementList) {
@@ -178,13 +181,39 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         lblNameError.setText("");
         lblNameError.setVisible(false);
+
+        lblContactError.setText("");
+        lblContactError.setVisible(false);
+    }
+
+    public void clearContactErrors() {
+        lblContactError.setText("");
+        lblContactError.setVisible(false);
+    }
+
+    public void clearBirthDateErrors() {
+        lblBirthDateError.setText("");
+        lblBirthDateError.setVisible(false);
+    }
+
+    public void clearNameErrors() {
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
     }
 
     private void createUIComponents() {
         DefaultTableCellRenderer tableCellRenderer = new DefaultTableCellRenderer();
         tableCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 
-        tableModelContacts = new DefaultTableModel(new Object[] {"Type", "Name", "Relation", "Data"}, 0);
+        tableModelContacts = new DefaultTableModel(new Object[] {"Type", "Name", "Relation", "Data"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                if (column == 0) {
+                    return false;
+                }
+                return true;
+            }
+        };
 
         tblContacts = new JTable();
         tblContacts.setBackground(Color.WHITE);
@@ -234,6 +263,223 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         scout.setCurrentAdvancementId(advancement.getId());
     }
 
+    public boolean validateInfo() {
+        clearErrors();
+        boolean hasErrors = false;
+
+        if (!validateName()) {
+            hasErrors = true;
+        }
+
+        if (!validateBirthDate()) {
+            hasErrors = true;
+        }
+
+        if (!validateContacts()) {
+            hasErrors = true;
+        }
+
+        return !hasErrors;
+    }
+
+    private boolean validateContacts() {
+        clearContactErrors();
+
+        if (tableModelContacts.getRowCount() <= 0) {
+            return true;
+        }
+
+        int colType = 0;
+        int colName = 1;
+        int colRelation = 2;
+        int colData = 3;
+
+        int count = 1;
+
+        for (int rowIndex = 0; rowIndex < tableModelContacts.getRowCount(); ++rowIndex) {
+            String errorLine = " line: " + count;
+
+            String type = (String)tableModelContacts.getValueAt(rowIndex, colType);
+            String name = (String)tableModelContacts.getValueAt(rowIndex, colName);
+            String relation = (String)tableModelContacts.getValueAt(rowIndex, colRelation);
+            String data = (String)tableModelContacts.getValueAt(rowIndex, colData);
+
+            if (Util.isEmpty(name)) {
+                Util.setError(lblContactError, "Cannot leave name blank." + errorLine);
+                return false;
+            }
+
+            if (Util.isEmpty(relation)) {
+                Util.setError(lblContactError, "Cannot leave relation blank." + errorLine);
+                return false;
+            }
+
+            if (Util.isEmpty(data)) {
+                Util.setError(lblContactError, "Cannot leave data blank." + errorLine);
+                return false;
+            }
+
+            if (type.equals(ContactTypeConst.EMAIL.getName())) {
+                if (!Util.validateEmail(data)) {
+                    Util.setError(lblContactError, "invalid email format." + errorLine);
+                    return false;
+                }
+            } else {
+                if (!Util.validatePhoneNumber(data)) {
+                    Util.setError(lblContactError, "invalid phone number format." + errorLine);
+                    return false;
+                }
+            }
+
+            count++;
+        }
+
+        return false;
+    }
+
+    private boolean validateBirthDate() {
+
+        if (txtBirthDate.isMessageDefault() || Util.isEmpty(txtBirthDate.getText())) {
+            Util.setError(lblBirthDateError, "Cannot leave birth date blank");
+            return false;
+        }
+
+        if (!txtBirthDate.getText().matches(Util.DATE_PATTERN)) {
+            Util.setError(lblBirthDateError, "invalid format");
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtBirthDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            if (month > 12 || month < 1) {
+                Util.setError(lblBirthDateError, "invalid month");
+                return false;
+            }
+
+            if (isThirtyOneDayMonth(month)) {
+                if (day > 31 || month < 0) {
+                    Util.setError(lblBirthDateError, "invalid day");
+                    return false;
+                }
+            } else if (isThirtyDayMonth(month)) {
+                if (day > 30 || month < 0) {
+                    Util.setError(lblBirthDateError, "invalid day");
+                    return false;
+                }
+            } else {
+                boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+
+                if (isLeapYear) {
+                    if (day > 29 || month < 0) {
+                        Util.setError(lblBirthDateError, "invalid day");
+                        return false;
+                    }
+                } else {
+                    if (day > 28 || month < 0) {
+                        Util.setError(lblBirthDateError, "invalid day");
+                        return false;
+                    }
+                }
+            }
+
+            Calendar a = Calendar.getInstance();
+            a.set(year, month - 1, day);
+            Calendar b = getCalendar(new Date());
+
+            Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+            if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                    (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+                diff--;
+            }
+
+            if (diff > MAX_AGE) {
+                Util.setError(lblBirthDateError, "birth date is invalid as the scout will be too old. age: " + diff);
+                return false;
+            } else if (diff <= 0) {
+                Util.setError(lblBirthDateError, "birth date is invalid as the scout will not have been born yet.");
+                return false;
+            } else if (diff < MIN_AGE) {
+                Util.setError(lblBirthDateError, "birth date is invalid as the scout will be too young. age: " + diff);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean isThirtyDayMonth(int month) {
+        return (month == 4 || month == 6 || month == 9 || month == 11);
+    }
+
+    private boolean isThirtyOneDayMonth(int month) {
+        return (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12);
+    }
+
+    private boolean validateName() {
+        if (txtName.isMessageDefault()) {
+            Util.setError(lblNameError, "Cannot leave name blank");
+            return false;
+        }
+        return true;
+    }
+
+    public void save() {
+
+    }
+
+    private void txtBirthDateKeyReleased() {
+        checkBirthDate();
+    }
+
+    private void checkBirthDate() {
+        clearBirthDateErrors();
+
+        if(!validateBirthDate()) {
+            return;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtBirthDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            Calendar a = Calendar.getInstance();
+            a.set(year, month - 1, day);
+            Calendar b = getCalendar(new Date());
+
+            Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+            if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                    (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+                diff--;
+            }
+
+            lblAgeValue.setText(diff.toString());
+        }
+    }
+
+    private void txtNameKeyReleased() {
+        clearNameErrors();
+        validateName();
+    }
+
+    private void txtNameFocusLost() {
+        clearNameErrors();
+        validateName();
+    }
+
+    private void txtBirthDateFocusLost() {
+        checkBirthDate();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         createUIComponents();
@@ -256,6 +502,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         label2 = new JLabel();
         btnNewContact = new JLabel();
         btnDeleteContact = new JLabel();
+        lblContactError = new JLabel();
         scrollPane1 = new JScrollPane();
 
         //======== this ========
@@ -318,6 +565,18 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             txtName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtName.setDefaultText("Scout Name");
             txtName.setName("txtName");
+            txtName.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    txtNameKeyReleased();
+                }
+            });
+            txtName.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    txtNameFocusLost();
+                }
+            });
             pnlGeneralInfo.add(txtName, new GridBagConstraints(1, 0, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 10), 0, 0));
@@ -326,11 +585,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblNameError.setText("* Error Message");
             lblNameError.setForeground(Color.red);
             lblNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
-            lblNameError.setVisible(false);
             lblNameError.setName("lblNameError");
-            pnlGeneralInfo.add(lblNameError, new GridBagConstraints(0, 1, 4, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(lblNameError, new GridBagConstraints(1, 1, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 10), 0, 0));
+                new Insets(0, 10, 5, 10), 0, 0));
 
             //---- lblBirthDate ----
             lblBirthDate.setText("Birth Date:");
@@ -347,6 +605,18 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             txtBirthDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtBirthDate.setDefaultText("MM/DD/YYYY");
             txtBirthDate.setName("txtBirthDate");
+            txtBirthDate.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    txtBirthDateKeyReleased();
+                }
+            });
+            txtBirthDate.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    txtBirthDateFocusLost();
+                }
+            });
             pnlGeneralInfo.add(txtBirthDate, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
@@ -373,11 +643,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblBirthDateError.setText("* Error Message");
             lblBirthDateError.setForeground(Color.red);
             lblBirthDateError.setFont(new Font("Tahoma", Font.ITALIC, 11));
-            lblBirthDateError.setVisible(false);
             lblBirthDateError.setName("lblBirthDateError");
-            pnlGeneralInfo.add(lblBirthDateError, new GridBagConstraints(0, 3, 4, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(lblBirthDateError, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 20, 5, 10), 0, 0));
+                new Insets(0, 10, 5, 10), 0, 0));
 
             //---- lblCurrentRank ----
             lblCurrentRank.setText("Current Rank:");
@@ -428,9 +697,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 panel2.setBackground(Color.white);
                 panel2.setName("panel2");
                 panel2.setLayout(new GridBagLayout());
-                ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
+                ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0};
                 ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0};
-                ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
+                ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
                 ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
                 //---- label2 ----
@@ -482,7 +751,16 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 });
                 panel2.add(btnDeleteContact, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE,
-                    new Insets(0, 0, 0, 0), 0, 0));
+                    new Insets(0, 0, 0, 5), 0, 0));
+
+                //---- lblContactError ----
+                lblContactError.setText("* Error Message");
+                lblContactError.setForeground(Color.red);
+                lblContactError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+                lblContactError.setName("lblContactError");
+                panel2.add(lblContactError, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 10, 0, 10), 0, 0));
             }
             panel1.add(panel2, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -530,6 +808,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     private JLabel label2;
     private JLabel btnNewContact;
     private JLabel btnDeleteContact;
+    private JLabel lblContactError;
     private JScrollPane scrollPane1;
     private JTable tblContacts;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
