@@ -109,4 +109,21 @@ public class LogicScout {
 
         return id;
     }
+
+    public static void delete(int id) {
+        if (id <= 0) {
+            return;
+        }
+
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM scout WHERE id = " + id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -29,7 +29,7 @@ public class LogicContact {
             Statement statement = connector.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM contact WHERE scoutId = " + scoutId);
 
-            if (rs.next()) {
+            while (rs.next()) {
                 Contact contact = new Contact();
                 contact.setId(rs.getInt(KeyConst.CONTACT_ID.getName()));
                 contact.setScoutId(rs.getInt(KeyConst.CONTACT_SCOUT_ID.getName()));
@@ -81,6 +81,41 @@ public class LogicContact {
 
         } catch (Exception e) {
             id = -1;
+        }
+
+        return id;
+    }
+
+    public static void deleteList(List<Integer> contactList) {
+        if (Util.isEmpty(contactList)) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM contact WHERE id IN (" + Util.listToString(contactList) + ")");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Integer findByNameTypeIdAndScoutId(String name, int typeId, int scoutId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        Integer id = null;
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT id FROM contact WHERE name LIKE '" + name + "' AND typeId = " + typeId + " AND scoutId = " + scoutId);
+
+            if (rs.next()) {
+                id = rs.getInt(KeyConst.CONTACT_ID.getName());
+            }
+
+        } catch (Exception e) {
+            return null;
         }
 
         return id;

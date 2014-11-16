@@ -41,6 +41,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     private final ImageIcon NO_IMAGE_ICON = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private final Integer MIN_AGE = 11;
     private final Integer MAX_AGE = 18;
+    private final int COL_TYPE = 0;
+    private final int COL_NAME = 1;
+    private final int COL_RELATION = 2;
+    private final int COL_DATA = 3;
 
     private DefaultTableModel tableModelContacts;
     private Scout scout;
@@ -293,20 +297,15 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             return true;
         }
 
-        int colType = 0;
-        int colName = 1;
-        int colRelation = 2;
-        int colData = 3;
-
         int count = 1;
 
         for (int rowIndex = 0; rowIndex < tableModelContacts.getRowCount(); ++rowIndex) {
             String errorLine = " line: " + count;
 
-            String type = (String)tableModelContacts.getValueAt(rowIndex, colType);
-            String name = (String)tableModelContacts.getValueAt(rowIndex, colName);
-            String relation = (String)tableModelContacts.getValueAt(rowIndex, colRelation);
-            String data = (String)tableModelContacts.getValueAt(rowIndex, colData);
+            String type = (String)tableModelContacts.getValueAt(rowIndex, COL_TYPE);
+            String name = (String)tableModelContacts.getValueAt(rowIndex, COL_NAME);
+            String relation = (String)tableModelContacts.getValueAt(rowIndex, COL_RELATION);
+            String data = (String)tableModelContacts.getValueAt(rowIndex, COL_DATA);
 
             if (Util.isEmpty(name)) {
                 Util.setError(lblContactError, "Cannot leave name blank." + errorLine);
@@ -433,6 +432,24 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         return true;
     }
 
+    public void delete() {
+        if (scout == null) {
+            return;
+        }
+
+        List<Integer> contactIdList = new ArrayList<Integer>();
+        if (tableModelContacts.getRowCount() > 0) {
+            for (int i = 0; i < tblContacts.getRowCount(); ++i) {
+                String name = (String) tableModelContacts.getValueAt(i, COL_NAME);
+                int typeId = ContactTypeConst.getIdByName((String)tableModelContacts.getValueAt(i, COL_TYPE));
+                contactIdList.add(LogicContact.findByNameTypeIdAndScoutId(name, typeId, scout.getId()));
+            }
+        }
+
+        LogicContact.deleteList(contactIdList);
+        LogicScout.delete(scout.getId());
+    }
+
     public void save() {
         // should run validateFields() before this method
 
@@ -463,19 +480,14 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         LogicScout.save(scout);
 
-        int colType = 0;
-        int colName = 1;
-        int colRelation = 2;
-        int colData = 3;
-
         List<Contact> contactList = new ArrayList<Contact>();
         if (tableModelContacts.getRowCount() > 0) {
             for (int i = 0; i < tblContacts.getRowCount(); ++i) {
                 Contact contact = new Contact();
-                contact.setTypeId(ContactTypeConst.getIdByName((String)tableModelContacts.getValueAt(i, colType)));
-                contact.setName((String)tableModelContacts.getValueAt(i, colName));
-                contact.setRelation((String)tableModelContacts.getValueAt(i, colRelation));
-                contact.setData((String)tableModelContacts.getValueAt(i, colData));
+                contact.setTypeId(ContactTypeConst.getIdByName((String)tableModelContacts.getValueAt(i, COL_TYPE)));
+                contact.setName((String) tableModelContacts.getValueAt(i, COL_NAME));
+                contact.setRelation((String) tableModelContacts.getValueAt(i, COL_RELATION));
+                contact.setData((String) tableModelContacts.getValueAt(i, COL_DATA));
                 contact.setScoutId(scout.getId());
                 contactList.add(contact);
             }

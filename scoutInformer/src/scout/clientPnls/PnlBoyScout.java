@@ -111,7 +111,6 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnSave.setVisible(true);
         btnUpdate.setVisible(false);
         cboScoutTab.setSelectedItem(GENERAL_INFORMATION);
-//        cboScoutTabActionPerformed();
     }
 
     private void btnUpdateMouseClicked() {
@@ -152,7 +151,16 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnDeleteMouseClicked() {
-        // TODO add your code here
+        // we will need to work backwards through each of the panels
+        // start with tracing
+        // then details
+        // then general information
+        if (listScoutNames.getSelectedValue() == null) {
+            return;
+        }
+
+        pnlBoyScoutGeneralInfo.delete();
+        clearData();
     }
 
     private void txtSearchNameKeyReleased() {
