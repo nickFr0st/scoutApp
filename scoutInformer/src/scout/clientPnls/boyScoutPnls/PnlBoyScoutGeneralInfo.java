@@ -5,12 +5,14 @@
 package scout.clientPnls.boyScoutPnls;
 
 import constants.ContactTypeConst;
+import constants.ScoutTypeConst;
 import guiUtil.JTextFieldDefaultText;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Contact;
 import scout.dbObjects.Scout;
 import util.LogicAdvancement;
 import util.LogicContact;
+import util.LogicScout;
 import util.Util;
 
 import javax.imageio.ImageIO;
@@ -83,6 +85,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         revalidate();
         repaint();
+    }
+
+    public Scout getScout() {
+        return scout;
     }
 
     private void clearData() {
@@ -430,7 +436,34 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     public void save() {
+        // should run validateFields() before this method
 
+        Scout existingScout = LogicScout.findByName(txtName.getText());
+        if (existingScout != null) {
+            Util.setError(lblNameError, "This scout name already exists");
+            return;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtBirthDate.getText());
+
+        if (!matcher.find()) {
+            return;
+        }
+
+        int month = Integer.parseInt(matcher.group(1));
+        int day = Integer.parseInt(matcher.group(2));
+        int year = Integer.parseInt(matcher.group(3));
+
+        Calendar birthDate = Calendar.getInstance();
+        birthDate.set(year, month - 1, day);
+
+        scout.setName(txtName.getText());
+        scout.setBirthDate(birthDate.getTime());
+        scout.setCurrentAdvancementId(LogicAdvancement.findByName(cboCurrentRank.getSelectedItem().toString()).getId());
+        scout.setTypeId(ScoutTypeConst.BOY_SCOUT.getId());
+
+        LogicScout.save(scout);
     }
 
     private void txtBirthDateKeyReleased() {

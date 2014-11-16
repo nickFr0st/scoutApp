@@ -131,6 +131,24 @@ public class PnlBoyScout extends JPanel implements PnlGui {
 
         // if it is good then save each panel
         pnlBoyScoutGeneralInfo.save();
+        reloadDataFromSave(pnlBoyScoutGeneralInfo.getScout());
+    }
+
+    private void reloadDataFromSave(Scout newScout) {
+        if (newScout == null) {
+            return;
+        }
+
+        clearData();
+
+        for (int i = 0; i < listScoutNames.getModel().getSize(); ++i) {
+            if (listScoutNames.getModel().getElementAt(i).toString().equals(newScout.getName())) {
+                listScoutNames.setSelectedIndex(i);
+                break;
+            }
+        }
+
+        listScoutNamesMouseClicked();
     }
 
     private void btnDeleteMouseClicked() {
