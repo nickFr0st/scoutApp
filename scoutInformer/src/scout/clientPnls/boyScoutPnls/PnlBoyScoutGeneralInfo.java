@@ -299,6 +299,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         int count = 1;
 
+        List<Contact> contactList = new ArrayList<Contact>();
         for (int rowIndex = 0; rowIndex < tableModelContacts.getRowCount(); ++rowIndex) {
             String errorLine = " line: " + count;
 
@@ -334,7 +335,40 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 }
             }
 
+            Contact contact = new Contact();
+            contact.setScoutId(scout.getId());
+            contact.setName(name);
+            contact.setRelation(relation);
+            contact.setTypeId(ContactTypeConst.getIdByName(type));
+            contact.setData(data);
+
+            if (scout.getId() > 0) {
+                Integer existingContactId = LogicContact.findByNameTypeIdAndScoutId(name, contact.getTypeId(), scout.getId());
+                if (existingContactId != null) {
+                    Util.setError(lblContactError, "Cannot have duplicate contact names of the same type." + errorLine);
+                    return false;
+                }
+            }
+
+            contactList.add(contact);
             count++;
+        }
+
+        int outLineItemCount = 1;
+        for (Contact c1 : contactList) {
+            int innerLineItemCount = 1;
+            for (Contact c2: contactList) {
+                if (outLineItemCount == innerLineItemCount) {
+                    continue;
+                }
+
+                if (c1.getName().equals(c2.getName()) && c1.getTypeId() == c2.getTypeId()) {
+                    Util.setError(lblContactError, "Cannot have duplicate contact names of the same type");
+                    return false;
+                }
+                innerLineItemCount++;
+            }
+            outLineItemCount++;
         }
 
         return true;
