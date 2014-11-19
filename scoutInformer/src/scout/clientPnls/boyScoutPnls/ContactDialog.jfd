@@ -100,6 +100,8 @@ new FormModel {
 						"font": #Font1
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 5
+						"vAlign": 1
+						"insets": new java.awt.Insets( 10, 0, 0, 0 )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 						"$columnSpecs": "0:1.0"

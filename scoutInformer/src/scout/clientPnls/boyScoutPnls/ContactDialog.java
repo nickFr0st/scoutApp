@@ -128,7 +128,7 @@ public class ContactDialog extends JDialog {
                 Util.setError(lblEmailError, "Cannot leave contact data blank");
                 hasErrors = true;
             } else if (!Util.validateEmail(txtEmail.getText())) {
-                Util.setError(lblPhoneError, "contact data format is invalid");
+                Util.setError(lblEmailError, "contact data format is invalid");
                 hasErrors = true;
             }
         } else {
@@ -161,16 +161,18 @@ public class ContactDialog extends JDialog {
     }
 
     private void validateEmail() {
+        clearPhoneErrors();
         clearEmailErrors();
 
         if (txtEmail.isMessageDefault() || Util.isEmpty(txtEmail.getText())) {
             Util.setError(lblEmailError, "Cannot leave contact data blank");
         } else if (!Util.validateEmail(txtEmail.getText())) {
-            Util.setError(lblPhoneError, "contact data format is invalid");
+            Util.setError(lblEmailError, "contact data format is invalid");
         }
     }
 
     private void validatePhone() {
+        clearEmailErrors();
         clearPhoneErrors();
 
         if (txtPhone.isMessageDefault() || Util.isEmpty(txtPhone.getText())) {
@@ -186,9 +188,11 @@ public class ContactDialog extends JDialog {
 
     private void cboTypeActionPerformed() {
         if (cboType.getSelectedItem().equals(ContactTypeConst.EMAIL.getName())) {
+            clearPhoneErrors();
             txtPhone.setVisible(false);
             txtEmail.setVisible(true);
         } else {
+            clearEmailErrors();
             txtEmail.setVisible(false);
             txtPhone.setVisible(true);
         }
@@ -349,8 +353,8 @@ public class ContactDialog extends JDialog {
                 lblData.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 lblData.setName("lblData");
                 contentPanel.add(lblData, new GridBagConstraints(0, 5, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 5), 0, 0));
+                    GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                    new Insets(10, 0, 0, 5), 0, 0));
 
                 //======== pnlData ========
                 {
