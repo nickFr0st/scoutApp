@@ -208,7 +208,7 @@ public class LogicRequirement {
 
         try {
             Statement statement = connector.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId + " AND name LIKE " + name + " AND typeId = " + typeId);
+            ResultSet rs = statement.executeQuery("SELECT * FROM requirement WHERE parentId = " + parentId + " AND name LIKE '" + name + "' AND typeId = " + typeId);
 
             if (rs.next()) {
                 requirement = new Requirement();
