@@ -35,6 +35,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author User #2
@@ -146,6 +148,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
 
         lblReqError.setText("");
         lblReqError.setVisible(false);
+
+        lblRevsionDateError.setText("");
+        lblRevsionDateError.setVisible(false);
     }
 
     private void txtSearchNameKeyReleased() {
@@ -618,6 +623,79 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         filterNameList();
     }
 
+    private void txtRevisionDateKeyReleased() {
+        checkRevisionDate();
+    }
+
+    private void txtRevisionDateFocusLost() {
+        checkRevisionDate();
+    }
+
+    private void checkRevisionDate() {
+        clearRevisionDateErrors();
+        validateRevisionDate();
+    }
+
+    private boolean validateRevisionDate() {
+
+        if (txtRevisionDate.isMessageDefault() || Util.isEmpty(txtRevisionDate.getText())) {
+            Util.setError(lblRevsionDateError, "Cannot leave revision date blank");
+            return false;
+        }
+
+        if (!txtRevisionDate.getText().matches(Util.DATE_PATTERN)) {
+            Util.setError(lblRevsionDateError, "invalid date format");
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtRevisionDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            if (month > 12 || month < 1) {
+                Util.setError(lblRevsionDateError, "invalid month");
+                return false;
+            }
+
+            if (Util.isThirtyOneDayMonth(month)) {
+                if (day > 31 || month < 0) {
+                    Util.setError(lblRevsionDateError, "invalid day");
+                    return false;
+                }
+            } else if (Util.isThirtyDayMonth(month)) {
+                if (day > 30 || month < 0) {
+                    Util.setError(lblRevsionDateError, "invalid day");
+                    return false;
+                }
+            } else {
+                boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+
+                if (isLeapYear) {
+                    if (day > 29 || month < 0) {
+                        Util.setError(lblRevsionDateError, "invalid day");
+                        return false;
+                    }
+                } else {
+                    if (day > 28 || month < 0) {
+                        Util.setError(lblRevsionDateError, "invalid day");
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private void clearRevisionDateErrors() {
+        lblRevsionDateError.setText("");
+        lblRevsionDateError.setVisible(false);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         createUIComponents();
@@ -644,6 +722,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         btnBrowseImgPath = new JButton();
         txtBadgeName = new JTextFieldDefaultText();
         lblNameError = new JLabel();
+        txtRevisionDate = new JTextFieldDefaultText();
+        lblRevsionDateError = new JLabel();
         chkReqForEagle = new JCheckBox();
         JLabel lblMBCounselors = new JLabel();
         btnNewCounselor = new JLabel();
@@ -659,7 +739,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {240, 33, 158, 44, 30, 30, 30, 33, 132, 30, 30, 177, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 30, 122, 152, 45, 0, 227, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {45, 0, 30, 122, 179, 45, 0, 166, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
@@ -887,9 +967,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             pnlGeneralInfo.setName("pnlGeneralInfo");
             pnlGeneralInfo.setLayout(new GridBagLayout());
             ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWidths = new int[] {205, 100, 0};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)pnlGeneralInfo.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
-            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)pnlGeneralInfo.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- txtImagePath ----
             txtImagePath.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -938,13 +1018,45 @@ public class PnlMeritBadges extends JPanel implements Configuration {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 20, 5, 10), 0, 0));
 
+            //---- txtRevisionDate ----
+            txtRevisionDate.setPreferredSize(new Dimension(14, 40));
+            txtRevisionDate.setMinimumSize(new Dimension(14, 40));
+            txtRevisionDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtRevisionDate.setDefaultText("Revision Date: ex.(MM/DD/YYYY)");
+            txtRevisionDate.setToolTipText("Merit badge last revision date");
+            txtRevisionDate.setName("txtRevisionDate");
+            txtRevisionDate.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    txtRevisionDateKeyReleased();
+                }
+            });
+            txtRevisionDate.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    txtRevisionDateFocusLost();
+                }
+            });
+            pnlGeneralInfo.add(txtRevisionDate, new GridBagConstraints(0, 3, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
+
+            //---- lblRevsionDateError ----
+            lblRevsionDateError.setText("* Error Message");
+            lblRevsionDateError.setForeground(Color.red);
+            lblRevsionDateError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblRevsionDateError.setName("lblRevsionDateError");
+            pnlGeneralInfo.add(lblRevsionDateError, new GridBagConstraints(0, 4, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 20, 5, 10), 0, 0));
+
             //---- chkReqForEagle ----
             chkReqForEagle.setText("Required for Eagle");
             chkReqForEagle.setBackground(Color.white);
             chkReqForEagle.setFont(new Font("Tahoma", Font.PLAIN, 14));
             chkReqForEagle.setForeground(new Color(51, 102, 153));
             chkReqForEagle.setName("chkReqForEagle");
-            pnlGeneralInfo.add(chkReqForEagle, new GridBagConstraints(0, 3, 2, 1, 0.0, 0.0,
+            pnlGeneralInfo.add(chkReqForEagle, new GridBagConstraints(0, 5, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
@@ -1050,6 +1162,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private JButton btnBrowseImgPath;
     private JTextFieldDefaultText txtBadgeName;
     private JLabel lblNameError;
+    private JTextFieldDefaultText txtRevisionDate;
+    private JLabel lblRevsionDateError;
     private JCheckBox chkReqForEagle;
     private JLabel btnNewCounselor;
     private JLabel btnDeleteCounselor;

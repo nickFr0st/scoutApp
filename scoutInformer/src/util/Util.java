@@ -88,4 +88,12 @@ public class Util {
         String pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         return email.matches(pattern);
     }
+
+    public static boolean isThirtyDayMonth(int month) {
+        return (month == 4 || month == 6 || month == 9 || month == 11);
+    }
+
+    public static boolean isThirtyOneDayMonth(int month) {
+        return (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12);
+    }
 }

@@ -399,12 +399,12 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                 return false;
             }
 
-            if (isThirtyOneDayMonth(month)) {
+            if (Util.isThirtyOneDayMonth(month)) {
                 if (day > 31 || month < 0) {
                     Util.setError(lblBirthDateError, "invalid day");
                     return false;
                 }
-            } else if (isThirtyDayMonth(month)) {
+            } else if (Util.isThirtyDayMonth(month)) {
                 if (day > 30 || month < 0) {
                     Util.setError(lblBirthDateError, "invalid day");
                     return false;
@@ -448,14 +448,6 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         }
 
         return true;
-    }
-
-    private boolean isThirtyDayMonth(int month) {
-        return (month == 4 || month == 6 || month == 9 || month == 11);
-    }
-
-    private boolean isThirtyOneDayMonth(int month) {
-        return (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12);
     }
 
     private boolean validateName() {

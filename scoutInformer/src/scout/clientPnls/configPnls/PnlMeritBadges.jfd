@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "235, 28, 153, 39, 25, 25, 25, 28, 127, 25, 25, 177"
-			"$rowSpecs": "40, 0, 25, 117, 147, 40, 0, 227"
+			"$rowSpecs": "40, 0, 25, 117, 174, 40, 0, 166"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -211,7 +211,7 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "200, 100"
-				"$rowSpecs": "0, 0, 0, 0"
+				"$rowSpecs": "0, 0, 0, 0, 0, 0"
 				"$hGap": 5
 				"$vGap": 5
 				"$alignLeft": true
@@ -255,7 +255,30 @@ new FormModel {
 					"font": #Font1
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 2
-					"insets": new java.awt.Insets( 0, 20, 0, 10 )
+					"insets": &Insets0 new java.awt.Insets( 0, 20, 0, 10 )
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "txtRevisionDate"
+					"preferredSize": new java.awt.Dimension( 14, 40 )
+					"minimumSize": new java.awt.Dimension( 14, 40 )
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"defaultText": "Revision Date: ex.(MM/DD/YYYY)"
+					"toolTipText": "Merit badge last revision date"
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "txtRevisionDateKeyReleased", false ) )
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "txtRevisionDateFocusLost", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblRevsionDateError"
+					"text": "* Error Message"
+					"foreground": #Color3
+					"font": #Font1
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 4
+					"insets": #Insets0
 					"gridwidth": 2
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
@@ -265,7 +288,7 @@ new FormModel {
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
 					"foreground": new java.awt.Color( 51, 102, 153, 255 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 3
+					"gridy": 5
 					"gridwidth": 2
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
