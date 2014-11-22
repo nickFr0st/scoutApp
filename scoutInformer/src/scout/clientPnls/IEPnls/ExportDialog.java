@@ -281,7 +281,7 @@ public class ExportDialog extends JDialog {
             CSVWriter csvWriter = new CSVWriter(writer, ',');
             java.util.List<String[]> records = new ArrayList<String[]>();
 
-            records.add(new String[]{"Merit Badge Name", "Is Required For Eagle", "Merit Badge Image Path"});
+            records.add(new String[]{"Merit Badge Name", "Is Required For Eagle", "Revision Date", "Merit Badge Image Path"});
             records.add(new String[]{"Counselor Name", "Counselor Phone Number"});
             records.add(new String[]{"Requirement Name", "Requirement Description"});
 
@@ -292,9 +292,9 @@ public class ExportDialog extends JDialog {
                 }
 
                 if (Util.isEmpty(meritBadge.getImgPath())) {
-                    records.add(new String[]{meritBadge.getName(), Boolean.toString(meritBadge.isRequiredForEagle())});
+                    records.add(new String[]{meritBadge.getName(), Boolean.toString(meritBadge.isRequiredForEagle()), Util.DISPLAY_DATE_FORMAT.format(meritBadge.getRevisionDate())});
                 } else {
-                    records.add(new String[]{meritBadge.getName(), Boolean.toString(meritBadge.isRequiredForEagle()), meritBadge.getImgPath()});
+                    records.add(new String[]{meritBadge.getName(), Boolean.toString(meritBadge.isRequiredForEagle()), Util.DISPLAY_DATE_FORMAT.format(meritBadge.getRevisionDate()), meritBadge.getImgPath()});
                 }
 
                 java.util.List<Counselor> counselorList = LogicCounselor.findAllByBadgeId(meritBadge.getId());
