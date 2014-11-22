@@ -50,6 +50,7 @@ public enum KeyConst {
     MERIT_BADGE_NAME("name"),
     MERIT_BADGE_IMG_PATH("imgPath"),
     MERIT_BADGE_REQ_FOR_EAGLE("requiredForEagle"),
+    MERIT_BADGE_REVISION_DATE("revisionDate"),
 
     // Other Award Table
     AWARD_ID("id"),

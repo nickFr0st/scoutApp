@@ -31,10 +31,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +73,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         lblImage.setIcon(noImageIcon);
         txtImagePath.setDefault();
         txtBadgeName.setDefault();
+        txtRevisionDate.setDefault();
         chkReqForEagle.setSelected(false);
 
         clearCounselorTable();
@@ -187,6 +186,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         txtImagePath.setText(meritBadge.getImgPath());
         txtBadgeName.setText(meritBadge.getName());
         chkReqForEagle.setSelected(meritBadge.isRequiredForEagle());
+        txtRevisionDate.setText(Util.DISPLAY_DATE_FORMAT.format(meritBadge.getRevisionDate()));
 
         URL imgPath = getClass().getResource(meritBadge.getImgPath());
         if (imgPath == null) {
@@ -375,6 +375,10 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             return;
         }
 
+        if (!validateRevisionDate()) {
+            return;
+        }
+
         MeritBadge meritBadge = new MeritBadge();
         meritBadge.setName(txtBadgeName.getText());
 
@@ -385,6 +389,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         } else {
             meritBadge.setImgPath("");
         }
+
+        setRevisionDate(meritBadge);
 
         java.util.List<Counselor> counselorList = validateCounselors(-1);
         if (counselorList == null) return;
@@ -412,6 +418,24 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         reloadData();
     }
 
+    private void setRevisionDate(MeritBadge meritBadge) {
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtRevisionDate.getText());
+
+        if (!matcher.find()) {
+            return;
+        }
+
+        int month = Integer.parseInt(matcher.group(1));
+        int day = Integer.parseInt(matcher.group(2));
+        int year = Integer.parseInt(matcher.group(3));
+
+        Calendar revisionDate = Calendar.getInstance();
+        revisionDate.set(year, month - 1, day);
+
+        meritBadge.setRevisionDate(revisionDate.getTime());
+    }
+
     public void update() {
         if (listBadgeNames.getSelectedValue() == null) {
             return;
@@ -437,6 +461,10 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             return;
         }
 
+        if (!validateRevisionDate()) {
+            return;
+        }
+
         meritBadge.setRequiredForEagle(chkReqForEagle.isSelected());
 
         if (txtImagePath.isMessageDefault()) {
@@ -445,6 +473,8 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             meritBadge.setImgPath(txtImagePath.getText());
         }
         meritBadge.setName(txtBadgeName.getText());
+
+        setRevisionDate(meritBadge);
 
         List<Counselor> counselorList = validateCounselors(meritBadge.getId());
         if (counselorList == null) return;

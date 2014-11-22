@@ -5,7 +5,6 @@ import scout.dbObjects.Scout;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,15 +77,13 @@ public class LogicScout {
             return;
         }
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-
         if (scout.getId() < 0) {
             scout.setId(getNextId());
         }
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("INSERT INTO scout VALUES( " + scout.getId() + ",'" + scout.getName() + "', '" + df.format(scout.getBirthDate()) + "'," + scout.getCurrentAdvancementId() + "," + scout.getTypeId() + ")");
+            statement.executeUpdate("INSERT INTO scout VALUES( " + scout.getId() + ",'" + scout.getName() + "', '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "'," + scout.getCurrentAdvancementId() + "," + scout.getTypeId() + ")");
         } catch (Exception e) {
             e.printStackTrace();
         }

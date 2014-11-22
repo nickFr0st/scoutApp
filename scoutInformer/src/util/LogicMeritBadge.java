@@ -6,6 +6,7 @@ import scout.dbObjects.MeritBadge;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -100,6 +101,7 @@ public class LogicMeritBadge {
                 meritBadge.setName(rs.getString(KeyConst.MERIT_BADGE_NAME.getName()));
                 meritBadge.setImgPath(rs.getString(KeyConst.MERIT_BADGE_IMG_PATH.getName()));
                 meritBadge.setRequiredForEagle(rs.getBoolean(KeyConst.MERIT_BADGE_REQ_FOR_EAGLE.getName()));
+                meritBadge.setRevisionDate(rs.getDate(KeyConst.MERIT_BADGE_REVISION_DATE.getName()));
             }
 
         } catch (Exception e) {
@@ -119,12 +121,18 @@ public class LogicMeritBadge {
             if (Util.isEmpty(meritBadge.getImgPath())) {
                 meritBadge.setImgPath(badge.getImgPath());
             }
+            if (meritBadge.getRevisionDate() == null) {
+                meritBadge.setRevisionDate(badge.getRevisionDate());
+            }
             meritBadge.setId(badge.getId());
 
             update(meritBadge);
         } else {
             if (Util.isEmpty(meritBadge.getImgPath())) {
                 meritBadge.setImgPath("");
+            }
+            if (meritBadge.getRevisionDate() == null) {
+                meritBadge.setRevisionDate(new Date());
             }
 
             save(meritBadge);
@@ -144,7 +152,7 @@ public class LogicMeritBadge {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("INSERT INTO meritBadge VALUES( " + meritBadge.getId() + ",'" + meritBadge.getName() + "', '" + meritBadge.getImgPath().replace("\\", "\\\\") + "', " + getIntValue(meritBadge.isRequiredForEagle()) + ")");
+            statement.executeUpdate("INSERT INTO meritBadge VALUES( " + meritBadge.getId() + ",'" + meritBadge.getName() + "', '" + meritBadge.getImgPath().replace("\\", "\\\\") + "', " + getIntValue(meritBadge.isRequiredForEagle()) + ",'" + Util.DATA_BASE_DATE_FORMAT.format(meritBadge.getRevisionDate()) + "')");
         } catch (Exception e) {
             // save error
         }
@@ -157,7 +165,7 @@ public class LogicMeritBadge {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("UPDATE meritBadge SET name = '" + meritBadge.getName() + "', imgPath = '" + meritBadge.getImgPath().replace("\\", "\\\\") + "'" + ", requiredForEagle = " + getIntValue(meritBadge.isRequiredForEagle()) + " WHERE id = " + meritBadge.getId());
+            statement.executeUpdate("UPDATE meritBadge SET name = '" + meritBadge.getName() + "', imgPath = '" + meritBadge.getImgPath().replace("\\", "\\\\") + "'" + ", requiredForEagle = " + getIntValue(meritBadge.isRequiredForEagle()) + ", revisionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(meritBadge.getRevisionDate()) + "' WHERE id = " + meritBadge.getId());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -202,6 +210,7 @@ public class LogicMeritBadge {
                 meritBadge.setRequiredForEagle(rs.getBoolean(KeyConst.MERIT_BADGE_REQ_FOR_EAGLE.getName()));
                 meritBadge.setName(rs.getString(KeyConst.MERIT_BADGE_NAME.getName()));
                 meritBadge.setImgPath(rs.getString(KeyConst.MERIT_BADGE_IMG_PATH.getName()));
+                meritBadge.setRevisionDate(rs.getDate(KeyConst.MERIT_BADGE_REVISION_DATE.getName()));
                 meritBadgeList.add(meritBadge);
             }
 

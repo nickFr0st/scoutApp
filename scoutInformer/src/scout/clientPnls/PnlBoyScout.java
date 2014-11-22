@@ -243,14 +243,14 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         btnSave = new JButton();
         btnDelete = new JButton();
         lblListName = new JLabel();
-        cboScoutTab = new JComboBox<String>();
+        cboScoutTab = new JComboBox();
         pnlSearch = new JPanel();
         txtSearchName = new JTextFieldDefaultText();
         pnlParentTab = new JPanel();
         pnlSplash = new JPanel();
         JLabel lblWelcome = new JLabel();
         JScrollPane scrollPane3 = new JScrollPane();
-        listScoutNames = new JList<Object>();
+        listScoutNames = new JList();
         JPanel hSpacer2 = new JPanel(null);
 
         //======== this ========
@@ -536,11 +536,11 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     private JButton btnSave;
     private JButton btnDelete;
     private JLabel lblListName;
-    private JComboBox<String> cboScoutTab;
+    private JComboBox cboScoutTab;
     private JPanel pnlSearch;
     private JTextFieldDefaultText txtSearchName;
     private JPanel pnlParentTab;
     private JPanel pnlSplash;
-    private JList<Object> listScoutNames;
+    private JList listScoutNames;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -1,5 +1,7 @@
 package scout.dbObjects;
 
+import java.util.Date;
+
 /**
  * Created by Nathanael on 10/25/2014
  */
@@ -11,6 +13,7 @@ public class MeritBadge {
     private String name;
     private String imgPath;
     private boolean requiredForEagle;
+    private Date revisionDate;
 
     {
         id = -1;
@@ -46,5 +49,13 @@ public class MeritBadge {
 
     public void setRequiredForEagle(boolean requiredForEagle) {
         this.requiredForEagle = requiredForEagle;
+    }
+
+    public Date getRevisionDate() {
+        return revisionDate;
+    }
+
+    public void setRevisionDate(Date revisionDate) {
+        this.revisionDate = revisionDate;
     }
 }

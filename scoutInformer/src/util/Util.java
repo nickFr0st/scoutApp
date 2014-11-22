@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
 
@@ -15,6 +16,8 @@ import java.util.Properties;
  */
 public class Util {
     public static final String DATE_PATTERN = "(\\d{2})/(\\d{2})/(\\d{4})";
+    public static final SimpleDateFormat DATA_BASE_DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd");
+    public static final SimpleDateFormat DISPLAY_DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
 
     public static boolean isEmpty(String s) {
         return s == null || s.isEmpty();
