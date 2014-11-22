@@ -66,6 +66,11 @@ public class PnlSettings extends JPanel implements PnlGui {
         if (validateDBFields()) return;
 
         int responseCode = connector.createDatabase(txtDBName.getText(), txtServerUsername.getText(), txtServerPassword.getText());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         if (responseCode == ErrorConst.INVALID_SERVER_CREDENTIALS.getId()) {
             Util.setError(lblServerPasswordError, ErrorConst.INVALID_SERVER_CREDENTIALS.getMessage());
