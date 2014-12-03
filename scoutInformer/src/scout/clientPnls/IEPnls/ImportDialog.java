@@ -265,6 +265,13 @@ public class ImportDialog extends JDialog {
             importMap.put(meritBadge, badgeImport);
 
             for (MeritBadge badge : importMap.keySet()) {
+                MeritBadge existingBadge = LogicMeritBadge.findByName(badge.getName());
+
+                if (existingBadge != null) {
+                    LogicCounselor.deleteAllByBadgeId(existingBadge.getId());
+                    LogicRequirement.deleteAllByParentIdAndTypeId(existingBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
+                }
+
                 badge = LogicMeritBadge.importBadge(badge);
 
                 MeritBadgeImport listContainer = importMap.get(badge);
@@ -274,7 +281,7 @@ public class ImportDialog extends JDialog {
                         counselor.setBadgeId(badge.getId());
                     }
 
-                    LogicCounselor.importList(counselors);
+                    LogicCounselor.saveList(counselors);
                 }
 
                 java.util.List<Requirement> reqList = listContainer.getRequirementsList();
@@ -283,7 +290,7 @@ public class ImportDialog extends JDialog {
                         req.setParentId(badge.getId());
                     }
 
-                    LogicRequirement.importReqList(reqList);
+                    LogicRequirement.saveList(reqList);
                 }
             }
 

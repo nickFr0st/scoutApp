@@ -236,4 +236,17 @@ public class LogicCounselor {
 
         deleteList(deletionList);
     }
+
+    public static void deleteAllByBadgeId(int badgeId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM counselor WHERE badgeId = " + badgeId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

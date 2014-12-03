@@ -247,4 +247,17 @@ public class LogicRequirement {
 
         return reqNameList;
     }
+
+    public static void deleteAllByParentIdAndTypeId(int parentId, int typeId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM requirement WHERE parentId = " + parentId + " AND typeId = " + typeId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
