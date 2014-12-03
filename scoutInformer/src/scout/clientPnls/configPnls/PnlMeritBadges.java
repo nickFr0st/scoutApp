@@ -338,30 +338,16 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         // (do this then scouts have been added to the program)
         // before deleting check to see if advancement is used on any scouts
 
-        java.util.List<Integer> requirementIdList = new ArrayList<Integer>();
-        if (grid > 0) {
-            for (Component component : pnlRequirements.getComponents()) {
-                if (component instanceof PnlRequirement) {
+        List<String> badgeNameList = listBadgeNames.getSelectedValuesList();
 
-                    if (((PnlRequirement)component).getReqId() < 0) {
-                        continue;
-                    }
+        for (String badgeName : badgeNameList) {
+            MeritBadge meritBadge = LogicMeritBadge.findByName(badgeName);
 
-                    requirementIdList.add(((PnlRequirement)component).getReqId());
-                }
-            }
+            List<Integer> requirementIdList = LogicRequirement.findIdsByParentIdTypeId(meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
+            List<Integer> counselorIdList = LogicCounselor.findAllIdsByBadgeId(meritBadge.getId());
+
+            deleteRecords(meritBadge.getId(), requirementIdList, counselorIdList);
         }
-
-        MeritBadge meritBadge = LogicMeritBadge.findByName(listBadgeNames.getSelectedValue().toString());
-
-        java.util.List<Integer> counselorIdList = new ArrayList<Integer>();
-        if (tableModel.getRowCount() > 0) {
-            for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
-                counselorIdList.add(LogicCounselor.findByNameAndBadgeId((String) tableModel.getValueAt(i, 0), meritBadge.getId()).getId());
-            }
-        }
-
-        deleteRecords(meritBadge.getId(), requirementIdList, counselorIdList);
 
         clearData();
     }
