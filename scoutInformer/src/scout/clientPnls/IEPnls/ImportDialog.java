@@ -69,6 +69,7 @@ public class ImportDialog extends JDialog {
         }
 
         boolean success = false;
+        Util.processBusy(btnImport, true);
 
         switch (importTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
@@ -82,6 +83,7 @@ public class ImportDialog extends JDialog {
                 break;
         }
 
+        Util.processBusy(btnImport, false);
         if (success) {
             dispose();
         }
@@ -586,7 +588,7 @@ public class ImportDialog extends JDialog {
         JScrollPane scrollPane1 = new JScrollPane();
         txtImportInstructions = new JEditorPane();
         JPanel buttonBar = new JPanel();
-        JButton btnImport = new JButton();
+        btnImport = new JButton();
         JButton btnCancel = new JButton();
 
         //======== this ========
@@ -727,5 +729,6 @@ public class ImportDialog extends JDialog {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JTextFieldDefaultText txtImportPath;
     private JEditorPane txtImportInstructions;
+    private JButton btnImport;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -81,6 +81,8 @@ public class ExportDialog extends JDialog {
 
     private void exportButtonMouseClicked() {
         boolean success = false;
+        Util.processBusy(btnExport, true);
+
         switch (exportTypeId) {
             case PnlBadgeConf.ADVANCEMENT:
                 success = handleAdvancementExport();
@@ -93,6 +95,7 @@ public class ExportDialog extends JDialog {
                 break;
         }
 
+        Util.processBusy(btnExport, false);
         if (success) {
             dispose();
         }
@@ -440,7 +443,7 @@ public class ExportDialog extends JDialog {
         btnAdd = new JButton();
         btnRemove = new JButton();
         buttonBar = new JPanel();
-        exportButton = new JButton();
+        btnExport = new JButton();
         cancelButton = new JButton();
 
         //======== this ========
@@ -604,20 +607,20 @@ public class ExportDialog extends JDialog {
                 ((GridBagLayout)buttonBar.getLayout()).rowHeights = new int[] {50};
                 ((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
 
-                //---- exportButton ----
-                exportButton.setText("Export");
-                exportButton.setForeground(Color.white);
-                exportButton.setBackground(new Color(51, 156, 229));
-                exportButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                exportButton.setFocusPainted(false);
-                exportButton.setName("exportButton");
-                exportButton.addMouseListener(new MouseAdapter() {
+                //---- btnExport ----
+                btnExport.setText("Export");
+                btnExport.setForeground(Color.white);
+                btnExport.setBackground(new Color(51, 156, 229));
+                btnExport.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                btnExport.setFocusPainted(false);
+                btnExport.setName("btnExport");
+                btnExport.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         exportButtonMouseClicked();
                     }
                 });
-                buttonBar.add(exportButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+                buttonBar.add(btnExport, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 5), 0, 0));
 
@@ -666,7 +669,7 @@ public class ExportDialog extends JDialog {
     private JButton btnAdd;
     private JButton btnRemove;
     private JPanel buttonBar;
-    private JButton exportButton;
+    private JButton btnExport;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

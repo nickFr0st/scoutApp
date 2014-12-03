@@ -105,9 +105,6 @@ new FormModel {
 						"font": new java.awt.Font( "Tahoma", 0, 14 )
 						"foreground": new java.awt.Color( 255, 255, 255, 255 )
 						"focusPainted": false
-						auxiliary() {
-							"JavaCodeGenerator.variableLocal": true
-						}
 						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnImportMouseClicked", false ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 1
