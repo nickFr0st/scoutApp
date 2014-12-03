@@ -404,6 +404,12 @@ public class ImportDialog extends JDialog {
             importMap.put(otherAward, requirementList);
 
             for (OtherAward award : importMap.keySet()) {
+                OtherAward existingAward = LogicOtherAward.findByName(award.getName());
+
+                if (existingAward != null) {
+                    LogicRequirement.deleteAllByParentIdAndTypeId(existingAward.getId(), RequirementTypeConst.OTHER.getId());
+                }
+
                 award = LogicOtherAward.importAward(award);
 
                 java.util.List<Requirement> reqList = importMap.get(award);
@@ -415,7 +421,7 @@ public class ImportDialog extends JDialog {
                     req.setParentId(award.getId());
                 }
 
-                LogicRequirement.importReqList(reqList);
+                LogicRequirement.saveList(reqList);
             }
 
         } catch (IOException ioe) {
@@ -526,6 +532,12 @@ public class ImportDialog extends JDialog {
             importMap.put(advancement, requirementList);
 
             for (Advancement adv : importMap.keySet()) {
+                Advancement existingAdv = LogicAdvancement.findByName(adv.getName());
+
+                if (existingAdv != null) {
+                    LogicRequirement.deleteAllByParentIdAndTypeId(existingAdv.getId(), RequirementTypeConst.ADVANCEMENT.getId());
+                }
+
                 adv = LogicAdvancement.importAdv(adv);
                 if (adv == null) {
                     continue;
@@ -540,7 +552,7 @@ public class ImportDialog extends JDialog {
                     req.setParentId(adv.getId());
                 }
 
-                LogicRequirement.importReqList(reqList);
+                LogicRequirement.saveList(reqList);
             }
 
         } catch (IOException ioe) {

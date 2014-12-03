@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added a busy curser when importing and exporting">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added speed to the meritBadge import">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicCounselor.java" afterPath="$PROJECT_DIR$/src/util/LogicCounselor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicRequirement.java" afterPath="$PROJECT_DIR$/src/util/LogicRequirement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="94ccc026-2602-47ce-9044-c524df8a0436" name="html files" comment="" />
@@ -207,11 +205,11 @@
       <file leaf-file-name="ImportDialog.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5129376" vertical-offset="3879" max-vertical-offset="9775">
-              <caret line="269" column="44" selection-start-line="269" selection-start-column="44" selection-end-line="269" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.7975647" vertical-offset="8350" max-vertical-offset="9979">
+              <caret line="543" column="17" selection-start-line="543" selection-start-column="17" selection-end-line="543" selection-end-column="17" />
               <folding>
-                <marker date="1417582737317" expanded="false" signature="22670:30006" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1417582737317" expanded="false" signature="30018:30297" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1417582888121" expanded="false" signature="23218:30554" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1417582888121" expanded="false" signature="30566:30845" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -413,9 +411,9 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
         <option value="$PROJECT_DIR$/src/util/LogicCounselor.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
       </list>
     </option>
   </component>
@@ -930,7 +928,7 @@
       <workItem from="1414274044125" duration="4359000" />
       <workItem from="1414294831814" duration="6532000" />
       <workItem from="1414335547577" duration="1446000" />
-      <workItem from="1417581575127" duration="1141000" />
+      <workItem from="1417581575127" duration="1286000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1644,11 +1642,15 @@
       <created>1417582436594</created>
       <updated>1417582436594</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="added speed to the meritBadge import">
+      <created>1417582766269</created>
+      <updated>1417582766269</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387512000" />
+    <option name="totallyTimeSpent" value="387657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1702,7 +1704,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="more import validation" />
     <MESSAGE value="imports for advancements now work" />
     <MESSAGE value="fixed a saving bug" />
     <MESSAGE value="fixed an image path bug" />
@@ -1727,7 +1728,8 @@
     <MESSAGE value="added some util methods" />
     <MESSAGE value="added revision level to the meritBadge import" />
     <MESSAGE value="added a busy curser when importing and exporting" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a busy curser when importing and exporting" />
+    <MESSAGE value="added speed to the meritBadge import" />
+    <option name="LAST_COMMIT_MESSAGE" value="added speed to the meritBadge import" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2049,11 +2051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
@@ -2107,13 +2104,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5129376" vertical-offset="3879" max-vertical-offset="9775">
-          <caret line="269" column="44" selection-start-line="269" selection-start-column="44" selection-end-line="269" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.7975647" vertical-offset="8350" max-vertical-offset="9979">
+          <caret line="543" column="17" selection-start-line="543" selection-start-column="17" selection-end-line="543" selection-end-column="17" />
           <folding>
-            <marker date="1417582737317" expanded="false" signature="22670:30006" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1417582737317" expanded="false" signature="30018:30297" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1417582888121" expanded="false" signature="23218:30554" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1417582888121" expanded="false" signature="30566:30845" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
