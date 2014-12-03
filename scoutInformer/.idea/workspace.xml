@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="made delete, save, and update for merit badges work better">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/instructions/ImportMeritBadgeInstructions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="94ccc026-2602-47ce-9044-c524df8a0436" name="html files" comment="" />
@@ -284,8 +283,8 @@
       <file leaf-file-name="PnlMeritBadges.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4368341" vertical-offset="4898" max-vertical-offset="12444">
-              <caret line="343" column="74" selection-start-line="343" selection-start-column="74" selection-end-line="343" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.6697108" vertical-offset="4898" max-vertical-offset="12444">
+              <caret line="352" column="5" selection-start-line="352" selection-start-column="5" selection-end-line="352" selection-end-column="5" />
               <folding>
                 <marker date="1417584211835" expanded="false" signature="25517:48158" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1417584211835" expanded="false" signature="48170:49275" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
@@ -975,7 +974,7 @@
       <workItem from="1414294831814" duration="6532000" />
       <workItem from="1414335547577" duration="1446000" />
       <workItem from="1417581575127" duration="1771000" />
-      <workItem from="1417583555701" duration="923000" />
+      <workItem from="1417583555701" duration="975000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1701,11 +1700,15 @@
       <created>1417583269965</created>
       <updated>1417583269965</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="can now delete mutiple merit badges at once">
+      <created>1417584513643</created>
+      <updated>1417584513643</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389065000" />
+    <option name="totallyTimeSpent" value="389117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1759,7 +1762,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fixed an image path bug" />
     <MESSAGE value="fixed a number of weird resizing issues" />
     <MESSAGE value="created interface for the merit badge config" />
     <MESSAGE value="can now load meritbadge list" />
@@ -1784,7 +1786,8 @@
     <MESSAGE value="added speed to the meritBadge import" />
     <MESSAGE value="added speed to the advancement and other awards imports" />
     <MESSAGE value="made delete, save, and update for merit badges work better" />
-    <option name="LAST_COMMIT_MESSAGE" value="made delete, save, and update for merit badges work better" />
+    <MESSAGE value="can now delete mutiple merit badges at once" />
+    <option name="LAST_COMMIT_MESSAGE" value="can now delete mutiple merit badges at once" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2199,8 +2202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4368341" vertical-offset="4898" max-vertical-offset="12444">
-          <caret line="343" column="74" selection-start-line="343" selection-start-column="74" selection-end-line="343" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.6697108" vertical-offset="4898" max-vertical-offset="12444">
+          <caret line="352" column="5" selection-start-line="352" selection-start-column="5" selection-end-line="352" selection-end-column="5" />
           <folding>
             <marker date="1417584211835" expanded="false" signature="25517:48158" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1417584211835" expanded="false" signature="48170:49275" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
