@@ -361,11 +361,30 @@ public class PnlMeritBadges extends JPanel implements Configuration {
             }
         }
 
-        LogicCounselor.deleteList(counselorIdList);
-        LogicRequirement.deleteList(requirementIdList);
-        LogicMeritBadge.delete(meritBadge.getId());
+        deleteRecords(meritBadge.getId(), requirementIdList, counselorIdList);
 
         clearData();
+    }
+
+    private void deleteRecords(final int meritBadgeId, final List<Integer> requirementIdList, final List<Integer> counselorIdList) {
+        Util.processBusy(pnlBadgeConf.getBtnDelete(), true);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                LogicCounselor.deleteList(counselorIdList);
+                LogicRequirement.deleteList(requirementIdList);
+                LogicMeritBadge.delete(meritBadgeId);
+            }
+        };
+        thread.start();
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignore) {
+        }
+
+        Util.processBusy(pnlBadgeConf.getBtnDelete(), false);
     }
 
     public void save() {
@@ -398,24 +417,44 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         java.util.List<Requirement> requirementList = validateRequirements(-1);
         if (requirementList == null) return;
 
-        LogicMeritBadge.save(meritBadge);
-
-        for (Counselor counselor : counselorList) {
-            counselor.setBadgeId(meritBadge.getId());
-        }
-
-        LogicCounselor.saveList(counselorList);
-
-        for (Requirement requirement : requirementList) {
-            requirement.setParentId(meritBadge.getId());
-        }
-
-        LogicRequirement.saveList(requirementList);
+        saveRecords(meritBadge, requirementList, counselorList);
 
         populateBadgeNameList();
 
         listBadgeNames.setSelectedValue(txtBadgeName.getText(), true);
         reloadData();
+    }
+
+    private void saveRecords(final MeritBadge meritBadge, final List<Requirement> requirementList, final List<Counselor> counselorList) {
+        Util.processBusy(pnlBadgeConf.getBtnSave(), true);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                LogicMeritBadge.save(meritBadge);
+
+                for (Counselor counselor : counselorList) {
+                    counselor.setBadgeId(meritBadge.getId());
+                }
+
+                LogicCounselor.saveList(counselorList);
+
+                for (Requirement requirement : requirementList) {
+                    requirement.setParentId(meritBadge.getId());
+                }
+
+                LogicRequirement.saveList(requirementList);
+            }
+        };
+        thread.start();
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Util.processBusy(pnlBadgeConf.getBtnSave(), false);
     }
 
     private void setRevisionDate(MeritBadge meritBadge) {
@@ -482,11 +521,31 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         List<Requirement> requirementList = validateRequirements(meritBadge.getId());
         if (requirementList == null) return;
 
-        LogicCounselor.updateList(counselorList, meritBadge.getId());
-        LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
-        LogicMeritBadge.update(meritBadge);
+        updateRecords(meritBadge, requirementList, counselorList);
 
         reloadData();
+    }
+
+    private void updateRecords(final MeritBadge meritBadge, final List<Requirement> requirementList, final List<Counselor> counselorList) {
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                LogicCounselor.updateList(counselorList, meritBadge.getId());
+                LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
+                LogicMeritBadge.update(meritBadge);
+            }
+        };
+        thread.start();
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
     }
 
     private List<Counselor> validateCounselors(int badgeId) {

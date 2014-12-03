@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added speed to the meritBadge import">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added speed to the advancement and other awards imports">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="94ccc026-2602-47ce-9044-c524df8a0436" name="html files" comment="" />
@@ -202,10 +202,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImportDialog.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ImportDialog.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7975647" vertical-offset="8350" max-vertical-offset="9979">
+            <state vertical-scroll-proportion="0.0" vertical-offset="8350" max-vertical-offset="9979">
               <caret line="543" column="17" selection-start-line="543" selection-start-column="17" selection-end-line="543" selection-end-column="17" />
               <folding>
                 <marker date="1417582888121" expanded="false" signature="23218:30554" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
@@ -270,14 +270,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlMeritBadges.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PnlMeritBadges.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="11832">
-              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.53424656" vertical-offset="7639" max-vertical-offset="12682">
+              <caret line="514" column="0" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
               <folding>
-                <marker date="1417581218346" expanded="false" signature="24078:46719" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1417581218346" expanded="false" signature="46731:47836" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1417583191068" expanded="false" signature="26000:48641" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1417583191068" expanded="false" signature="48653:49758" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -406,7 +406,6 @@
         <option value="$PROJECT_DIR$/src/util/LogicMeritBadge.java" />
         <option value="$PROJECT_DIR$/resources/instructions/ImportMeritBadgeInstructions.html" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" />
@@ -414,6 +413,7 @@
         <option value="$PROJECT_DIR$/src/util/LogicCounselor.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
       </list>
     </option>
   </component>
@@ -928,7 +928,7 @@
       <workItem from="1414274044125" duration="4359000" />
       <workItem from="1414294831814" duration="6532000" />
       <workItem from="1414335547577" duration="1446000" />
-      <workItem from="1417581575127" duration="1286000" />
+      <workItem from="1417581575127" duration="1628000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1646,11 +1646,15 @@
       <created>1417582766269</created>
       <updated>1417582766269</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="added speed to the advancement and other awards imports">
+      <created>1417582915465</created>
+      <updated>1417582915465</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387657000" />
+    <option name="totallyTimeSpent" value="387999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1704,7 +1708,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="imports for advancements now work" />
     <MESSAGE value="fixed a saving bug" />
     <MESSAGE value="fixed an image path bug" />
     <MESSAGE value="fixed a number of weird resizing issues" />
@@ -1729,7 +1732,8 @@
     <MESSAGE value="added revision level to the meritBadge import" />
     <MESSAGE value="added a busy curser when importing and exporting" />
     <MESSAGE value="added speed to the meritBadge import" />
-    <option name="LAST_COMMIT_MESSAGE" value="added speed to the meritBadge import" />
+    <MESSAGE value="added speed to the advancement and other awards imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="added speed to the advancement and other awards imports" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2019,17 +2023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="18955">
-          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-          <folding>
-            <marker date="1417581218346" expanded="false" signature="24078:46719" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1417581218346" expanded="false" signature="46731:47836" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
@@ -2111,11 +2104,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7975647" vertical-offset="8350" max-vertical-offset="9979">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8350" max-vertical-offset="9979">
           <caret line="543" column="17" selection-start-line="543" selection-start-column="17" selection-end-line="543" selection-end-column="17" />
           <folding>
             <marker date="1417582888121" expanded="false" signature="23218:30554" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1417582888121" expanded="false" signature="30566:30845" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53424656" vertical-offset="7639" max-vertical-offset="12682">
+          <caret line="514" column="0" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
+          <folding>
+            <marker date="1417583191068" expanded="false" signature="26000:48641" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1417583191068" expanded="false" signature="48653:49758" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
