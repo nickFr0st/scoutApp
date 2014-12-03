@@ -4,12 +4,15 @@ import guiUtil.JPasswordFieldDefaultText;
 import guiUtil.JTextFieldDefaultText;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Malloch on 6/29/14
@@ -98,5 +101,62 @@ public class Util {
 
     public static boolean isThirtyOneDayMonth(int month) {
         return (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12);
+    }
+
+    public static boolean validateDisplayDateFormat(String date) {
+        if (isEmpty(date)) {
+            return false;
+        }
+
+        if (!date.matches(DATE_PATTERN)) {
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(date);
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            if (month > 12 || month < 1) {
+                return false;
+            }
+
+            if (Util.isThirtyOneDayMonth(month)) {
+                if (day > 31 || month < 0) {
+                    return false;
+                }
+            } else if (Util.isThirtyDayMonth(month)) {
+                if (day > 30 || month < 0) {
+                    return false;
+                }
+            } else {
+                boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+
+                if (isLeapYear) {
+                    if (day > 29 || month < 0) {
+                        return false;
+                    }
+                } else {
+                    if (day > 28 || month < 0) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static void processBusy(JComponent component, boolean isBusy) {
+        if (isBusy) {
+            component.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        } else {
+            component.setCursor(Cursor.getDefaultCursor());
+        }
     }
 }
