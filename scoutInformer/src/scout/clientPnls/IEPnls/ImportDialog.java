@@ -21,9 +21,9 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author User #2
@@ -135,7 +135,7 @@ public class ImportDialog extends JDialog {
                 if (getMeritBadge) {
                     getMeritBadge = false;
 
-                    if (record.length < 2) {
+                    if (record.length < 3) {
                         errors.append("There are too few values for the merit badge. ").append(errorLine);
                         continue;
                     }
@@ -159,11 +159,34 @@ public class ImportDialog extends JDialog {
                         meritBadge.setRequiredForEagle(Boolean.parseBoolean(record[1].trim()));
                     }
 
-                    if (record.length == 2) {
+                    String revisionDate = record[2].trim();
+                    if (!Util.validateDisplayDateFormat(revisionDate)) {
+                        errors.append("invalid date: ").append(record[2]).append(". Valid date format is (MM/DD/YYYY). ").append(errorLine);
+                        continue;
+                    } else {
+
+                        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+                        Matcher matcher = pattern.matcher(revisionDate);
+
+                        if (matcher.find()) {
+                            int month = Integer.parseInt(matcher.group(1));
+                            int day = Integer.parseInt(matcher.group(2));
+                            int year = Integer.parseInt(matcher.group(3));
+
+                            Calendar revDate = Calendar.getInstance();
+                            revDate.set(year, month - 1, day);
+
+                            meritBadge.setRevisionDate(revDate.getTime());
+                        } else {
+                            meritBadge.setRevisionDate(new Date());
+                        }
+                    }
+
+                    if (record.length == 3) {
                         continue;
                     }
 
-                    String advancementImgPath = record[2];
+                    String advancementImgPath = record[3];
                     if (Util.isEmpty(advancementImgPath)){
                         errors.append("Merit badge image path is missing. ").append(errorLine);
                     } else if (advancementImgPath.length() > MeritBadge.COL_IMG_PATH_LENGTH) {

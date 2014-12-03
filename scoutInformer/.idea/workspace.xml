@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added images">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Util.java" afterPath="$PROJECT_DIR$/src/util/Util.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added some util methods">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="94ccc026-2602-47ce-9044-c524df8a0436" name="html files" comment="" />
@@ -192,12 +192,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Util.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43333334" vertical-offset="1590" max-vertical-offset="2584">
-              <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1335" max-vertical-offset="2584">
+              <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportDialog.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.585997" vertical-offset="2063" max-vertical-offset="9622">
+              <caret line="165" column="28" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
+              <folding>
+                <marker date="1417582154717" expanded="false" signature="22227:29571" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1417582154717" expanded="false" signature="29583:29831" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -344,7 +357,6 @@
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.jfd" />
         <option value="$PROJECT_DIR$/src/util/LogicCounselor.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportDialog.jfd" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ExportAdvancements.java" />
         <option value="$PROJECT_DIR$/src/util/LogicMeritBadge.java" />
@@ -353,6 +365,7 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" />
       </list>
     </option>
   </component>
@@ -867,7 +880,7 @@
       <workItem from="1414274044125" duration="4359000" />
       <workItem from="1414294831814" duration="6532000" />
       <workItem from="1414335547577" duration="1446000" />
-      <workItem from="1417581575127" duration="248000" />
+      <workItem from="1417581575127" duration="565000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1569,11 +1582,15 @@
       <created>1417581697779</created>
       <updated>1417581697779</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="added some util methods">
+      <created>1417581857063</created>
+      <updated>1417581857063</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386619000" />
+    <option name="totallyTimeSpent" value="386936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1600,7 +1617,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17530319" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31529656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31529656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1627,7 +1644,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added import message" />
     <MESSAGE value="added some validation" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="more import validation" />
@@ -1652,7 +1668,8 @@
     <MESSAGE value="simplified the Export Dialog" />
     <MESSAGE value="added badge export" />
     <MESSAGE value="added images" />
-    <option name="LAST_COMMIT_MESSAGE" value="added images" />
+    <MESSAGE value="added some util methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some util methods" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1897,6 +1914,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3053" max-vertical-offset="4097">
           <caret line="234" column="48" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1904,14 +1922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1307" max-vertical-offset="9401">
           <caret line="106" column="37" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.85625" vertical-offset="717" max-vertical-offset="7004">
-          <caret line="167" column="62" selection-start-line="167" selection-start-column="62" selection-end-line="167" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2010,9 +2020,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43333334" vertical-offset="1590" max-vertical-offset="2584">
-          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1335" max-vertical-offset="2584">
+          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.585997" vertical-offset="2063" max-vertical-offset="9622">
+          <caret line="165" column="28" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
+          <folding>
+            <marker date="1417582154717" expanded="false" signature="22227:29571" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1417582154717" expanded="false" signature="29583:29831" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
         </state>
       </provider>
     </entry>
