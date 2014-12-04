@@ -675,24 +675,31 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             return;
         }
 
-        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
-        Matcher matcher = pattern.matcher(txtBirthDate.getText());
-
-        if (!matcher.find()) {
+        Calendar birthDate;
+        if ((birthDate = convertDateStringToCalendar(txtBirthDate.getText())) == null) {
             return;
         }
 
-        int month = Integer.parseInt(matcher.group(1));
-        int day = Integer.parseInt(matcher.group(2));
-        int year = Integer.parseInt(matcher.group(3));
-
-        Calendar birthDate = Calendar.getInstance();
-        birthDate.set(year, month - 1, day);
+        Calendar rankDate;
+        if ((rankDate = convertDateStringToCalendar(txtRankDate.getText())) == null) {
+            return;
+        }
 
         scout.setName(txtName.getText());
         scout.setBirthDate(birthDate.getTime());
         scout.setCurrentAdvancementId(LogicAdvancement.findByName(cboCurrentRank.getSelectedItem().toString()).getId());
+        scout.setAdvancementDate(rankDate.getTime());
         scout.setTypeId(ScoutTypeConst.BOY_SCOUT.getId());
+
+        if (!txtPositionName.isMessageDefault() && !Util.isEmpty(txtPositionName.getText())) {
+            Calendar positionDate;
+            if ((positionDate = convertDateStringToCalendar(txtPositionDate.getText())) == null) {
+                return;
+            }
+
+            scout.setPosition(txtPositionName.getText());
+            scout.setPostionDate(positionDate.getTime());
+        }
 
         LogicScout.save(scout);
 
@@ -710,6 +717,24 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         }
 
         LogicContact.saveList(contactList);
+    }
+
+    private Calendar convertDateStringToCalendar(String dateString) {
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(dateString);
+
+        if (!matcher.find()) {
+            return null;
+        }
+
+        int month = Integer.parseInt(matcher.group(1));
+        int day = Integer.parseInt(matcher.group(2));
+        int year = Integer.parseInt(matcher.group(3));
+
+        Calendar date = Calendar.getInstance();
+        date.set(year, month - 1, day);
+
+        return date;
     }
 
     private void checkBirthDate() {

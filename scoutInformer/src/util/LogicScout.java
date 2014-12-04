@@ -58,6 +58,9 @@ public class LogicScout {
                 scout.setName(rs.getString(KeyConst.SCOUT_NAME.getName()));
                 scout.setBirthDate(rs.getDate(KeyConst.SCOUT_BIRTH_DATE.getName()));
                 scout.setCurrentAdvancementId(rs.getInt(KeyConst.SCOUT_ADVANCEMENT_ID.getName()));
+                scout.setAdvancementDate(rs.getDate(KeyConst.SCOUT_ADVANCEMENT_DATE.getName()));
+                scout.setPosition(rs.getString(KeyConst.SCOUT_POSITION.getName()));
+                scout.setPostionDate(rs.getDate(KeyConst.SCOUT_POSITION_DATE.getName()));
                 scout.setTypeId(rs.getInt(KeyConst.SCOUT_TYPE_ID.getName()));
             }
 
@@ -83,7 +86,7 @@ public class LogicScout {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("INSERT INTO scout VALUES( " + scout.getId() + ",'" + scout.getName() + "', '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "'," + scout.getCurrentAdvancementId() + "," + scout.getTypeId() + ")");
+            statement.executeUpdate("INSERT INTO scout VALUES( " + scout.getId() + ",'" + scout.getName() + "', '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "'," + scout.getCurrentAdvancementId() + ",'" + Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate()) + "','" + scout.getPosition() + "','" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "'," + scout.getTypeId() + ")");
         } catch (Exception e) {
             e.printStackTrace();
         }

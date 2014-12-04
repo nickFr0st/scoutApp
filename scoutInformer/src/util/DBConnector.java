@@ -278,6 +278,9 @@ public class DBConnector {
                 " name VARCHAR(90) NOT NULL," +
                 " birthDate DATE NOT NULL," +
                 " advancementId INT NOT NULL," +
+                " advancementDate DATE NOT NULL," +
+                " position VARCHAR(255) NULL," +
+                " positionDate DATE NULL," +
                 " typeId INT NOT NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableScout);

@@ -13,6 +13,9 @@ public class Scout {
     private String name;
     private Date birthDate;
     private int currentAdvancementId;
+    private Date advancementDate;
+    private String position;
+    private Date postionDate;
     private int typeId;
 
     public Scout() {
@@ -49,6 +52,30 @@ public class Scout {
 
     public void setCurrentAdvancementId(int currentAdvancementId) {
         this.currentAdvancementId = currentAdvancementId;
+    }
+
+    public Date getAdvancementDate() {
+        return advancementDate;
+    }
+
+    public void setAdvancementDate(Date advancementDate) {
+        this.advancementDate = advancementDate;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public Date getPostionDate() {
+        return postionDate;
+    }
+
+    public void setPostionDate(Date postionDate) {
+        this.postionDate = postionDate;
     }
 
     public int getTypeId() {

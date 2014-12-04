@@ -29,6 +29,9 @@ public enum KeyConst {
     SCOUT_NAME("name"),
     SCOUT_BIRTH_DATE("birthDate"),
     SCOUT_ADVANCEMENT_ID("advancementId"),
+    SCOUT_ADVANCEMENT_DATE("advancementDate"),
+    SCOUT_POSITION("position"),
+    SCOUT_POSITION_DATE("positionDate"),
     SCOUT_TYPE_ID("typeId"),
 
     // Contact Table
