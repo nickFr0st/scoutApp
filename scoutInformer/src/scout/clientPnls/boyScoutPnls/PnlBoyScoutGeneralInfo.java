@@ -41,6 +41,8 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     private final ImageIcon NO_IMAGE_ICON = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private final Integer MIN_AGE = 11;
     private final Integer MAX_AGE = 18;
+    private final Integer DEFAULT_TIME = 0;
+
     private final int COL_TYPE = 0;
     private final int COL_NAME = 1;
     private final int COL_RELATION = 2;
@@ -56,6 +58,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
     public void init() {
         clearErrors();
+
+        lblAgeValue.setText(DEFAULT_TIME.toString());
+        lblRankTimeValue.setText(DEFAULT_TIME.toString());
+        lblPositionTimeValue.setText(DEFAULT_TIME.toString());
 
         List<Advancement> advancementList = LogicAdvancement.findAllAdvancements();
         if (!Util.isEmpty(advancementList)) {
@@ -184,14 +190,21 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     public void clearErrors() {
-        lblBirthDateError.setText("");
-        lblBirthDateError.setVisible(false);
+        clearBirthDateErrors();
+        clearNameErrors();
+        clearContactErrors();
+        clearRankErrors();
+        clearPositionErrors();
+    }
 
-        lblNameError.setText("");
-        lblNameError.setVisible(false);
+    public void clearPositionErrors() {
+        lblPositionTimeError.setText("");
+        lblPositionTimeError.setVisible(false);
+    }
 
-        lblContactError.setText("");
-        lblContactError.setVisible(false);
+    public void clearRankErrors() {
+        lblRankTimeError.setText("");
+        lblRankTimeError.setVisible(false);
     }
 
     public void clearContactErrors() {
@@ -287,6 +300,14 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             hasErrors = true;
         }
 
+        if (!validateRankDate()) {
+            hasErrors = true;
+        }
+
+        if (!validatePositionDate()) {
+            hasErrors = true;
+        }
+
         return !hasErrors;
     }
 
@@ -371,6 +392,175 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             outLineItemCount++;
         }
 
+        return true;
+    }
+
+    private void checkRankDate() {
+        if(!validateRankDate()) {
+            return;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtRankDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            Calendar a = Calendar.getInstance();
+            a.set(year, month - 1, day);
+            Calendar b = getCalendar(new Date());
+
+            Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+            if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                    (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+                diff--;
+            }
+
+            lblRankTimeValue.setText(diff.toString());
+        }
+    }
+
+    private boolean validateRankDate() {
+        clearRankErrors();
+
+        if (txtRankDate.isMessageDefault() || Util.isEmpty(txtRankDate.getText())) {
+            Util.setError(lblRankTimeError, "Cannot leave rank date blank");
+            return false;
+        }
+
+        if (!txtRankDate.getText().matches(Util.DATE_PATTERN)) {
+            Util.setError(lblRankTimeError, "invalid format");
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtRankDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            if (month > 12 || month < 1) {
+                Util.setError(lblRankTimeError, "invalid month");
+                return false;
+            }
+
+            if (Util.isThirtyOneDayMonth(month)) {
+                if (day > 31 || month < 0) {
+                    Util.setError(lblRankTimeError, "invalid day");
+                    return false;
+                }
+            } else if (Util.isThirtyDayMonth(month)) {
+                if (day > 30 || month < 0) {
+                    Util.setError(lblRankTimeError, "invalid day");
+                    return false;
+                }
+            } else {
+                boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+
+                if (isLeapYear) {
+                    if (day > 29 || month < 0) {
+                        Util.setError(lblRankTimeError, "invalid day");
+                        return false;
+                    }
+                } else {
+                    if (day > 28 || month < 0) {
+                        Util.setError(lblRankTimeError, "invalid day");
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private void checkPositionDate() {
+        if(!validatePositionDate()) {
+            return;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtPositionDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            Calendar a = Calendar.getInstance();
+            a.set(year, month - 1, day);
+            Calendar b = getCalendar(new Date());
+
+            Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+            if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                    (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+                diff--;
+            }
+
+            lblPositionTimeValue.setText(diff.toString());
+        }
+    }
+
+    private boolean validatePositionDate() {
+        clearPositionErrors();
+
+        if (txtPositionName.isMessageDefault() || Util.isEmpty(txtPositionName.getText())) {
+            lblPositionTimeValue.setText(DEFAULT_TIME.toString());
+            return false;
+        }
+
+        if (txtPositionDate.isMessageDefault() || Util.isEmpty(txtPositionDate.getText())) {
+            Util.setError(lblPositionTimeError, "Cannot leave position date blank");
+            return false;
+        }
+
+        if (!txtPositionDate.getText().matches(Util.DATE_PATTERN)) {
+            Util.setError(lblPositionTimeError, "invalid format");
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtPositionDate.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            if (month > 12 || month < 1) {
+                Util.setError(lblPositionTimeError, "invalid month");
+                return false;
+            }
+
+            if (Util.isThirtyOneDayMonth(month)) {
+                if (day > 31 || month < 0) {
+                    Util.setError(lblPositionTimeError, "invalid day");
+                    return false;
+                }
+            } else if (Util.isThirtyDayMonth(month)) {
+                if (day > 30 || month < 0) {
+                    Util.setError(lblPositionTimeError, "invalid day");
+                    return false;
+                }
+            } else {
+                boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+
+                if (isLeapYear) {
+                    if (day > 29 || month < 0) {
+                        Util.setError(lblPositionTimeError, "invalid day");
+                        return false;
+                    }
+                } else {
+                    if (day > 28 || month < 0) {
+                        Util.setError(lblPositionTimeError, "invalid day");
+                        return false;
+                    }
+                }
+            }
+        }
         return true;
     }
 
@@ -477,7 +667,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     }
 
     public void save() {
-        // should run validateFields() before this method
+        // should run validateInfo() before this method
 
         Scout existingScout = LogicScout.findByName(txtName.getText());
         if (existingScout != null) {
@@ -522,10 +712,6 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         LogicContact.saveList(contactList);
     }
 
-    private void txtBirthDateKeyReleased() {
-        checkBirthDate();
-    }
-
     private void checkBirthDate() {
         clearBirthDateErrors();
 
@@ -565,10 +751,6 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         validateName();
     }
 
-    private void txtBirthDateFocusLost() {
-        checkBirthDate();
-    }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         createUIComponents();
@@ -584,8 +766,21 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         lblAge = new JLabel();
         lblAgeValue = new JLabel();
         lblBirthDateError = new JLabel();
-        lblCurrentRank = new JLabel();
         vSpacer1 = new JPanel(null);
+        panel3 = new JPanel();
+        lblCurrentRank = new JLabel();
+        lblRankDate = new JLabel();
+        txtRankDate = new JTextFieldDefaultText();
+        lblRankTime = new JLabel();
+        lblRankTimeValue = new JLabel();
+        lblRankTimeError = new JLabel();
+        lblPosition = new JLabel();
+        txtPositionName = new JTextFieldDefaultText();
+        lblPositionDate = new JLabel();
+        txtPositionDate = new JTextFieldDefaultText();
+        lblPositionTime = new JLabel();
+        lblPositionTimeValue = new JLabel();
+        lblPositionTimeError = new JLabel();
         panel1 = new JPanel();
         panel2 = new JPanel();
         label2 = new JLabel();
@@ -602,9 +797,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         setName("this");
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {158, 585, 40, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {181, 15, 432, 0};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {181, 15, 0, 0, 219, 0};
         ((GridBagLayout)getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 1.0E-4};
 
         //======== pnlSelectedImage ========
         {
@@ -697,13 +892,13 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             txtBirthDate.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyReleased(KeyEvent e) {
-                    txtBirthDateKeyReleased();
+                    checkBirthDate();
                 }
             });
             txtBirthDate.addFocusListener(new FocusAdapter() {
                 @Override
                 public void focusLost(FocusEvent e) {
-                    txtBirthDateFocusLost();
+                    checkBirthDate();
                 }
             });
             pnlGeneralInfo.add(txtBirthDate, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
@@ -736,15 +931,36 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             pnlGeneralInfo.add(lblBirthDateError, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 10, 5, 10), 0, 0));
+        }
+        add(pnlGeneralInfo, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- vSpacer1 ----
+        vSpacer1.setOpaque(false);
+        vSpacer1.setName("vSpacer1");
+        add(vSpacer1, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //======== panel3 ========
+        {
+            panel3.setBackground(Color.white);
+            panel3.setName("panel3");
+            panel3.setLayout(new GridBagLayout());
+            ((GridBagLayout)panel3.getLayout()).columnWidths = new int[] {0, 179, 0, 198, 0, 0, 0};
+            ((GridBagLayout)panel3.getLayout()).rowHeights = new int[] {35, 0, 40, 0, 0};
+            ((GridBagLayout)panel3.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel3.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- lblCurrentRank ----
             lblCurrentRank.setText("Current Rank:");
             lblCurrentRank.setFont(new Font("Tahoma", Font.PLAIN, 14));
             lblCurrentRank.setForeground(new Color(51, 102, 153));
             lblCurrentRank.setName("lblCurrentRank");
-            pnlGeneralInfo.add(lblCurrentRank, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
+            panel3.add(lblCurrentRank, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 5, 0, 5), 0, 0));
+                new Insets(0, 5, 5, 5), 0, 0));
 
             //---- cboCurrentRank ----
             cboCurrentRank.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -756,18 +972,144 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
                     cboCurrentRankActionPerformed();
                 }
             });
-            pnlGeneralInfo.add(cboCurrentRank, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
+            panel3.add(cboCurrentRank, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 0, 5), 0, 0));
-        }
-        add(pnlGeneralInfo, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- vSpacer1 ----
-        vSpacer1.setOpaque(false);
-        vSpacer1.setName("vSpacer1");
-        add(vSpacer1, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
+            //---- lblRankDate ----
+            lblRankDate.setText("Rank Date:");
+            lblRankDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblRankDate.setForeground(new Color(51, 102, 153));
+            lblRankDate.setName("lblRankDate");
+            panel3.add(lblRankDate, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
+                new Insets(0, 10, 5, 5), 0, 0));
+
+            //---- txtRankDate ----
+            txtRankDate.setPreferredSize(new Dimension(14, 35));
+            txtRankDate.setMinimumSize(new Dimension(14, 35));
+            txtRankDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtRankDate.setDefaultText("MM/DD/YYYY");
+            txtRankDate.setName("txtRankDate");
+            txtRankDate.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    checkRankDate();
+                }
+            });
+            txtRankDate.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    checkRankDate();
+                }
+            });
+            panel3.add(txtRankDate, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblRankTime ----
+            lblRankTime.setText("Time as Rank:");
+            lblRankTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblRankTime.setForeground(new Color(51, 102, 153));
+            lblRankTime.setName("lblRankTime");
+            panel3.add(lblRankTime, new GridBagConstraints(4, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
+                new Insets(0, 10, 5, 5), 0, 0));
+
+            //---- lblRankTimeValue ----
+            lblRankTimeValue.setText("11");
+            lblRankTimeValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblRankTimeValue.setForeground(new Color(51, 102, 153));
+            lblRankTimeValue.setName("lblRankTimeValue");
+            panel3.add(lblRankTimeValue, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 5, 0), 0, 0));
+
+            //---- lblRankTimeError ----
+            lblRankTimeError.setText("* Error Message");
+            lblRankTimeError.setForeground(Color.red);
+            lblRankTimeError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblRankTimeError.setName("lblRankTimeError");
+            panel3.add(lblRankTimeError, new GridBagConstraints(3, 1, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 10, 5, 15), 0, 0));
+
+            //---- lblPosition ----
+            lblPosition.setText("Position:");
+            lblPosition.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblPosition.setForeground(new Color(51, 102, 153));
+            lblPosition.setName("lblPosition");
+            panel3.add(lblPosition, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
+                new Insets(0, 5, 5, 5), 0, 0));
+
+            //---- txtPositionName ----
+            txtPositionName.setDefaultText("Position Name");
+            txtPositionName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtPositionName.setName("txtPositionName");
+            panel3.add(txtPositionName, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblPositionDate ----
+            lblPositionDate.setText("Position Date:");
+            lblPositionDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblPositionDate.setForeground(new Color(51, 102, 153));
+            lblPositionDate.setName("lblPositionDate");
+            panel3.add(lblPositionDate, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 10, 5, 5), 0, 0));
+
+            //---- txtPositionDate ----
+            txtPositionDate.setPreferredSize(new Dimension(14, 35));
+            txtPositionDate.setMinimumSize(new Dimension(14, 35));
+            txtPositionDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            txtPositionDate.setDefaultText("MM/DD/YYYY");
+            txtPositionDate.setName("txtPositionDate");
+            txtPositionDate.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    checkPositionDate();
+                }
+            });
+            txtPositionDate.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    checkPositionDate();
+                }
+            });
+            panel3.add(txtPositionDate, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblPositionTime ----
+            lblPositionTime.setText("Time in Position:");
+            lblPositionTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblPositionTime.setForeground(new Color(51, 102, 153));
+            lblPositionTime.setName("lblPositionTime");
+            panel3.add(lblPositionTime, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 10, 5, 5), 0, 0));
+
+            //---- lblPositionTimeValue ----
+            lblPositionTimeValue.setText("11");
+            lblPositionTimeValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            lblPositionTimeValue.setForeground(new Color(51, 102, 153));
+            lblPositionTimeValue.setName("lblPositionTimeValue");
+            panel3.add(lblPositionTimeValue, new GridBagConstraints(5, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 5, 0), 0, 0));
+
+            //---- lblPositionTimeError ----
+            lblPositionTimeError.setText("* Error Message");
+            lblPositionTimeError.setForeground(Color.red);
+            lblPositionTimeError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblPositionTimeError.setName("lblPositionTimeError");
+            panel3.add(lblPositionTimeError, new GridBagConstraints(3, 3, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 10, 0, 15), 0, 0));
+        }
+        add(panel3, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -777,9 +1119,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             panel1.setName("panel1");
             panel1.setLayout(new GridBagLayout());
             ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {353, 0};
-            ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 221, 0, 0};
+            ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 216, 0};
             ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {1.0, 1.0E-4};
-            ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 1.0E-4};
 
             //======== panel2 ========
             {
@@ -869,9 +1211,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             }
             panel1.add(scrollPane1, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 5, 5, 5), 0, 0));
+                new Insets(0, 5, 0, 5), 0, 0));
         }
-        add(panel1, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
+        add(panel1, new GridBagConstraints(0, 4, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -889,9 +1231,22 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     private JLabel lblAge;
     private JLabel lblAgeValue;
     private JLabel lblBirthDateError;
+    private JPanel vSpacer1;
+    private JPanel panel3;
     private JLabel lblCurrentRank;
     private JComboBox cboCurrentRank;
-    private JPanel vSpacer1;
+    private JLabel lblRankDate;
+    private JTextFieldDefaultText txtRankDate;
+    private JLabel lblRankTime;
+    private JLabel lblRankTimeValue;
+    private JLabel lblRankTimeError;
+    private JLabel lblPosition;
+    private JTextFieldDefaultText txtPositionName;
+    private JLabel lblPositionDate;
+    private JTextFieldDefaultText txtPositionDate;
+    private JLabel lblPositionTime;
+    private JLabel lblPositionTimeValue;
+    private JLabel lblPositionTimeError;
     private JPanel panel1;
     private JPanel panel2;
     private JLabel label2;

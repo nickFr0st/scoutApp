@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "153, 580, 40:1.0"
-			"$rowSpecs": "176, 10, 432:1.0"
+			"$rowSpecs": "176, 10, 0, 0:1.0, 219"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignLeft": true
@@ -93,8 +93,8 @@ new FormModel {
 					"minimumSize": #Dimension1
 					"font": #Font1
 					"defaultText": "MM/DD/YYYY"
-					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "txtBirthDateKeyReleased", false ) )
-					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "txtBirthDateFocusLost", false ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "checkBirthDate", false ) )
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "checkBirthDate", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 2
 					"gridx": 1
@@ -112,8 +112,8 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblAgeValue"
 					"text": "11"
-					"font": new java.awt.Font( "Tahoma", 0, 14 )
-					"foreground": new java.awt.Color( 51, 102, 153, 255 )
+					"font": &Font3 new java.awt.Font( "Tahoma", 0, 14 )
+					"foreground": &Color2 new java.awt.Color( 51, 102, 153, 255 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 3
 					"gridy": 2
@@ -130,6 +130,26 @@ new FormModel {
 					"gridwidth": 3
 					"gridx": 1
 				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+			} )
+			add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
+				name: "vSpacer1"
+				"opaque": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+				"gridwidth": 2
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "0, 174, 0, 193, 0, 0"
+				"$rowSpecs": "30, 0, 35, 0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "panel3"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblCurrentRank"
 					"text": "Current Rank:"
@@ -137,7 +157,6 @@ new FormModel {
 					"foreground": #Color0
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"insets": #Insets0
-					"gridy": 4
 				} )
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "cboCurrentRank"
@@ -149,20 +168,136 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cboCurrentRankActionPerformed", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
-					"gridy": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblRankDate"
+					"text": "Rank Date:"
+					"font": #Font0
+					"foreground": #Color0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": &Insets2 new java.awt.Insets( 0, 10, 0, 0 )
+					"gridx": 2
+					"hAlign": 4
+				} )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "txtRankDate"
+					"preferredSize": new java.awt.Dimension( 14, 35 )
+					"minimumSize": new java.awt.Dimension( 14, 35 )
+					"font": #Font1
+					"defaultText": "MM/DD/YYYY"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "checkRankDate", false ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "checkRankDate", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblRankTime"
+					"text": "Time as Rank:"
+					"font": #Font0
+					"foreground": #Color0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": &Insets3 new java.awt.Insets( 0, 10, 0, 0 )
+					"gridx": 4
+					"hAlign": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblRankTimeValue"
+					"text": "11"
+					"font": #Font3
+					"foreground": #Color2
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"hAlign": 2
+					"gridx": 5
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblRankTimeError"
+					"text": "* Error Message"
+					"foreground": #Color1
+					"font": #Font2
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+					"insets": #Insets1
+					"gridx": 3
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblPosition"
+					"text": "Position:"
+					"font": #Font0
+					"foreground": #Color0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": #Insets0
+					"gridy": 2
+					"hAlign": 4
+				} )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "txtPositionName"
+					"defaultText": "Position Name"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblPositionDate"
+					"text": "Position Date:"
+					"font": #Font0
+					"foreground": #Color0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": #Insets2
+					"gridy": 2
+					"gridx": 2
+				} )
+				add( new FormComponent( "guiUtil.JTextFieldDefaultText" ) {
+					name: "txtPositionDate"
+					"preferredSize": new java.awt.Dimension( 14, 35 )
+					"minimumSize": new java.awt.Dimension( 14, 35 )
+					"font": #Font1
+					"defaultText": "MM/DD/YYYY"
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "checkPositionDate", false ) )
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "checkPositionDate", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 2
+					"gridx": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblPositionTime"
+					"text": "Time in Position:"
+					"font": #Font0
+					"foreground": #Color0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": #Insets3
+					"gridy": 2
+					"gridx": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblPositionTimeValue"
+					"text": "11"
+					"font": #Font3
+					"foreground": #Color2
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"hAlign": 2
+					"gridy": 2
+					"gridx": 5
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblPositionTimeError"
+					"text": "* Error Message"
+					"foreground": #Color1
+					"font": #Font2
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+					"insets": #Insets1
+					"gridx": 3
+					"gridwidth": 2
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-			} )
-			add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
-				name: "vSpacer1"
-				"opaque": false
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 1
+				"gridy": 2
+				"gridwidth": 2
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "353:1.0"
-				"$rowSpecs": "0, 216, 0"
+				"$rowSpecs": "0, 216"
 				"$hGap": 5
 				"$vGap": 5
 				"$alignLeft": true
@@ -249,12 +384,12 @@ new FormModel {
 					"insets": new java.awt.Insets( 0, 5, 0, 5 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 2
+				"gridy": 4
 				"gridwidth": 2
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 770, 655 )
+			"size": new java.awt.Dimension( 755, 655 )
 		} )
 	}
 }
