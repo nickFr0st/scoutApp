@@ -92,6 +92,19 @@ public class LogicScout {
         }
     }
 
+    public static void update(Scout scout) {
+        if (!connector.checkForDataBaseConnection()) {
+            return;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("UPDATE scout SET name = '" + scout.getName() + "', birthDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "', advancementId = " + scout.getCurrentAdvancementId() + ", position = '" + scout.getPosition() + "', positionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "' WHERE id = " + scout.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private static int getNextId() {
         int id = 1;
 

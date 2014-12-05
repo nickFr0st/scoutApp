@@ -120,4 +120,89 @@ public class LogicContact {
 
         return id;
     }
+
+    public static void updateList(List<Contact> contactList, int scoutId) {
+        for (Contact contact : contactList) {
+            if (contact.getId() < 0) {
+                save(contact);
+            } else {
+                update(contact);
+            }
+        }
+
+        List<Integer> existingRequirementIdList = findIdsByScoutId(scoutId);
+        List<Integer> tempList = new ArrayList<Integer>();
+
+        for (Contact contact : contactList) {
+            if (contact.getId() < 0) {
+                continue;
+            }
+
+            tempList.add(contact.getId());
+        }
+
+        if (Util.isEmpty(tempList)) {
+            deleteList(existingRequirementIdList);
+            return;
+        }
+
+        List<Integer> deletionList = new ArrayList<Integer>();
+
+        for (Integer id : existingRequirementIdList) {
+            if (!tempList.contains(id)) {
+                deletionList.add(id);
+            }
+        }
+
+        deleteList(deletionList);
+    }
+
+    private static List<Integer> findIdsByScoutId(int scoutId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Integer> contactIdList = new ArrayList<Integer>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT id FROM contact WHERE scoutId = " + scoutId);
+
+            while (rs.next()) {
+                contactIdList.add(rs.getInt(KeyConst.CONTACT_ID.getName()));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return contactIdList;
+    }
+
+    private static void update(Contact contact) {
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("UPDATE contact SET name = '" + contact.getName() + "', relation = '" + contact.getRelation() + "', data = '" + contact.getData() + "' WHERE id = " + contact.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void save(Contact contact) {
+        if (contact == null) {
+            return;
+        }
+
+        if (contact.getId() < 0) {
+            contact.setId(getNextId());
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("INSERT INTO contact VALUES( " + contact.getId() + "," + contact.getScoutId() + "," + contact.getTypeId() + ",'" + contact.getName() + "', '" + contact.getRelation() + "','" + contact.getData() + "')");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

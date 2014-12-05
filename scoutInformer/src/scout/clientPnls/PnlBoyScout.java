@@ -114,7 +114,19 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnUpdateMouseClicked() {
-        // TODO add your code here
+        // this will need to go through each of the panels
+        // start with general information
+        // then details
+        // then tracing
+
+        // validate each panel
+        if (!pnlBoyScoutGeneralInfo.validateInfo()) {
+            return;
+        }
+
+        // if it is good then save each panel
+        pnlBoyScoutGeneralInfo.update(listScoutNames, listScoutNames.getSelectedValue().toString());
+        reloadDataFromSave(pnlBoyScoutGeneralInfo.getScout());
     }
 
     private void btnSaveMouseClicked() {

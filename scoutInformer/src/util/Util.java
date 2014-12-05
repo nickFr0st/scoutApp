@@ -30,6 +30,10 @@ public class Util {
         return list == null || list.isEmpty();
     }
 
+    public static boolean isEmpty(JTextFieldDefaultText txtField) {
+        return txtField == null || txtField.isMessageDefault() || txtField.getText().isEmpty();
+    }
+
     public static void saveProperties(Properties properties, String propertyFileName) {
         try {
             File f = new File(propertyFileName.substring(propertyFileName.indexOf("/") + 1));

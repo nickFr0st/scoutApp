@@ -75,6 +75,18 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             return;
         }
 
+        loadData();
+
+        revalidate();
+        repaint();
+    }
+
+    private void loadData() {
+        if (!Util.isEmpty(scout.getPosition())) {
+            txtPositionName.setText(scout.getPosition());
+            updatePositionTime();
+        }
+
         txtName.setText(scout.getName());
 
         txtBirthDate.setText(df.format(scout.getBirthDate()));
@@ -82,6 +94,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         Advancement advancement = LogicAdvancement.findById(scout.getCurrentAdvancementId());
         if (advancement != null) {
+            updateRankTime();
             cboCurrentRank.setSelectedItem(advancement.getName());
             loadImage(advancement.getImgPath());
         } else {
@@ -90,9 +103,37 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         updateContactTable();
         cboCurrentRank.setSelectedItem(LogicAdvancement.findById(scout.getCurrentAdvancementId()).getName());
+    }
 
-        revalidate();
-        repaint();
+    private void updatePositionTime() {
+        if (scout.getPostionDate() == null) {
+            lblPositionTimeValue.setText(DEFAULT_TIME.toString());
+            return;
+        }
+
+        Calendar a = getCalendar(scout.getPostionDate());
+        Calendar b = getCalendar(new Date());
+
+        Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff--;
+        }
+        lblPositionTimeValue.setText(diff.toString());
+        txtPositionDate.setText(Util.DISPLAY_DATE_FORMAT.format(scout.getPostionDate()));
+    }
+
+    private void updateRankTime() {
+        Calendar a = getCalendar(scout.getAdvancementDate());
+        Calendar b = getCalendar(new Date());
+
+        Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff--;
+        }
+        lblRankTimeValue.setText(diff.toString());
+        txtRankDate.setText(Util.DISPLAY_DATE_FORMAT.format(scout.getAdvancementDate()));
     }
 
     public Scout getScout() {
@@ -109,6 +150,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         clearErrors();
         clearContactTable();
+        lblAgeValue.setText(DEFAULT_TIME.toString());
+        lblRankTimeValue.setText(DEFAULT_TIME.toString());
+        lblPositionTimeValue.setText(DEFAULT_TIME.toString());
 
         txtName.requestFocus();
     }
@@ -362,14 +406,6 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             contact.setRelation(relation);
             contact.setTypeId(ContactTypeConst.getIdByName(type));
             contact.setData(data);
-
-            if (scout.getId() > 0) {
-                Integer existingContactId = LogicContact.findByNameTypeIdAndScoutId(name, contact.getTypeId(), scout.getId());
-                if (existingContactId != null) {
-                    Util.setError(lblContactError, "Cannot have duplicate contact names of the same type." + errorLine);
-                    return false;
-                }
-            }
 
             contactList.add(contact);
             count++;
@@ -664,6 +700,63 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         LogicContact.deleteList(contactIdList);
         LogicScout.delete(scout.getId());
+    }
+
+    public void update(JList nameList, String scoutName) {
+        // should run validateInfo() before this method
+
+        for (int i = 0; i < nameList.getModel().getSize(); ++i) {
+            String advancementName = (String) nameList.getModel().getElementAt(i);
+            if (advancementName.equalsIgnoreCase(txtName.getText()) && !txtName.getText().equals(nameList.getSelectedValue().toString())) {
+                Util.setError(lblNameError, "Scout name already exists");
+                return;
+            }
+        }
+
+        Calendar birthDate;
+        if ((birthDate = convertDateStringToCalendar(txtBirthDate.getText())) == null) {
+            return;
+        }
+
+        Calendar rankDate;
+        if ((rankDate = convertDateStringToCalendar(txtRankDate.getText())) == null) {
+            return;
+        }
+
+        scout.setName(txtName.getText());
+        scout.setBirthDate(birthDate.getTime());
+        scout.setCurrentAdvancementId(LogicAdvancement.findByName(cboCurrentRank.getSelectedItem().toString()).getId());
+        scout.setAdvancementDate(rankDate.getTime());
+        scout.setTypeId(ScoutTypeConst.BOY_SCOUT.getId());
+
+        if (!Util.isEmpty(txtPositionName)) {
+            Calendar positionDate;
+            if ((positionDate = convertDateStringToCalendar(txtPositionDate.getText())) == null) {
+                return;
+            }
+
+            scout.setPosition(txtPositionName.getText());
+            scout.setPostionDate(positionDate.getTime());
+        }
+
+        Scout tempScout = LogicScout.findByName(scoutName);
+        scout.setId(tempScout.getId());
+        LogicScout.update(scout);
+
+        List<Contact> contactList = new ArrayList<Contact>();
+        if (tableModelContacts.getRowCount() > 0) {
+            for (int i = 0; i < tblContacts.getRowCount(); ++i) {
+                Contact contact = new Contact();
+                contact.setTypeId(ContactTypeConst.getIdByName((String)tableModelContacts.getValueAt(i, COL_TYPE)));
+                contact.setName((String) tableModelContacts.getValueAt(i, COL_NAME));
+                contact.setRelation((String) tableModelContacts.getValueAt(i, COL_RELATION));
+                contact.setData((String) tableModelContacts.getValueAt(i, COL_DATA));
+                contact.setScoutId(scout.getId());
+                contactList.add(contact);
+            }
+        }
+
+        LogicContact.updateList(contactList, scout.getId());
     }
 
     public void save() {
