@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="update now works for scouts">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/meritBadges/Lifesaving.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/meritBadges/Personal_Management.jpg" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added some missing imgs">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="94ccc026-2602-47ce-9044-c524df8a0436" name="html files" comment="" />
@@ -180,11 +179,11 @@
       <file leaf-file-name="PnlBoyScout.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5104167" vertical-offset="1176" max-vertical-offset="4420">
-              <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.35818714" vertical-offset="1132" max-vertical-offset="4420">
+              <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
               <folding>
-                <marker date="1417747586456" expanded="false" signature="6750:20935" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1417747586456" expanded="true" signature="20947:21523" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1417750602487" expanded="false" signature="6753:20938" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1417750602487" expanded="true" signature="20950:21526" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -321,8 +320,8 @@
       <file leaf-file-name="LogicScout.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicScout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1337" max-vertical-offset="2414">
-              <caret line="101" column="344" selection-start-line="101" selection-start-column="344" selection-end-line="101" selection-end-column="344" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="2414">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
                 <marker date="1417747027012" expanded="true" signature="683:719" placeholder="SELECT name ..scout..." />
                 <marker date="1417747027012" expanded="true" signature="1253:1303" placeholder="SELECT * FRO..scout..." />
@@ -420,8 +419,8 @@
         <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/util/LogicScout.java" />
         <option value="$PROJECT_DIR$/src/util/LogicContact.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/boyScoutPnls/PnlBoyScoutGeneralInfo.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java" />
       </list>
     </option>
   </component>
@@ -1059,7 +1058,7 @@
       <workItem from="1417581575127" duration="1771000" />
       <workItem from="1417583555701" duration="1007000" />
       <workItem from="1417670585343" duration="6544000" />
-      <workItem from="1417743925821" duration="6453000" />
+      <workItem from="1417743925821" duration="6835000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1813,11 +1812,15 @@
       <created>1417749672191</created>
       <updated>1417749672191</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="added some missing imgs">
+      <created>1417750419179</created>
+      <updated>1417750419179</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402146000" />
+    <option name="totallyTimeSpent" value="402528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1831,7 +1834,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32778355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28720084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28720084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1871,7 +1874,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added some logic" />
     <MESSAGE value="more logic" />
     <MESSAGE value="added some import logic for merit badges" />
     <MESSAGE value="updated db for meritbadges" />
@@ -1896,15 +1898,24 @@
     <MESSAGE value="added instructions for csv imports for advancements and awards" />
     <MESSAGE value="added instructions for csv imports for merit badges" />
     <MESSAGE value="update now works for scouts" />
-    <option name="LAST_COMMIT_MESSAGE" value="update now works for scouts" />
+    <MESSAGE value="added some missing imgs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some missing imgs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="68" />
+      <option name="time" value="69" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -2183,11 +2194,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.178571" vertical-offset="2094" max-vertical-offset="3383">
@@ -2296,21 +2302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicScout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1286" max-vertical-offset="2414">
-          <caret line="101" column="344" selection-start-line="101" selection-start-column="344" selection-end-line="101" selection-end-column="344" />
-          <folding>
-            <marker date="1417747027012" expanded="true" signature="683:719" placeholder="SELECT name ..scout..." />
-            <marker date="1417747027012" expanded="true" signature="1253:1303" placeholder="SELECT * FRO..scout..." />
-            <marker date="1417747027012" expanded="true" signature="2549:2926" placeholder="INSERT INTO ..." />
-            <marker date="1417747027012" expanded="true" signature="3257:3580" placeholder="UPDATE scout..." />
-            <marker date="1417747027012" expanded="true" signature="3868:3899" placeholder="SELECT MAX(i..scout..." />
-            <marker date="1417747027012" expanded="true" signature="4396:4425" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicContact.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1401" max-vertical-offset="3536">
@@ -2342,13 +2333,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LogicScout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="2414">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <marker date="1417747027012" expanded="true" signature="683:719" placeholder="SELECT name ..scout..." />
+            <marker date="1417747027012" expanded="true" signature="1253:1303" placeholder="SELECT * FRO..scout..." />
+            <marker date="1417747027012" expanded="true" signature="2549:2926" placeholder="INSERT INTO ..." />
+            <marker date="1417747027012" expanded="true" signature="3257:3580" placeholder="UPDATE scout..." />
+            <marker date="1417747027012" expanded="true" signature="3868:3899" placeholder="SELECT MAX(i..scout..." />
+            <marker date="1417747027012" expanded="true" signature="4396:4425" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5104167" vertical-offset="1176" max-vertical-offset="4420">
-          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.35818714" vertical-offset="1132" max-vertical-offset="4420">
+          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
           <folding>
-            <marker date="1417747586456" expanded="false" signature="6750:20935" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1417747586456" expanded="true" signature="20947:21523" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1417750602487" expanded="false" signature="6753:20938" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1417750602487" expanded="true" signature="20950:21526" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>

@@ -87,10 +87,10 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void populateScoutNameList() {
-        java.util.List<String> advancements = LogicScout.getNameList();
+        java.util.List<String> scoutNameList = LogicScout.getNameList();
 
-        if (advancements != null) {
-            listScoutNames.setListData(advancements.toArray());
+        if (scoutNameList != null) {
+            listScoutNames.setListData(scoutNameList.toArray());
         }
 
         listScoutNames.revalidate();
