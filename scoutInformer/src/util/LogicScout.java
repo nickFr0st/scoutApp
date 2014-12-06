@@ -174,4 +174,36 @@ public class LogicScout {
         }
         return true;
     }
+
+    public static List<Scout> getAllScouts() {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Scout> scoutList = new ArrayList<Scout>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM scout ORDER BY name");
+
+            while (rs.next()) {
+                Scout scout = new Scout();
+                scout.setId(rs.getInt(KeyConst.SCOUT_ID.getName()));
+                scout.setName(rs.getString(KeyConst.SCOUT_NAME.getName()));
+                scout.setBirthDate(rs.getDate(KeyConst.SCOUT_BIRTH_DATE.getName()));
+                scout.setCurrentAdvancementId(rs.getInt(KeyConst.SCOUT_ADVANCEMENT_ID.getName()));
+                scout.setAdvancementDate(rs.getDate(KeyConst.SCOUT_ADVANCEMENT_DATE.getName()));
+                scout.setPosition(rs.getString(KeyConst.SCOUT_POSITION.getName()));
+                scout.setPostionDate(rs.getDate(KeyConst.SCOUT_POSITION_DATE.getName()));
+                scout.setTypeId(rs.getInt(KeyConst.SCOUT_TYPE_ID.getName()));
+
+                scoutList.add(scout);
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return scoutList;
+    }
 }

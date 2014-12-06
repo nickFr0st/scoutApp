@@ -5,10 +5,11 @@
 package scout.clientPnls.IEPnls;
 
 import au.com.bytecode.opencsv.CSVWriter;
+import constants.ContactTypeConst;
+import constants.ModuleTypeConst;
 import constants.RequirementTypeConst;
 import guiUtil.CustomChooser;
 import guiUtil.SelectionBorder;
-import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.*;
 import util.*;
 
@@ -47,23 +48,30 @@ public class ExportDialog extends JDialog {
         this.exportTypeId = exportTypeId;
 
         switch (exportTypeId) {
-            case PnlBadgeConf.ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 setTitle("Advancement Export");
                 srcList = LogicAdvancement.getNameList();
                 if (srcList == null) {
                     srcList = new ArrayList<String>();
                 }
                 break;
-            case PnlBadgeConf.MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 setTitle("Merit Badge Export");
                 srcList = LogicMeritBadge.getNameList();
                 if (srcList == null) {
                     srcList = new ArrayList<String>();
                 }
                 break;
-            case PnlBadgeConf.OTHER:
+            case ModuleTypeConst.OTHER:
                 setTitle("Other Award Export");
                 srcList = LogicOtherAward.getNameList();
+                if (srcList == null) {
+                    srcList = new ArrayList<String>();
+                }
+                break;
+            case ModuleTypeConst.SCOUT:
+                setTitle("Scout Export");
+                srcList = LogicScout.getNameList();
                 if (srcList == null) {
                     srcList = new ArrayList<String>();
                 }
@@ -84,14 +92,17 @@ public class ExportDialog extends JDialog {
         Util.processBusy(btnExport, true);
 
         switch (exportTypeId) {
-            case PnlBadgeConf.ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 success = handleAdvancementExport();
                 break;
-            case PnlBadgeConf.MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 success = handleMeritBadgeExport();
                 break;
-            case PnlBadgeConf.OTHER:
+            case ModuleTypeConst.OTHER:
                 success = handleOtherAwardExport();
+                break;
+            case ModuleTypeConst.SCOUT:
+                success = handleScoutExport();
                 break;
         }
 
@@ -166,6 +177,86 @@ public class ExportDialog extends JDialog {
 
         populateSrcList();
         populateExportList();
+    }
+
+    private boolean handleScoutExport() {
+        try {
+            java.util.List<Scout> scoutExportList;
+            if (rbtnExportAll.isSelected()) {
+                scoutExportList = LogicScout.getAllScouts();
+            } else {
+                scoutExportList = new ArrayList<Scout>();
+                for (int i = 0; i < listExport.getModel().getSize(); ++i) {
+                    scoutExportList.add(LogicScout.findByName(listExport.getModel().getElementAt(i).toString()));
+                }
+            }
+
+            if (Util.isEmpty(scoutExportList)) {
+                JOptionPane.showMessageDialog(this, "There is nothing to export, please select at least one scout and try again.", "No Items Selected", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+
+            // get the file path
+            CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
+
+            chooser.setSelectedFile(new File("ScoutExport.csv"));
+            int returnValue = chooser.showSaveDialog(this);
+            chooser.resetLookAndFeel();
+
+            if (returnValue != JFileChooser.APPROVE_OPTION) {
+                return false;
+            }
+
+            String exportPath = chooser.getSelectedFile().getPath();
+
+            // write to location
+            StringWriter writer = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(writer, ',');
+            java.util.List<String[]> records = new ArrayList<String[]>();
+
+            records.add(new String[]{"Scout Name", "Birth Date", "Current Rank", "Current Rank Date"});
+            records.add(new String[]{"Contact Type", "Contact Name", "Relation", "Data"});
+
+            boolean firstPass = true;
+            for (Scout scout : scoutExportList) {
+                if (!firstPass) {
+                    records.add(new String[]{""});
+                }
+
+                records.add(new String[]{scout.getName(), Util.DISPLAY_DATE_FORMAT.format(scout.getBirthDate()), LogicAdvancement.findById(scout.getCurrentAdvancementId()).getName(), Util.DISPLAY_DATE_FORMAT.format(scout.getAdvancementDate())});
+
+
+                java.util.List<Contact> contactList = LogicContact.findAllByScoutId(scout.getId());
+                if (!Util.isEmpty(contactList)) {
+                    for (Contact contact : contactList) {
+                        records.add(new String[]{ContactTypeConst.getNameById(contact.getTypeId()), contact.getName(), contact.getRelation(), contact.getData()});
+                    }
+                }
+
+                if (firstPass) {
+                    firstPass = false;
+                }
+            }
+
+            csvWriter.writeAll(records);
+            csvWriter.close();
+
+            if (!exportPath.endsWith(".csv")) {
+                exportPath += ".csv";
+            }
+
+            FileWriter export = new FileWriter(exportPath);
+            export.append(writer.toString());
+            export.flush();
+            export.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your selected scout(s) have been successfully exported.", "Export Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean handleOtherAwardExport() {

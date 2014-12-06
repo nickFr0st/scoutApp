@@ -4,6 +4,7 @@
 
 package scout.clientPnls;
 
+import constants.ModuleTypeConst;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.configPnls.PnlAdvancements;
 import scout.clientPnls.configPnls.PnlConfigSplash;
@@ -19,10 +20,6 @@ import java.awt.event.MouseEvent;
  * @author User #2
  */
 public class PnlBadgeConf extends JPanel implements PnlGui {
-    public static final int ADVANCEMENT = 0;
-    public static final int MERIT_BADGE = 1;
-    public static final int OTHER = 2;
-
     private JPanel currentPnl;
     private int currentSelected;
 
@@ -62,7 +59,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
-        currentSelected = ADVANCEMENT;
+        currentSelected = ModuleTypeConst.ADVANCEMENT;
 
         updateConfigPnl(new PnlAdvancements(this));
 
@@ -76,7 +73,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
-        currentSelected = MERIT_BADGE;
+        currentSelected = ModuleTypeConst.MERIT_BADGE;
 
         updateConfigPnl(new PnlMeritBadges(this));
 
@@ -96,13 +93,13 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void btnNewMouseClicked() {
         switch (currentSelected) {
-            case ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).createNew();
                 break;
-            case MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).createNew();
                 break;
-            case OTHER:
+            case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).createNew();
                 break;
         }
@@ -118,13 +115,13 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void btnSaveMouseClicked() {
         switch (currentSelected) {
-            case ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).save();
                 break;
-            case MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).save();
                 break;
-            case OTHER:
+            case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).save();
                 break;
         }
@@ -136,25 +133,25 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void btnDeleteMouseClicked() {
         switch (currentSelected) {
-            case ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).delete();
                 break;
-            case MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).delete();
                 break;
-            case OTHER:
+            case ModuleTypeConst.OTHER:
         }
     }
 
     private void btnUpdateMouseClicked() {
         switch (currentSelected) {
-            case ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).update();
                 break;
-            case MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).update();
                 break;
-            case OTHER:
+            case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).update();
                 break;
         }
@@ -162,13 +159,13 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void btnExportMouseClicked() {
         switch (currentSelected) {
-            case ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).export();
                 break;
-            case MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).export();
                 break;
-            case OTHER:
+            case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).export();
                 break;
         }
@@ -176,13 +173,13 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
 
     private void btnImportMouseClicked() {
         switch (currentSelected) {
-            case ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 ((PnlAdvancements)currentPnl).importData();
                 break;
-            case MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 ((PnlMeritBadges)currentPnl).importData();
                 break;
-            case OTHER:
+            case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).importData();
                 break;
         }
@@ -194,7 +191,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
-        currentSelected = OTHER;
+        currentSelected = ModuleTypeConst.OTHER;
 
         updateConfigPnl(new PnlOtherAwards(this));
 

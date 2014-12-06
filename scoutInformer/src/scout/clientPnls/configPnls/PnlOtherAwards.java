@@ -4,6 +4,7 @@
 
 package scout.clientPnls.configPnls;
 
+import constants.ModuleTypeConst;
 import constants.RequirementTypeConst;
 import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
@@ -434,12 +435,12 @@ public class PnlOtherAwards extends JPanel implements Configuration {
     }
 
     public void export() {
-        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.OTHER);
+        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.OTHER);
         dialog.setVisible(true);
     }
 
     public void importData() {
-        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), PnlBadgeConf.OTHER);
+        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.OTHER);
         dialog.setVisible(true);
 
         reloadData();

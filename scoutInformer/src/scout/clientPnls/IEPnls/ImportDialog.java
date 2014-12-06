@@ -5,10 +5,10 @@
 package scout.clientPnls.IEPnls;
 
 import au.com.bytecode.opencsv.CSVReader;
+import constants.ModuleTypeConst;
 import constants.RequirementTypeConst;
 import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
-import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.*;
 import util.*;
 
@@ -37,15 +37,15 @@ public class ImportDialog extends JDialog {
         this.importTypeId = importTypeId;
 
         switch (importTypeId) {
-            case PnlBadgeConf.ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 setTitle("Advancement Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/IEAdvancementInstructions.html").toString());
                 break;
-            case PnlBadgeConf.MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 setTitle("Merit Badge Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/ImportMeritBadgeInstructions.html").toString());
                 break;
-            case PnlBadgeConf.OTHER:
+            case ModuleTypeConst.OTHER:
                 setTitle("Other Award Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/ImportAwardInstructions.html").toString());
                 break;
@@ -72,13 +72,13 @@ public class ImportDialog extends JDialog {
         Util.processBusy(btnImport, true);
 
         switch (importTypeId) {
-            case PnlBadgeConf.ADVANCEMENT:
+            case ModuleTypeConst.ADVANCEMENT:
                 success = handleAdvancementImport(txtImportPath.getText());
                 break;
-            case PnlBadgeConf.MERIT_BADGE:
+            case ModuleTypeConst.MERIT_BADGE:
                 success = handleMeritBadgeImport(txtImportPath.getText());
                 break;
-            case PnlBadgeConf.OTHER:
+            case ModuleTypeConst.OTHER:
                 success = handleAwardImport(txtImportPath.getText());
                 break;
         }
