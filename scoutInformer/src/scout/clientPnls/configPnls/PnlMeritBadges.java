@@ -355,20 +355,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private void deleteRecords(final int meritBadgeId, final List<Integer> requirementIdList, final List<Integer> counselorIdList) {
         Util.processBusy(pnlBadgeConf.getBtnDelete(), true);
 
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                LogicCounselor.deleteList(counselorIdList);
-                LogicRequirement.deleteList(requirementIdList);
-                LogicMeritBadge.delete(meritBadgeId);
-            }
-        };
-        thread.start();
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException ignore) {
-        }
+        LogicCounselor.deleteList(counselorIdList);
+        LogicRequirement.deleteList(requirementIdList);
+        LogicMeritBadge.delete(meritBadgeId);
 
         Util.processBusy(pnlBadgeConf.getBtnDelete(), false);
     }
@@ -414,31 +403,19 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private void saveRecords(final MeritBadge meritBadge, final List<Requirement> requirementList, final List<Counselor> counselorList) {
         Util.processBusy(pnlBadgeConf.getBtnSave(), true);
 
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                LogicMeritBadge.save(meritBadge);
+        LogicMeritBadge.save(meritBadge);
 
-                for (Counselor counselor : counselorList) {
-                    counselor.setBadgeId(meritBadge.getId());
-                }
-
-                LogicCounselor.saveList(counselorList);
-
-                for (Requirement requirement : requirementList) {
-                    requirement.setParentId(meritBadge.getId());
-                }
-
-                LogicRequirement.saveList(requirementList);
-            }
-        };
-        thread.start();
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (Counselor counselor : counselorList) {
+            counselor.setBadgeId(meritBadge.getId());
         }
+
+        LogicCounselor.saveList(counselorList);
+
+        for (Requirement requirement : requirementList) {
+            requirement.setParentId(meritBadge.getId());
+        }
+
+        LogicRequirement.saveList(requirementList);
 
         Util.processBusy(pnlBadgeConf.getBtnSave(), false);
     }
@@ -515,21 +492,9 @@ public class PnlMeritBadges extends JPanel implements Configuration {
     private void updateRecords(final MeritBadge meritBadge, final List<Requirement> requirementList, final List<Counselor> counselorList) {
         Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
 
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                LogicCounselor.updateList(counselorList, meritBadge.getId());
-                LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
-                LogicMeritBadge.update(meritBadge);
-            }
-        };
-        thread.start();
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        LogicCounselor.updateList(counselorList, meritBadge.getId());
+        LogicRequirement.updateList(requirementList, meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());
+        LogicMeritBadge.update(meritBadge);
 
         Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
     }

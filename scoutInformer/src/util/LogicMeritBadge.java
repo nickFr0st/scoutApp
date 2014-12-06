@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class LogicMeritBadge {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -111,7 +112,7 @@ public class LogicMeritBadge {
         return meritBadge;
     }
 
-    public static MeritBadge importBadge(MeritBadge meritBadge) {
+    public static synchronized MeritBadge importBadge(MeritBadge meritBadge) {
         if (meritBadge == null) {
             return null;
         }
@@ -141,9 +142,21 @@ public class LogicMeritBadge {
         return meritBadge;
     }
 
-    public static void save(MeritBadge meritBadge) {
+    public static synchronized void save(MeritBadge meritBadge) {
+        try {
+            synchronized (lock) {
+                if (!saveMeritBadge(meritBadge)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean saveMeritBadge(MeritBadge meritBadge) {
         if (meritBadge == null) {
-            return;
+            return true;
         }
 
         if (meritBadge.getId() < 0) {
@@ -154,13 +167,27 @@ public class LogicMeritBadge {
             Statement statement = connector.createStatement();
             statement.executeUpdate("INSERT INTO meritBadge VALUES( " + meritBadge.getId() + ",'" + meritBadge.getName() + "', '" + meritBadge.getImgPath().replace("\\", "\\\\") + "', " + getIntValue(meritBadge.isRequiredForEagle()) + ",'" + Util.DATA_BASE_DATE_FORMAT.format(meritBadge.getRevisionDate()) + "')");
         } catch (Exception e) {
-            // save error
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void update(MeritBadge meritBadge) {
+        try {
+            synchronized (lock) {
+                if (!updateMeritBadge(meritBadge)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void update(MeritBadge meritBadge) {
+    private static boolean updateMeritBadge(MeritBadge meritBadge) {
         if (meritBadge == null) {
-            return;
+            return true;
         }
 
         try {
@@ -168,7 +195,9 @@ public class LogicMeritBadge {
             statement.executeUpdate("UPDATE meritBadge SET name = '" + meritBadge.getName() + "', imgPath = '" + meritBadge.getImgPath().replace("\\", "\\\\") + "'" + ", requiredForEagle = " + getIntValue(meritBadge.isRequiredForEagle()) + ", revisionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(meritBadge.getRevisionDate()) + "' WHERE id = " + meritBadge.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     private static int getIntValue(boolean requiredForEagle) {
@@ -221,9 +250,25 @@ public class LogicMeritBadge {
         return meritBadgeList;
     }
 
-    public static void delete(int meritBadgeId) {
+    public static synchronized void delete(int meritBadgeId) {
+        try {
+            synchronized (lock) {
+                if (!deleteMeritBadge(meritBadgeId)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean deleteMeritBadge(int meritBadgeId) {
+        if (!connector.checkForDataBaseConnection()) {
+            return false;
+        }
+
         if (meritBadgeId < 0) {
-            return;
+            return true;
         }
 
         try {
@@ -231,6 +276,8 @@ public class LogicMeritBadge {
             statement.executeUpdate("DELETE FROM meritBadge WHERE id = " + meritBadgeId + "");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 }

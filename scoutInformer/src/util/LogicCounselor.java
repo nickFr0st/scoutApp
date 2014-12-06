@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class LogicCounselor {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -83,9 +84,21 @@ public class LogicCounselor {
         }
     }
 
-    public static void save(Counselor counselor) {
+    public static synchronized void save(Counselor counselor) {
+        try {
+            synchronized (lock) {
+                if (!saveCounselor(counselor)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean saveCounselor(Counselor counselor) {
         if (counselor == null) {
-            return;
+            return true;
         }
 
         if (counselor.getId() < 0) {
@@ -96,17 +109,27 @@ public class LogicCounselor {
             Statement statement = connector.createStatement();
             statement.executeUpdate("INSERT INTO counselor VALUES( " + counselor.getId() + ", " + counselor.getBadgeId() + ", '" + counselor.getName() + "', '" + counselor.getPhoneNumber() + "')");
         } catch (Exception e) {
-            // save error
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void update(Counselor counselor) {
+        try {
+            synchronized (lock) {
+                if (!updateCounselor(counselor)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void update(Counselor counselor) {
-        if (!connector.checkForDataBaseConnection()) {
-            return;
-        }
-
+    public static boolean updateCounselor(Counselor counselor) {
         if (counselor == null) {
-            return;
+            return true;
         }
 
         try {
@@ -114,7 +137,9 @@ public class LogicCounselor {
             statement.executeUpdate("UPDATE counselor SET name = '" + counselor.getName() + "', badgeId = " + counselor.getBadgeId() + ", phoneNumber = '" + counselor.getPhoneNumber() + "' WHERE id = " + counselor.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static Counselor findByNameAndBadgeId(String name, int badgeId) {
@@ -160,13 +185,21 @@ public class LogicCounselor {
         return id;
     }
 
-    public static void deleteList(List<Integer> counselorIdList) {
-        if (!connector.checkForDataBaseConnection()) {
-            return;
+    public static synchronized void deleteList(List<Integer> counselorIdList) {
+        try {
+            synchronized (lock) {
+                if (!deleteCounselorList(counselorIdList)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+    }
 
+    private static boolean deleteCounselorList(List<Integer> counselorIdList) {
         if (Util.isEmpty(counselorIdList)) {
-            return;
+            return true;
         }
 
         try {
@@ -174,7 +207,9 @@ public class LogicCounselor {
             statement.executeUpdate("DELETE FROM counselor WHERE id IN (" + Util.listToString(counselorIdList) + ")");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static void saveList(List<Counselor> counselorList) {
@@ -187,17 +222,7 @@ public class LogicCounselor {
         }
 
         for (Counselor counselor : counselorList) {
-
-            if (counselor.getId() < 0) {
-                counselor.setId(getNextId());
-            }
-
-            try {
-                Statement statement = connector.createStatement();
-                statement.executeUpdate("INSERT INTO counselor VALUES( " + counselor.getId() + ", " + counselor.getBadgeId() + ",'" + counselor.getName() + "', '" + counselor.getPhoneNumber() + "')");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            save(counselor);
         }
     }
 
@@ -237,9 +262,21 @@ public class LogicCounselor {
         deleteList(deletionList);
     }
 
-    public static void deleteAllByBadgeId(int badgeId) {
+    public static synchronized void deleteAllByBadgeId(int badgeId) {
+        try {
+            synchronized (lock) {
+                if (!deleteAllCounselorsByBadgeId(badgeId)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteAllCounselorsByBadgeId(int badgeId) {
         if (!connector.checkForDataBaseConnection()) {
-            return;
+            return false;
         }
 
         try {
@@ -247,6 +284,8 @@ public class LogicCounselor {
             statement.executeUpdate("DELETE FROM counselor WHERE badgeId = " + badgeId);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 }

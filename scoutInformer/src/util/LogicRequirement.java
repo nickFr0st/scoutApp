@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class LogicRequirement {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -76,23 +77,25 @@ public class LogicRequirement {
         }
 
         for (Requirement requirement : requirementList) {
-
-            if (requirement.getId() < 0) {
-                requirement.setId(getNextId());
-            }
-
-            try {
-                Statement statement = connector.createStatement();
-                statement.executeUpdate("INSERT INTO requirement VALUES( " + requirement.getId() + ",'" + requirement.getName() + "', '" + requirement.getDescription() + "'," + requirement.getTypeId() + "," + requirement.getParentId() + ")");
-            } catch (Exception e) {
-                // save error
-            }
+            save(requirement);
         }
     }
 
-    public static void save(Requirement requirement) {
+    public static synchronized void save(Requirement requirement) {
+        try {
+            synchronized (lock) {
+                if (!saveRequirement(requirement)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean saveRequirement(Requirement requirement) {
         if (requirement == null) {
-            return;
+            return true;
         }
 
         if (requirement.getId() < 0) {
@@ -104,7 +107,9 @@ public class LogicRequirement {
             statement.executeUpdate("INSERT INTO requirement VALUES( " + requirement.getId() + ",'" + requirement.getName() + "', '" + requirement.getDescription() + "'," + requirement.getTypeId() + "," + requirement.getParentId() + ")");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     private static int getNextId() {
@@ -125,9 +130,21 @@ public class LogicRequirement {
         return id;
     }
 
-    public static void deleteList(List<Integer> requirementIdList) {
+    public static synchronized void deleteList(List<Integer> requirementIdList) {
+        try {
+            synchronized (lock) {
+                if (!deleteRequirementList(requirementIdList)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteRequirementList(List<Integer> requirementIdList) {
         if (Util.isEmpty(requirementIdList)) {
-            return;
+            return true;
         }
 
         try {
@@ -135,7 +152,9 @@ public class LogicRequirement {
             statement.executeUpdate("DELETE FROM requirement WHERE id IN (" + Util.listToString(requirementIdList) + ")");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static void updateList(List<Requirement> requirementList, int parentId, int typeId) {
@@ -174,13 +193,31 @@ public class LogicRequirement {
         deleteList(deletionList);
     }
 
-    private static void update(Requirement requirement) {
+    private static synchronized void update(Requirement requirement) {
+        try {
+            synchronized (lock) {
+                if (!updateRequirement(requirement)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean updateRequirement(Requirement requirement) {
+        if (requirement == null) {
+            return true;
+        }
+
         try {
             Statement statement = connector.createStatement();
             statement.executeUpdate("UPDATE requirement SET name = '" + requirement.getName() + "', description = '" + requirement.getDescription() + "', typeId = " + requirement.getTypeId() + ", parentId = " + requirement.getParentId() + " WHERE id = " + requirement.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static void importReqList(List<Requirement> reqList) {
@@ -248,9 +285,21 @@ public class LogicRequirement {
         return reqNameList;
     }
 
-    public static void deleteAllByParentIdAndTypeId(int parentId, int typeId) {
+    public static synchronized void deleteAllByParentIdAndTypeId(int parentId, int typeId) {
+        try {
+            synchronized (lock) {
+                if (!deleteAllRequirementsByParentIdAndTypeId(parentId, typeId)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteAllRequirementsByParentIdAndTypeId(int parentId, int typeId) {
         if (!connector.checkForDataBaseConnection()) {
-            return;
+            return false;
         }
 
         try {
@@ -258,6 +307,8 @@ public class LogicRequirement {
             statement.executeUpdate("DELETE FROM requirement WHERE parentId = " + parentId + " AND typeId = " + typeId);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 }
