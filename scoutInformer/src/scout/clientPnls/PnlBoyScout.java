@@ -170,15 +170,15 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnDeleteMouseClicked() {
-        Util.processBusy(this, true);
         // we will need to work backwards through each of the panels
         // start with tracing
         // then details
         // then general information
         if (listScoutNames.getSelectedValue() == null) {
-            Util.processBusy(this, false);
             return;
         }
+
+        Util.processBusy(this, true);
 
         pnlBoyScoutGeneralInfo.delete();
         clearData();
