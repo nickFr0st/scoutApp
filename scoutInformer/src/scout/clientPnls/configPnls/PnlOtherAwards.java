@@ -390,6 +390,10 @@ public class PnlOtherAwards extends JPanel implements Configuration {
             return;
         }
 
+        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected Award(s)?", "Delete Award", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
+            return;
+        }
+
         clearErrors();
 
         if (txtAwardName.isMessageDefault() || txtAwardName.getText().isEmpty()) {

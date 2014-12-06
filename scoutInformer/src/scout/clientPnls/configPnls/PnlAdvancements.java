@@ -372,6 +372,10 @@ public class PnlAdvancements extends JPanel implements Configuration {
             return;
         }
 
+        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected advancement(s)?", "Delete Advancement", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
+            return;
+        }
+
         // (do this then scouts have been added to the program)
         // before deleting check to see if advancement is used on any scouts
         Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);

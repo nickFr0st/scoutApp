@@ -177,6 +177,10 @@ public class PnlBoyScout extends JPanel implements PnlGui {
         if (listScoutNames.getSelectedValue() == null) {
             return;
         }
+        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected Scout?", "Delete Scout", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
+            return;
+        }
+
 
         Util.processBusy(this, true);
 
