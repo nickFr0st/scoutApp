@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="fix file read/write issues with scouts">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="you can now delete multiple advancments at once">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="94ccc026-2602-47ce-9044-c524df8a0436" name="html files" comment="" />
@@ -186,24 +185,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PnlAdvancements.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4885845" vertical-offset="5442" max-vertical-offset="7973">
-              <caret line="374" column="63" selection-start-line="374" selection-start-column="63" selection-end-line="374" selection-end-column="63" />
-              <folding>
-                <marker date="1417890052750" expanded="false" signature="16476:32463" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1417890052750" expanded="false" signature="32475:33427" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LogicAdvancement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="2014" max-vertical-offset="4114">
-              <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+              <caret line="133" column="70" selection-start-line="133" selection-start-column="70" selection-end-line="133" selection-end-column="70" />
               <folding>
                 <element signature="e#1458#1471#0" expanded="true" />
                 <marker date="1417888471143" expanded="true" signature="729:785" placeholder="SELECT * FRO..advancement..." />
@@ -214,6 +200,32 @@
                 <marker date="1417888471143" expanded="true" signature="4815:4882" placeholder="DELETE FROM ..." />
                 <marker date="1417888471143" expanded="true" signature="5617:5763" placeholder="UPDATE advan..." />
                 <marker date="1417888471143" expanded="true" signature="6801:6838" placeholder="SELECT * FRO..advancement..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlOtherAwards.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43541667" vertical-offset="5583" max-vertical-offset="7939">
+              <caret line="388" column="56" selection-start-line="388" selection-start-column="56" selection-end-line="388" selection-end-column="56" />
+              <folding>
+                <marker date="1417890232038" expanded="false" signature="16284:32259" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1417890232038" expanded="false" signature="32271:33223" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PnlAdvancements.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5442" max-vertical-offset="7973">
+              <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="385" selection-end-column="20" />
+              <folding>
+                <marker date="1417890052750" expanded="false" signature="16476:32463" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1417890052750" expanded="false" signature="32475:33427" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -276,13 +288,13 @@
         <option value="$PROJECT_DIR$/src/util/LogicCounselor.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
         <option value="$PROJECT_DIR$/src/util/LogicAdvancement.java" />
-        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java" />
         <option value="$PROJECT_DIR$/src/util/LogicOtherAward.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java" />
         <option value="$PROJECT_DIR$/src/util/LogicScout.java" />
         <option value="$PROJECT_DIR$/src/util/LogicContact.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java" />
+        <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java" />
       </list>
     </option>
   </component>
@@ -882,7 +894,7 @@
       <workItem from="1417670585343" duration="6544000" />
       <workItem from="1417743925821" duration="6852000" />
       <workItem from="1417751491892" duration="853000" />
-      <workItem from="1417882439064" duration="7584000" />
+      <workItem from="1417882439064" duration="7726000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -1656,11 +1668,15 @@
       <created>1417889416718</created>
       <updated>1417889416718</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="you can now delete multiple advancments at once">
+      <created>1417890115241</created>
+      <updated>1417890115241</updated>
+    </task>
+    <option name="localTasksCounter" value="195" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="410982000" />
+    <option name="totallyTimeSpent" value="411124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1687,7 +1703,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17530319" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31529656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31529656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1714,7 +1730,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="html file" />
     <MESSAGE value="clean up" />
     <MESSAGE value="more clean up" />
     <MESSAGE value="started setup for MB export" />
@@ -1739,7 +1754,8 @@
     <MESSAGE value="fix file read/write issues with meritBadges" />
     <MESSAGE value="fix file read/write issues with Advancements and Awards" />
     <MESSAGE value="fix file read/write issues with scouts" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix file read/write issues with scouts" />
+    <MESSAGE value="you can now delete multiple advancments at once" />
+    <option name="LAST_COMMIT_MESSAGE" value="you can now delete multiple advancments at once" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2063,17 +2079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35085836" vertical-offset="5742" max-vertical-offset="8126">
-          <caret line="392" column="28" selection-start-line="392" selection-start-column="28" selection-end-line="392" selection-end-column="28" />
-          <folding>
-            <marker date="1417888471119" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1417888471119" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicOtherAward.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3347413" vertical-offset="2165" max-vertical-offset="3757">
@@ -2213,7 +2218,7 @@
     <entry file="file://$PROJECT_DIR$/src/util/LogicAdvancement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2014" max-vertical-offset="4114">
-          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+          <caret line="133" column="70" selection-start-line="133" selection-start-column="70" selection-end-line="133" selection-end-column="70" />
           <folding>
             <element signature="e#1458#1471#0" expanded="true" />
             <marker date="1417888471143" expanded="true" signature="729:785" placeholder="SELECT * FRO..advancement..." />
@@ -2230,11 +2235,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlAdvancements.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4885845" vertical-offset="5442" max-vertical-offset="7973">
-          <caret line="374" column="63" selection-start-line="374" selection-start-column="63" selection-end-line="374" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5442" max-vertical-offset="7973">
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="385" selection-end-column="20" />
           <folding>
             <marker date="1417890052750" expanded="false" signature="16476:32463" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1417890052750" expanded="false" signature="32475:33427" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43541667" vertical-offset="5583" max-vertical-offset="7939">
+          <caret line="388" column="56" selection-start-line="388" selection-start-column="56" selection-end-line="388" selection-end-column="56" />
+          <folding>
+            <marker date="1417890232038" expanded="false" signature="16284:32259" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1417890232038" expanded="false" signature="32271:33223" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
