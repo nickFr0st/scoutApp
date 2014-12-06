@@ -338,9 +338,7 @@ public class PnlMeritBadges extends JPanel implements Configuration {
         // (do this then scouts have been added to the program)
         // before deleting check to see if advancement is used on any scouts
 
-        List<String> badgeNameList = listBadgeNames.getSelectedValuesList();
-
-        for (String badgeName : badgeNameList) {
+        for (String badgeName : (List<String>) listBadgeNames.getSelectedValuesList()) {
             MeritBadge meritBadge = LogicMeritBadge.findByName(badgeName);
 
             List<Integer> requirementIdList = LogicRequirement.findIdsByParentIdTypeId(meritBadge.getId(), RequirementTypeConst.MERIT_BADGE.getId());

@@ -374,26 +374,15 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         // (do this then scouts have been added to the program)
         // before deleting check to see if advancement is used on any scouts
-
-        List<Integer> requirementIdList = new ArrayList<Integer>();
-        if (grid > 0) {
-            for (Component component : pnlRequirements.getComponents()) {
-                if (component instanceof PnlRequirement) {
-
-                    if (((PnlRequirement)component).getReqId() < 0) {
-                        continue;
-                    }
-
-                    requirementIdList.add(((PnlRequirement)component).getReqId());
-                }
-            }
-        }
-
         Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
-        LogicRequirement.deleteList(requirementIdList);
-        LogicAdvancement.delete(listBadgeNames.getSelectedValue().toString());
-        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
+        for (String advName : (List<String>) listBadgeNames.getSelectedValuesList()) {
+            Advancement advancement = LogicAdvancement.findByName(advName);
 
+            List<Integer> requirementIdList = LogicRequirement.findIdsByParentIdTypeId(advancement.getId(), RequirementTypeConst.ADVANCEMENT.getId());
+            LogicRequirement.deleteList(requirementIdList);
+            LogicAdvancement.delete(advName);
+        }
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
         clearData();
     }
 
