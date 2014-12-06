@@ -9,6 +9,7 @@ import guiUtil.SelectionBorder;
 import scout.clientPnls.boyScoutPnls.PnlBoyScoutGeneralInfo;
 import scout.dbObjects.Scout;
 import util.LogicScout;
+import util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -114,6 +115,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnUpdateMouseClicked() {
+        Util.processBusy(this, true);
         // this will need to go through each of the panels
         // start with general information
         // then details
@@ -121,15 +123,18 @@ public class PnlBoyScout extends JPanel implements PnlGui {
 
         // validate each panel
         if (!pnlBoyScoutGeneralInfo.validateInfo()) {
+            Util.processBusy(this, false);
             return;
         }
 
         // if it is good then save each panel
         pnlBoyScoutGeneralInfo.update(listScoutNames, listScoutNames.getSelectedValue().toString());
         reloadDataFromSave(pnlBoyScoutGeneralInfo.getScout());
+        Util.processBusy(this, false);
     }
 
     private void btnSaveMouseClicked() {
+        Util.processBusy(this, true);
         // this will need to go through each of the panels
         // start with general information
         // then details
@@ -137,12 +142,14 @@ public class PnlBoyScout extends JPanel implements PnlGui {
 
         // validate each panel
         if (!pnlBoyScoutGeneralInfo.validateInfo()) {
+            Util.processBusy(this, false);
             return;
         }
 
         // if it is good then save each panel
         pnlBoyScoutGeneralInfo.save();
         reloadDataFromSave(pnlBoyScoutGeneralInfo.getScout());
+        Util.processBusy(this, false);
     }
 
     private void reloadDataFromSave(Scout newScout) {
@@ -163,16 +170,19 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnDeleteMouseClicked() {
+        Util.processBusy(this, true);
         // we will need to work backwards through each of the panels
         // start with tracing
         // then details
         // then general information
         if (listScoutNames.getSelectedValue() == null) {
+            Util.processBusy(this, false);
             return;
         }
 
         pnlBoyScoutGeneralInfo.delete();
         clearData();
+        Util.processBusy(this, false);
     }
 
     private void txtSearchNameKeyReleased() {

@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class LogicContact {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -54,17 +55,7 @@ public class LogicContact {
         }
 
         for (Contact contact : contactList) {
-
-            if (contact.getId() < 0) {
-                contact.setId(getNextId());
-            }
-
-            try {
-                Statement statement = connector.createStatement();
-                statement.executeUpdate("INSERT INTO contact VALUES( " + contact.getId() + "," + contact.getScoutId() + "," + contact.getTypeId() + ",'" + contact.getName() + "', '" + contact.getRelation() + "','" + contact.getData() + "')");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            save(contact);
         }
     }
 
@@ -86,9 +77,21 @@ public class LogicContact {
         return id;
     }
 
-    public static void deleteList(List<Integer> contactList) {
+    public static synchronized void deleteList(List<Integer> contactList) {
+        try {
+            synchronized (lock) {
+                if (!deleteContactList(contactList)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteContactList(List<Integer> contactList) {
         if (Util.isEmpty(contactList)) {
-            return;
+            return true;
         }
 
         try {
@@ -96,7 +99,9 @@ public class LogicContact {
             statement.executeUpdate("DELETE FROM contact WHERE id IN (" + Util.listToString(contactList) + ")");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static Integer findByNameTypeIdAndScoutId(String name, int typeId, int scoutId) {
@@ -180,18 +185,44 @@ public class LogicContact {
         return contactIdList;
     }
 
-    private static void update(Contact contact) {
+    private static synchronized void update(Contact contact) {
+        try {
+            synchronized (lock) {
+                if (!updateContact(contact)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean updateContact(Contact contact) {
         try {
             Statement statement = connector.createStatement();
             statement.executeUpdate("UPDATE contact SET name = '" + contact.getName() + "', relation = '" + contact.getRelation() + "', data = '" + contact.getData() + "' WHERE id = " + contact.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static synchronized void save(Contact contact) {
+        try {
+            synchronized (lock) {
+                if (!saveContact(contact)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    private static void save(Contact contact) {
+    private static boolean saveContact(Contact contact) {
         if (contact == null) {
-            return;
+            return true;
         }
 
         if (contact.getId() < 0) {
@@ -203,6 +234,8 @@ public class LogicContact {
             statement.executeUpdate("INSERT INTO contact VALUES( " + contact.getId() + "," + contact.getScoutId() + "," + contact.getTypeId() + ",'" + contact.getName() + "', '" + contact.getRelation() + "','" + contact.getData() + "')");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 }

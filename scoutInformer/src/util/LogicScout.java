@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class LogicScout {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -71,13 +72,21 @@ public class LogicScout {
         return scout;
     }
 
-    public static void save(Scout scout) {
-        if (scout == null) {
-            return;
+    public static synchronized void save(Scout scout) {
+        try {
+            synchronized (lock) {
+                if (!saveScout(scout)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+    }
 
-        if (!connector.checkForDataBaseConnection()) {
-            return;
+    private static boolean saveScout(Scout scout) {
+        if (scout == null) {
+            return true;
         }
 
         if (scout.getId() < 0) {
@@ -89,12 +98,26 @@ public class LogicScout {
             statement.executeUpdate("INSERT INTO scout VALUES( " + scout.getId() + ",'" + scout.getName() + "', '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "'," + scout.getCurrentAdvancementId() + ",'" + Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate()) + "','" + scout.getPosition() + "','" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "'," + scout.getTypeId() + ")");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void update(Scout scout) {
+        try {
+            synchronized (lock) {
+                if (!updateScout(scout)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void update(Scout scout) {
-        if (!connector.checkForDataBaseConnection()) {
-            return;
+    private static boolean updateScout(Scout scout) {
+        if (scout == null) {
+            return true;
         }
 
         try {
@@ -102,7 +125,9 @@ public class LogicScout {
             statement.executeUpdate("UPDATE scout SET name = '" + scout.getName() + "', birthDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "', advancementId = " + scout.getCurrentAdvancementId() + ", position = '" + scout.getPosition() + "', positionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "' WHERE id = " + scout.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     private static int getNextId() {
@@ -123,13 +148,21 @@ public class LogicScout {
         return id;
     }
 
-    public static void delete(int id) {
-        if (id <= 0) {
-            return;
+    public static synchronized void delete(int id) {
+        try {
+            synchronized (lock) {
+                if (!deleteScout(id)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+    }
 
-        if (!connector.checkForDataBaseConnection()) {
-            return;
+    private static boolean deleteScout(int id) {
+        if (id <= 0) {
+            return true;
         }
 
         try {
@@ -137,6 +170,8 @@ public class LogicScout {
             statement.executeUpdate("DELETE FROM scout WHERE id = " + id);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 }
