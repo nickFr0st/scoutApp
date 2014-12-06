@@ -285,6 +285,16 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         List<Requirement> requirementList = validateRequirements(-1);
         if (requirementList == null) return;
 
+        saveRecords(otherAward, requirementList);
+
+        populateAwardNameList();
+
+        listAwardNames.setSelectedValue(txtAwardName.getText(), true);
+        reloadData();
+    }
+
+    private void saveRecords(OtherAward otherAward, List<Requirement> requirementList) {
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
         LogicOtherAward.save(otherAward);
 
         for (Requirement requirement : requirementList) {
@@ -294,10 +304,7 @@ public class PnlOtherAwards extends JPanel implements Configuration {
 
         LogicRequirement.saveList(requirementList);
 
-        populateAwardNameList();
-
-        listAwardNames.setSelectedValue(txtAwardName.getText(), true);
-        reloadData();
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
     }
 
     private List<Requirement> validateRequirements(int parentId) {
@@ -381,8 +388,10 @@ public class PnlOtherAwards extends JPanel implements Configuration {
             }
         }
 
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
         LogicRequirement.deleteList(requirementIdList);
         LogicOtherAward.delete(listAwardNames.getSelectedValue().toString());
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
 
         clearData();
     }
@@ -422,11 +431,11 @@ public class PnlOtherAwards extends JPanel implements Configuration {
         List<Requirement> requirementList = validateRequirements(otherAward.getId());
         if (requirementList == null) return;
 
-
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
         // when editing requirements may need to check who is using them
-
         LogicRequirement.updateList(requirementList, otherAward.getId(), RequirementTypeConst.OTHER.getId());
         LogicOtherAward.update(otherAward);
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
 
         reloadData();
     }

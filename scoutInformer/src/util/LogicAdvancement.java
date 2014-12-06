@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class LogicAdvancement {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -91,9 +92,21 @@ public class LogicAdvancement {
         return advancementList;
     }
 
-    public static void save(Advancement advancement) {
+    public static synchronized void save(Advancement advancement) {
+        try {
+            synchronized (lock) {
+                if (!saveAdvancement(advancement)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean saveAdvancement(Advancement advancement) {
         if (advancement == null) {
-            return;
+            return true;
         }
 
         if (advancement.getId() < 0) {
@@ -105,7 +118,9 @@ public class LogicAdvancement {
             statement.executeUpdate("INSERT INTO advancement VALUES( " + advancement.getId() + ",'" + advancement.getName() + "', '" + advancement.getImgPath().replace("\\", "\\\\") + "')");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     private static int getNextId() {
@@ -126,9 +141,21 @@ public class LogicAdvancement {
         return id;
     }
 
-    public static void delete(String advancementName) {
+    public static synchronized void delete(String advancementName) {
+        try {
+            synchronized (lock) {
+                if (!deleteAdvancement(advancementName)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteAdvancement(String advancementName) {
         if (Util.isEmpty(advancementName)) {
-            return;
+            return true;
         }
 
         try {
@@ -136,12 +163,26 @@ public class LogicAdvancement {
             statement.executeUpdate("DELETE FROM advancement WHERE name LIKE ('" + advancementName + "')");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void update(Advancement advancement) {
+        try {
+            synchronized (lock) {
+                if (!updateAdvancement(advancement)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void update(Advancement advancement) {
+    private static boolean updateAdvancement(Advancement advancement) {
         if (advancement == null) {
-            return;
+            return true;
         }
 
         try {
@@ -149,7 +190,9 @@ public class LogicAdvancement {
             statement.executeUpdate("UPDATE advancement SET name = '" + advancement.getName() + "', imgPath = '" + advancement.getImgPath().replace("\\", "\\\\") + "'" + " WHERE id = " + advancement.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static Advancement importAdv(Advancement advancement) {

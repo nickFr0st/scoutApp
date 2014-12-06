@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class LogicOtherAward {
     private static DBConnector connector;
+    private static final Object lock = new Object();
 
     static {
         connector = new DBConnector();
@@ -91,9 +92,21 @@ public class LogicOtherAward {
         return otherAwardList;
     }
 
-    public static void save(OtherAward otherAward) {
+    public static synchronized void save(OtherAward otherAward) {
+        try {
+            synchronized (lock) {
+                if (!saveAward(otherAward)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean saveAward(OtherAward otherAward) {
         if (otherAward == null) {
-            return;
+            return true;
         }
 
         if (otherAward.getId() < 0) {
@@ -104,8 +117,10 @@ public class LogicOtherAward {
             Statement statement = connector.createStatement();
             statement.executeUpdate("INSERT INTO otherAward VALUES( " + otherAward.getId() + ",'" + otherAward.getName() + "', '" + otherAward.getImgPath().replace("\\", "\\\\") + "')");
         } catch (Exception e) {
-            // save error
+            e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     private static int getNextId() {
@@ -126,9 +141,21 @@ public class LogicOtherAward {
         return id;
     }
 
-    public static void delete(String otherAwardName) {
+    public static synchronized void delete(String otherAwardName) {
+        try {
+            synchronized (lock) {
+                if (!deleteAward(otherAwardName)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteAward(String otherAwardName) {
         if (Util.isEmpty(otherAwardName)) {
-            return;
+            return true;
         }
 
         try {
@@ -136,12 +163,26 @@ public class LogicOtherAward {
             statement.executeUpdate("DELETE FROM otherAward WHERE name LIKE ('" + otherAwardName + "')");
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void update(OtherAward otherAward) {
+        try {
+            synchronized (lock) {
+                if (!updateAward(otherAward)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void update(OtherAward otherAward) {
+    private static boolean updateAward(OtherAward otherAward) {
         if (otherAward == null) {
-            return;
+            return true;
         }
 
         try {
@@ -149,7 +190,9 @@ public class LogicOtherAward {
             statement.executeUpdate("UPDATE otherAward SET name = '" + otherAward.getName() + "', imgPath = '" + otherAward.getImgPath().replace("\\", "\\\\") + "'" + " WHERE id = " + otherAward.getId());
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     public static OtherAward importAward(OtherAward otherAward) {

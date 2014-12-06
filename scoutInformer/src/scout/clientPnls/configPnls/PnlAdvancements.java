@@ -285,6 +285,17 @@ public class PnlAdvancements extends JPanel implements Configuration {
         List<Requirement> requirementList = validateRequirements(-1);
         if (requirementList == null) return;
 
+        saveRecords(advancement, requirementList);
+
+        populateAdvancementNameList();
+
+        listBadgeNames.setSelectedValue(txtBadgeName.getText(), true);
+        reloadData();
+    }
+
+    private void saveRecords(Advancement advancement, List<Requirement> requirementList) {
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
+
         LogicAdvancement.save(advancement);
 
         for (Requirement requirement : requirementList) {
@@ -294,10 +305,7 @@ public class PnlAdvancements extends JPanel implements Configuration {
 
         LogicRequirement.saveList(requirementList);
 
-        populateAdvancementNameList();
-
-        listBadgeNames.setSelectedValue(txtBadgeName.getText(), true);
-        reloadData();
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
     }
 
     private List<Requirement> validateRequirements(int parentId) {
@@ -381,8 +389,10 @@ public class PnlAdvancements extends JPanel implements Configuration {
             }
         }
 
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
         LogicRequirement.deleteList(requirementIdList);
         LogicAdvancement.delete(listBadgeNames.getSelectedValue().toString());
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
 
         clearData();
     }
@@ -423,10 +433,11 @@ public class PnlAdvancements extends JPanel implements Configuration {
         if (requirementList == null) return;
 
 
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
         // when editing requirements may need to check who is using them
-
         LogicRequirement.updateList(requirementList, advancement.getId(), RequirementTypeConst.ADVANCEMENT.getId());
         LogicAdvancement.update(advancement);
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
 
         reloadData();
     }
