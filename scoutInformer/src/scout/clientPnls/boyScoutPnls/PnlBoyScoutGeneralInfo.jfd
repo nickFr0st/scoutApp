@@ -142,7 +142,7 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "0, 174, 0, 193, 0, 0"
-				"$rowSpecs": "30, 0, 35, 0"
+				"$rowSpecs": "30, 0, 35, 0, 0"
 				"$hGap": 5
 				"$vGap": 5
 				"$alignLeft": true
@@ -205,6 +205,7 @@ new FormModel {
 					"text": "11"
 					"font": #Font3
 					"foreground": #Color2
+					"toolTipText": "Number of months in this rank"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"hAlign": 2
 					"gridx": 5
@@ -275,6 +276,7 @@ new FormModel {
 					"text": "11"
 					"font": #Font3
 					"foreground": #Color2
+					"toolTipText": "number of months in this position"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"hAlign": 2
 					"gridy": 2

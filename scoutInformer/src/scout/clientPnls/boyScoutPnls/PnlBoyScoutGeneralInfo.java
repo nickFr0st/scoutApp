@@ -114,11 +114,19 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         Calendar a = getCalendar(scout.getPostionDate());
         Calendar b = getCalendar(new Date());
 
+        if (b.getTimeInMillis() - a.getTimeInMillis() <= 0) {
+            lblPositionTimeValue.setText(DEFAULT_TIME.toString());
+            txtPositionDate.setDefault();
+            return;
+        }
+
         Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
-        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
-                (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+        diff = diff * 12 + b.get(Calendar.MONTH) - a.get(Calendar.MONTH);
+
+        if (a.get(Calendar.DATE) > b.get(Calendar.DATE)) {
             diff--;
         }
+
         lblPositionTimeValue.setText(diff.toString());
         txtPositionDate.setText(Util.DISPLAY_DATE_FORMAT.format(scout.getPostionDate()));
     }
@@ -127,11 +135,19 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         Calendar a = getCalendar(scout.getAdvancementDate());
         Calendar b = getCalendar(new Date());
 
+        if (b.getTimeInMillis() - a.getTimeInMillis() <= 0) {
+            lblRankTimeValue.setText(DEFAULT_TIME.toString());
+            txtRankDate.setDefault();
+            return;
+        }
+
         Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
-        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
-                (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+        diff = diff * 12 + b.get(Calendar.MONTH) - a.get(Calendar.MONTH);
+
+        if (a.get(Calendar.DATE) > b.get(Calendar.DATE)) {
             diff--;
         }
+
         lblRankTimeValue.setText(diff.toString());
         txtRankDate.setText(Util.DISPLAY_DATE_FORMAT.format(scout.getAdvancementDate()));
     }
@@ -452,9 +468,15 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             a.set(year, month - 1, day);
             Calendar b = getCalendar(new Date());
 
+            if (b.getTimeInMillis() - a.getTimeInMillis() <= 0) {
+                lblRankTimeValue.setText(DEFAULT_TIME.toString());
+                return;
+            }
+
             Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
-            if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
-                    (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff = diff * 12 + b.get(Calendar.MONTH) - a.get(Calendar.MONTH);
+
+            if (a.get(Calendar.DATE) > b.get(Calendar.DATE)) {
                 diff--;
             }
 
@@ -534,9 +556,15 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             a.set(year, month - 1, day);
             Calendar b = getCalendar(new Date());
 
+            if (b.getTimeInMillis() - a.getTimeInMillis() <= 0) {
+                lblPositionTimeValue.setText(DEFAULT_TIME.toString());
+                return;
+            }
+
             Integer diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
-            if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
-                    (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff = diff * 12 + b.get(Calendar.MONTH) - a.get(Calendar.MONTH);
+
+            if (a.get(Calendar.DATE) > b.get(Calendar.DATE)) {
                 diff--;
             }
 
@@ -1073,9 +1101,9 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             panel3.setName("panel3");
             panel3.setLayout(new GridBagLayout());
             ((GridBagLayout)panel3.getLayout()).columnWidths = new int[] {0, 179, 0, 198, 0, 0, 0};
-            ((GridBagLayout)panel3.getLayout()).rowHeights = new int[] {35, 0, 40, 0, 0};
+            ((GridBagLayout)panel3.getLayout()).rowHeights = new int[] {35, 0, 40, 0, 0, 0};
             ((GridBagLayout)panel3.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-            ((GridBagLayout)panel3.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel3.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
             //---- lblCurrentRank ----
             lblCurrentRank.setText("Current Rank:");
@@ -1144,6 +1172,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblRankTimeValue.setText("11");
             lblRankTimeValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
             lblRankTimeValue.setForeground(new Color(51, 102, 153));
+            lblRankTimeValue.setToolTipText("Number of months in this rank");
             lblRankTimeValue.setName("lblRankTimeValue");
             panel3.add(lblRankTimeValue, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
@@ -1181,8 +1210,8 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblPositionDate.setForeground(new Color(51, 102, 153));
             lblPositionDate.setName("lblPositionDate");
             panel3.add(lblPositionDate, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 10, 5, 5), 0, 0));
+                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                    new Insets(0, 10, 5, 5), 0, 0));
 
             //---- txtPositionDate ----
             txtPositionDate.setPreferredSize(new Dimension(14, 35));
@@ -1219,6 +1248,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblPositionTimeValue.setText("11");
             lblPositionTimeValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
             lblPositionTimeValue.setForeground(new Color(51, 102, 153));
+            lblPositionTimeValue.setToolTipText("number of months in this position");
             lblPositionTimeValue.setName("lblPositionTimeValue");
             panel3.add(lblPositionTimeValue, new GridBagConstraints(5, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
@@ -1231,7 +1261,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblPositionTimeError.setName("lblPositionTimeError");
             panel3.add(lblPositionTimeError, new GridBagConstraints(3, 3, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 10, 0, 15), 0, 0));
+                new Insets(0, 10, 5, 15), 0, 0));
         }
         add(panel3, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
