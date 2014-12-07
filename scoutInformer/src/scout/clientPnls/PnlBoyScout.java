@@ -8,6 +8,7 @@ import constants.ModuleTypeConst;
 import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.IEPnls.ExportDialog;
+import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.boyScoutPnls.PnlBoyScoutGeneralInfo;
 import scout.dbObjects.Scout;
 import util.LogicScout;
@@ -100,7 +101,11 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     }
 
     private void btnImportMouseClicked() {
-        // TODO add your code here
+        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.SCOUT);
+        dialog.setVisible(true);
+
+        reloadDataFromSave(scout);
+        populateScoutNameList();
     }
 
     private void btnExportMouseClicked() {

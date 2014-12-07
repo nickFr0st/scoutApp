@@ -49,6 +49,10 @@ public class ImportDialog extends JDialog {
                 setTitle("Other Award Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/ImportAwardInstructions.html").toString());
                 break;
+            case ModuleTypeConst.SCOUT:
+                setTitle("Scout Import");
+                setTxtImportInstructions(getClass().getResource("/instructions/ImportScoutInstructions.html").toString());
+                break;
         }
     }
 
@@ -81,12 +85,20 @@ public class ImportDialog extends JDialog {
             case ModuleTypeConst.OTHER:
                 success = handleAwardImport(txtImportPath.getText());
                 break;
+            case ModuleTypeConst.SCOUT:
+                success = handleScoutImport(txtImportPath.getText());
+                break;
         }
 
         Util.processBusy(btnImport, false);
         if (success) {
             dispose();
         }
+    }
+
+    private boolean handleScoutImport(String text) {
+        // todo: add logic here
+        return false;
     }
 
     private boolean handleMeritBadgeImport(String importPath) {
