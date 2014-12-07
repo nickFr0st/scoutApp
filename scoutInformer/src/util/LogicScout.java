@@ -139,7 +139,7 @@ public class LogicScout {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("UPDATE scout SET name = '" + scout.getName() + "', birthDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "', advancementId = " + scout.getCurrentAdvancementId() + ", position = '" + scout.getPosition() + "', positionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "' WHERE id = " + scout.getId());
+            statement.executeUpdate("UPDATE scout SET name = '" + scout.getName() + "', birthDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "', advancementId = " + scout.getCurrentAdvancementId() + ", position = '" + scout.getPosition() + "', positionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "', advancementDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate()) + "' WHERE id = " + scout.getId());
         } catch (Exception e) {
             e.printStackTrace();
             return false;
