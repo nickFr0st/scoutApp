@@ -276,7 +276,7 @@ new FormModel {
 					"text": "11"
 					"font": #Font3
 					"foreground": #Color2
-					"toolTipText": "number of months in this position"
+					"toolTipText": "Number of months in this position"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"hAlign": 2
 					"gridy": 2

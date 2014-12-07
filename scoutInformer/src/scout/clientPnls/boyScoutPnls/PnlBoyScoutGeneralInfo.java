@@ -1210,8 +1210,8 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblPositionDate.setForeground(new Color(51, 102, 153));
             lblPositionDate.setName("lblPositionDate");
             panel3.add(lblPositionDate, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 10, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 10, 5, 5), 0, 0));
 
             //---- txtPositionDate ----
             txtPositionDate.setPreferredSize(new Dimension(14, 35));
@@ -1248,7 +1248,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
             lblPositionTimeValue.setText("11");
             lblPositionTimeValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
             lblPositionTimeValue.setForeground(new Color(51, 102, 153));
-            lblPositionTimeValue.setToolTipText("number of months in this position");
+            lblPositionTimeValue.setToolTipText("Number of months in this position");
             lblPositionTimeValue.setName("lblPositionTimeValue");
             panel3.add(lblPositionTimeValue, new GridBagConstraints(5, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
