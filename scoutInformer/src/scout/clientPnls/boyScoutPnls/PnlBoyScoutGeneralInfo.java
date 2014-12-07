@@ -154,6 +154,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         lblRankTimeValue.setText(DEFAULT_TIME.toString());
         lblPositionTimeValue.setText(DEFAULT_TIME.toString());
 
+        txtRankDate.setDefault();
+        txtPositionName.setDefault();
+        txtPositionDate.setDefault();
+
         txtName.requestFocus();
     }
 
@@ -545,7 +549,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         if (txtPositionName.isMessageDefault() || Util.isEmpty(txtPositionName.getText())) {
             lblPositionTimeValue.setText(DEFAULT_TIME.toString());
-            return false;
+            return true;
         }
 
         if (txtPositionDate.isMessageDefault() || Util.isEmpty(txtPositionDate.getText())) {
@@ -700,6 +704,8 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
 
         LogicContact.deleteList(contactIdList);
         LogicScout.delete(scout.getId());
+
+        clearData();
     }
 
     public void update(JList nameList, String scoutName) {

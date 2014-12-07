@@ -95,7 +95,24 @@ public class LogicScout {
 
         try {
             Statement statement = connector.createStatement();
-            statement.executeUpdate("INSERT INTO scout VALUES( " + scout.getId() + ",'" + scout.getName() + "', '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "'," + scout.getCurrentAdvancementId() + ",'" + Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate()) + "','" + scout.getPosition() + "','" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "'," + scout.getTypeId() + ")");
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO scout VALUES( ");
+            query.append(scout.getId()).append(",'");
+            query.append(scout.getName()).append("', '");
+            query.append(Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate())).append("',");
+            query.append(scout.getCurrentAdvancementId()).append(",'");
+            query.append(Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate())).append("'");
+
+            if (!Util.isEmpty(scout.getPosition())) {
+                query.append(",'").append(scout.getPosition()).append("','");
+                query.append(Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate())).append("'");
+            } else {
+                query.append(",").append((String)null).append(",").append((String)null);
+            }
+
+            query.append(",").append(scout.getTypeId()).append(")");
+
+            statement.executeUpdate(query.toString());
         } catch (Exception e) {
             e.printStackTrace();
             return false;
