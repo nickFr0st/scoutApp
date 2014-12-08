@@ -7,6 +7,7 @@ package scout.clientPnls.IEPnls;
 import au.com.bytecode.opencsv.CSVReader;
 import constants.ModuleTypeConst;
 import constants.RequirementTypeConst;
+import constants.ScoutTypeConst;
 import guiUtil.CustomChooser;
 import guiUtil.JTextFieldDefaultText;
 import scout.dbObjects.*;
@@ -200,15 +201,14 @@ public class ImportDialog extends JDialog {
                 Scout existingScout = LogicScout.findByName(importedScout.getName());
 
                 if (existingScout != null) {
-                    importedScout.setId(existingScout.getId());
+                    existingScout.setName(importedScout.getName());
+                    existingScout.setBirthDate(importedScout.getBirthDate());
+                    existingScout.setCurrentAdvancementId(importedScout.getCurrentAdvancementId());
+                    existingScout.setAdvancementDate(importedScout.getAdvancementDate());
 
-                    if (!Util.isEmpty(existingScout.getPosition())) {
-                        importedScout.setPosition(existingScout.getPosition());
-                        importedScout.setPostionDate(existingScout.getPostionDate());
-                    }
-
-                    LogicScout.update(importedScout);
+                    LogicScout.update(existingScout);
                 } else {
+                    importedScout.setTypeId(ScoutTypeConst.BOY_SCOUT.getId());
                     LogicScout.save(importedScout);
                 }
             }
