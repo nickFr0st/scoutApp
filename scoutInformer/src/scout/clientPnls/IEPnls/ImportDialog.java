@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -96,9 +97,128 @@ public class ImportDialog extends JDialog {
         }
     }
 
-    private boolean handleScoutImport(String text) {
-        // todo: add logic here
-        return false;
+    private boolean handleScoutImport(String importPath) {
+        try {
+            CSVReader reader = new CSVReader(new FileReader(importPath), ',');
+            List<Scout> importList = new ArrayList<Scout>();
+
+            String[] record;
+            int line = 0;
+            StringBuilder errors = new StringBuilder();
+
+            while ((record = reader.readNext()) != null) {
+                ++line;
+                String errorLine = "line: " + line + "\n";
+
+                // check for the headers
+                if (record[0].equals("Scout Name")) {
+                    continue;
+                }
+
+                Scout scout = new Scout();
+
+                String scoutName = record[0];
+                if (Util.isEmpty(scoutName)) {
+                    errors.append("Scout name is missing. ").append(errorLine);
+                } else if (scoutName.length() > Scout.COL_NAME_LENGTH) {
+                    errors.append("Scout name is too long. ").append(errorLine);
+                }
+                scout.setName(scoutName);
+
+                String birthDate = record[1].trim();
+                if (Util.isEmpty(birthDate)) {
+                    errors.append("Birth date is missing. ").append(errorLine);
+                } else if (!Util.validateDisplayDateFormat(birthDate)) {
+                    errors.append("invalid date: ").append(birthDate).append(". Valid date format is (MM/DD/YYYY). ").append(errorLine);
+                } else {
+
+                    Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+                    Matcher matcher = pattern.matcher(birthDate);
+
+                    if (matcher.find()) {
+                        int month = Integer.parseInt(matcher.group(1));
+                        int day = Integer.parseInt(matcher.group(2));
+                        int year = Integer.parseInt(matcher.group(3));
+
+                        Calendar date = Calendar.getInstance();
+                        //noinspection MagicConstant
+                        date.set(year, month - 1, day);
+
+                        scout.setBirthDate(date.getTime());
+                    } else {
+                        scout.setBirthDate(new Date());
+                    }
+                }
+
+                String currentRank = record[2].trim();
+                if (Util.isEmpty(currentRank)) {
+                    errors.append("Current rank is missing. ").append(errorLine);
+                } else {
+                    Advancement advancement = LogicAdvancement.findByName(currentRank);
+                    if (advancement == null) {
+                        errors.append("advancement ").append(currentRank).append(" does not exists. ").append(errorLine);
+                    } else {
+                        scout.setCurrentAdvancementId(advancement.getId());
+                    }
+                }
+
+                String rankDate = record[3].trim();
+                if (Util.isEmpty(rankDate)) {
+                    errors.append("Current rank date is missing. ").append(errorLine);
+                } else if (!Util.validateDisplayDateFormat(rankDate)) {
+                    errors.append("invalid date: ").append(rankDate).append(". Valid date format is (MM/DD/YYYY). ").append(errorLine);
+                } else {
+
+                    Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+                    Matcher matcher = pattern.matcher(rankDate);
+
+                    if (matcher.find()) {
+                        int month = Integer.parseInt(matcher.group(1));
+                        int day = Integer.parseInt(matcher.group(2));
+                        int year = Integer.parseInt(matcher.group(3));
+
+                        Calendar date = Calendar.getInstance();
+                        //noinspection MagicConstant
+                        date.set(year, month - 1, day);
+
+                        scout.setAdvancementDate(date.getTime());
+                    } else {
+                        scout.setAdvancementDate(new Date());
+                    }
+                }
+
+                if (!checkForErrors(errors)) {
+                    return false;
+                }
+
+                importList.add(scout);
+            }
+
+            reader.close();
+
+            for (Scout importedScout : importList) {
+                Scout existingScout = LogicScout.findByName(importedScout.getName());
+
+                if (existingScout != null) {
+                    importedScout.setId(existingScout.getId());
+
+                    if (!Util.isEmpty(existingScout.getPosition())) {
+                        importedScout.setPosition(existingScout.getPosition());
+                        importedScout.setPostionDate(existingScout.getPostionDate());
+                    }
+
+                    LogicScout.update(importedScout);
+                } else {
+                    LogicScout.save(importedScout);
+                }
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your scouts have been successfully imported.", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean handleMeritBadgeImport(String importPath) {
@@ -188,6 +308,7 @@ public class ImportDialog extends JDialog {
                             int year = Integer.parseInt(matcher.group(3));
 
                             Calendar revDate = Calendar.getInstance();
+                            //noinspection MagicConstant
                             revDate.set(year, month - 1, day);
 
                             meritBadge.setRevisionDate(revDate.getTime());

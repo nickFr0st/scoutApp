@@ -5,7 +5,6 @@
 package scout.clientPnls.IEPnls;
 
 import au.com.bytecode.opencsv.CSVWriter;
-import constants.ContactTypeConst;
 import constants.ModuleTypeConst;
 import constants.RequirementTypeConst;
 import guiUtil.CustomChooser;
@@ -215,27 +214,9 @@ public class ExportDialog extends JDialog {
             java.util.List<String[]> records = new ArrayList<String[]>();
 
             records.add(new String[]{"Scout Name", "Birth Date", "Current Rank", "Current Rank Date"});
-            records.add(new String[]{"Contact Type", "Contact Name", "Relation", "Data"});
 
-            boolean firstPass = true;
             for (Scout scout : scoutExportList) {
-                if (!firstPass) {
-                    records.add(new String[]{""});
-                }
-
                 records.add(new String[]{scout.getName(), Util.DISPLAY_DATE_FORMAT.format(scout.getBirthDate()), LogicAdvancement.findById(scout.getCurrentAdvancementId()).getName(), Util.DISPLAY_DATE_FORMAT.format(scout.getAdvancementDate())});
-
-
-                java.util.List<Contact> contactList = LogicContact.findAllByScoutId(scout.getId());
-                if (!Util.isEmpty(contactList)) {
-                    for (Contact contact : contactList) {
-                        records.add(new String[]{ContactTypeConst.getNameById(contact.getTypeId()), contact.getName(), contact.getRelation(), contact.getData()});
-                    }
-                }
-
-                if (firstPass) {
-                    firstPass = false;
-                }
             }
 
             csvWriter.writeAll(records);

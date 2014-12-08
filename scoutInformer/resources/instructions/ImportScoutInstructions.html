@@ -9,10 +9,7 @@
 <p>
     Files that are imported must have a .csv extension as such make sure that all your values are separated by commas.<br>
     It is important to note that when you specify an scout name that already exists in BSA Database this will <b>update the existing data.</b>
-    To keep existing contacts you must specify them in the import.
     <br>
-    When adding contacts please list all contacts for an scout after the scout. To signify a new scout leave an empty
-    space between the last contact and the name of the next scout.<br>
     The following table will explain what data is valid and how to build our import file. The type and max values are relate to the type of information that will be
     stored in the associated field (such as: Text or Number) and the maximum number of character allow in each field respectfully.<br>
 </p>
@@ -46,48 +43,13 @@
             <b>(Date, N/A)</b>
         </td>
     </tr>
-    <tr>
-        <th align="left">Contact Type <i>(Optional)</i> <br>(type, max)</th>
-        <td>
-            The type of contact. valid types are:<br>
-            <p><i>Home<br>
-                Mobile<br>
-                Email</i><br>
-            </p>
-            <b>(valid type, N/A)</b>
-        </td>
-    </tr>
-    <tr>
-        <th align="left">Contact Name <i>(Required if Contact Type is specified)</i> <br>(type, max)</th>
-        <td>
-            Name of contact (becky, me, etc.).<br>
-            <b>(Text, 90)</b>
-        </td>
-    </tr>
-    <tr>
-        <th align="left">Relation <i>(Required if Contact Type is specified)</i> <br>(type, max)</th>
-        <td>
-            Relation of contact name to the scout (mom, self, etc.).<br>
-            <b>(Text, 90)</b>
-        </td>
-    </tr>
-    <tr>
-        <th align="left">Data <i>(Required if Contact Type is specified)</i> <br>(type, max)</th>
-        <td>
-            contact info. email or phone number (me@coolScouts.com, (123) 456-7890, etc.)<br>
-            <b>(Text, 255)</b>
-        </td>
-    </tr>
 </table>
 
 <h2>Example</h2>
 
 <p>
     "Scout Name","Birth Date","Current Rank","Current Rank Date"<br>
-    "Contact Type","Contact Name","Relation","Data"<br>
     "James","10/15/2001","Star","10/15/2014"<br>
-    "Mobile","Kim","Mom","(123) 156-4898"<br>
-    ""<br>
     "Tim","06/14/2003","New Scout","06/15/2014"<br>
 </p>
 

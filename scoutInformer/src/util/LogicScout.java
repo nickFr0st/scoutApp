@@ -94,7 +94,6 @@ public class LogicScout {
         }
 
         try {
-            Statement statement = connector.createStatement();
             StringBuilder query = new StringBuilder();
             query.append("INSERT INTO scout VALUES( ");
             query.append(scout.getId()).append(",'");
@@ -112,6 +111,7 @@ public class LogicScout {
 
             query.append(",").append(scout.getTypeId()).append(")");
 
+            Statement statement = connector.createStatement();
             statement.executeUpdate(query.toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,8 +138,22 @@ public class LogicScout {
         }
 
         try {
+            StringBuilder query = new StringBuilder();
+            query.append("UPDATE scout SET ");
+            query.append("name = '").append(scout.getName()).append("'");
+            query.append(", birthDate = '").append(Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate())).append("'");
+            query.append(", advancementId = ").append(scout.getCurrentAdvancementId());
+            query.append(", advancementDate = '").append(Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate())).append("'");
+
+            if (!Util.isEmpty(scout.getPosition())) {
+                query.append(", position = '").append(scout.getPosition()).append("'");
+                query.append(", positionDate = '").append(Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate())).append("'");
+            }
+
+            query.append(" WHERE id = ").append(scout.getId());
+
             Statement statement = connector.createStatement();
-            statement.executeUpdate("UPDATE scout SET name = '" + scout.getName() + "', birthDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getBirthDate()) + "', advancementId = " + scout.getCurrentAdvancementId() + ", position = '" + scout.getPosition() + "', positionDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getPostionDate()) + "', advancementDate = '" + Util.DATA_BASE_DATE_FORMAT.format(scout.getAdvancementDate()) + "' WHERE id = " + scout.getId());
+            statement.executeUpdate(query.toString());
         } catch (Exception e) {
             e.printStackTrace();
             return false;
