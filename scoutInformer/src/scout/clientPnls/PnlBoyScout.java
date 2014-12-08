@@ -9,6 +9,7 @@ import guiUtil.JTextFieldDefaultText;
 import guiUtil.SelectionBorder;
 import scout.clientPnls.IEPnls.ExportDialog;
 import scout.clientPnls.IEPnls.ImportDialog;
+import scout.clientPnls.boyScoutPnls.PnlBoyScoutDetails;
 import scout.clientPnls.boyScoutPnls.PnlBoyScoutGeneralInfo;
 import scout.dbObjects.Scout;
 import util.LogicScout;
@@ -32,6 +33,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     private Scout scout;
 
     private PnlBoyScoutGeneralInfo pnlBoyScoutGeneralInfo = new PnlBoyScoutGeneralInfo();
+    private PnlBoyScoutDetails pnlBoyScoutDetails = new PnlBoyScoutDetails();
 
     public PnlBoyScout() {
         initComponents();
@@ -66,6 +68,8 @@ public class PnlBoyScout extends JPanel implements PnlGui {
     private void clearErrors() {
         if (currentPnl instanceof PnlBoyScoutGeneralInfo) {
             ((PnlBoyScoutGeneralInfo) currentPnl).clearErrors();
+        } else if (currentPnl instanceof PnlBoyScoutDetails) {
+            ((PnlBoyScoutDetails) currentPnl).clearErrors();
         }
     }
 
@@ -88,6 +92,7 @@ public class PnlBoyScout extends JPanel implements PnlGui {
 
         currentPnl = newPanel;
         pnlParentTab.revalidate();
+        pnlParentTab.repaint();
     }
 
     private void populateScoutNameList() {
@@ -262,7 +267,9 @@ public class PnlBoyScout extends JPanel implements PnlGui {
                 pnlBoyScoutGeneralInfo.init();
                 updateTabbedPnl(pnlBoyScoutGeneralInfo);
                 break;
-            default:
+            case 2:
+                pnlBoyScoutDetails.init();
+                updateTabbedPnl(pnlBoyScoutDetails);
         }
     }
 
