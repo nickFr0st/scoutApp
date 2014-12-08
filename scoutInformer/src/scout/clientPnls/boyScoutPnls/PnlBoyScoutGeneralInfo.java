@@ -84,8 +84,10 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     private void loadData() {
         if (!Util.isEmpty(scout.getPosition())) {
             txtPositionName.setText(scout.getPosition());
-            updatePositionTime();
+        } else {
+            txtPositionName.setDefault();
         }
+        updatePositionTime();
 
         txtName.setText(scout.getName());
 
@@ -108,6 +110,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
     private void updatePositionTime() {
         if (scout.getPostionDate() == null) {
             lblPositionTimeValue.setText(DEFAULT_TIME.toString());
+            txtPositionDate.setDefault();
             return;
         }
 
