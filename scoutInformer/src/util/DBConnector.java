@@ -311,6 +311,16 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableScoutMeritBadges);
 
+        String tableCamp = "CREATE TABLE camp " +
+                "(id INT NOT NULL," +
+                " name VARCHAR(90) NOT NULL," +
+                " location VARCHAR(255) NOT NULL," +
+                " duration INT NOT NULL," +
+                " date DATE NOT NULL," +
+                " note BLOB NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableCamp);
+
         statement.executeBatch();
     }
 }

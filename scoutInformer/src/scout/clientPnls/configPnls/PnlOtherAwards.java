@@ -372,6 +372,10 @@ public class PnlOtherAwards extends JPanel implements Configuration {
             return;
         }
 
+        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected Award(s)?", "Delete Award", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
+            return;
+        }
+
         // (do this then scouts have been added to the program)
         // before deleting check to see if the award is used on any scouts
         Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
@@ -388,10 +392,6 @@ public class PnlOtherAwards extends JPanel implements Configuration {
 
     public void update() {
         if (listAwardNames.getSelectedValue() == null) {
-            return;
-        }
-
-        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected Award(s)?", "Delete Award", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
             return;
         }
 

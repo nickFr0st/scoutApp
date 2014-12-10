@@ -17,7 +17,7 @@ new FormModel {
 			"border": new guiUtil.SelectionBorder
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "0, 0, 0, 0:1.0, 0, 0, 0, 0, 0, 0"
+				"$columnSpecs": "0, 0, 0, 0, 0:1.0, 0, 0, 0, 0, 0, 0"
 				"$rowSpecs": "50"
 				"$hGap": 5
 				"$vGap": 5
@@ -58,7 +58,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnOther"
 					"text": "Other Awards"
-					"background": new java.awt.Color( 51, 102, 153, 255 )
+					"background": &Color0 new java.awt.Color( 51, 102, 153, 255 )
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
@@ -70,6 +70,20 @@ new FormModel {
 					"gridx": 2
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnCampouts"
+					"text": "Campouts"
+					"background": #Color0
+					"foreground": sfield java.awt.Color white
+					"font": #Font0
+					"focusPainted": false
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnCampoutsMouseClicked", false ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnImport"
 					"text": "Import"
 					"background": new java.awt.Color( 32, 154, 26, 255 )
@@ -78,7 +92,7 @@ new FormModel {
 					"focusPainted": false
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnImportMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 4
+					"gridx": 5
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnExport"
@@ -89,7 +103,7 @@ new FormModel {
 					"focusPainted": false
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnExportMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 5
+					"gridx": 6
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnNew"
@@ -100,12 +114,12 @@ new FormModel {
 					"focusPainted": false
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnNewMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 6
+					"gridx": 7
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnUpdate"
 					"text": "Update"
-					"background": &Color0 new java.awt.Color( 51, 102, 153, 255 )
+					"background": &Color1 new java.awt.Color( 51, 102, 153, 255 )
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
@@ -114,12 +128,12 @@ new FormModel {
 					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnUpdateMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 7
+					"gridx": 8
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnSave"
 					"text": "Save"
-					"background": #Color0
+					"background": #Color1
 					"foreground": sfield java.awt.Color white
 					"font": #Font0
 					"focusPainted": false
@@ -128,7 +142,7 @@ new FormModel {
 					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnSaveMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 8
+					"gridx": 9
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnDelete"
@@ -142,7 +156,7 @@ new FormModel {
 					}
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btnDeleteMouseClicked", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 9
+					"gridx": 10
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1

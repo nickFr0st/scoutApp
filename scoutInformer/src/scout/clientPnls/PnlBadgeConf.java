@@ -6,10 +6,7 @@ package scout.clientPnls;
 
 import constants.ModuleTypeConst;
 import guiUtil.SelectionBorder;
-import scout.clientPnls.configPnls.PnlAdvancements;
-import scout.clientPnls.configPnls.PnlConfigSplash;
-import scout.clientPnls.configPnls.PnlMeritBadges;
-import scout.clientPnls.configPnls.PnlOtherAwards;
+import scout.clientPnls.configPnls.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -199,12 +196,27 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
         repaint();
     }
 
+    private void btnCampoutsMouseClicked() {
+        enableComponents(true);
+
+        btnSave.setVisible(false);
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
+        currentSelected = ModuleTypeConst.CAMP_OUT;
+
+        updateConfigPnl(new PnlCamp(this));
+
+        revalidate();
+        repaint();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         JPanel panel1 = new JPanel();
         JButton btnAdvancements = new JButton();
         JButton btnMeritBadges = new JButton();
         JButton btnOther = new JButton();
+        JButton btnCampouts = new JButton();
         btnImport = new JButton();
         btnExport = new JButton();
         btnNew = new JButton();
@@ -230,9 +242,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             panel1.setBackground(Color.white);
             panel1.setName("panel1");
             panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {50, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
             ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 1.0E-4};
 
             //---- btnAdvancements ----
@@ -286,6 +298,23 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
+            //---- btnCampouts ----
+            btnCampouts.setText("Campouts");
+            btnCampouts.setBackground(new Color(51, 102, 153));
+            btnCampouts.setForeground(Color.white);
+            btnCampouts.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            btnCampouts.setFocusPainted(false);
+            btnCampouts.setName("btnCampouts");
+            btnCampouts.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btnCampoutsMouseClicked();
+                }
+            });
+            panel1.add(btnCampouts, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 5), 0, 0));
+
             //---- btnImport ----
             btnImport.setText("Import");
             btnImport.setBackground(new Color(32, 154, 26));
@@ -299,7 +328,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     btnImportMouseClicked();
                 }
             });
-            panel1.add(btnImport, new GridBagConstraints(4, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnImport, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
@@ -316,7 +345,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     btnExportMouseClicked();
                 }
             });
-            panel1.add(btnExport, new GridBagConstraints(5, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnExport, new GridBagConstraints(6, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
@@ -333,7 +362,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     btnNewMouseClicked();
                 }
             });
-            panel1.add(btnNew, new GridBagConstraints(6, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnNew, new GridBagConstraints(7, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
@@ -350,7 +379,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     btnUpdateMouseClicked();
                 }
             });
-            panel1.add(btnUpdate, new GridBagConstraints(7, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnUpdate, new GridBagConstraints(8, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
@@ -367,7 +396,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     btnSaveMouseClicked();
                 }
             });
-            panel1.add(btnSave, new GridBagConstraints(8, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnSave, new GridBagConstraints(9, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
 
@@ -384,7 +413,7 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                     btnDeleteMouseClicked();
                 }
             });
-            panel1.add(btnDelete, new GridBagConstraints(9, 0, 1, 1, 0.0, 0.0,
+            panel1.add(btnDelete, new GridBagConstraints(10, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
