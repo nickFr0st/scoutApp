@@ -321,6 +321,13 @@ public class DBConnector {
                 " PRIMARY KEY (id))";
         statement.addBatch(tableCamp);
 
+        String tableScoutCamp = "CREATE TABLE scoutCamp " +
+                "(id INT NOT NULL," +
+                " scoutId INT NOT NULL," +
+                " campId INT NOT NULL," +
+                " PRIMARY KEY (id))";
+        statement.addBatch(tableScoutCamp);
+
         statement.executeBatch();
     }
 }
