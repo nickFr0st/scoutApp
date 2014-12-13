@@ -13,15 +13,13 @@ import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Camp;
 import scout.dbObjects.OtherAward;
 import scout.dbObjects.Requirement;
+import scout.dbObjects.ScoutCamp;
 import util.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +30,8 @@ public class PnlCamp extends JPanel implements Configuration {
     private int grid;
     private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private PnlBadgeConf pnlBadgeConf;
-    private List<String> scoutNameList;
+    private List<String> availableScoutList;
+    private List<String> participatedScoutList;
 
     public PnlCamp() {
         initComponents();
@@ -42,11 +41,13 @@ public class PnlCamp extends JPanel implements Configuration {
         this.pnlBadgeConf = pnlBadgeConf;
         initComponents();
         onShow();
+
+        participatedScoutList = new ArrayList<String>();
+        availableScoutList = new ArrayList<String>();
     }
 
     @Override
     public void onShow() {
-        scoutNameList = LogicScout.getNameList();
         clearData();
     }
 
@@ -132,9 +133,27 @@ public class PnlCamp extends JPanel implements Configuration {
         txtCampDuration.setText(String.valueOf(camp.getDuration()));
         txtNotes.setText(camp.getNote());
 
-        // todo: need to set the scout lists correctly
-        listAvailable.setListData(scoutNameList.toArray());
+        availableScoutList = LogicScout.getNameList();
+
+        List<ScoutCamp> scoutCampList = LogicScoutCamp.findAllByCampId(camp.getId());
+        if (!Util.isEmpty(scoutCampList)) {
+            List<Integer> scoutIdList = new ArrayList<Integer>();
+            for (ScoutCamp scoutCamp : scoutCampList) {
+                scoutIdList.add(scoutCamp.getScoutId());
+            }
+
+            participatedScoutList.addAll(LogicScout.findAllByIdList(scoutIdList));
+
+            listParticipated.setListData(participatedScoutList.toArray());
+            listParticipated.revalidate();
+            listParticipated.repaint();
+
+            availableScoutList.removeAll(participatedScoutList);
+        }
+
+        listAvailable.setListData(availableScoutList.toArray());
         listAvailable.revalidate();
+        listAvailable.repaint();
     }
 
     private void listCampNamesKeyReleased(KeyEvent e) {
@@ -321,6 +340,56 @@ public class PnlCamp extends JPanel implements Configuration {
 //        revalidate();
     }
 
+    private void btnAddActionPerformed() {
+        if (listAvailable.getSelectedValue() == null) {
+            return;
+        }
+
+        List<String> nameList = listAvailable.getSelectedValuesList();
+        availableScoutList.removeAll(nameList);
+
+        for (Object name : nameList) {
+            participatedScoutList.add(name.toString());
+        }
+
+        populateAvailableList();
+        populateParticipatedList();
+    }
+
+    private void populateAvailableList() {
+        listAvailable.setListData(availableScoutList.toArray());
+        listAvailable.revalidate();
+        listAvailable.repaint();
+    }
+
+//    private void resetExportList() {
+//        participatedScoutList.clear();
+//        listWhoCame.setListData(participatedScoutList.toArray());
+//        listWhoCame.revalidate();
+//    }
+
+    private void populateParticipatedList() {
+        listParticipated.setListData(participatedScoutList.toArray());
+        listParticipated.revalidate();
+        listParticipated.repaint();
+    }
+
+    private void btnRemoveActionPerformed() {
+        if (listParticipated.getSelectedValue() == null) {
+            return;
+        }
+
+        List<String> nameList = listParticipated.getSelectedValuesList();
+        participatedScoutList.removeAll(nameList);
+
+        for (Object name : nameList) {
+            availableScoutList.add(name.toString());
+        }
+
+        populateAvailableList();
+        populateParticipatedList();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         lblListName = new JLabel();
@@ -343,7 +412,7 @@ public class PnlCamp extends JPanel implements Configuration {
         listAvailable = new JList();
         btnAdd = new JButton();
         scrollPane2 = new JScrollPane();
-        listWhoCame = new JList();
+        listParticipated = new JList();
         btnRemove = new JButton();
         lblNotes = new JLabel();
         scrollPane4 = new JScrollPane();
@@ -545,6 +614,12 @@ public class PnlCamp extends JPanel implements Configuration {
                 btnAdd.setBackground(new Color(51, 156, 229));
                 btnAdd.setFocusPainted(false);
                 btnAdd.setName("btnAdd");
+                btnAdd.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        btnAddActionPerformed();
+                    }
+                });
                 panel2.add(btnAdd, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                     GridBagConstraints.SOUTH, GridBagConstraints.HORIZONTAL,
                     new Insets(0, 0, 5, 5), 0, 0));
@@ -553,10 +628,10 @@ public class PnlCamp extends JPanel implements Configuration {
                 {
                     scrollPane2.setName("scrollPane2");
 
-                    //---- listWhoCame ----
-                    listWhoCame.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                    listWhoCame.setName("listWhoCame");
-                    scrollPane2.setViewportView(listWhoCame);
+                    //---- listParticipated ----
+                    listParticipated.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                    listParticipated.setName("listParticipated");
+                    scrollPane2.setViewportView(listParticipated);
                 }
                 panel2.add(scrollPane2, new GridBagConstraints(2, 1, 1, 2, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -572,6 +647,12 @@ public class PnlCamp extends JPanel implements Configuration {
                 btnRemove.setBackground(new Color(206, 0, 0));
                 btnRemove.setFocusPainted(false);
                 btnRemove.setName("btnRemove");
+                btnRemove.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        btnRemoveActionPerformed();
+                    }
+                });
                 panel2.add(btnRemove, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
                     GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
                     new Insets(0, 0, 0, 5), 0, 0));
@@ -664,7 +745,7 @@ public class PnlCamp extends JPanel implements Configuration {
     private JList listAvailable;
     private JButton btnAdd;
     private JScrollPane scrollPane2;
-    private JList listWhoCame;
+    private JList listParticipated;
     private JButton btnRemove;
     private JLabel lblNotes;
     private JScrollPane scrollPane4;

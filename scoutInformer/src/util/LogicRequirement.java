@@ -86,6 +86,7 @@ public class LogicRequirement {
             synchronized (lock) {
                 if (!saveRequirement(requirement)) {
                     lock.wait(Util.WAIT_TIME);
+                    connector.checkForDataBaseConnection();
                 }
             }
         } catch (InterruptedException e) {

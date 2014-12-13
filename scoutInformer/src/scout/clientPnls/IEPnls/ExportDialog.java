@@ -182,7 +182,7 @@ public class ExportDialog extends JDialog {
         try {
             java.util.List<Scout> scoutExportList;
             if (rbtnExportAll.isSelected()) {
-                scoutExportList = LogicScout.getAllScouts();
+                scoutExportList = LogicScout.findAll();
             } else {
                 scoutExportList = new ArrayList<Scout>();
                 for (int i = 0; i < listExport.getModel().getSize(); ++i) {

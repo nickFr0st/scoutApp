@@ -34,6 +34,11 @@ public enum KeyConst {
     SCOUT_POSITION_DATE("positionDate"),
     SCOUT_TYPE_ID("typeId"),
 
+    // Scout Camp Table
+    SCOUT_CAMP_ID("id"),
+    SCOUT_CAMP_CAMP_ID("campId"),
+    SCOUT_CAMP_SCOUT_ID("scoutId"),
+
     // Contact Table
     CONTACT_ID("id"),
     CONTACT_SCOUT_ID("scoutId"),
