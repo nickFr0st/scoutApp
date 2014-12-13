@@ -43,11 +43,10 @@ public class PnlCamp extends JPanel implements Configuration {
     public PnlCamp(PnlBadgeConf pnlBadgeConf) {
         this.pnlBadgeConf = pnlBadgeConf;
         initComponents();
-        onShow();
-
-        participatedScoutList = new ArrayList<String>();
         availableScoutList = new ArrayList<String>();
-        clearErrors();
+        participatedScoutList = new ArrayList<String>();
+
+        onShow();
     }
 
     @Override
@@ -72,23 +71,22 @@ public class PnlCamp extends JPanel implements Configuration {
 
     @Override
     public void createNew() {
-//        clearErrors();
-//        lblImage.setIcon(noImageIcon);
-//        txtImagePath.setDefault();
-//        txtAwardName.setDefault();
-//
-//        pnlRequirements.removeAll();
-//
-//        addNoRequirementsLabel();
-//
-//        pnlRequirements.revalidate();
-//        pnlRequirements.repaint();
-//
-//        pnlBadgeConf.getBtnSave().setVisible(true);
-//        pnlBadgeConf.getBtnUpdate().setVisible(false);
-//        pnlBadgeConf.getBtnDelete().setVisible(false);
-//
-//        txtAwardName.requestFocus();
+        clearErrors();
+        clearData();
+
+        pnlBadgeConf.getBtnSave().setVisible(true);
+
+        availableScoutList = LogicScout.getNameList();
+        if (availableScoutList == null) {
+            availableScoutList = new ArrayList<String>();
+        }
+
+        listAvailable.setListData(availableScoutList.toArray());
+
+        revalidate();
+        repaint();
+
+        txtCampName.requestFocus();
     }
 
     private void txtSearchNameKeyReleased() {
@@ -139,6 +137,9 @@ public class PnlCamp extends JPanel implements Configuration {
         txtNotes.setText(camp.getNote());
 
         availableScoutList = LogicScout.getNameList();
+        if (availableScoutList == null) {
+            availableScoutList = new ArrayList<String>();
+        }
 
         List<ScoutCamp> scoutCampList = LogicScoutCamp.findAllByCampId(camp.getId());
         if (!Util.isEmpty(scoutCampList)) {
@@ -423,6 +424,12 @@ public class PnlCamp extends JPanel implements Configuration {
         txtCampDate.setDefault();
         txtCampDuration.setDefault();
         txtNotes.setText("");
+
+        availableScoutList.clear();
+        participatedScoutList.clear();
+
+        listAvailable.setListData(availableScoutList.toArray());
+        listParticipated.setListData(participatedScoutList.toArray());
 
         pnlBadgeConf.getBtnDelete().setVisible(false);
         pnlBadgeConf.getBtnUpdate().setVisible(false);
