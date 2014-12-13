@@ -22,6 +22,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author User #2
@@ -32,6 +34,7 @@ public class PnlCamp extends JPanel implements Configuration {
     private PnlBadgeConf pnlBadgeConf;
     private List<String> availableScoutList;
     private List<String> participatedScoutList;
+    private Camp camp;
 
     public PnlCamp() {
         initComponents();
@@ -44,6 +47,7 @@ public class PnlCamp extends JPanel implements Configuration {
 
         participatedScoutList = new ArrayList<String>();
         availableScoutList = new ArrayList<String>();
+        clearErrors();
     }
 
     @Override
@@ -117,9 +121,10 @@ public class PnlCamp extends JPanel implements Configuration {
 
         clearErrors();
 
-        Camp camp = LogicCamp.findByName(listCampNames.getSelectedValue().toString());
+        camp = LogicCamp.findByName(listCampNames.getSelectedValue().toString());
 
         if (camp == null) {
+            camp = new Camp();
             return;
         }
 
@@ -197,18 +202,114 @@ public class PnlCamp extends JPanel implements Configuration {
     }
 
     private boolean validateName() {
-//        if (txtAwardName.isMessageDefault() || txtAwardName.getText().isEmpty()) {
-//            Util.setError(lblNameError, "Award name cannot be left blank");
-//            return false;
-//        }
-//
-//        for (int i = 0; i < listCampNames.getModel().getSize(); ++i) {
-//            String otherAwardName = (String) listCampNames.getModel().getElementAt(i);
-//            if (otherAwardName.equalsIgnoreCase(txtAwardName.getText())) {
-//                Util.setError(lblNameError, "Award name already exists");
-//                return false;
-//            }
-//        }
+        clearNameErrors();
+
+        if (txtCampName.isMessageDefault() || txtCampName.getText().isEmpty()) {
+            Util.setError(lblNameError, "Camp name cannot be left blank");
+            return false;
+        }
+
+        if (camp.getId() < 0) {
+            for (int i = 0; i < listCampNames.getModel().getSize(); ++i) {
+                String campName = (String) listCampNames.getModel().getElementAt(i);
+                if (campName.equalsIgnoreCase(txtCampName.getText())) {
+                    Util.setError(lblNameError, "Camp name already exists");
+                    return false;
+                }
+            }
+        } else {
+            for (int i = 0; i < listCampNames.getModel().getSize(); ++i) {
+                String campName = (String) listCampNames.getModel().getElementAt(i);
+                if (campName.equalsIgnoreCase(txtCampName.getText()) && !txtCampName.getText().equals(listCampNames.getSelectedValue().toString())) {
+                    Util.setError(lblNameError, "Camp name already exists");
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private boolean validateLocation() {
+        clearLocationErrors();
+
+        if (txtCampLocation.isMessageDefault() || txtCampLocation.getText().isEmpty()) {
+            Util.setError(lblLocationError, "Camp location cannot be left blank");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validateDate() {
+        clearDateErrors();
+
+        if (txtCampDate.isMessageDefault() || Util.isEmpty(txtCampDate.getText())) {
+            Util.setError(lblDateError, "Cannot leave camp date blank");
+            return false;
+        }
+
+        if (!txtCampDate.getText().matches(Util.DATE_PATTERN)) {
+            Util.setError(lblDateError, "invalid date format");
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(lblDateError.getText());
+
+        if (matcher.find()) {
+            int month = Integer.parseInt(matcher.group(1));
+            int day = Integer.parseInt(matcher.group(2));
+            int year = Integer.parseInt(matcher.group(3));
+
+            if (month > 12 || month < 1) {
+                Util.setError(lblDateError, "invalid month");
+                return false;
+            }
+
+            if (Util.isThirtyOneDayMonth(month)) {
+                if (day > 31 || month < 0) {
+                    Util.setError(lblDateError, "invalid day");
+                    return false;
+                }
+            } else if (Util.isThirtyDayMonth(month)) {
+                if (day > 30 || month < 0) {
+                    Util.setError(lblDateError, "invalid day");
+                    return false;
+                }
+            } else {
+                boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+
+                if (isLeapYear) {
+                    if (day > 29 || month < 0) {
+                        Util.setError(lblDateError, "invalid day");
+                        return false;
+                    }
+                } else {
+                    if (day > 28 || month < 0) {
+                        Util.setError(lblDateError, "invalid day");
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private boolean validateDuration() {
+        clearDurationErrors();
+
+        if (txtCampDuration.isMessageDefault() || txtCampDuration.getText().isEmpty()) {
+            Util.setError(lblDurationError, "Night count cannot be left blank");
+            return false;
+        }
+
+        if (!txtCampDuration.getText().matches("[1-9]+")) {
+            Util.setError(lblDurationError, "Night count must be a numeric value");
+            return false;
+        }
+
         return true;
     }
 
@@ -331,13 +432,43 @@ public class PnlCamp extends JPanel implements Configuration {
     }
 
     private void clearErrors() {
-//        lblNameError.setText("");
-//        lblNameError.setVisible(false);
-//
-//        lblReqError.setText("");
-//        lblReqError.setVisible(false);
-//
-//        revalidate();
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
+
+        lblLocationError.setText("");
+        lblLocationError.setVisible(false);
+
+        lblDateError.setText("");
+        lblDateError.setVisible(false);
+
+        lblDurationError.setText("");
+        lblDurationError.setVisible(false);
+
+        revalidate();
+    }
+
+    private void clearNameErrors() {
+        lblNameError.setText("");
+        lblNameError.setVisible(false);
+        revalidate();
+    }
+
+    private void clearLocationErrors() {
+        lblLocationError.setText("");
+        lblLocationError.setVisible(false);
+        revalidate();
+    }
+
+    private void clearDateErrors() {
+        lblDateError.setText("");
+        lblDateError.setVisible(false);
+        revalidate();
+    }
+
+    private void clearDurationErrors() {
+        lblDurationError.setText("");
+        lblDurationError.setVisible(false);
+        revalidate();
     }
 
     private void btnAddActionPerformed() {
@@ -399,12 +530,16 @@ public class PnlCamp extends JPanel implements Configuration {
         panel1 = new JPanel();
         lblCampName = new JLabel();
         txtCampName = new JTextFieldDefaultText();
+        lblNameError = new JLabel();
         lblCampLocation = new JLabel();
         txtCampLocation = new JTextFieldDefaultText();
+        lblLocationError = new JLabel();
         lblCampDate = new JLabel();
         txtCampDate = new JTextFieldDefaultText();
+        lblDateError = new JLabel();
         lblCampDuration = new JLabel();
         txtCampDuration = new JTextFieldDefaultText();
+        lblDurationError = new JLabel();
         panel2 = new JPanel();
         lblAvailable = new JLabel();
         lblWhoCame = new JLabel();
@@ -490,9 +625,9 @@ public class PnlCamp extends JPanel implements Configuration {
             panel1.setBackground(Color.white);
             panel1.setName("panel1");
             panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {122, 128, 85, 184, 123, 0};
+            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {122, 128, 152, 123, 0};
             ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {45, 45, 45, 45, 21, 222, 45, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 1.0, 1.0E-4};
             ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
 
             //---- lblCampName ----
@@ -508,9 +643,31 @@ public class PnlCamp extends JPanel implements Configuration {
             txtCampName.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtCampName.setDefaultText("Name");
             txtCampName.setName("txtCampName");
-            panel1.add(txtCampName, new GridBagConstraints(1, 0, 3, 1, 0.0, 0.0,
+            txtCampName.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    validateName();
+                }
+            });
+            txtCampName.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    validateName();
+                }
+            });
+            panel1.add(txtCampName, new GridBagConstraints(1, 0, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblNameError ----
+            lblNameError.setText("* Error Message");
+            lblNameError.setForeground(Color.red);
+            lblNameError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblNameError.setVerticalAlignment(SwingConstants.BOTTOM);
+            lblNameError.setName("lblNameError");
+            panel1.add(lblNameError, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(0, 5, 5, 5), 0, 0));
 
             //---- lblCampLocation ----
             lblCampLocation.setText("Camp Location:");
@@ -525,9 +682,31 @@ public class PnlCamp extends JPanel implements Configuration {
             txtCampLocation.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtCampLocation.setDefaultText("Location");
             txtCampLocation.setName("txtCampLocation");
-            panel1.add(txtCampLocation, new GridBagConstraints(1, 1, 3, 1, 0.0, 0.0,
+            txtCampLocation.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    validateLocation();
+                }
+            });
+            txtCampLocation.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    validateLocation();
+                }
+            });
+            panel1.add(txtCampLocation, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblLocationError ----
+            lblLocationError.setText("* Error Message");
+            lblLocationError.setForeground(Color.red);
+            lblLocationError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblLocationError.setVerticalAlignment(SwingConstants.BOTTOM);
+            lblLocationError.setName("lblLocationError");
+            panel1.add(lblLocationError, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(0, 5, 5, 5), 0, 0));
 
             //---- lblCampDate ----
             lblCampDate.setText("Camp Start Date:");
@@ -542,9 +721,31 @@ public class PnlCamp extends JPanel implements Configuration {
             txtCampDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtCampDate.setDefaultText("MM/DD/YYYY");
             txtCampDate.setName("txtCampDate");
-            panel1.add(txtCampDate, new GridBagConstraints(1, 2, 3, 1, 0.0, 0.0,
+            txtCampDate.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    validateDate();
+                }
+            });
+            txtCampDate.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    validateDate();
+                }
+            });
+            panel1.add(txtCampDate, new GridBagConstraints(1, 2, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblDateError ----
+            lblDateError.setText("* Error Message");
+            lblDateError.setForeground(Color.red);
+            lblDateError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblDateError.setVerticalAlignment(SwingConstants.BOTTOM);
+            lblDateError.setName("lblDateError");
+            panel1.add(lblDateError, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(0, 5, 5, 5), 0, 0));
 
             //---- lblCampDuration ----
             lblCampDuration.setText("Number of Nights:");
@@ -559,9 +760,31 @@ public class PnlCamp extends JPanel implements Configuration {
             txtCampDuration.setFont(new Font("Tahoma", Font.PLAIN, 14));
             txtCampDuration.setDefaultText("Night count");
             txtCampDuration.setName("txtCampDuration");
-            panel1.add(txtCampDuration, new GridBagConstraints(1, 3, 3, 1, 0.0, 0.0,
+            txtCampDuration.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    validateDuration();
+                }
+            });
+            txtCampDuration.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    validateDuration();
+                }
+            });
+            panel1.add(txtCampDuration, new GridBagConstraints(1, 3, 2, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
+
+            //---- lblDurationError ----
+            lblDurationError.setText("* Error Message");
+            lblDurationError.setForeground(Color.red);
+            lblDurationError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+            lblDurationError.setVerticalAlignment(SwingConstants.BOTTOM);
+            lblDurationError.setName("lblDurationError");
+            panel1.add(lblDurationError, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(0, 5, 5, 5), 0, 0));
 
             //======== panel2 ========
             {
@@ -657,7 +880,7 @@ public class PnlCamp extends JPanel implements Configuration {
                     GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
                     new Insets(0, 0, 0, 5), 0, 0));
             }
-            panel1.add(panel2, new GridBagConstraints(0, 5, 5, 1, 0.0, 0.0,
+            panel1.add(panel2, new GridBagConstraints(0, 5, 4, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
                 new Insets(0, 0, 5, 0), 0, 0));
 
@@ -680,7 +903,7 @@ public class PnlCamp extends JPanel implements Configuration {
                 txtNotes.setName("txtNotes");
                 scrollPane4.setViewportView(txtNotes);
             }
-            panel1.add(scrollPane4, new GridBagConstraints(0, 7, 5, 1, 0.0, 0.0,
+            panel1.add(scrollPane4, new GridBagConstraints(0, 7, 4, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         }
@@ -732,12 +955,16 @@ public class PnlCamp extends JPanel implements Configuration {
     private JPanel panel1;
     private JLabel lblCampName;
     private JTextFieldDefaultText txtCampName;
+    private JLabel lblNameError;
     private JLabel lblCampLocation;
     private JTextFieldDefaultText txtCampLocation;
+    private JLabel lblLocationError;
     private JLabel lblCampDate;
     private JTextFieldDefaultText txtCampDate;
+    private JLabel lblDateError;
     private JLabel lblCampDuration;
     private JTextFieldDefaultText txtCampDuration;
+    private JLabel lblDurationError;
     private JPanel panel2;
     private JLabel lblAvailable;
     private JLabel lblWhoCame;

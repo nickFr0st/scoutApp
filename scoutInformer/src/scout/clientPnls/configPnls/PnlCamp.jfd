@@ -57,7 +57,7 @@ new FormModel {
 				"insets": new java.awt.Insets( 0, 0, 0, 1 )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "117, 123, 80, 179, 123:1.0"
+				"$columnSpecs": "117, 123, 147, 123:1.0"
 				"$rowSpecs": "40, 40, 40, 40, 16, 217, 40, 0:1.0"
 				"$hGap": 5
 				"$vGap": 5
@@ -76,9 +76,22 @@ new FormModel {
 					name: "txtCampName"
 					"font": #Font0
 					"defaultText": "Name"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateName", false ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateName", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridx": 1
-					"gridwidth": 3
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblNameError"
+					"text": "* Error Message"
+					"foreground": &Color1 new java.awt.Color( 255, 0, 0, 255 )
+					"font": &Font1 new java.awt.Font( "Tahoma", 2, 11 )
+					"verticalAlignment": 3
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": new java.awt.Insets( 0, 5, 0, 5 )
+					"gridx": 3
+					"vAlign": 0
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblCampLocation"
@@ -92,10 +105,24 @@ new FormModel {
 					name: "txtCampLocation"
 					"font": #Font0
 					"defaultText": "Location"
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateLocation", false ) )
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateLocation", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 1
 					"gridx": 1
-					"gridwidth": 3
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblLocationError"
+					"text": "* Error Message"
+					"foreground": #Color1
+					"font": #Font1
+					"verticalAlignment": 3
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": new java.awt.Insets( 0, 5, 0, 5 )
+					"gridy": 1
+					"gridx": 3
+					"vAlign": 0
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblCampDate"
@@ -109,10 +136,24 @@ new FormModel {
 					name: "txtCampDate"
 					"font": #Font0
 					"defaultText": "MM/DD/YYYY"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateDate", false ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateDate", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 2
 					"gridx": 1
-					"gridwidth": 3
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblDateError"
+					"text": "* Error Message"
+					"foreground": #Color1
+					"font": #Font1
+					"verticalAlignment": 3
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": new java.awt.Insets( 0, 5, 0, 5 )
+					"gridy": 2
+					"gridx": 3
+					"vAlign": 0
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "lblCampDuration"
@@ -126,10 +167,24 @@ new FormModel {
 					name: "txtCampDuration"
 					"font": #Font0
 					"defaultText": "Night count"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusLost", "validateDuration", false ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "validateDuration", false ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 3
 					"gridx": 1
-					"gridwidth": 3
+					"gridwidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblDurationError"
+					"text": "* Error Message"
+					"foreground": #Color1
+					"font": #Font1
+					"verticalAlignment": 3
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"insets": new java.awt.Insets( 0, 5, 0, 5 )
+					"gridy": 3
+					"gridx": 3
+					"vAlign": 0
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "260, 85, 260"
@@ -159,7 +214,7 @@ new FormModel {
 						name: "scrollPane1"
 						add( new FormComponent( "javax.swing.JList" ) {
 							name: "listAvailable"
-							"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
+							"font": &Font2 new java.awt.Font( "Tahoma", 0, 14 )
 						} )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 1
@@ -171,8 +226,8 @@ new FormModel {
 						"minimumSize": new java.awt.Dimension( 81, 40 )
 						"preferredSize": new java.awt.Dimension( 81, 40 )
 						"maximumSize": new java.awt.Dimension( 81, 40 )
-						"font": &Font2 new java.awt.Font( "Tahoma", 0, 14 )
-						"foreground": &Color1 new java.awt.Color( 255, 255, 255, 255 )
+						"font": &Font3 new java.awt.Font( "Tahoma", 0, 14 )
+						"foreground": &Color2 new java.awt.Color( 255, 255, 255, 255 )
 						"background": new java.awt.Color( 51, 156, 229, 255 )
 						"focusPainted": false
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnAddActionPerformed", false ) )
@@ -185,7 +240,7 @@ new FormModel {
 						name: "scrollPane2"
 						add( new FormComponent( "javax.swing.JList" ) {
 							name: "listParticipated"
-							"font": #Font1
+							"font": #Font2
 						} )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridx": 2
@@ -198,8 +253,8 @@ new FormModel {
 						"preferredSize": new java.awt.Dimension( 82, 40 )
 						"minimumSize": new java.awt.Dimension( 82, 40 )
 						"maximumSize": new java.awt.Dimension( 82, 40 )
-						"font": #Font2
-						"foreground": #Color1
+						"font": #Font3
+						"foreground": #Color2
 						"background": new java.awt.Color( 206, 0, 0, 255 )
 						"focusPainted": false
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnRemoveActionPerformed", false ) )
@@ -210,7 +265,7 @@ new FormModel {
 					} )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 5
-					"gridwidth": 5
+					"gridwidth": 4
 					"hAlign": 0
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
@@ -231,7 +286,7 @@ new FormModel {
 					} )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 7
-					"gridwidth": 5
+					"gridwidth": 4
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
