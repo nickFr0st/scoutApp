@@ -73,7 +73,7 @@ public class LogicScoutCamp {
         return scoutCampList;
     }
 
-    public static void save(int campId, List<Integer> scoutIdList) {
+    public static synchronized void save(int campId, List<Integer> scoutIdList) {
         try {
             synchronized (lock) {
                 if (!saveScoutCamp(campId, scoutIdList)) {
@@ -130,5 +130,59 @@ public class LogicScoutCamp {
         }
 
         return id;
+    }
+
+    public static synchronized void deleteAllByCampId(int campId) {
+        try {
+            synchronized (lock) {
+                if (!deleteByCampId(campId)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteByCampId(int campId) {
+        if (campId <= 0) {
+            return true;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM scoutCamp WHERE campId = " + campId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean deleteByScoutId(int scoutId) {
+        if (scoutId <= 0) {
+            return true;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM scoutCamp WHERE scoutId = " + scoutId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void deleteAllByScoutId(int scoutId) {
+        try {
+            synchronized (lock) {
+                if (!deleteByScoutId(scoutId)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

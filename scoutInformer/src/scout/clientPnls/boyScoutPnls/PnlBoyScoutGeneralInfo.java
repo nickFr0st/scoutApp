@@ -10,10 +10,7 @@ import guiUtil.JTextFieldDefaultText;
 import scout.dbObjects.Advancement;
 import scout.dbObjects.Contact;
 import scout.dbObjects.Scout;
-import util.LogicAdvancement;
-import util.LogicContact;
-import util.LogicScout;
-import util.Util;
+import util.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -734,6 +731,7 @@ public class PnlBoyScoutGeneralInfo extends JPanel {
         }
 
         LogicContact.deleteList(contactIdList);
+        LogicScoutCamp.deleteAllByScoutId(scout.getId());
         LogicScout.delete(scout.getId());
 
         clearData();

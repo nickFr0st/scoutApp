@@ -133,4 +133,31 @@ public class LogicCamp {
 
         return id;
     }
+
+    public static synchronized void delete(int id) {
+        try {
+            synchronized (lock) {
+                if (!deleteCamp(id)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean deleteCamp(int id) {
+        if (id <= 0) {
+            return true;
+        }
+
+        try {
+            Statement statement = connector.createStatement();
+            statement.executeUpdate("DELETE FROM camp WHERE id = " + id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

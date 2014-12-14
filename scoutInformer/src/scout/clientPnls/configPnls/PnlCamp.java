@@ -5,15 +5,16 @@
 package scout.clientPnls.configPnls;
 
 import constants.ModuleTypeConst;
-import constants.RequirementTypeConst;
 import guiUtil.JTextFieldDefaultText;
 import scout.clientPnls.IEPnls.ExportDialog;
 import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Camp;
-import scout.dbObjects.OtherAward;
 import scout.dbObjects.ScoutCamp;
-import util.*;
+import util.LogicCamp;
+import util.LogicScout;
+import util.LogicScoutCamp;
+import util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -29,8 +30,6 @@ import java.util.regex.Pattern;
  * @author User #2
  */
 public class PnlCamp extends JPanel implements Configuration {
-    private int grid;
-    private final ImageIcon noImageIcon = new ImageIcon(getClass().getResource("/images/no_image.png"));
     private PnlBadgeConf pnlBadgeConf;
     private List<String> availableScoutList;
     private List<String> participatedScoutList;
@@ -334,16 +333,19 @@ public class PnlCamp extends JPanel implements Configuration {
             return;
         }
 
-        // (do this then scouts have been added to the program)
-        // before deleting check to see if the award is used on any scouts
-        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
-        for (String advName : (List<String>) listCampNames.getSelectedValuesList()) {
-            OtherAward advancement = LogicOtherAward.findByName(advName);
-
-            List<Integer> requirementIdList = LogicRequirement.findIdsByParentIdTypeId(advancement.getId(), RequirementTypeConst.OTHER.getId());
-            LogicRequirement.deleteList(requirementIdList);
-            LogicOtherAward.delete(advName);
+        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected camp(s)?", "Delete Camp", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
+            return;
         }
+
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
+
+        for (String campName : (List<String>) listCampNames.getSelectedValuesList()) {
+            Camp camp = LogicCamp.findByName(campName);
+
+            LogicScoutCamp.deleteAllByCampId(camp.getId());
+            LogicCamp.delete(camp.getId());
+        }
+
         Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
         clearData();
     }

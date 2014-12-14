@@ -143,6 +143,11 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
                 ((PnlMeritBadges)currentPnl).delete();
                 break;
             case ModuleTypeConst.OTHER:
+                ((PnlOtherAwards)currentPnl).delete();
+                break;
+            case ModuleTypeConst.CAMP_OUT:
+                ((PnlCamp)currentPnl).delete();
+                break;
         }
     }
 
