@@ -391,7 +391,7 @@ public class PnlCamp extends JPanel implements Configuration {
     }
 
     public void importData() {
-        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.OTHER);
+        ImportDialog dialog = new ImportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.CAMP_OUT);
         dialog.setVisible(true);
 
         reloadData();

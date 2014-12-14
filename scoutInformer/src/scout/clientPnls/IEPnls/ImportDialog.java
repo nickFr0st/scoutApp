@@ -55,6 +55,10 @@ public class ImportDialog extends JDialog {
                 setTitle("Scout Import");
                 setTxtImportInstructions(getClass().getResource("/instructions/ImportScoutInstructions.html").toString());
                 break;
+            case ModuleTypeConst.CAMP_OUT:
+                setTitle("Camp Import");
+                setTxtImportInstructions(getClass().getResource("/instructions/ImportCampInstructions.html").toString());
+                break;
         }
     }
 
@@ -90,12 +94,171 @@ public class ImportDialog extends JDialog {
             case ModuleTypeConst.SCOUT:
                 success = handleScoutImport(txtImportPath.getText());
                 break;
+            case ModuleTypeConst.CAMP_OUT:
+                success = handleCampImport(txtImportPath.getText());
+                break;
         }
 
         Util.processBusy(btnImport, false);
         if (success) {
             dispose();
         }
+    }
+
+    private boolean handleCampImport(String importPath) {
+        try {
+            CSVReader reader = new CSVReader(new FileReader(importPath), ',');
+            Map<Camp, List<Integer>> importMap = new HashMap<Camp, List<Integer>>();
+
+            boolean getCamp = true;
+            Camp camp = null;
+            java.util.List<Integer> scoutIdList = new ArrayList<Integer>();
+
+            String[] record;
+            int line = 0;
+            StringBuilder errors = new StringBuilder();
+
+            while ((record = reader.readNext()) != null) {
+                ++line;
+                String errorLine = "line: " + line + "\n";
+
+                // check for the headers
+                if (record[0].equals("Camp Name") || record[0].equals("Scout Name")) {
+                    continue;
+                }
+
+                if (record[0].isEmpty()) {
+                    getCamp = true;
+
+                    if (camp != null) {
+                        if (!checkForErrors(errors)) {
+                            return false;
+                        }
+
+                        importMap.put(camp, scoutIdList);
+
+                        camp = null;
+                        scoutIdList = new ArrayList<Integer>();
+                    }
+
+                    continue;
+                }
+
+                if (getCamp) {
+                    getCamp = false;
+
+                    if (record.length < 4) {
+                        errors.append("There are too few values for the camp. ").append(errorLine);
+                        continue;
+                    }
+
+
+                    camp = new Camp();
+
+                    String campName = record[0];
+                    if (Util.isEmpty(campName)){
+                        errors.append("Camp name is missing. ").append(errorLine);
+                    } else if (campName.length() > Camp.COL_NAME_LENGTH) {
+                        errors.append("Camp name is too long. ").append(errorLine);
+                    }
+                    camp.setName(campName);
+
+                    String campLocation = record[1];
+                    if (Util.isEmpty(campLocation)){
+                        errors.append("Camp location is missing. ").append(errorLine);
+                    } else if (campLocation.length() > Camp.COL_LOCATION_LENGTH) {
+                        errors.append("Camp location is too long. ").append(errorLine);
+                    }
+                    camp.setLocation(campLocation);
+
+                    String campDuration = record[2];
+                    if (Util.isEmpty(campDuration)){
+                        errors.append("Camp duration is missing. ").append(errorLine);
+                    } else if (!campDuration.matches("[1-9]+")) {
+                        errors.append("Camp duration must be a whole number greater than zero. ").append(errorLine);
+                    }
+                    camp.setDuration(Integer.parseInt(campDuration));
+
+                    String campDate = record[3].trim();
+                    if (!Util.validateDisplayDateFormat(campDate)) {
+                        errors.append("invalid date: ").append(campDate).append(". Valid date format is (MM/DD/YYYY). ").append(errorLine);
+                        continue;
+                    } else {
+
+                        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+                        Matcher matcher = pattern.matcher(campDate);
+
+                        if (matcher.find()) {
+                            int month = Integer.parseInt(matcher.group(1));
+                            int day = Integer.parseInt(matcher.group(2));
+                            int year = Integer.parseInt(matcher.group(3));
+
+                            Calendar revDate = Calendar.getInstance();
+                            //noinspection MagicConstant
+                            revDate.set(year, month - 1, day);
+
+                            camp.setDate(revDate.getTime());
+                        } else {
+                            camp.setDate(new Date());
+                        }
+                    }
+
+                    if (record.length == 4) {
+                        continue;
+                    }
+
+                    String campNotes = record[4];
+                    if (!Util.isEmpty(campNotes)){
+                        camp.setNote(campNotes);
+                    }
+                    continue;
+                }
+
+                String scoutName = record[0];
+                Scout scout = LogicScout.findByName(scoutName);
+
+                if (scout == null) {
+                    errors.append("Scout '" + scoutName + "' doesn't exists. ").append(errorLine);
+                    continue;
+                }
+
+                scoutIdList.add(scout.getId());
+            }
+
+            reader.close();
+
+            if (!checkForErrors(errors)) {
+                return false;
+            }
+
+            importMap.put(camp, scoutIdList);
+
+            for (Camp campOut : importMap.keySet()) {
+                Camp existingCamp = LogicCamp.findByName(campOut.getName());
+
+                if (existingCamp != null) {
+                    LogicScoutCamp.deleteAllByCampId(existingCamp.getId());
+
+                    campOut.setNote(existingCamp.getNote());
+                    campOut.setId(existingCamp.getId());
+                    LogicCamp.update(campOut);
+                } else {
+                    LogicCamp.save(campOut);
+                }
+
+                List<Integer> scoutIds = importMap.get(campOut);
+                if (!Util.isEmpty(scoutIds)) {
+                    LogicScoutCamp.save(campOut.getId(), scoutIds);
+                }
+            }
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your camp(s) have been successfully imported.", "Import Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean handleScoutImport(String importPath) {

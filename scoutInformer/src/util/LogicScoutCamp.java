@@ -86,6 +86,10 @@ public class LogicScoutCamp {
     }
 
     private static boolean saveScoutCamp(int campId, List<Integer> scoutIdList) {
+        if (!connector.checkForDataBaseConnection()) {
+            return true;
+        }
+
         if (campId < 0 || Util.isEmpty(scoutIdList)) {
             return true;
         }

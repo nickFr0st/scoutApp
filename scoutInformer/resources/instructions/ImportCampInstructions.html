@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Camp Import</h2>
+
+<p>
+    Files that are imported must have a .csv extension as such make sure that all your values are separated by commas.<br>
+    It is important to note that when you specify an camp name that already exists in BSA Database this will <b>update the existing data.</b>
+    To keep to existing scout participation list you must specify their names in the import.
+    <br>
+    When adding scout names please list all the scouts that have participated in a camp below that camp they participated in. To signify a new camp leave an empty
+    space between the last camp or scout name and the name of the next camp.<br>
+    The following table will explain what data is valid and how to build our import file. The type and max values are relate to the type of information that will be
+    stored in the associated field (such as: Text or Number) and the maximum number of character allow in each field respectfully.<br>
+</p>
+
+<table border="1" id="vertical-1">
+    <tr>
+        <th align="left">Camp Name <i>(Required)</i> <br>(type, max)</th>
+        <td>
+            The name of the camp.<br>
+            <b>(Text, 90)</b>
+        </td>
+    </tr>
+    <tr>
+        <th align="left">Camp Location <i>(Required)</i> <br>(type, max)</th>
+        <td>
+            The actual location of the camp (address, etc.).<br>
+            <b>(Text, 254)</b>
+        </td>
+    </tr>
+    <tr>
+        <th align="left">Camp Duration <i>(Required)</i> <br>(type, max)</th>
+        <td>
+            The whole number count of the number of nights spent on the camp.<br>
+            <b>(Numeric, N/A)</b>
+        </td>
+    </tr>
+    <tr>
+        <th align="left">Camp Date <i>(Required)</i> <br>(type, max)</th>
+        <td>
+            The Date of the first night of the camp out. <i>valid format is: MM/DD/YYYY</i><br>
+            <b>(Date, N/A)</b>
+        </td>
+    </tr>
+    <tr>
+        <th align="left">Camp Notes <i>(Optional)</i> <br>(type, max)</th>
+        <td>
+            Any notes you might want to add to the camp out.<br>
+            <b>(Text, N/A)</b>
+        </td>
+    </tr>
+    <tr>
+        <th align="left">Scout Name <i>(Optional)</i> <br>(type, max)</th>
+        <td>
+            The Name of the scout that participated in the camp out. <b>The scout must exists in BSA Database</b><br>
+            <b>(Text, 90)</b>
+        </td>
+    </tr>
+</table>
+
+<h2>Example</h2>
+
+<p>
+    "Camp Name","Camp Location","Camp Duration","Camp Date","Camp Notes"<br>
+    "Scout Name"<br>
+    "Combined Youth Camp","Sessions Landing","3","10/15/2003","The rope swing idea was a lot of fun, we should do that again."<br>
+    "Tim"<br>
+    ""<br>
+    "Bubble Rock","Out by Elberta","1","05/16/2014","Camp side stories turned out great."<br>
+    "Tim"<br>
+    "James"<br>
+</p>
+
+</body>
+</html>
