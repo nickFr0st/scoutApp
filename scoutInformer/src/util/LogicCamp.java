@@ -194,4 +194,34 @@ public class LogicCamp {
         return true;
     }
 
+    public static List<Camp> findAll() {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Camp> campList = new ArrayList<Camp>();
+
+        try {
+            Statement statement = connector.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM camp ORDER BY name");
+
+            while (rs.next()) {
+                Camp camp = new Camp();
+                camp.setId(rs.getInt(KeyConst.CAMP_ID.getName()));
+                camp.setName(rs.getString(KeyConst.CAMP_NAME.getName()));
+                camp.setLocation(rs.getString(KeyConst.CAMP_LOCATION.getName()));
+                camp.setDuration(rs.getInt(KeyConst.CAMP_DURATION.getName()));
+                camp.setDate(rs.getDate(KeyConst.CAMP_DATE.getName()));
+                camp.setNote(rs.getString(KeyConst.CAMP_NOTE.getName()));
+
+                campList.add(camp);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return campList;
+    }
 }

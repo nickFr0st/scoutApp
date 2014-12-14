@@ -75,6 +75,13 @@ public class ExportDialog extends JDialog {
                     srcList = new ArrayList<String>();
                 }
                 break;
+            case ModuleTypeConst.CAMP_OUT:
+                setTitle("Camp Export");
+                srcList = LogicCamp.getNameList();
+                if (srcList == null) {
+                    srcList = new ArrayList<String>();
+                }
+                break;
         }
 
         exportList = new ArrayList<String>();
@@ -102,6 +109,9 @@ public class ExportDialog extends JDialog {
                 break;
             case ModuleTypeConst.SCOUT:
                 success = handleScoutExport();
+                break;
+            case ModuleTypeConst.CAMP_OUT:
+                success = handleCampExport();
                 break;
         }
 
@@ -176,6 +186,86 @@ public class ExportDialog extends JDialog {
 
         populateSrcList();
         populateExportList();
+    }
+
+    private boolean handleCampExport() {
+        try {
+            java.util.List<Camp> campExportList;
+            if (rbtnExportAll.isSelected()) {
+                campExportList = LogicCamp.findAll();
+            } else {
+                campExportList = new ArrayList<Camp>();
+                for (int i = 0; i < listExport.getModel().getSize(); ++i) {
+                    campExportList.add(LogicCamp.findByName(listExport.getModel().getElementAt(i).toString()));
+                }
+            }
+
+            if (Util.isEmpty(campExportList)) {
+                JOptionPane.showMessageDialog(this, "There is nothing to export, please select at least one camp and try again.", "No Items Selected", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+
+            // get the file path
+            CustomChooser chooser = new CustomChooser("Select export location", JFileChooser.FILES_ONLY);
+
+            chooser.setSelectedFile(new File("CampExport.csv"));
+            int returnValue = chooser.showSaveDialog(this);
+            chooser.resetLookAndFeel();
+
+            if (returnValue != JFileChooser.APPROVE_OPTION) {
+                return false;
+            }
+
+            String exportPath = chooser.getSelectedFile().getPath();
+
+            // write to location
+            StringWriter writer = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(writer, ',');
+            java.util.List<String[]> records = new ArrayList<String[]>();
+
+            records.add(new String[]{"Camp Name", "Camp Location", "Camp Duration", "Camp Date", "Camp Notes"});
+            records.add(new String[]{"Scout Name"});
+
+            boolean firstPass = true;
+
+            for (Camp camp : campExportList) {
+                if (!firstPass) {
+                    records.add(new String[]{""});
+                }
+
+                records.add(new String[]{camp.getName(), camp.getLocation(), String.valueOf(camp.getDuration()), Util.DISPLAY_DATE_FORMAT.format(camp.getDate()), camp.getNote()});
+
+                java.util.List<ScoutCamp> scoutCampList = LogicScoutCamp.findAllByCampId(camp.getId());
+                if (!Util.isEmpty(scoutCampList)) {
+                    for (ScoutCamp scoutCamp : scoutCampList) {
+                        records.add(new String[]{LogicScout.findById(scoutCamp.getScoutId()).getName()});
+                    }
+                }
+
+                if (firstPass) {
+                    firstPass = false;
+                }
+            }
+
+            csvWriter.writeAll(records);
+            csvWriter.close();
+
+            if (!exportPath.endsWith(".csv")) {
+                exportPath += ".csv";
+            }
+
+            FileWriter export = new FileWriter(exportPath);
+            export.append(writer.toString());
+            export.flush();
+            export.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+
+        JOptionPane.showMessageDialog(this, "Your selected camp(s) have been successfully exported.", "Export Successful", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 
     private boolean handleScoutExport() {

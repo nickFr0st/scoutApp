@@ -179,6 +179,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).export();
                 break;
+            case ModuleTypeConst.CAMP_OUT:
+                ((PnlCamp)currentPnl).export();
+                break;
         }
     }
 

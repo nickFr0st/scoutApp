@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
 /**
  * @author User #2
  */
+@SuppressWarnings("MagicConstant")
 public class PnlCamp extends JPanel implements Configuration {
     private PnlBadgeConf pnlBadgeConf;
     private List<String> availableScoutList;
@@ -385,7 +386,7 @@ public class PnlCamp extends JPanel implements Configuration {
     }
 
     public void export() {
-        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.OTHER);
+        ExportDialog dialog = new ExportDialog((JFrame) SwingUtilities.getWindowAncestor(this), ModuleTypeConst.CAMP_OUT);
         dialog.setVisible(true);
     }
 
@@ -489,7 +490,7 @@ public class PnlCamp extends JPanel implements Configuration {
         List<String> nameList = listAvailable.getSelectedValuesList();
         availableScoutList.removeAll(nameList);
 
-        for (Object name : nameList) {
+        for (String name : nameList) {
             participatedScoutList.add(name.toString());
         }
 
@@ -523,7 +524,7 @@ public class PnlCamp extends JPanel implements Configuration {
         List<String> nameList = listParticipated.getSelectedValuesList();
         participatedScoutList.removeAll(nameList);
 
-        for (Object name : nameList) {
+        for (String name : nameList) {
             availableScoutList.add(name.toString());
         }
 
