@@ -4,7 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/src/scout/clientPnls/IEPnls/ImportDialog.java" line="128" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added camp field validation">
+    <list default="true" id="45f28990-89a6-418b-83ab-7a46681fe50a" name="Default" comment="added functionality for the new camp btn">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBConnector.java" afterPath="$PROJECT_DIR$/src/util/DBConnector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicCamp.java" afterPath="$PROJECT_DIR$/src/util/LogicCamp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicScout.java" afterPath="$PROJECT_DIR$/src/util/LogicScout.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogicScoutCamp.java" afterPath="$PROJECT_DIR$/src/util/LogicScoutCamp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.java" afterPath="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -246,36 +250,62 @@
       <file leaf-file-name="PnlCamp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30590063" vertical-offset="653" max-vertical-offset="15878">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.028315946" vertical-offset="2599" max-vertical-offset="16133">
+              <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
               <folding>
-                <element signature="e#1109#1110#0" expanded="true" />
-                <element signature="e#1141#1142#0" expanded="true" />
-                <element signature="e#1436#1437#0" expanded="true" />
-                <element signature="e#1463#1464#0" expanded="true" />
-                <element signature="e#4086#4095#0" expanded="true" />
-                <element signature="e#22821#22989#0" expanded="true" />
-                <element signature="e#22974#22975#0" expanded="true" />
-                <element signature="e#23031#23197#0" expanded="true" />
-                <element signature="e#23182#23183#0" expanded="true" />
-                <element signature="e#24697#24867#0" expanded="true" />
-                <element signature="e#24852#24853#0" expanded="true" />
-                <element signature="e#24915#25087#0" expanded="true" />
-                <element signature="e#25072#25073#0" expanded="true" />
-                <element signature="e#26577#26745#0" expanded="true" />
-                <element signature="e#26730#26731#0" expanded="true" />
-                <element signature="e#26787#26953#0" expanded="true" />
-                <element signature="e#26938#26939#0" expanded="true" />
-                <element signature="e#28461#28633#0" expanded="true" />
-                <element signature="e#28618#28619#0" expanded="true" />
-                <element signature="e#28679#28849#0" expanded="true" />
-                <element signature="e#28834#28835#0" expanded="true" />
-                <element signature="e#32386#32592#0" expanded="true" />
-                <element signature="e#32573#32574#0" expanded="true" />
-                <element signature="e#34030#34239#0" expanded="true" />
-                <element signature="e#34220#34221#0" expanded="true" />
-                <marker date="1418513162782" expanded="true" signature="16851:37442" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1418513162782" expanded="false" signature="37454:38741" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1132#1133#0" expanded="true" />
+                <element signature="e#1454#1455#0" expanded="true" />
+                <element signature="e#1481#1482#0" expanded="true" />
+                <element signature="e#4165#4174#0" expanded="true" />
+                <element signature="e#23119#23287#0" expanded="true" />
+                <element signature="e#23272#23273#0" expanded="true" />
+                <element signature="e#23329#23495#0" expanded="true" />
+                <element signature="e#23480#23481#0" expanded="true" />
+                <element signature="e#24995#25165#0" expanded="true" />
+                <element signature="e#25150#25151#0" expanded="true" />
+                <element signature="e#25213#25385#0" expanded="true" />
+                <element signature="e#25370#25371#0" expanded="true" />
+                <element signature="e#26875#27043#0" expanded="true" />
+                <element signature="e#27028#27029#0" expanded="true" />
+                <element signature="e#27085#27251#0" expanded="true" />
+                <element signature="e#27236#27237#0" expanded="true" />
+                <element signature="e#28759#28931#0" expanded="true" />
+                <element signature="e#28916#28917#0" expanded="true" />
+                <element signature="e#28977#29147#0" expanded="true" />
+                <element signature="e#29132#29133#0" expanded="true" />
+                <element signature="e#32684#32890#0" expanded="true" />
+                <element signature="e#32871#32872#0" expanded="true" />
+                <element signature="e#34328#34537#0" expanded="true" />
+                <element signature="e#34518#34519#0" expanded="true" />
+                <marker date="1418516336514" expanded="true" signature="17149:37740" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1418516336514" expanded="false" signature="37752:39039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnector.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="5525">
+              <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
+              <folding>
+                <element signature="e#4063#4064#0" expanded="true" />
+                <element signature="e#4114#4115#0" expanded="true" />
+                <marker date="1418515267379" expanded="true" signature="4581:4595" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1418515267379" expanded="true" signature="7690:7980" placeholder="CREATE TABLE..user..." />
+                <marker date="1418515267379" expanded="true" signature="8058:8257" placeholder="CREATE TABLE..advancement..." />
+                <marker date="1418515267379" expanded="true" signature="8341:8539" placeholder="CREATE TABLE..otherAward..." />
+                <marker date="1418515267379" expanded="true" signature="8622:8929" placeholder="CREATE TABLE..meritBadge..." />
+                <marker date="1418515267379" expanded="true" signature="9013:9297" placeholder="CREATE TABLE..requirement..." />
+                <marker date="1418515267379" expanded="true" signature="9380:9626" placeholder="CREATE TABLE..counselor..." />
+                <marker date="1418515267379" expanded="true" signature="9703:10130" placeholder="CREATE TABLE..scout..." />
+                <marker date="1418515267379" expanded="true" signature="10205:10537" placeholder="CREATE TABLE..contact..." />
+                <marker date="1418515267379" expanded="true" signature="10618:10856" placeholder="CREATE TABLE..scoutAwards..." />
+                <marker date="1418515267379" expanded="true" signature="10946:11194" placeholder="CREATE TABLE..ScoutMeritBadges..." />
+                <marker date="1418515267379" expanded="true" signature="11277:11595" placeholder="CREATE TABLE..camp..." />
+                <marker date="1418515267379" expanded="true" signature="11671:11856" placeholder="CREATE TABLE..scoutCamp..." />
               </folding>
             </state>
           </provider>
@@ -291,8 +321,8 @@
       <file leaf-file-name="PnlMeritBadges.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="10598" max-vertical-offset="12036">
-              <caret line="681" column="44" selection-start-line="681" selection-start-column="44" selection-end-line="681" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6348" max-vertical-offset="12036">
+              <caret line="425" column="0" selection-start-line="425" selection-start-column="0" selection-end-line="441" selection-end-column="5" />
               <folding>
                 <marker date="1417892537978" expanded="false" signature="24882:47523" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
                 <marker date="1417892537978" expanded="false" signature="47535:48640" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
@@ -304,15 +334,15 @@
       <file leaf-file-name="LogicScoutCamp.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicScoutCamp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1275">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="2278">
+              <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="e#621#632#0" expanded="true" />
                 <element signature="e#1535#1546#0" expanded="true" />
-                <marker date="1418510326514" expanded="true" signature="765:803" placeholder="SELECT * FRO..scoutCamp..." />
-                <marker date="1418510326514" expanded="true" signature="765:804" placeholder="SELECT * FRO..scoutCamp..." />
-                <marker date="1418510326514" expanded="true" signature="1679:1719" placeholder="SELECT * FRO..scoutCamp..." />
+                <marker date="1418516113892" expanded="true" signature="765:803" placeholder="SELECT * FRO..scoutCamp..." />
+                <marker date="1418516113892" expanded="true" signature="765:804" placeholder="SELECT * FRO..scoutCamp..." />
+                <marker date="1418516113892" expanded="true" signature="1679:1719" placeholder="SELECT * FRO..scoutCamp..." />
+                <marker date="1418516113892" expanded="true" signature="3803:3838" placeholder="SELECT MAX(i..scoutCamp..." />
               </folding>
             </state>
           </provider>
@@ -335,54 +365,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1158" max-vertical-offset="3604">
-              <caret line="102" column="45" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="45" />
-              <folding>
-                <marker date="1418513100840" expanded="false" signature="5951:15958" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1418513100840" expanded="false" signature="15970:16342" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModuleTypeConst.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/ModuleTypeConst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="306">
-              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Contact.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/Contact.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1275">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LogicScout.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicScout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="4454">
-              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4879">
+              <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
               <folding>
-                <marker date="1418510326520" expanded="true" signature="736:772" placeholder="SELECT name ..scout..." />
-                <marker date="1418510326520" expanded="true" signature="1306:1356" placeholder="SELECT * FRO..scout..." />
-                <marker date="1418510326520" expanded="true" signature="5673:5704" placeholder="SELECT MAX(i..scout..." />
-                <marker date="1418510326520" expanded="true" signature="6442:6471" placeholder="DELETE FROM ..." />
-                <marker date="1418510326520" expanded="true" signature="6927:6960" placeholder="SELECT * FRO..scout..." />
-                <marker date="1418510326520" expanded="true" signature="8231:8259" placeholder="SELECT name ..scout..." />
-                <marker date="1418510326520" expanded="true" signature="8231:8259" placeholder="SELECT name ..scout..." />
-                <marker date="1418510326520" expanded="true" signature="8231:8267" placeholder="SELECT name ..scout..." />
-                <marker date="1418510326520" expanded="true" signature="8231:8320" placeholder="SELECT name ..scout..." />
+                <element signature="e#8784#8793#0" expanded="true" />
+                <marker date="1418514578266" expanded="true" signature="736:772" placeholder="SELECT name ..scout..." />
+                <marker date="1418514578266" expanded="true" signature="1306:1356" placeholder="SELECT * FRO..scout..." />
+                <marker date="1418514578266" expanded="true" signature="5673:5704" placeholder="SELECT MAX(i..scout..." />
+                <marker date="1418514578266" expanded="true" signature="6442:6471" placeholder="DELETE FROM ..." />
+                <marker date="1418514578266" expanded="true" signature="6927:6960" placeholder="SELECT * FRO..scout..." />
+                <marker date="1418514578266" expanded="true" signature="8236:8325" placeholder="SELECT name ..scout..." />
+                <marker date="1418514578266" expanded="true" signature="8988:9036" placeholder="SELECT id FR..scout..." />
+                <marker date="1418514578266" expanded="true" signature="8988:9044" placeholder="SELECT id FR..scout..." />
+                <marker date="1418514578266" expanded="true" signature="8988:9041" placeholder="SELECT id FR..scout..." />
+                <marker date="1418514578266" expanded="true" signature="8988:9022" placeholder="SELECT id FR..scout..." />
               </folding>
             </state>
           </provider>
@@ -391,87 +390,25 @@
       <file leaf-file-name="LogicCamp.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/LogicCamp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="1309">
-              <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="2312">
+              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
               <folding>
-                <marker date="1418187438482" expanded="true" signature="731:766" placeholder="SELECT name ..camp..." />
-                <marker date="1418187438482" expanded="true" signature="1294:1343" placeholder="SELECT * FRO..camp..." />
+                <marker date="1418516043558" expanded="true" signature="731:766" placeholder="SELECT name ..camp..." />
+                <marker date="1418516043558" expanded="true" signature="1294:1343" placeholder="SELECT * FRO..camp..." />
+                <marker date="1418516043558" expanded="true" signature="3582:3612" placeholder="SELECT MAX(i..camp..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camp.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/Camp.java">
+      <file leaf-file-name="PnlBadgeConf.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyConst.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/KeyConst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1598">
-              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Requirement.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/Requirement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1190">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogicMeritBadge.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/LogicMeritBadge.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="4913">
-              <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogicContact.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/LogicContact.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="4199">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="19" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PnlBoyScoutDetails.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/boyScoutPnls/PnlBoyScoutDetails.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="629">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1362" max-vertical-offset="3655">
+              <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
               <folding>
-                <marker date="1418015846320" expanded="false" signature="410:1187" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1418015846320" expanded="false" signature="1199:1351" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PnlBoyScout.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBoyScout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="4879">
-              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-              <folding>
-                <marker date="1418015795308" expanded="false" signature="8166:22351" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1418015795308" expanded="false" signature="22363:22939" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1418515580353" expanded="false" signature="6063:16070" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1418515580353" expanded="false" signature="16082:16454" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -529,17 +466,17 @@
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlOtherAwards.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.jfd" />
         <option value="$PROJECT_DIR$/src/constants/ModuleTypeConst.java" />
-        <option value="$PROJECT_DIR$/src/util/LogicCamp.java" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/Camp.java" />
         <option value="$PROJECT_DIR$/src/scout/dbObjects/ScoutCamp.java" />
-        <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
         <option value="$PROJECT_DIR$/src/util/LogicRequirement.java" />
-        <option value="$PROJECT_DIR$/src/util/LogicScoutCamp.java" />
         <option value="$PROJECT_DIR$/src/constants/KeyConst.java" />
-        <option value="$PROJECT_DIR$/src/util/LogicScout.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.jfd" />
+        <option value="$PROJECT_DIR$/src/util/LogicScout.java" />
+        <option value="$PROJECT_DIR$/src/util/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java" />
+        <option value="$PROJECT_DIR$/src/util/LogicCamp.java" />
+        <option value="$PROJECT_DIR$/src/util/LogicScoutCamp.java" />
         <option value="$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.java" />
       </list>
     </option>
@@ -1262,7 +1199,7 @@
       <workItem from="1418181803804" duration="4423000" />
       <workItem from="1418186385797" duration="2419000" />
       <workItem from="1418359268976" duration="2031000" />
-      <workItem from="1418506682565" duration="5556000" />
+      <workItem from="1418506682565" duration="8716000" />
     </task>
     <task id="LOCAL-00001" summary="added the begainings of the project&#10;">
       <created>1402174808664</created>
@@ -2108,11 +2045,15 @@
       <created>1418512380668</created>
       <updated>1418512380668</updated>
     </task>
-    <option name="localTasksCounter" value="212" />
+    <task id="LOCAL-00212" summary="added functionality for the new camp btn">
+      <created>1418513207691</created>
+      <updated>1418513207691</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="442709000" />
+    <option name="totallyTimeSpent" value="445869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -2125,7 +2066,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28720084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28720084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2138,7 +2079,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17530319" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31529656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31529656" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -2166,7 +2107,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added instructions for csv imports for advancements and awards" />
     <MESSAGE value="added instructions for csv imports for merit badges" />
     <MESSAGE value="update now works for scouts" />
     <MESSAGE value="added some missing imgs" />
@@ -2191,7 +2131,8 @@
     <MESSAGE value="added scout camp table" />
     <MESSAGE value="can now load a camp" />
     <MESSAGE value="added camp field validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added camp field validation" />
+    <MESSAGE value="added functionality for the new camp btn" />
+    <option name="LAST_COMMIT_MESSAGE" value="added functionality for the new camp btn" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2203,11 +2144,23 @@
           <properties />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/LogicCamp.java</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/LogicScoutCamp.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="98" />
+      <option name="time" value="100" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -2367,8 +2320,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <marker date="1418015846320" expanded="false" signature="410:1187" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1418015846320" expanded="false" signature="1199:1351" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1418015846320" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1418015846320" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -2378,8 +2331,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="4590">
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
-            <marker date="1418015795308" expanded="false" signature="8166:22351" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1418015795308" expanded="false" signature="22363:22939" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1418015795308" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1418015795308" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -2458,35 +2411,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicCamp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="1207">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
-          <folding>
-            <marker date="1418187438482" expanded="true" signature="731:766" placeholder="SELECT name ..camp..." />
-            <marker date="1418187438482" expanded="true" signature="1294:1343" placeholder="SELECT * FRO..camp..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/dbObjects/ScoutCamp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22597677" vertical-offset="262" max-vertical-offset="5559">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding>
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#4063#4064#0" expanded="true" />
-            <element signature="e#4114#4115#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2514,14 +2443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/javax/swing/JList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="27101" max-vertical-offset="61149">
-          <caret line="1695" column="16" selection-start-line="1695" selection-start-column="16" selection-end-line="1695" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/LogicRequirement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="5355">
@@ -2545,21 +2466,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1598">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicScoutCamp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1275">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#621#632#0" expanded="true" />
-            <element signature="e#1535#1546#0" expanded="true" />
-            <marker date="1418510326514" expanded="true" signature="765:803" placeholder="SELECT * FRO..scoutCamp..." />
-            <marker date="1418510326514" expanded="true" signature="765:804" placeholder="SELECT * FRO..scoutCamp..." />
-            <marker date="1418510326514" expanded="true" signature="1679:1719" placeholder="SELECT * FRO..scoutCamp..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2591,8 +2497,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlMeritBadges.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10598" max-vertical-offset="12036">
-          <caret line="681" column="44" selection-start-line="681" selection-start-column="44" selection-end-line="681" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6348" max-vertical-offset="12036">
+          <caret line="425" column="0" selection-start-line="425" selection-start-column="0" selection-end-line="441" selection-end-column="5" />
           <folding>
             <marker date="1417892537978" expanded="false" signature="24882:47523" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1417892537978" expanded="false" signature="47535:48640" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
@@ -2600,25 +2506,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/javax/swing/JList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="37844" max-vertical-offset="61149">
+          <caret line="2353" column="16" selection-start-line="2353" selection-start-column="16" selection-end-line="2353" selection-end-column="16" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LogicScout.java">
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="4454">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="5525">
+          <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
           <folding>
-            <marker date="1418510326520" expanded="true" signature="736:772" placeholder="SELECT name ..scout..." />
-            <marker date="1418510326520" expanded="true" signature="1306:1356" placeholder="SELECT * FRO..scout..." />
-            <marker date="1418510326520" expanded="true" signature="5673:5704" placeholder="SELECT MAX(i..scout..." />
-            <marker date="1418510326520" expanded="true" signature="6442:6471" placeholder="DELETE FROM ..." />
-            <marker date="1418510326520" expanded="true" signature="6927:6960" placeholder="SELECT * FRO..scout..." />
-            <marker date="1418510326520" expanded="true" signature="8231:8259" placeholder="SELECT name ..scout..." />
-            <marker date="1418510326520" expanded="true" signature="8231:8259" placeholder="SELECT name ..scout..." />
-            <marker date="1418510326520" expanded="true" signature="8231:8267" placeholder="SELECT name ..scout..." />
-            <marker date="1418510326520" expanded="true" signature="8231:8320" placeholder="SELECT name ..scout..." />
+            <element signature="e#4063#4064#0" expanded="true" />
+            <element signature="e#4114#4115#0" expanded="true" />
+            <marker date="1418515267379" expanded="true" signature="4581:4595" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1418515267379" expanded="true" signature="7690:7980" placeholder="CREATE TABLE..user..." />
+            <marker date="1418515267379" expanded="true" signature="8058:8257" placeholder="CREATE TABLE..advancement..." />
+            <marker date="1418515267379" expanded="true" signature="8341:8539" placeholder="CREATE TABLE..otherAward..." />
+            <marker date="1418515267379" expanded="true" signature="8622:8929" placeholder="CREATE TABLE..meritBadge..." />
+            <marker date="1418515267379" expanded="true" signature="9013:9297" placeholder="CREATE TABLE..requirement..." />
+            <marker date="1418515267379" expanded="true" signature="9380:9626" placeholder="CREATE TABLE..counselor..." />
+            <marker date="1418515267379" expanded="true" signature="9703:10130" placeholder="CREATE TABLE..scout..." />
+            <marker date="1418515267379" expanded="true" signature="10205:10537" placeholder="CREATE TABLE..contact..." />
+            <marker date="1418515267379" expanded="true" signature="10618:10856" placeholder="CREATE TABLE..scoutAwards..." />
+            <marker date="1418515267379" expanded="true" signature="10946:11194" placeholder="CREATE TABLE..ScoutMeritBadges..." />
+            <marker date="1418515267379" expanded="true" signature="11277:11595" placeholder="CREATE TABLE..camp..." />
+            <marker date="1418515267379" expanded="true" signature="11671:11856" placeholder="CREATE TABLE..scoutCamp..." />
           </folding>
         </state>
       </provider>
@@ -2630,47 +2545,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/PnlBadgeConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1158" max-vertical-offset="3604">
-          <caret line="102" column="45" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1362" max-vertical-offset="3655">
+          <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
           <folding>
-            <marker date="1418513100840" expanded="false" signature="5951:15958" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1418513100840" expanded="false" signature="15970:16342" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1418515580353" expanded="false" signature="6063:16070" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1418515580353" expanded="false" signature="16082:16454" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LogicCamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="2312">
+          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+          <folding>
+            <marker date="1418516043558" expanded="true" signature="731:766" placeholder="SELECT name ..camp..." />
+            <marker date="1418516043558" expanded="true" signature="1294:1343" placeholder="SELECT * FRO..camp..." />
+            <marker date="1418516043558" expanded="true" signature="3582:3612" placeholder="SELECT MAX(i..camp..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LogicScoutCamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="2278">
+          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+          <folding>
+            <element signature="e#621#632#0" expanded="true" />
+            <element signature="e#1535#1546#0" expanded="true" />
+            <marker date="1418516113892" expanded="true" signature="765:803" placeholder="SELECT * FRO..scoutCamp..." />
+            <marker date="1418516113892" expanded="true" signature="765:804" placeholder="SELECT * FRO..scoutCamp..." />
+            <marker date="1418516113892" expanded="true" signature="1679:1719" placeholder="SELECT * FRO..scoutCamp..." />
+            <marker date="1418516113892" expanded="true" signature="3803:3838" placeholder="SELECT MAX(i..scoutCamp..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LogicScout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4879">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="e#8784#8793#0" expanded="true" />
+            <marker date="1418514578266" expanded="true" signature="736:772" placeholder="SELECT name ..scout..." />
+            <marker date="1418514578266" expanded="true" signature="1306:1356" placeholder="SELECT * FRO..scout..." />
+            <marker date="1418514578266" expanded="true" signature="5673:5704" placeholder="SELECT MAX(i..scout..." />
+            <marker date="1418514578266" expanded="true" signature="6442:6471" placeholder="DELETE FROM ..." />
+            <marker date="1418514578266" expanded="true" signature="6927:6960" placeholder="SELECT * FRO..scout..." />
+            <marker date="1418514578266" expanded="true" signature="8236:8325" placeholder="SELECT name ..scout..." />
+            <marker date="1418514578266" expanded="true" signature="8988:9036" placeholder="SELECT id FR..scout..." />
+            <marker date="1418514578266" expanded="true" signature="8988:9044" placeholder="SELECT id FR..scout..." />
+            <marker date="1418514578266" expanded="true" signature="8988:9041" placeholder="SELECT id FR..scout..." />
+            <marker date="1418514578266" expanded="true" signature="8988:9022" placeholder="SELECT id FR..scout..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scout/clientPnls/configPnls/PnlCamp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30590063" vertical-offset="653" max-vertical-offset="15878">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.028315946" vertical-offset="2599" max-vertical-offset="16133">
+          <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
           <folding>
-            <element signature="e#1109#1110#0" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#4086#4095#0" expanded="true" />
-            <element signature="e#22821#22989#0" expanded="true" />
-            <element signature="e#22974#22975#0" expanded="true" />
-            <element signature="e#23031#23197#0" expanded="true" />
-            <element signature="e#23182#23183#0" expanded="true" />
-            <element signature="e#24697#24867#0" expanded="true" />
-            <element signature="e#24852#24853#0" expanded="true" />
-            <element signature="e#24915#25087#0" expanded="true" />
-            <element signature="e#25072#25073#0" expanded="true" />
-            <element signature="e#26577#26745#0" expanded="true" />
-            <element signature="e#26730#26731#0" expanded="true" />
-            <element signature="e#26787#26953#0" expanded="true" />
-            <element signature="e#26938#26939#0" expanded="true" />
-            <element signature="e#28461#28633#0" expanded="true" />
-            <element signature="e#28618#28619#0" expanded="true" />
-            <element signature="e#28679#28849#0" expanded="true" />
-            <element signature="e#28834#28835#0" expanded="true" />
-            <element signature="e#32386#32592#0" expanded="true" />
-            <element signature="e#32573#32574#0" expanded="true" />
-            <element signature="e#34030#34239#0" expanded="true" />
-            <element signature="e#34220#34221#0" expanded="true" />
-            <marker date="1418513162782" expanded="true" signature="16851:37442" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1418513162782" expanded="false" signature="37454:38741" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1454#1455#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+            <element signature="e#4165#4174#0" expanded="true" />
+            <element signature="e#23119#23287#0" expanded="true" />
+            <element signature="e#23272#23273#0" expanded="true" />
+            <element signature="e#23329#23495#0" expanded="true" />
+            <element signature="e#23480#23481#0" expanded="true" />
+            <element signature="e#24995#25165#0" expanded="true" />
+            <element signature="e#25150#25151#0" expanded="true" />
+            <element signature="e#25213#25385#0" expanded="true" />
+            <element signature="e#25370#25371#0" expanded="true" />
+            <element signature="e#26875#27043#0" expanded="true" />
+            <element signature="e#27028#27029#0" expanded="true" />
+            <element signature="e#27085#27251#0" expanded="true" />
+            <element signature="e#27236#27237#0" expanded="true" />
+            <element signature="e#28759#28931#0" expanded="true" />
+            <element signature="e#28916#28917#0" expanded="true" />
+            <element signature="e#28977#29147#0" expanded="true" />
+            <element signature="e#29132#29133#0" expanded="true" />
+            <element signature="e#32684#32890#0" expanded="true" />
+            <element signature="e#32871#32872#0" expanded="true" />
+            <element signature="e#34328#34537#0" expanded="true" />
+            <element signature="e#34518#34519#0" expanded="true" />
+            <marker date="1418516336514" expanded="true" signature="17149:37740" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1418516336514" expanded="false" signature="37752:39039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>

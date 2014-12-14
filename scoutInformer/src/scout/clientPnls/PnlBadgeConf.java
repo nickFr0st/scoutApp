@@ -124,6 +124,9 @@ public class PnlBadgeConf extends JPanel implements PnlGui {
             case ModuleTypeConst.OTHER:
                 ((PnlOtherAwards)currentPnl).save();
                 break;
+            case ModuleTypeConst.CAMP_OUT:
+                ((PnlCamp)currentPnl).save();
+                break;
         }
     }
 

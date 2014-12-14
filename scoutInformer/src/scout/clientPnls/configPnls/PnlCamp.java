@@ -12,7 +12,6 @@ import scout.clientPnls.IEPnls.ImportDialog;
 import scout.clientPnls.PnlBadgeConf;
 import scout.dbObjects.Camp;
 import scout.dbObjects.OtherAward;
-import scout.dbObjects.Requirement;
 import scout.dbObjects.ScoutCamp;
 import util.*;
 
@@ -21,6 +20,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,6 +42,7 @@ public class PnlCamp extends JPanel implements Configuration {
 
     public PnlCamp(PnlBadgeConf pnlBadgeConf) {
         this.pnlBadgeConf = pnlBadgeConf;
+        camp = new Camp();
         initComponents();
         availableScoutList = new ArrayList<String>();
         participatedScoutList = new ArrayList<String>();
@@ -73,6 +74,8 @@ public class PnlCamp extends JPanel implements Configuration {
     public void createNew() {
         clearErrors();
         clearData();
+
+        camp = new Camp();
 
         pnlBadgeConf.getBtnSave().setVisible(true);
 
@@ -120,6 +123,7 @@ public class PnlCamp extends JPanel implements Configuration {
         clearErrors();
 
         camp = LogicCamp.findByName(listCampNames.getSelectedValue().toString());
+        resetParticipatedList();
 
         if (camp == null) {
             camp = new Camp();
@@ -148,7 +152,7 @@ public class PnlCamp extends JPanel implements Configuration {
                 scoutIdList.add(scoutCamp.getScoutId());
             }
 
-            participatedScoutList.addAll(LogicScout.findAllByIdList(scoutIdList));
+            participatedScoutList.addAll(LogicScout.findAllNamesByIdList(scoutIdList));
 
             listParticipated.setListData(participatedScoutList.toArray());
             listParticipated.revalidate();
@@ -169,37 +173,48 @@ public class PnlCamp extends JPanel implements Configuration {
     }
 
     public void save() {
-//        clearErrors();
-//
-//        if (!validateName()) {
-//            return;
-//        }
-//
-//        OtherAward otherAward = new OtherAward();
-//        otherAward.setName(txtAwardName.getText());
-//        List<Requirement> requirementList = validateRequirements(-1);
-//        if (requirementList == null) return;
-//
-//        saveRecords(otherAward, requirementList);
-//
-//        populateCampNameList();
-//
-//        listCampNames.setSelectedValue(txtAwardName.getText(), true);
-//        reloadData();
-    }
+        clearErrors();
 
-    private void saveRecords(OtherAward otherAward, List<Requirement> requirementList) {
-        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
-        LogicOtherAward.save(otherAward);
-
-        for (Requirement requirement : requirementList) {
-            requirement.setParentId(otherAward.getId());
-            requirement.setTypeId(RequirementTypeConst.OTHER.getId());
+        if (!validateName() || !validateLocation() || !validateDate() || !validateDuration()) {
+            return;
         }
 
-        LogicRequirement.saveList(requirementList);
+        camp.setName(txtCampName.getText());
+        camp.setLocation(txtCampLocation.getText());
+        setCampDate();
+        camp.setDuration(Integer.parseInt(txtCampDuration.getText()));
+        camp.setNote(txtNotes.getText());
 
-        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
+        List<Integer> scoutIdList = LogicScout.findAllIdsByNameList(participatedScoutList);
+
+        LogicCamp.save(camp);
+
+        if (!Util.isEmpty(scoutIdList)) {
+            LogicScoutCamp.save(camp.getId(), scoutIdList);
+        }
+
+        populateCampNameList();
+
+        listCampNames.setSelectedValue(txtCampDate.getText(), true);
+        reloadData();
+    }
+
+    private void setCampDate() {
+        Pattern pattern = Pattern.compile(Util.DATE_PATTERN);
+        Matcher matcher = pattern.matcher(txtCampDate.getText());
+
+        if (!matcher.find()) {
+            return;
+        }
+
+        int month = Integer.parseInt(matcher.group(1));
+        int day = Integer.parseInt(matcher.group(2));
+        int year = Integer.parseInt(matcher.group(3));
+
+        Calendar date = Calendar.getInstance();
+        date.set(year, month - 1, day);
+
+        camp.setDate(date.getTime());
     }
 
     private boolean validateName() {
@@ -395,24 +410,24 @@ public class PnlCamp extends JPanel implements Configuration {
     }
 
     private void reloadData() {
-//        if (listCampNames.getSelectedValue() == null) {
-//            return;
-//        }
-//
-//        int index = listCampNames.getSelectedIndex();
-//        String name = txtAwardName.getText();
-//
-//        clearData();
-//
-//        for (int i = 0; i < listCampNames.getModel().getSize(); ++i) {
-//            if (listCampNames.getModel().getElementAt(i).toString().equals(name)) {
-//                index = i;
-//                break;
-//            }
-//        }
-//
-//        listCampNames.setSelectedIndex(index);
-//        listCampNamesMouseClicked();
+        if (listCampNames.getSelectedValue() == null) {
+            return;
+        }
+
+        int index = listCampNames.getSelectedIndex();
+        String name = txtCampName.getText();
+
+        clearData();
+
+        for (int i = 0; i < listCampNames.getModel().getSize(); ++i) {
+            if (listCampNames.getModel().getElementAt(i).toString().equals(name)) {
+                index = i;
+                break;
+            }
+        }
+
+        listCampNames.setSelectedIndex(index);
+        listCampNamesMouseClicked();
     }
 
     private void clearData() {
@@ -500,11 +515,11 @@ public class PnlCamp extends JPanel implements Configuration {
         listAvailable.repaint();
     }
 
-//    private void resetExportList() {
-//        participatedScoutList.clear();
-//        listWhoCame.setListData(participatedScoutList.toArray());
-//        listWhoCame.revalidate();
-//    }
+    private void resetParticipatedList() {
+        participatedScoutList.clear();
+        listParticipated.setListData(participatedScoutList.toArray());
+        listParticipated.revalidate();
+    }
 
     private void populateParticipatedList() {
         listParticipated.setListData(participatedScoutList.toArray());

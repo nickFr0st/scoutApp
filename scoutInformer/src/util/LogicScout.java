@@ -238,7 +238,7 @@ public class LogicScout {
         return scoutList;
     }
 
-    public static List<String> findAllByIdList(List<Integer> scoutIdList) {
+    public static List<String> findAllNamesByIdList(List<Integer> scoutIdList) {
         if (!connector.checkForDataBaseConnection()) {
             return null;
         }
@@ -258,5 +258,30 @@ public class LogicScout {
         }
 
         return ScoutNameList;
+    }
+
+    public static List<Integer> findAllIdsByNameList(List<String> scoutNameList) {
+        if (!connector.checkForDataBaseConnection()) {
+            return null;
+        }
+
+        List<Integer> scoutIdList = new ArrayList<Integer>();
+
+        try {
+
+            for (String scoutName : scoutNameList) {
+                Statement statement = connector.createStatement();
+                ResultSet rs = statement.executeQuery("SELECT id FROM scout WHERE name = '" + scoutName + "'");
+
+                if(rs.next()) {
+                    scoutIdList.add(rs.getInt(KeyConst.SCOUT_ID.getName()));
+                }
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return scoutIdList;
     }
 }

@@ -317,7 +317,7 @@ public class DBConnector {
                 " location VARCHAR(255) NOT NULL," +
                 " duration INT NOT NULL," +
                 " date DATE NOT NULL," +
-                " note BLOB NOT NULL," +
+                " note BLOB NULL," +
                 " PRIMARY KEY (id))";
         statement.addBatch(tableCamp);
 
