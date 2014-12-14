@@ -98,14 +98,7 @@ public class LogicCamp {
             query.append(camp.getLocation()).append("',");
             query.append(camp.getDuration()).append(",'");
             query.append(Util.DATA_BASE_DATE_FORMAT.format(camp.getDate())).append("'");
-
-            if (!Util.isEmpty(camp.getNote())) {
-                query.append(",'").append(camp.getNote()).append("'");
-            } else {
-                query.append(",").append((String)null);
-            }
-
-            query.append(")");
+            query.append(",'").append(camp.getNote()).append("')");
 
             Statement statement = connector.createStatement();
             statement.executeUpdate(query.toString());
@@ -160,4 +153,45 @@ public class LogicCamp {
         }
         return true;
     }
+
+    public static synchronized void update(Camp camp) {
+        try {
+            synchronized (lock) {
+                if (!updateCamp(camp)) {
+                    lock.wait(Util.WAIT_TIME);
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean updateCamp(Camp camp) {
+        if (camp == null) {
+            return true;
+        }
+
+        try {
+            StringBuilder query = new StringBuilder();
+            query.append("UPDATE camp SET ");
+            query.append("name = '").append(camp.getName()).append("'");
+            query.append(", location = '").append(camp.getLocation()).append("'");
+            query.append(", duration = ").append(camp.getDuration());
+            query.append(", date = '").append(Util.DATA_BASE_DATE_FORMAT.format(camp.getDate())).append("'");
+
+            if (!Util.isEmpty(camp.getNote())) {
+                query.append(", note = '").append(camp.getNote()).append("'");
+            }
+
+            query.append(" WHERE id = ").append(camp.getId());
+
+            Statement statement = connector.createStatement();
+            statement.executeUpdate(query.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
 }

@@ -355,45 +355,31 @@ public class PnlCamp extends JPanel implements Configuration {
             return;
         }
 
-        if (JOptionPane.showConfirmDialog((JFrame)getTopLevelAncestor(), "Are you sure you want to delete the selected Award(s)?", "Delete Award", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.OK_OPTION) {
+        clearErrors();
+
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
+
+        if (!validateName() || !validateLocation() || !validateDate() || !validateDuration()) {
             return;
         }
-//
-//        clearErrors();
-//
-//        if (txtAwardName.isMessageDefault() || txtAwardName.getText().isEmpty()) {
-//            Util.setError(lblNameError, "Award name cannot be left blank");
-//            return;
-//        }
-//
-//        for (int i = 0; i < listCampNames.getModel().getSize(); ++i) {
-//            String otherAwardName = (String) listCampNames.getModel().getElementAt(i);
-//            if (otherAwardName.equalsIgnoreCase(txtAwardName.getText()) && !txtAwardName.getText().equals(listCampNames.getSelectedValue().toString())) {
-//                Util.setError(lblNameError, "Award name already exists");
-//                return;
-//            }
-//        }
-//
-//        OtherAward otherAward = LogicOtherAward.findByName(listCampNames.getSelectedValue().toString());
-//        if (otherAward == null) {
-//            return;
-//        }
-//
-//        if (txtImagePath.isMessageDefault()) {
-//            otherAward.setImgPath("");
-//        } else {
-//            otherAward.setImgPath(txtImagePath.getText());
-//        }
-//        otherAward.setName(txtAwardName.getText());
-//
-//        List<Requirement> requirementList = validateRequirements(otherAward.getId());
-//        if (requirementList == null) return;
-//
-//        Util.processBusy(pnlBadgeConf.getBtnUpdate(), true);
-//        // when editing requirements may need to check who is using them
-//        LogicRequirement.updateList(requirementList, otherAward.getId(), RequirementTypeConst.OTHER.getId());
-//        LogicOtherAward.update(otherAward);
-//        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
+
+        camp.setName(txtCampName.getText());
+        camp.setLocation(txtCampLocation.getText());
+        setCampDate();
+        camp.setDuration(Integer.parseInt(txtCampDuration.getText()));
+        camp.setNote(txtNotes.getText());
+
+        LogicScoutCamp.deleteAllByCampId(camp.getId());
+
+        List<Integer> scoutIdList = LogicScout.findAllIdsByNameList(participatedScoutList);
+
+        LogicCamp.update(camp);
+
+        if (!Util.isEmpty(scoutIdList)) {
+            LogicScoutCamp.save(camp.getId(), scoutIdList);
+        }
+
+        Util.processBusy(pnlBadgeConf.getBtnUpdate(), false);
 
         reloadData();
     }
